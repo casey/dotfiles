@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+set -x
+
+mkdir -p ~/tmp/log
+
+exec > ~/tmp/log/xsession.log 2>&1 
+
+echo Starting X session at `date`...
+
+xsetroot -solid black
+
+xsetroot -cursor_name left_ptr
+
+numlockx on
+
+setxkbmap -option ctrl:nocaps -option compose:ralt
+
+if [[ -d /sys/module/hid_apple ]]; then
+  echo 1 | sudo tee /sys/module/hid_apple/parameters/fnmode
+fi
+
+xset s off -dpms
+
+~/bin/xmerge
+
+compton -b
+
+sudo xautolock -time 15 -locker slock &
+
+xbindkeys
+
+mpd
+
+mpDris2 &
+
+exec startxfce4

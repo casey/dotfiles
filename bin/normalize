@@ -1,0 +1,8 @@
+#!/usr/bin/env python3
+
+import sys, unicodedata
+
+weird  = sys.stdin.read()
+normal = unicodedata.normalize('NFC', weird)
+
+print(normal)

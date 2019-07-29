@@ -1,0 +1,3 @@
+#!/bin/sh
+
+exec nix-env -qasP --description ".*$1.*"

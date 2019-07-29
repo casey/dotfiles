@@ -1,0 +1,10 @@
+/etc/vim/.netrwhist
+/etc/vim/autoload/plug.vim
+/etc/vim/plugged
+/etc/vim/session
+/etc/vim/spell/*.add.spl
+/etc/vim/viminfo
+/etc/vim/swap
+/etc/vim/backup
+/etc/vim/view
+/pkg/shell/target

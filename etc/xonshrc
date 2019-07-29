@@ -1,0 +1,4 @@
+$PROMPT              = '; '
+$RIGHT_PROMPT        = '{cwd}'
+$SHELL_TYPE          = 'prompt_toolkit'
+$XONSH_SHOW_TRACEBACK = True

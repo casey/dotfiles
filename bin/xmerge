@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+for FILE in ~/.xresources/*; do
+  xrdb -merge $FILE
+done

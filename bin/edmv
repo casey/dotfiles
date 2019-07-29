@@ -1,0 +1,108 @@
+#!/usr/bin/env python3
+
+"""
+Rename files with your favorite editor. (Or whatever happens to be in $EDMV_EDITOR or $EDITOR.)
+"""
+
+import argparse, os, shutil, subprocess, sys, tempfile
+
+def die(msg='', code=1):
+  sys.stderr.write("edmv: %s\n" % msg)
+  sys.stderr.flush()
+  exit(code)
+
+def dups(l):
+  return [x for x in l if l.count(x) > 1]
+
+parser = argparse.ArgumentParser(prog="edmv", description=__doc__)
+
+parser.add_argument("src_files",
+                    metavar="FILE",
+                    nargs="+",
+                    help="The file(s) to rename.")
+
+parser.add_argument("-n", "--no",
+                    action="store_true",
+                    default=False,
+                    help="Dry run. Prints what would happen but doesn't move files.")
+
+parser.add_argument("-f", "--force",
+                    action="store_true",
+                    default=False,
+                    help="Allow overwriting existing files.")
+
+parser.add_argument("-e", "--editor",
+                    type=str,
+                    default=None,
+                    help="Specify your editor explicitly, instead of using $EDMV_EDITOR or $EDITOR.")
+
+parser.add_argument('--version', action='version', version='%(prog)s 0.1.0')
+
+args = parser.parse_args()
+
+src_files = args.src_files
+
+if '-' in src_files:
+  i = src_files.index('-')
+  stdin_files = sys.stdin.read().splitlines()
+  src_files[i:i+1] = stdin_files
+
+file_count = len(src_files)
+
+src_file_dups = dups(src_files)
+if src_file_dups:
+  die("duplicates files: %s" % (", ".join(src_file_dups)))
+
+for f in src_files:
+  if not os.path.exists(f):
+    die("file does not exist: %s" % f)
+
+editor = args.editor or os.environ.get("EDMV_EDITOR") or os.environ.get('EDITOR') or 'vi'
+
+with tempfile.NamedTemporaryFile(prefix="edmv-", delete=False) as f:
+  tmpfile = f.name
+  f.write(("\n".join(src_files) + "\n").encode('utf-8'))
+
+code = subprocess.call("%s %s" % (editor, tmpfile), shell=True)
+
+if code != 0:
+  die("call to %s failed with return code %s" % (editor, code))
+
+with open(tmpfile) as f:
+  dst_files = f.read().splitlines()
+
+os.remove(tmpfile)
+
+if len(dst_files) != file_count:
+  die("line count bad: should be %s, actually %s" % (file_count, len(dst_files)))
+
+dst_file_dups = dups(dst_files)
+if dst_file_dups:
+  die("duplicate files: %s" % (", ".join(dst_file_dups)))
+
+pairs = list(zip(src_files, dst_files))
+
+if not args.force:
+  for src, dst in pairs:
+    if src != dst and os.path.exists(dst):
+      die("destination file exists, use -f to overwrite: %s" % dst)
+
+for f in dst_files:
+  dirname = os.path.dirname(os.path.abspath(f))
+  if not os.path.exists(dirname):
+    die("destination directory does not exist: %s" % dirname)
+
+unchanged = 0
+
+for src, dst in pairs:
+  if not dst:
+    die("bad path: '%s'" % dst)
+  if src == dst:
+    unchanged += 1
+    continue
+  sys.stderr.write("%s -> %s\n" % (src, dst))
+  if not args.no:
+    shutil.move(src, dst)
+
+if unchanged:
+  sys.stderr.write("(%s files unchanged)\n" % unchanged)

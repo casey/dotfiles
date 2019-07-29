@@ -1,0 +1,525 @@
+"" plugins
+filetype plugin on " turn on filetype plugins
+
+call plug#begin()
+
+" general purpose plugins
+Plug 'airblade/vim-gitgutter'             " show git hunks in gutter
+Plug 'airblade/vim-rooter'                " automatic cd to project root
+Plug 'casey/reap.vim'                     " read, evaluate, and annotate
+Plug 'casey/vim-airline-themes'           " color themes for airline
+Plug 'christoomey/vim-tmux-navigator'     " navigate between vim and tmux splits
+Plug 'coderifous/textobj-word-column.vim' " column related text objects
+Plug 'easymotion/vim-easymotion'          " jump to character
+Plug 'editorconfig/editorconfig-vim'      " respect .editorconfig
+Plug 'emonkak/vim-operator-sort'          " sort operator
+Plug 'fidian/hexmode'                     " hex mode editing
+Plug 'francoiscabrol/ranger.vim'          " view directories with ranger
+Plug 'glts/vim-magnum'                    " bignums
+Plug 'glts/vim-radical'                   " convert numbers between bases
+Plug 'godlygeek/tabular'                  " align lines according to patterns
+Plug 'haya14busa/incsearch.vim'           " improved incremental search
+Plug 'jez/vim-superman'                   " use vim as a manpage pager
+Plug 'junegunn/fzf.vim'                   " fuzzy searching using fzf
+Plug 'junegunn/goyo.vim'                  " prose mode
+Plug 'junegunn/vim-emoji'                 " emoji autocomplete
+Plug 'kana/vim-operator-user'             " allow user defined operators
+Plug 'kana/vim-textobj-entire'            " text object for the entire buffer
+Plug 'kana/vim-textobj-user'              " user defined text objects
+Plug 'landock/vim-expand-region'          " incrementally expand selection
+Plug 'luochen1990/rainbow'                " rainbow delimiters
+Plug 'mattn/webapi-vim'                   " web functionality
+Plug 'mbbill/undotree'                    " visualize undo history as tree
+Plug 'mhinz/vim-grepper'                  " win at grep
+Plug 'saaguero/vim-textobj-pastedtext'    " text object for last pasted text
+Plug 'terryma/vim-multiple-cursors'       " use multiple cursors
+Plug 'tmux-plugins/vim-tmux'              " tmux configuration
+Plug 'tmux-plugins/vim-tmux-focus-events' " recognize tmux focus events
+Plug 'tommcdo/vim-exchange'               " exchange operator
+Plug 'tpope/vim-abolish'                  " search and substitute word variations
+Plug 'tpope/vim-characterize'             " extensive character info
+Plug 'tpope/vim-commentary'               " comment and uncomment operations
+Plug 'tpope/vim-eunuch'                   " unix helpers
+Plug 'tpope/vim-fugitive'                 " git integration
+Plug 'tpope/vim-repeat'                   " repeat support for plugins
+Plug 'tpope/vim-surround'                 " quoting and parenthesizing
+Plug 'tpope/vim-unimpaired'               " pairs of bracket mappings
+Plug 'tyru/open-browser.vim'              " open urls in browser
+Plug 'vim-airline/vim-airline'            " pretty and lightweight status and tab lines
+Plug 'vim-scripts/AnsiEsc.vim'            " draw ansi escape sequences as colors
+Plug 'vim-scripts/Rename'                 " rename the current file
+Plug 'vim-syntastic/syntastic'            " syntax and lint checking
+Plug 'vim-utils/vim-man'                  " improved man page viewing
+Plug 'wellle/targets.vim'                 " additional text objects
+Plug 'xolox/vim-misc'                     " misc funcionality for other plugins
+
+" base16 color schemes
+Plug 'danielwe/base16-vim'       " repository with fix for errors
+" Plug 'chriskempson/base16-vim' " original repository w/errors
+
+" conditionally loaded plugins
+Plug 'mattn/gist-vim',      {'on': 'Gist'          } " create gists
+Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'} " nerd tree file drawer
+Plug 'tyru/capture.vim',    {'on': 'Capture'       } " capture command output in a buffer
+
+" language specific plugins
+Plug 'Glench/Vim-Jinja2-Syntax' " jinja2
+Plug 'LnL7/vim-nix'             " nix
+Plug 'cespare/vim-toml'         " toml
+Plug 'fatih/vim-go'             " go
+Plug 'nsf/gocode'               " go autocomplete
+Plug 'pangloss/vim-javascript'  " javascript
+Plug 'plasticboy/vim-markdown'  " markdown
+Plug 'racer-rust/vim-racer'     " rust autocomplete
+Plug 'rhysd/vim-wasm'           " wasm
+Plug 'rust-lang/rust.vim'       " rust
+Plug 'tikhomirov/vim-glsl'      " glsl
+Plug 'tomlion/vim-solidity'     " solidity
+Plug 'urbit/hoon.vim'           " hoon
+Plug 'zchee/vim-flatbuffers'    " flatbuffers
+
+" dependencies
+Plug 'rbgrouleff/bclose.vim' " required for ranger.vim
+
+" fzf binary and runtime path files
+Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
+
+call plug#end()
+
+
+"" sources
+
+source ~/.vim/functions.vim
+" py3file ~/.vim.py
+
+
+"" settings
+
+set autoindent     " auto indent new lines
+set autoread       " autoload unchanged files
+set backup         " backup files
+set breakindent    " show soft-wrapped text with leading indent
+set expandtab      " use soft tabs
+set hidden         " allow modified buffers in background
+set hlsearch       " hilight previous search matches
+set ignorecase     " ignore case in searches
+set incsearch      " hilight search matches while typing
+set lazyredraw     " don't redraw window when running untyped commands
+set linebreak      " break on characters in 'breakat'
+set nomodeline     " don't parse files for modelines
+set ruler          " show position in file
+set shiftround     " round < and > to multiples of shiftwidth
+set showcmd        " show partial command and other useful stuff at bottom of screen
+set showmatch      " highlight opening delimiters
+set showmode       " show current mode
+set smartcase      " don't ignore search case if it contains capital letters
+set smartindent    " smart indenting on new line
+set smarttab       " insert blanks according to shiftwidth
+set splitbelow     " open horizontal splits below current buffer
+set splitright     " open vertical splits to the right of current buffer
+set tildeop        " enable the `~` operator
+set title          " set a window title
+set ttyfast        " make updates smoother but use more characters
+set undofile       " save undo history
+set wildmenu       " show completion menu
+
+set background    =dark                  " use a dark background
+set backspace     =indent,eol,start      " backspace kills everything
+set errorfile     =.errors.txt           " set error file name
+set backupdir     =~/.vim/backup         " backup directory location
+set clipboard     =unnamed               " use the system clipboard
+set completefunc  =emoji#complete        " auto complete emoji
+set dictionary    =/usr/share/dict/words " dictionary completion mode words
+set directory     =~/.vim/swap           " swap directory location
+set history       =10000                 " lines of history to remember
+set laststatus    =2                     " always show statusline
+set makeprg       =just                  " use just as the makeprg
+set mouse         =a                     " enable mouse use in all modes
+set numberwidth   =3                     " use a minimum of three spaces for numbers in gutter
+set scrolloff     =5                     " keep three context lines above and below cursor
+set shortmess     =atsI                  " shorten some messages
+set sidescrolloff =3                     " keep three context columns left and right of cursor
+set signcolumn    =auto                  " show sign column when there is something to display
+set spellcapcheck =''                    " turn off checking for capitalized sentences
+set spelllang     =en_us                 " use american english as the spellcheck language
+set tabpagemax    =50                    " open a maximum of 30 tabs when vim is started with -p
+set undodir       =~/.vim/undo           " backup directory location
+set undolevels    =10000                 " remember last 10000 changes
+set updatetime    =250                   " set update time to 250ms
+set virtualedit   =block                 " visual block mode not confined to character boundaries
+set whichwrap     =b,s,h,l,~,[,],<,>     " all movement keys wrap
+set wildchar      =<Tab>                 " use tab for completions
+set wildignore    =*.pyc                 " ignore python bytecode files
+set wildmode      =list:longest          " list all matches and complete longest common string
+set equalprg      =evaluate-python3      " evaluate argument to '=' as python expression
+
+set completeopt  =menuone " show the completion menu even when there is only one item
+set completeopt +=longest " auto-complete the longest text common to all matches
+set completeopt +=preview " show additional information by matches
+
+set formatoptions +=r                    " insert comment leader after <enter> in insert mode
+set formatoptions -=t                    " don't auto-wrap code at textwidth
+set formatoptions -=j                    " don't merge comments when joining lines
+
+set printoptions  +=header:0             " don't add a header to hardcopies
+
+set viminfo       ='100                  " previously edited files
+set viminfo       +=/10                  " search pattern items
+set viminfo       +=f1                   " save file marks
+set viminfo       +=h                    " disable hlsearch
+set viminfo       +=s10                  " maximum number of KB to save from a register
+set viminfo       +=n~/.vim/viminfo      " set viminfo file name
+
+" use the unnamedplus clipboard if supported
+if has('unnamedplus')
+    set clipboard=unnamedplus
+endif
+
+" use two space soft tabs
+call Stops(2)
+
+
+"" lettings
+
+let c_no_curly_error = 1           " {} inside [] or () is not an error
+let mapleader        = "\<space>"  " space is my leader
+
+let g:NERDTreeMinimalUI                  = 1            " hide nerdtree help shortcut
+let g:NERDTreeWinSize                    = 20           " make nerdtree 20 columns wide
+let g:gist_post_private                  = 1            " make gists private by default
+let g:gitgutter_enabled                  = 0            " disable gitgutter by default
+let g:hardtime_allow_different_key       = 1            " allow different keys under time limit
+let g:hardtime_default_on                = 0            " turn off hardtime by default
+let g:hardtime_ignore_quickfix           = 1            " disable hardtime in quickfix
+let g:hardtime_timeout                   = 250          " only allow hjkl every 250ms
+let g:hexmode_patterns                   = '*.wasm'     " open wasm files in hexmode
+let g:incsearch#auto_nohlsearch          = 1            " turn off hlsearch
+let g:investigate_use_dash               = 1            " make investigate use dash on macos
+let g:netrw_fastbrowse                   = 0            " don't retain closed netrw buffers
+let g:netrw_nogx                         = 1            " disable netrw's gx mapping
+let g:pastedtext_select_key              = 'gl'         " use gl for last pasted text mappings
+let g:rainbow_active                     = 1            " enable rainbow delimiters
+let g:ranger_map_keys                    = 0            " don't define any keybindings
+let g:ranger_replace_netrw               = 1            " open directories with ranger
+let g:rust_recommended_style             = 0            " use 2 space instead of 4 space tabs
+let g:rustfmt_autosave                   = 1            " run rustfmt on save
+let g:solarized_contrast                 = 'high'       " use high contrast solarized colors
+let g:solarized_visibility               = 'high'       " use high contrast colors for 'list'
+let g:surround_indent                    = 1            " indent with '=' after surrounding
+let g:syntastic_always_populate_loc_list = 1            " populate the location list with errors
+let g:syntastic_python_checkers          = ['python3']  " use python3 as python checker
+let g:tmux_navigator_no_mappings         = 1            " disable default tmux navigator mappings
+let g:undotree_WindowLayout              = 2            " put undotree on left with full width diff
+let g:vim_markdown_folding_disabled      = 1            " disable folding for markdown files
+
+
+let g:airline#extensions#tabline#buffer_idx_mode   = 1   " show buffer indices
+let g:airline#extensions#tabline#buffer_min_count  = 2   " no tabline for less than 2 buffers
+let g:airline#extensions#tabline#buffer_nr_show    = 0   " don't show buffer numbers
+let g:airline#extensions#tabline#buffers_label     = ''  " hide buffers label
+let g:airline#extensions#tabline#enabled           = 1   " enable the tabline
+let g:airline#extensions#tabline#formatter         = 'f' " use custom formatter
+let g:airline#extensions#tabline#left_alt_sep      = ''  " hide left alt separator
+let g:airline#extensions#tabline#left_sep          = ''  " hide left separator
+let g:airline#extensions#tabline#right_alt_sep     = ''  " hide right alt separator
+let g:airline#extensions#tabline#right_sep         = ''  " hide right separator
+let g:airline#extensions#tabline#show_buffers      = 1   " show buffers when no tabs are open
+let g:airline#extensions#tabline#show_close_button = 0   " don't show close button
+let g:airline#extensions#tabline#show_splits       = 0   " don't show tab name on right
+let g:airline#extensions#tabline#show_tab_nr       = 0   " don't show tab number
+let g:airline#extensions#tabline#show_tab_type     = 0   " don't show tab type
+let g:airline#extensions#whitespace#enabled        = 0   " turn off whitespace checker
+let g:airline_detect_modified                      = 1   " highlight modified buffers
+let g:airline_left_sep                             = ''  " turn off left separator
+let g:airline_powerline_fonts                      = 1   " fixes missing whitespace in tabline
+let g:airline_right_sep                            = ''  " turn off right separator
+let g:airline_section_b                            = ''  " keep vim branch up to date
+let g:airline_skip_empty_sections                  = 1   " hide empty sections
+
+let g:EasyMotion_do_mapping = 0                             " disable default mappings
+let g:EasyMotion_keys       = 'ASDGHKLQWERTYUIOPZXCVBNMFJ;' " targets
+let g:EasyMotion_smartcase  = 1                             " smartcase for easymotion
+let g:EasyMotion_use_upper  = 1                             " allow typing targets in lowercase
+
+let g:grepper        = {}
+let g:grepper.prompt = 1
+let g:grepper.tools  = ['rg', 'git']
+
+let g:rooter_resolve_links                          = 1         " follow symlinks
+let g:rooter_change_directory_for_non_project_files = 'current' " autochdir if not a project file
+let g:rooter_silent_chdir                           = 1         " not message when chdiring
+
+let g:racer_experimental_completer = 1 " show complete signature
+let g:racer_insert_paren           = 1 " insert parenthesis into completion
+
+let g:vim_markdown_preview_browser = 'Google Chrome' " open markdown preview in chrome
+let g:vim_markdown_preview_github  = 1               " render github flavored markdown with grip
+let g:vim_markdown_preview_hotkey  = '<leader>pm'    " remap markdown preview hotkey
+let g:vim_markdown_preview_toggle  = 1               " update markdown preview on buffer write
+
+let g:rooter_patterns = ['Cargo.toml', '.git', '.git/', 'justfile', 'Justfile'] " stop patterns
+
+let g:syntastic_mode_map = {'mode': 'passive'} " only run syntastic on demand
+
+
+"" mappings
+
+" recursive mappings
+map  #  <plug>(incsearch-nohl-#)|         " incsearch: word under cursor backward
+map  *  <plug>(incsearch-nohl-*)|         " incsearch: word under cursor forward
+map  /  <plug>(incsearch-forward)|        " incsearch: search forward
+map  ?  <plug>(incsearch-backward)|       " incsearch: search backward
+"map  N  <plug>(incsearch-nohl-N)|         " incsearch: repeat last search backward
+map  g# <plug>(incsearch-nohl-g#)|        " incsearch: word under cursor backward match non-words
+map  g* <plug>(incsearch-nohl-g*)|        " incsearch: word under cursor forward match non-words
+map  g/ <plug>(incsearch-stay)|           " incsearch: forward without moving cursor
+map  n  <plug>(incsearch-nohl-n)|         " incsearch: repeat last search forward
+map  s  <plug>(easymotion-s)|             " easymotion
+nmap K  <plug>(Man)|                      " look up man page for word under cursor
+nmap gx <plug>(openbrowser-smart-search)| " open url under cursor in browser
+vmap gx <plug>(openbrowser-smart-search)| " open url under cursor in browser
+
+" operators
+map <leader>od :call OpenWiktionary()<cr>| " look up in wiktionary
+map <leader>og <plug>(GrepperOperator)|    " grepper operator
+map <leader>or <plug>(quickrun-op)|        " run
+map <leader>os <plug>(operator-sort)|      " sort operator
+
+" airline navigation
+nmap <leader>1 <plug>AirlineSelectTab1
+nmap <leader>2 <plug>AirlineSelectTab2
+nmap <leader>3 <plug>AirlineSelectTab3
+nmap <leader>4 <plug>AirlineSelectTab4
+nmap <leader>5 <plug>AirlineSelectTab5
+nmap <leader>6 <plug>AirlineSelectTab6
+nmap <leader>7 <plug>AirlineSelectTab7
+nmap <leader>8 <plug>AirlineSelectTab8
+nmap <leader>9 <plug>AirlineSelectTab9
+nmap <c-h> <Plug>AirlineSelectPrevTab
+nmap <c-l> <Plug>AirlineSelectNextTab
+
+" objects
+" free g?:        byzjk
+" free a? and i?: dfghijkmoqruvxyz
+"omap gl <plug>(textobj-pastedtext-text)| " last pasted text - operator pending mode (example)
+"vmap gl <plug>(textobj-pastedtext-text)| " last pasted text - visual mode and select mode (example)
+
+" non-recursive mappings
+cnoremap <c-j> <c-c><esc>|                          " exit command mode
+cnoremap <c-k> <c-\>eKillCmdline()<cr>|             " kill to end of line
+inoremap <c-j> <esc>|                               " exit insert mode
+inoremap <c-s> <c-g>u<Esc>[s1z=`]a<c-g>u|           " fix last spelling error
+nnoremap <c-b> <c-o>|                               " jump back
+nnoremap <c-f> <c-i>|                               " jump forward
+nnoremap <c-j> <esc>|                               " exit normal mode
+nnoremap <c-n> :NERDTreeToggle<cr>|                 " open nerdtree
+nnoremap <c-p> :Files<cr>|                          " search files
+nnoremap <c-k> :Rg .<cr>|                           " search project lines
+nnoremap <c-q> :call Leave()<cr>|                   " close window, close buffer or quit
+nnoremap <c-s> [s1z=<c-o>|                          " correct last spelling error
+nnoremap <leader> <nop>|                            " reserve for three-key mappings
+nnoremap <leader>" :vsplit<cr>|                     " vertical split
+nnoremap <leader>.. :cd ..<cr>|                     " go up one directory
+nnoremap <leader><cr> :nohlsearch<cr>|              " clear search highlights
+nnoremap <leader><space> :wall<cr>|                 " save all changed buffers
+nnoremap <leader>= :split<cr>|                      " horizontal split
+nnoremap <leader>aa :A<cr>|                         " alternate article
+nnoremap <leader>al :SidewaysLeft<cr>|              " move function argument left
+nnoremap <leader>ar :SidewaysRight<cr>|             " move function argument right
+nnoremap <leader>bd :bd<cr>|                        " buffer delete
+nnoremap <leader>cx :!chmod u+x %<cr>|              " chmod +x current file
+nnoremap <leader>el :call LoadErrorfile()<cr>|      " open error file
+nnoremap <leader>fe :call FixEmoji()<cr>|           " fix emoji
+nnoremap <leader>ff gqae<cr>|                       " fix formatting
+nnoremap <leader>ft :retab<cr>|                     " fix tabs
+nnoremap <leader>fw ::%s/\s\+$//e<cr>|              " fix whitespace
+nnoremap <leader>gc :!git commit -v<cr><cr>|        " git commit
+nnoremap <leader>gd :!git diff<cr><cr>|             " git diff
+nnoremap <leader>gm :!git commit -av<cr><cr>|       " git mash
+nnoremap <leader>gs :!git status<cr>|               " git status
+nnoremap <leader>hd :Capture digraphs<cr>|          " display digraphs
+nnoremap <leader>hm :Capture map<cr>|               " display mappings
+nnoremap <leader>iO O<esc>|                         " insert line above cursor
+nnoremap <leader>id "=Date()<cr>p|                  " insert date
+nnoremap <leader>io o<esc>|                         " insert line below cursor
+nnoremap <leader>jj :!just<cr>|                     " run just
+nnoremap <leader>ls :source ~/.vim/session<cr>|     " load session
+nnoremap <leader>mk :make<cr>|                      " make
+nnoremap <leader>ms :mksession! ~/.vim/session<cr>| " make session
+nnoremap <leader>op :silent !ope %<cr>|             " open current file
+nnoremap <leader>od :RangerCurrentDirectory<cr>|    " open current directory
+nnoremap <leader>pc :pwd<cr>|                       " print cwd
+nnoremap <leader>pu :PlugUpdate<cr>|                " plug update
+nnoremap <leader>py :PyEval<cr>|                    " evaluate current line with python3
+nnoremap <leader>qq :q<cr>|                         " quit
+nnoremap <leader>rg :Grepper<cr>|                   " recursive grep
+nnoremap <leader>rb :Quickrun<cr>|                  " run buffer
+nnoremap <leader>sb :Buffers<cr>|                   " search buffers
+nnoremap <leader>sc :Commands<cr>|                  " search commands
+nnoremap <leader>sf :Files<cr>|                     " search files
+nnoremap <leader>sg :Commits<cr>|                   " search git
+nnoremap <leader>sh :History<cr>|                   " search history
+nnoremap <leader>sl :Lines<cr>|                     " lines in current buffer
+nnoremap <leader>st :Tags<cr>|                      " search ctags
+nnoremap <leader>sv :source $MYVIMRC<cr>:nohl<cr>|  " source ~/.vimrc
+nnoremap <leader>tc :call ToggleColor()<cr>|        " toggle syntax highlighting
+nnoremap <leader>tn :call ToggleLineNumbers()<cr>|  " toggle line numbers
+nnoremap <leader>tg :GitGutterToggle<cr>|           " toggle gitgutter
+nnoremap <leader>th :Hexmode<cr>|										" toggle hex mode
+nnoremap <leader>ts :setlocal spell!<cr>|           " toggle spelling
+nnoremap <leader>tu :UndotreeToggle<cr>|            " toggle undotree
+nnoremap <leader>tw :set list!<cr>|                 " toggle whitespace
+nnoremap <leader>tp :Goyo<cr>|                      " toggle prose mode
+nnoremap <leader>tf :call ToggleRustfmt()<cr>|      " toggle rustfmt autosave
+nnoremap <leader>t: :Tabularize :<cr>|              " align on :s
+nnoremap <leader>t= :Tabularize =<cr>|              " align on =s
+nnoremap <leader>wo <c-w>o|                         " close all windows but current
+nnoremap Q @@|                                      " repeat last macro
+nnoremap Y y$|                                      " yank to end of line
+nnoremap j gj|                                      " go down one screen line
+nnoremap k gk|                                      " go up one screen line
+noremap! <c-a> <home>|                              " move cursor to beginning of line
+noremap! <c-b> <left>|                              " move cursor right one character
+noremap! <c-d> <del>|                               " delete character at cursor
+noremap! <c-f> <right>|                             " move cursor left one character
+noremap! <m-b> <s-left>|                            " go back one word
+noremap! <m-d> <s-right><Delete>|                   " delete next word
+noremap! <m-f> <s-right>|                           " go forward one word
+noremap! <m-d> <c-w>|                               " delete last word
+vnoremap <c-a> <home>|                              " move selection to beginning of line
+vnoremap <c-j> <esc>|                               " use ctrl-j for escape
+vnoremap <leader>t: :Tabularize :<cr>               " align on :
+vnoremap <leader>t= :Tabularize =<cr>               " align on =
+vnoremap <leader>s  :sort<cr>|                      " sort lines
+vnoremap j gj|                                      " go to next screen line
+vnoremap k gk|                                      " go to previous screen line
+
+" use c-c to open completion menu and also move down selections
+inoremap <expr> <c-c> pumvisible() ? '<c-n>' : '<c-x><c-o><c-n><c-p><c-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+
+" enter key selects highlighted menu item when completion menu is visible
+inoremap <expr> <cr> pumvisible() ? "\<c-y>" : "\<c-g>u\<cr>"
+
+" keep complete menu item highlighted, so typing narrows match
+inoremap <expr> <c-n> pumvisible() ? '<c-n>' : '<c-n><c-r>=pumvisible() ? "\<lt>Down>" : ""<cr>'
+
+" tmux vim navigator
+nnoremap <silent> h :TmuxNavigateLeft<cr>
+nnoremap <silent> k :TmuxNavigateUp<cr>
+nnoremap <silent> j :TmuxNavigateDown<cr>
+nnoremap <silent> l :TmuxNavigateRight<cr>
+
+" edit configuration files
+nnoremap <leader>ev :e $MYVIMRC<cr>
+nnoremap <leader>ee :e $MYVIMRC<cr>
+nnoremap <leader>es :e ~/.zshrc<cr>
+
+"" aliases
+
+call Alias('Tab',  'Tabularize')
+call Alias('Grep', 'Grepper'   )
+
+
+"" digraphs
+
+digraphs fv 10086| " vertical fleuron
+digraphs fh 10087| " horizontal fleuron
+digraphs fr 9753|  " reversed horizontal fleuron
+
+
+"" colors
+
+if &t_Co > 2 || has("gui_running")
+  syntax on
+  set t_Co=256
+  if filereadable(expand("~/.vimrc_background"))
+    let base16colorspace=256
+    source ~/.vimrc_background
+  endif
+  hi NonText ctermfg=11
+  hi link EasyMotionIncSearch     Search
+  hi link EasyMotionMoveHL        Search
+  hi link EasyMotionShade         Comment
+  hi link EasyMotionTarget        ErrorMsg
+  hi link EasyMotionTarget2First  Search
+  hi link EasyMotionTarget2Second Search
+  hi SpellBad   cterm=underline
+  hi SpellCap   cterm=italic
+  hi SpellLocal cterm=italic
+  hi SpellRare  cterm=italic
+endif
+
+if g:colors_name == 'base16-materia'
+let g:rainbow_conf = {
+\  'separately': {
+\    'html': {},
+\    'vim':  {},
+\    'tex':  {},
+\  }
+\}
+else
+let g:rainbow_conf = {
+\	'ctermfgs': ['blue', 'yellow', 'cyan', 'magenta'],
+\ 'separately': {
+\    'html': {},
+\    'vim':  {},
+\    'tex':  {},
+\  }
+\}
+endif
+
+
+"" autocommands
+
+augroup vimrc
+  autocmd!
+
+  " jump to the last cursor position after loading a file
+  autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
+  " turn off relative numbers when focus is lost
+  autocmd FocusLost * if &number | set norelativenumber | endif
+
+  " turn on relative numbers when focus is gained
+  autocmd FocusGained * if &number | set relativenumber | endif
+
+  " don't highlight trailing whitespace in markdown files
+  autocmd BufRead,BufNewFile *.md syn clear mkdLineBreak
+
+  " don't highlight trailing whitespace in python files
+  autocmd FileType python syn clear pythonSpaceError
+
+  " take <c-j> back from incsearch.vim
+  autocmd VimEnter * IncSearchNoreMap <c-j> <c-c><esc>
+
+  " take <c-k> back from incsearch.vim
+  autocmd VimEnter * IncSearchNoreMap <c-k> <c-k>
+
+  " don't display line numbers in man pages
+  autocmd VimEnter * call VimEnter()
+
+  " go to definition of identifier under cursor
+  autocmd FileType rust nmap gd <Plug>(rust-def)
+
+  " open split with definition of identifier under cursor
+  autocmd FileType rust nmap gs <Plug>(rust-def-split)
+
+  " open vertical split with definition of identifier under cursor
+  autocmd FileType rust nmap gv <Plug>(rust-def-vertical)
+
+  " turn off misbehaving asciidoc plugin
+  autocmd bufreadpost *.adoc set filetype=text
+
+  " use local and stdlib rusty-tags.vi as rust source tags file
+  autocmd BufRead *.rs :setlocal tags=./.rusty-tags.vi;/,$RUST_SRC_PATH/.rusty-tags.vi
+
+  " allow netrw windows to be closed
+  autocmd FileType netrw setl bufhidden=delete
+augroup end
+
+let &t_SI.="\e[5 q" " cursor is blinking bar in insert mode
+let &t_SR.="\e[4 q" " cursor is solid underscore in replace mode
+let &t_EI.="\e[1 q" " cursor is blinking block in normal mode
+
+"" notocommands
+command! -narg=* PyEval python3 EvaluateCurrentLine(<f-args>)

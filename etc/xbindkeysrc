@@ -1,0 +1,44 @@
+"mpc toggle"
+  XF86AudioPlay
+
+"mpc next"
+  XF86AudioNext
+
+"mpc prev"
+  XF86AudioPrev
+
+"rofi -show combi"
+  Control+space
+
+"amixer set Master 10%-"
+  XF86AudioLowerVolume
+
+"amixer set Master 10%+"
+  XF86AudioRaiseVolume
+
+"amixer -D pulse set Master 1+ toggle"
+  XF86AudioMute
+
+"xautolock -locknow"
+  Mod4+BackSpace
+
+"term"
+  Mod4+Return
+
+"web"
+  Mod4+o
+
+"xdotool set_desktop 0"
+  Mod4+1
+
+"xdotool set_desktop 1"
+  Mod4+2
+
+"xdotool set_desktop 2"
+  Mod4+3
+
+"scrot ~/dat/desktop/screen-%Y-%d-%m-%H-%M-%S.png"
+  Mod4+s
+
+"scrot -u ~/dat/desktop/window-%Y-%d-%m-%H-%M-%S.png"
+  Mod4+Shift+s

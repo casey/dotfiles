@@ -1,0 +1,30 @@
+#!/opt/local/bin/python3.5
+
+"""
+Write and run a command with your favorite editor
+"""
+
+import os, subprocess, sys, tempfile
+
+def die(msg='', code=1):
+  sys.stderr.write("edmv: %s\n" % msg)
+  sys.stderr.flush()
+  exit(code)
+
+editor = os.environ.get('EDITOR') or 'vi'
+
+with tempfile.NamedTemporaryFile(prefix="edmv-", delete=False) as f:
+  tmpfile = f.name
+
+code = subprocess.call([editor, tmpfile])
+
+if code != 0:
+  die("call to %s failed with return code %s" % (editor, code))
+
+shell = os.environ.get('SHELL') or 'sh'
+
+code = subprocess.call([shell, tmpfile])
+
+os.remove(tmpfile)
+
+sys.exit(code)

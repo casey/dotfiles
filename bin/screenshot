@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -euxo pipefail
+
+file=~/desktop/`date +%Y-%d-%m-%H-%M-%S`.png
+
+exec grim $file

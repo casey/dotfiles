@@ -1,0 +1,6 @@
+URxvt.font:          xft:DejaVu Sans Mono:pixelsize=14
+URxvt.scrollBar:     off
+URxvt.lineSpace:     1
+Xft.lcdfilter:       lcddefault
+xmessage*background: #282a36
+xmessage*foreground: #eff0eb

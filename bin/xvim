@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+exec alacritty --command zsh -lic "vim $@"

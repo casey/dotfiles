@@ -1,0 +1,47 @@
+#!/usr/bin/env python3.6
+
+"""
+Create a new binary in ~/bin
+"""
+
+import sh, sys, os, argparse, subprocess
+
+home = os.path.expanduser('~')
+
+sys.path.append(os.path.join(home, 'src', 'local', 'py'))
+
+from util import *
+
+parser = argparse.ArgumentParser(prog="mkbin", description=__doc__)
+
+parser.add_argument('name', metavar="NAME", help="Name of the new binary")
+
+parser.add_argument("-e", "--edit",
+                    action="store_true",
+                    default=False,
+                    help="Invoke editor on newly created binary")
+
+args = parser.parse_args()
+
+name = args.name
+
+template = f'''
+#!/usr/bin/env bash
+
+echo 'Hello, world!'
+'''.strip()
+
+dst = os.path.expanduser(os.path.join('~', 'bin', name))
+
+if os.path.exists(dst):
+  die(f'`{dst}` already exists!')
+
+printe(f'creating {dst}..')
+
+dump(dst, template)
+
+sh.chmod('+x', dst)
+
+if args.edit:
+  editor = os.environ('EDITOR')
+  os.execv(editor, [editor, dst])

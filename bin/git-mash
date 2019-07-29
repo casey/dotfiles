@@ -1,0 +1,15 @@
+#!/bin/bash
+
+shopt -s extglob
+
+for arg in "$@"; do
+  msg="$msg $arg"
+done
+
+msg="${msg##*( )}"
+
+if [ -z "$msg" ]; then
+  echo "usage: git-mash MESSAGE ..."
+fi
+
+git status --porcelain | grep '^??' || git commit -am "$msg"

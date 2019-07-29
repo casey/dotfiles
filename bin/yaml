@@ -1,0 +1,8 @@
+#!/usr/bin/env python3
+
+import yaml, sys
+
+input  = sys.stdin.read()
+parsed = yaml.safe_load(input)
+output = yaml.dump(parsed, default_flow_style=False)
+print(output)

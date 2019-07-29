@@ -1,0 +1,30 @@
+#!/usr/bin/env python3
+
+import re, sys, fileinput
+
+start = None
+end   = None
+
+argc = len(sys.argv)
+
+if argc > 3:
+  sys.exit('usage: pluck [START_PATTERN] [END_PATTERN]')
+
+if argc > 1:
+  start = re.compile(sys.argv[1])
+
+if argc > 2:
+  end = re.compile(sys.argv[1])
+
+state = 1 if start == None else 0
+
+for line in sys.stdin.read().splitlines():
+  if state == 0:
+    if start.search(line):
+      state = 1
+      continue
+  
+  if state == 1:
+    if end and end.search(line):
+      sys.exit(0)
+    print(line)

@@ -1,0 +1,35 @@
+Config 
+  { font             = "xft:Tewi:medium:size=8"
+  , additionalFonts  = 
+    [ "xft:fixed:pixelsize=10;1"
+    , "xft:unifont:fontformat=truetype:size=8:antialias=false;0"
+    , "xft:siji:pixelsize=10;1"
+    , "xft:fontawesome:pixelsize=8;1"
+    ]
+  , border           = BottomB
+  , borderWidth      = 1
+  , borderColor      = "black"
+  , bgColor          = "black"
+  , fgColor          = "white"
+  , alpha            = 128
+  , position         = Top
+  , textOffset       = -1
+  , iconOffset       = -1
+  , lowerOnStart     = True
+  , pickBroadest     = False
+  , persistent       = False
+  , hideOnStart      = False
+  , iconRoot         = "."
+  , allDesktops      = True
+  , overrideRedirect = True
+  , sepChar          = "%"
+  , alignSep         = "}{"
+  , template         = " %cpu% | %memory% }{ %date% | %KSQL% "
+  , commands         =
+    [ Run Weather "KSQL" ["-t","<tempC> °C"] 9000
+    , Run Cpu ["--ppad", "3"] 10
+    , Run Memory ["--ppad", "3", "-t","Mem: <usedratio>%"] 10
+    , Run Com "uname" ["-s","-r"] "" 36000
+    , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
+    ]
+  }

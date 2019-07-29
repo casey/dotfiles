@@ -1,0 +1,14 @@
+rofi.kb-accept-entry:  Return,KP_Enter
+rofi.kb-cancel:        Q,Escape,Control+j
+rofi.kb-row-down:      J
+rofi.kb-row-select:    Control+i
+rofi.kb-row-up:        K
+rofi.font:             Monospace 11
+rofi.lines:            3
+rofi.width:            25
+rofi.terminal:         alacritty
+rofi.matching:         fuzzy
+rofi.levenshtein-sort: false
+rofi.hide-scrollbar:   true
+rofi.theme:            android_notification
+rofi.separator-style:  dash

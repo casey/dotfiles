@@ -1,0 +1,17 @@
+#!/usr/bin/env python3.6
+
+import glob, os
+
+def slurp(path):
+  with open(path) as f:
+    return f.read()
+
+cpus = set(
+  glob.glob('/sys/devices/system/cpu/cpu[0-9]')
+  +
+  glob.glob('/sys/devices/system/cpu/cpu[0-9][0-9]')
+)
+
+for cpu in cpus:
+  mf = slurp(os.path.join(cpu, 'cpufreq', 'cpuinfo_max_freq')).strip()
+  print(mf)

@@ -1,0 +1,1 @@
+echo "$USER@`hostname` logged out at `date`"

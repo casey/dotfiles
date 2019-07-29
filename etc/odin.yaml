@@ -1,0 +1,5 @@
+templates:
+  google: https://www.google.com/search?q={{query}}
+  stack-overflow: https://stackoverflow.com/search?q={{query}}
+  rustup-stdlib: 'file://{{cmd(bin="rustup", args=["doc", "--std", "--path"])}}?search={{query}}'
+  github: https://github.com/search?q={{query}}

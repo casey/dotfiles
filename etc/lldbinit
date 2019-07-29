@@ -1,0 +1,7 @@
+command alias b  breakpoint
+command alias bd breakpoint disable
+command alias be breakpoint enable
+command alias bl breakpoint list
+command alias br breakpoint delete
+command alias bs breakpoint set
+command alias bfl breakpoint set -f %1 -l %2

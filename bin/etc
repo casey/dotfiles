@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+if [[ ! -t 1 ]]; then
+  exec alacritty --command zsh -lic etc
+fi
+
+FILE=`(cd ~/src/local && fzf)`
+
+if [[ -z $FILE ]]; then
+  return 0
+fi
+
+exec vim ~/src/local/$FILE

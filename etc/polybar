@@ -1,0 +1,129 @@
+[bar/default]
+monitor         = DP-2
+width           = 100%
+height          = 20
+foreground      = ${colors.white}
+background      = ${colors.clear}
+font-0          = ${fonts.tewi}
+font-1          = ${fonts.unifont}
+font-2          = ${fonts.upper}
+font-3          = ${fonts.siji}
+font-4          = ${fonts.fontawesome}
+padding-right   = 2
+padding-left    = 2
+modules-left    = date cpu memory fs net speakers headphones ws
+modules-right   = mpd logout
+module-margin   = 1
+border-top-size = 3
+
+[fonts]
+tewi        = tewi
+unifont     = unifont
+upper       = unifontupper
+siji        = siji
+fontawesome = fontawesome
+
+[colors]
+white = #ffffffff
+smoke = #55
+black = #ff000000
+clear = #00000000
+red   = #ffff0000
+
+[module/cpu]
+type     = internal/cpu
+format   = <label>
+label    = "%{A1:mon:} %percentage:2%%%{A}"
+interval = 1
+
+[module/memory]
+type   = internal/memory
+format = <label>
+label  = "%{A1:mon:} %gb_free:0:2% GB%{A}"
+
+[module/fs]
+type          = internal/fs
+label-mounted = %mountpoint% %free%
+mount-0       = /
+mount-1       = /home
+
+[module/net]
+type                = internal/network
+interface           = enp11s0
+format-connected    = <label-connected>
+format-disconnected = <label-disconnected>
+label-connected     =  %local_ip%  %upspeed:8%  %downspeed:8%
+label-disconnected  =  %ifname% disconnected
+
+[module/ws]
+type                   = internal/xworkspaces
+enable-scroll          = true
+icon-0                 = "Primary;Ⅰ "
+icon-1                 = "Secondary; Ⅱ "
+icon-2                 = "Tertiary; Ⅲ"
+format                 = <label-state>
+label-active           = %icon%
+label-empty            = %icon%
+label-empty-foreground = ${colors.smoke}
+
+[module/speakers]
+type                   = internal/volume
+format-volume          =  <label-volume>
+format-muted           = <label-muted>
+label-muted            =  %percentage%%
+label-muted-foreground = ${colors.smoke}
+master-soundcard       = hw:2
+master-mixer           = PCM
+mapped                 = true
+click-left             = amixer -c 1 set PCM toggle
+
+[module/headphones]
+type                   = internal/volume
+format-volume          =  <label-volume>
+format-muted           = <label-muted>
+label-muted            =  %percentage%%
+label-muted-foreground = ${colors.smoke}
+master-soundcard       = hw:1
+master-mixer           = Master
+mapped                 = true
+click-left             = amixer -c 1 set Master toggle
+
+[module/mpd]
+type = internal/mpd
+host = 127.0.0.1
+port = 6600
+
+format-online  =  <label-song> <bar-progress> <label-time> <icon-prev><icon-seekb><icon-stop><toggle><icon-seekf><icon-next>
+format-offline =  mpd offline
+
+label-song = %artist% - %title%
+label-song-maxlen =4100
+
+bar-progress-width     = 15
+bar-progress-indicator = ═
+bar-progress-fill      = ─
+bar-progress-empty     = ┈
+
+icon-play       = 
+icon-pause      = 
+icon-stop       = 
+icon-prev       = 
+icon-next       = 
+icon-seekb      = 
+icon-seekf      = 
+icon-random     = 🔀
+icon-repeat     = 🔁
+icon-repeatone  = 🔂
+
+[module/date]
+type     = internal/date
+interval = 1.0
+format   = <label>
+label    =  %{A1:gsimplecal:}%date%  %time%%{A}
+date     = %A %B %d
+time     = %H:%M:%S
+
+[module/logout]
+type         = custom/text
+content      = ""
+click-left   = xfce4-session-logout

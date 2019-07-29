@@ -1,0 +1,68 @@
+[user]
+name  = Casey Rodarmor
+email = casey@rodarmor.com
+
+[github]
+user = casey
+
+[color]
+branch = auto
+diff   = auto
+status = auto
+ui     = true
+
+[core]
+excludesfile = ~/.gitignore.global
+quotepath    = false
+trustctime   = false
+autocrlf     = false
+
+[alias]
+br    = branch
+ci    = commit
+co    = checkout
+df    = diff
+exec  = "!exec "
+files = diff-tree --no-commit-id --name-status -r
+sl    = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
+st    = status
+dt    = difftool
+
+[branch "master"]
+merge  = refs/head/master
+remote = origin
+
+[credential]
+helper = osxkeychain
+
+[push]
+default = current
+
+[pull]
+rebase = true
+
+[merge]
+conflictstyle = diff3
+
+[diff]
+tool = meld
+
+[difftool]
+prompt = false
+
+[difftool "meld"]
+cmd           = open -W -a Meld --args \"$LOCAL\" \"$PWD/$REMOTE\"
+trustExitCode = true
+
+[merge]
+tool = meld
+
+[mergetool]
+prompt = false
+
+[mergetool "meld"]
+cmd           = open -W -a Meld --args --auto-merge \"$PWD/$LOCAL\" \"$PWD/$BASE\" \"$PWD/$REMOTE\" --output = \"$PWD/$MERGED\"
+trustExitCode = true
+
+[commit]
+verbose = true

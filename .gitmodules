@@ -1,0 +1,15 @@
+[submodule "submodules/vim-plug"]
+	path = submodules/vim-plug
+	url = git@github.com:junegunn/vim-plug.git
+[submodule "submodules/dotbot"]
+	path = submodules/dotbot
+	url = git@github.com:anishathalye/dotbot.git
+[submodule "submodules/base16-shell"]
+	path = submodules/base16-shell
+	url = git@github.com:chriskempson/base16-shell.git
+[submodule "submodules/base16-alacritty"]
+	path = submodules/base16-alacritty
+	url = git@github.com:aaron-williamson/base16-alacritty.git
+[submodule "submodules/tpm"]
+	path = submodules/tpm
+	url = git@github.com:tmux-plugins/tpm.git

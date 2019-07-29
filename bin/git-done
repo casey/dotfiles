@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o pipefail
+
+git checkout $2
+git pull $1 master
+git checkout master
+git pull $1 master
+git branch -d $2

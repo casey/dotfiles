@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+can() {
+  command -v $1 > /dev/null
+  return $?
+}
+
+if can xclip; then
+  xclip -out -selection clipboard
+elif can pbcopy; then
+  pbpaste
+elif can copy.exe; then
+  echo COPYEXE
+else
+  echo "No paster found!"
+  exit 1
+fi

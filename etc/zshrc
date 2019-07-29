@@ -1,0 +1,160 @@
+unalias -m '*' # remove aliases
+
+autoload colors       # color array builder
+autoload run-help     # help function
+autoload zcalc        # calculator
+autoload zsh/terminfo # interface to terminfo database
+
+source ~/.fn.zsh # load functions
+
+INITIAL_PATH_ELEMENTS=(${(s/:/)PATH}) # save initial path elements
+PATH=''                               # clear path variable
+
+path: ~/bin                              # my binaries
+path: ~/.cargo/bin                       # cargo
+path: ~/.vim/plugged/vim-superman/bin    # vman script
+path: ~/.nix-profile/bin                 # nix env binaries
+path: ~/opt/npm/bin                      # npm binaries
+path: /usr/local/bin                     # homebrew binaries
+path: /usr/local/sbin                    # admin homebrew binaries
+path: /usr/local/opt/bin                 # keg-only homebrew binaries
+path: /usr/bin                           # binaries
+path: /usr/sbin                          # admin binaries
+path: /usr/games                         # games
+path: /bin                               # core binaries
+path: /sbin                              # core admin binaries
+
+# append initial path components
+for PART in $INITIAL_PATH_ELEMENTS; do
+  path: $PART
+done
+
+unset MAILCHECK # don't check for mail
+
+export LANG=en_US.UTF-8             # use the english utf-8 locale
+export EDITOR=vim                   # vim as editor
+export EDMV_EDITOR=vim              # vim as editor in edmv
+export VISUAL=vim                   # vim as visual editor
+export PAGER=less                   # less as pager
+export LESS=-ifRMx2                 # default options for less
+export BLOCKSIZE=K                  # show blocks as kilobytes
+export CLICOLOR=1                   # use color
+export HISTFILE=~/.history          # location for the history file
+export SAVEHIST=5000000             # save lots of history to disk
+export HISTSIZE=5500000             # save lots of history in memory
+export LS_OPTIONS='--color=auto'    # make ls use color
+export KEYTIMEOUT=1                 # don't wait for multibyte sequences
+export ZLE_REMOVE_SUFFIX_CHARS=''   # don't remove spaces after completion
+export GOPATH=~/go                  # set go path
+export BROWSER=google-chrome-stable # default browser
+
+# use exa and bat previews with FZF
+export FZF_DEFAULT_OPTS='--preview="preview {}"'
+
+# tell ripgrep to use a config file
+export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
+
+# rust src path for use with rusty-tags
+export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/src/
+
+# use ripgrep with fzf
+export FZF_DEFAULT_COMMAND="rg --files --hidden --glob '!.git/*' --glob '!*.pyc'"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# set up base16 shell
+BASE16_SHELL=$HOME/src/local/submodules/base16-shell/
+[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
+
+source: ~/.prompt.zsh                               # prompt
+source: /etc/zshrc                                  # site
+source: /usr/local/opt/fzf/shell/key-bindings.zsh   # fzf
+
+setopt auto_pushd             # cd also invokes pushd
+setopt auto_remove_slash      # automatically remove slash from completions
+setopt brace_ccl              # expand expressions in braces
+setopt hist_expire_dups_first # expire duplicate events first
+setopt hist_find_no_dups      # ignore duplicates in find
+setopt hist_ignore_dups       # dont save duplicate entries in history
+setopt hist_ignore_space      # do not save history entries that start with a space
+setopt hist_no_functions      # do not save function definitions in history
+setopt inc_append_history     # save commands in history immediately
+setopt interactive_comments   # allow comments in interactive shells
+setopt multios                # allow redirection to multiple files
+setopt prompt_subst           # expand the prompt string
+setopt rc_quotes              # allow '' to represent a quote in single quoted strings
+
+unsetopt beep    # never beep
+unsetopt correct # don't correct command spelling
+
+# use dircolors if present
+is-file ~/.dir_colors/dircolors && eval `dircolors ~/.dir_colors/dircolors`
+
+stty -ixoff      # disable sending start/stop characters
+stty -ixon       # disable start/stop output control
+stty start undef # unmap c-q
+stty stop undef  # unmap c-s
+
+# use vi keybindings
+bindkey -v
+
+# add custom bindings
+bind: ' '    magic-space
+bind: '\e^?' backward-kill-word
+bind: '\eb'  backward-word
+bind: '\ef'  forward-word
+bind: '\eK'  kill-line-to-system-clipboard
+bind: '\ek'  kill-line-to-system-clipboard
+bind: '\eY'  yank-from-system-clipboard
+bind: '\ey'  yank-from-system-clipboard
+bind: '^?'   backward-delete-char
+bind: '^A'   beginning-of-line
+bind: '^B'   backward-char
+bind: '^E'   end-of-line
+bind: '^F'   forward-char
+bind: '^G'   fzf-cd-widget
+bind: '^H'   backward-delete-char
+bind: '^J'   vi-cmd-mode
+bind: '^K'   kill-line-to-x-selection
+bind: '^N'   down-history
+bind: '^P'   up-history
+bind: '^R'   history-incremental-search-backward
+bind: '^S'   history-incremental-search-forward
+bind: '^U'   kill-whole-line
+bind: '^W'   backward-kill-word
+bind: '^X'   fzf-history-widget
+bind: '^Y'   yank-from-x-selection
+bind: '^Z'   fzf-file-widget
+
+# single letter aliases
+alias g='git'
+alias m='vman'
+alias p='python3 -ic "import math, time, random, re, sys, itertools, os, string;"; stty sane'
+
+# multi-letter aliases
+alias ..='cd ..'
+alias .j="j --justfile ~/.justfile --working-directory ~"
+alias ls="exa"
+alias Kill='kill -9'
+alias cd..='cd ..'
+alias diff='colordiff'
+alias egrep="egrep --color=auto"
+alias eject='drutil tray eject'
+alias grep="grep --color=auto"
+alias help='run-help'
+alias how='howdoi -a'
+alias netip="curl -L -s --max-time 10 http://checkip.dyndns.org | egrep -o -m 1 '([[:digit:]]{1,3}\.){3}[[:digit:]]{1,3}'"
+alias p6='ping6 2001:4860:4860::8888 '
+alias p8='ping 8.8.8.8'
+alias pare='tr -s "[:blank:]" " " | cut -d " " -f'
+alias perlfunc='perldoc -f'
+alias port='port -vuRc'
+alias psg="ps aux | grep"
+alias rwd='cd `pwd -P`'
+alias sane='stty sane'
+alias gd='cd "$(tail -n1 ~/.savedir)"'
+alias tarit='tar cvf'
+alias untar='tar xvf'
+alias goyo='vim -c Goyo'
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -1,0 +1,102 @@
+- clean:
+  - '~'
+  - ~/.cargo
+  - ~/.config
+  - ~/.ssh
+
+- shell:
+  - mkdir -p ~/.cargo
+  - mkdir -p ~/.config
+  - mkdir -p ~/.config/alacritty
+  - mkdir -p ~/.config/gsimplecal
+  - mkdir -p ~/.config/i3status
+  - mkdir -p ~/.config/menus
+  - mkdir -p ~/.config/neofetch
+  - mkdir -p ~/.config/nixpkgs/overlays
+  - mkdir -p ~/.config/polybar
+  - mkdir -p ~/.config/sway
+  - mkdir -p ~/.config/swaylock
+  - mkdir -p ~/.config/swaynag
+  - mkdir -p ~/.config/taffybar
+  - mkdir -p ~/.config/xmobar
+  - mkdir -p ~/.config/xonsh
+  - mkdir -p ~/.elinks
+  - mkdir -p ~/.gnupg
+  - mkdir -p ~/.local/share
+  - mkdir -p ~/.nixpkgs
+  - mkdir -p ~/.rusty-tags
+  - mkdir -p ~/.ssh
+  - mkdir -p ~/.terminfo
+  - mkdir -p ~/.tmux/plugins
+  - mkdir -p ~/.vim/autoload
+  - mkdir -p ~/.vim/backup
+  - mkdir -p ~/.vim/swap
+  - mkdir -p ~/.xmonad
+  - mkdir -p ~/opt
+  - mkdir -p ~/opt/npm
+  - mkdir -p ~/src
+  - mkdir -p ~/tmp
+  - rm -f ~/.xscreensaver
+  - rm -f ~/.config/mimeapps.list
+
+- link:
+    ~/app: app
+    ~/bin: bin
+
+    ~/.tmux/plugins/tpm:      submodules/tpm
+    ~/.vim/autoload/plug.vim: submodules/vim-plug/plug.vim
+
+    ~/.colordiffrc:                 etc/colordiffrc
+    ~/.config/feh:                  etc/feh
+    ~/.config/gsimplecal/config:    etc/gsimplecal
+    ~/.config/i3status/config:      etc/i3status.config
+    ~/.config/odin.yaml:            etc/odin.yaml
+    ~/.config/polybar/config:       etc/polybar
+    ~/.config/sway/config:          etc/sway.config
+    ~/.config/swaylock/config:      etc/swaylock.config
+    ~/.config/swaynag/config:       etc/swaynag.config
+    ~/.config/taffybar/taffybar.hs: etc/taffybar.hs
+    ~/.config/taffybar/taffybar.rc: etc/taffybar.rc
+    ~/.config/user-dirs.dirs:       etc/user-dirs.dirs
+    ~/.config/xmobar/xmobarrc:      etc/xmobarrc
+    ~/.config/xonsh/config.json:    etc/xonsh.json
+    ~/.elinks/elinks.conf:          etc/elinks.conf
+    ~/.fn.zsh:                      etc/fn.zsh
+    ~/.fxfile:                      etc/fxfile
+    ~/.gdbinit:                     etc/gdbinit
+    ~/.gitconfig:                   etc/gitconfig
+    ~/.gitignore.global:            etc/gitignore.global
+    ~/.gnupg/gpg.conf:              etc/gpg.conf
+    ~/.hushlogin:                   etc/hushlogin
+    ~/.inputrc:                     etc/inputrc
+    ~/.lldbinit:                    etc/lldbinit
+    ~/.nethackrc:                   etc/nethackrc
+    ~/.nixpkgs/config.nix:          etc/nixpkgs.nix
+    ~/.plan:                        etc/plan
+    ~/.project:                     etc/project
+    ~/.prompt.zsh:                  etc/prompt.zsh
+    ~/.ripgreprc:                   etc/ripgreprc
+    ~/.rusty-tags/config.toml:      etc/rusty-tags.toml
+    ~/.sh.py:                       etc/sh.py
+    ~/.spacemacs:                   etc/spacemacs
+    ~/.ssh/config:                  etc/sshconfig
+    ~/.tmux.conf:                   etc/tmux.conf
+    ~/.vim.py:                      etc/vim.py
+    ~/.vim:                         etc/vim
+    ~/.vimrc:                       etc/vimrc
+    ~/.wallpaper:                   wallpaper/moebius-conversation.png
+    ~/.wgetrc:                      etc/wgetrc
+    ~/.xbindkeysrc:                 etc/xbindkeysrc
+    ~/.xmonad/xmonad.hs:            etc/xmonad.hs
+    ~/.xonshrc:                     etc/xonshrc
+    ~/.xresources:                  etc/xresources
+    ~/.xscreensaver:                etc/xscreensaver
+    ~/.zlogout:                     etc/zlogout
+    ~/.zshrc:                       etc/zshrc
+
+- shell:
+  - "if [[ `uname` = Darwin ]]; then ./submodules/dotbot/bin/dotbot -c macos.yaml; fi"
+  - "if [[ `uname` = Linux  ]]; then ./submodules/dotbot/bin/dotbot -c linux.yaml; fi"
+  - chmod 700 ~/.vim
+  - chmod 700 ~/.ssh
+  - chmod 600 ~/.ssh/config

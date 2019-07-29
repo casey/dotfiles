@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+if hash open 2> /dev/null; then
+  exec open "$@"
+elif hash xdg-open 2> /dev/null; then
+  exec xdg-open "$@"
+elif hash gnome-open 2> /dev/null; then
+  exec gnome-open "$@"
+else
+  echo "No opener found!"
+fi

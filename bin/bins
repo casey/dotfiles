@@ -1,0 +1,14 @@
+#!/usr/bin/env python
+
+import os
+
+paths = os.environ["PATH"].split(os.path.pathsep)
+
+for directory in paths:
+  if not os.path.isdir(directory):
+    continue
+
+  for filename in os.listdir(directory):
+    path = os.path.join(directory, filename)
+    if os.access(path, os.X_OK):
+      print(path)

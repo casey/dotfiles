@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+exec identify -format '%w %h\n' "$@"

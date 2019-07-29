@@ -1,0 +1,29 @@
+URxvt.font:         xft:DejaVu Sans Mono:pixelsize=14
+URxvt.scrollBar:    off
+Xcursor.theme:      openzone-black
+Xft.lcdfilter:      lcddefault
+rofi.kb-cancel:     Q,Escape,Control+space
+rofi.kb-row-select: Control+i
+rofi.kb-row-down:   J
+rofi.kb-row-up:     K
+
+! Xft.dpi:                        109
+! URxvt*termName:                 rxvt-256color
+! URxvt*font:                     xft:Menlo:pixelsize=12,xft:Inconsolata\ for\ Powerline:pixelsize=12
+! URxvt.depth:                    0
+! URxvt*lineSpace:                1
+! URxvt.letterSpace:              -1
+! URxvt.iso14755:                 false
+! URxvt.iso14755_52:              false
+! URxvt*geometry:                 65x17
+! URxvt*loginShell:               true
+! URxvt.internalBorder:           35
+! URxvt.perl-ext-common:          default,clipboard
+URxvt.keysym.Shift-Control-C:   perl:clipboard:copy
+URxvt.keysym.Shift-Control-V:   perl:clipboard:paste
+! URxvt.clipboard.autocopy:       true
+
+xmessage*background: #282a36
+xmessage*foreground: #eff0eb
+
+#include "/home/rodarmor/opt/solarized-xresources/Xresources.dark"

@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+if [ -t 1 ]; then
+  ranger ~/desktop
+else
+  exec ~/app/terminal -e ranger ~/desktop
+fi

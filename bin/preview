@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+if [[ -d $1 ]]; then
+  exa --color always -l $1
+elif [[ -f $1 ]]; then
+  bat --color always --paging never $1
+fi
