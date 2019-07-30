@@ -22,6 +22,7 @@ crates:
 	cargo install --force cargo-watch
 	cargo install --force cargo-check
 	cargo install --force cargo-outdated
+	cargo install --force cargo-edit
 	cargo +nightly install --force racer
 
 formulae:
