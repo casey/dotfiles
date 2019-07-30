@@ -117,7 +117,7 @@ set smartindent    " smart indenting on new line
 set smarttab       " insert blanks according to shiftwidth
 set splitbelow     " open horizontal splits below current buffer
 set splitright     " open vertical splits to the right of current buffer
-set tildeop        " enable the `~` operator
+set notildeop      " make `~` toggle case of single character
 set title          " set a window title
 set ttyfast        " make updates smoother but use more characters
 set undofile       " save undo history
