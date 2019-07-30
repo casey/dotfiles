@@ -28,9 +28,6 @@
   - mkdir -p ~/.ssh
   - mkdir -p ~/.terminfo
   - mkdir -p ~/.tmux/plugins
-  - mkdir -p ~/.vim/autoload
-  - mkdir -p ~/.vim/backup
-  - mkdir -p ~/.vim/swap
   - mkdir -p ~/.xmonad
   - mkdir -p ~/opt
   - mkdir -p ~/opt/npm
@@ -42,9 +39,6 @@
 - link:
     ~/app: app
     ~/bin: bin
-
-    ~/.tmux/plugins/tpm:      submodules/tpm
-    ~/.vim/autoload/plug.vim: submodules/vim-plug/plug.vim
 
     ~/.colordiffrc:                 etc/colordiffrc
     ~/.config/feh:                  etc/feh
@@ -93,6 +87,10 @@
     ~/.xscreensaver:                etc/xscreensaver
     ~/.zlogout:                     etc/zlogout
     ~/.zshrc:                       etc/zshrc
+
+- link:
+    ~/.tmux/plugins/tpm:      submodules/tpm
+    ~/.vim/autoload/plug.vim: submodules/vim-plug/plug.vim
 
 - shell:
   - "if [[ `uname` = Darwin ]]; then ./submodules/dotbot/bin/dotbot -c macos.yaml; fi"
