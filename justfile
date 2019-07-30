@@ -8,6 +8,10 @@ rustup:
 homebrew:
 	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
+rust:
+	rustup install nightly
+	rustup component add rustfmt
+
 crates:
 	cargo install --force ripgrep
 	cargo install --force exa
