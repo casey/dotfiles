@@ -3,7 +3,7 @@ default:
 	./submodules/dotbot/bin/dotbot -c default.yaml
 
 rustup:
-	curl https://sh.rustup.rs -sSf | sh
+	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 homebrew:
 	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
