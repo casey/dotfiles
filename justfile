@@ -20,14 +20,6 @@ crates:
 	cargo install --force cargo-outdated
 	cargo +nightly install --force racer
 
-hunter:
-	brew install gstreamer
-	brew install gst-plugins-base
-	brew install libffi
-	brew install libmagic
-	git clone https://github.com/rabite0/hunter.git ~/tmp/hunter
-	PKG_CONFIG_PATH="/usr/local/opt/libffi/lib/pkgconfig" cargo +nightly install --path ~/tmp/hunter
-
 formulae:
 	brew install cmake
 	brew install python
@@ -40,3 +32,11 @@ formulae:
 	brew cask install quicksilver
 	brew tap homebrew/cask-fonts
 	brew cask install font-dejavu-sans-mono-for-powerline
+
+hunter:
+	brew install gstreamer
+	brew install gst-plugins-base
+	brew install libffi
+	brew install libmagic
+	git clone https://github.com/rabite0/hunter.git ~/tmp/hunter
+	PKG_CONFIG_PATH="/usr/local/opt/libffi/lib/pkgconfig" cargo +nightly install --path ~/tmp/hunter
