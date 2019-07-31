@@ -36,6 +36,7 @@ export BROWSER=google-chrome-stable # default browser
 export CLICOLOR=1                   # use color
 export EDITOR=vim                   # vim as editor
 export EDMV_EDITOR=vim              # vim as editor in edmv
+export GNUPGHOME=~/.gnupg/ledger    # use ledger for GPG
 export GOPATH=~/go                  # set go path
 export HISTFILE=~/.history          # location for the history file
 export HISTSIZE=5500000             # save lots of history in memory
