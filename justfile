@@ -31,6 +31,7 @@ formulae:
 	brew install reattach-to-user-namespace
 	brew install tmux
 	brew install zsh
+	brew install gpg
 	brew cask install vlc
 	brew cask install alacritty
 	brew cask install google-chrome
