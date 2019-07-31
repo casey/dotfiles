@@ -31,22 +31,22 @@ done
 
 unset MAILCHECK # don't check for mail
 
-export LANG=en_US.UTF-8             # use the english utf-8 locale
+export BLOCKSIZE=K                  # show blocks as kilobytes
+export BROWSER=google-chrome-stable # default browser
+export CLICOLOR=1                   # use color
 export EDITOR=vim                   # vim as editor
 export EDMV_EDITOR=vim              # vim as editor in edmv
-export VISUAL=vim                   # vim as visual editor
-export PAGER=less                   # less as pager
-export LESS=-ifRMx2                 # default options for less
-export BLOCKSIZE=K                  # show blocks as kilobytes
-export CLICOLOR=1                   # use color
-export HISTFILE=~/.history          # location for the history file
-export SAVEHIST=5000000             # save lots of history to disk
-export HISTSIZE=5500000             # save lots of history in memory
-export LS_OPTIONS='--color=auto'    # make ls use color
-export KEYTIMEOUT=1                 # don't wait for multibyte sequences
-export ZLE_REMOVE_SUFFIX_CHARS=''   # don't remove spaces after completion
 export GOPATH=~/go                  # set go path
-export BROWSER=google-chrome-stable # default browser
+export HISTFILE=~/.history          # location for the history file
+export HISTSIZE=5500000             # save lots of history in memory
+export KEYTIMEOUT=1                 # don't wait for multibyte sequences
+export LANG=en_US.UTF-8             # use the english utf-8 locale
+export LESS=-ifRMx2                 # default options for less
+export LS_OPTIONS='--color=auto'    # make ls use color
+export PAGER=less                   # less as pager
+export SAVEHIST=5000000             # save lots of history to disk
+export VISUAL=vim                   # vim as visual editor
+export ZLE_REMOVE_SUFFIX_CHARS=''   # don't remove spaces after completion
 
 # use exa and bat previews with FZF
 export FZF_DEFAULT_OPTS='--preview="preview {}"'
