@@ -97,4 +97,5 @@
   - "if [[ `uname` = Linux  ]]; then ./submodules/dotbot/bin/dotbot -c linux.yaml; fi"
   - chmod 700 ~/.vim
   - chmod 700 ~/.ssh
+  - chmod 700 ~/.gnupg
   - chmod 600 ~/.ssh/config
