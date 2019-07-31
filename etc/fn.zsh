@@ -168,7 +168,7 @@ fi
 zle -N kill-line-to-system-clipboard
 kill-line-to-system-clipboard() {
   zle kill-line
-  print -rn "$CUTBUFFER" | set-system-clipboard
+  print -rn -- "$CUTBUFFER" | set-system-clipboard
 }
 
 zle -N yank-from-system-clipboard
@@ -180,7 +180,7 @@ yank-from-system-clipboard() {
 zle -N kill-line-to-x-selection
 kill-line-to-x-selection() {
   zle kill-line
-  print -rn "$CUTBUFFER" | set-system-selection
+  print -rn -- "$CUTBUFFER" | set-system-selection
 }
 
 zle -N yank-from-x-selection
