@@ -10,7 +10,8 @@ source ~/.fn.zsh # load functions
 INITIAL_PATH_ELEMENTS=(${(s/:/)PATH}) # save initial path elements
 PATH=''                               # clear path variable
 
-path: ~/bin                              # my binaries
+path: ~/bin                              # local binaries
+path: ~/sbin                             # admin binaries
 path: ~/.cargo/bin                       # cargo
 path: ~/.vim/plugged/vim-superman/bin    # vman script
 path: ~/.nix-profile/bin                 # nix env binaries
