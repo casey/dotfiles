@@ -70,3 +70,6 @@ gpgsign = 1
 
 [gpg]
 program = gpg
+
+[pager]
+branch = false
