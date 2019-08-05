@@ -326,6 +326,8 @@ nnoremap <leader>= :split<cr>|                      " horizontal split
 nnoremap <leader>aa :A<cr>|                         " alternate article
 nnoremap <leader>al :SidewaysLeft<cr>|              " move function argument left
 nnoremap <leader>ar :SidewaysRight<cr>|             " move function argument right
+nnoremap <leader>a: :Tabularize :<cr>|              " align on :s
+nnoremap <leader>a= :Tabularize =<cr>|              " align on =s
 nnoremap <leader>bd :bd<cr>|                        " buffer delete
 nnoremap <leader>cx :!chmod u+x %<cr>|              " chmod +x current file
 nnoremap <leader>el :call LoadErrorfile()<cr>|      " open error file
@@ -371,8 +373,6 @@ nnoremap <leader>tu :UndotreeToggle<cr>|            " toggle undotree
 nnoremap <leader>tw :set list!<cr>|                 " toggle whitespace
 nnoremap <leader>tp :Goyo<cr>|                      " toggle prose mode
 nnoremap <leader>tf :call ToggleRustfmt()<cr>|      " toggle rustfmt autosave
-nnoremap <leader>t: :Tabularize :<cr>|              " align on :s
-nnoremap <leader>t= :Tabularize =<cr>|              " align on =s
 nnoremap <leader>wo <c-w>o|                         " close all windows but current
 nnoremap Q @@|                                      " repeat last macro
 nnoremap Y y$|                                      " yank to end of line
