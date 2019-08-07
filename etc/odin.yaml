@@ -1,5 +1,7 @@
 templates:
-  google: https://www.google.com/search?q={{query}}
-  stack-overflow: https://stackoverflow.com/search?q={{query}}
-  rustup-stdlib: 'file://{{cmd(bin="rustup", args=["doc", "--std", "--path"])}}?search={{query}}'
   github: https://github.com/search?q={{query}}
+  google: https://www.google.com/search?q={{query}}
+  rustup-stdlib: file://{{cmd(bin="rustup", args=["doc", "--std", "--path"])}}
+  rust-stdlib: https://doc.rust-lang.org/std/?search={{query}}
+  stack-overflow: https://stackoverflow.com/search?q={{query}}
+  crates-io: https://crates.io/search?q={{query}}
