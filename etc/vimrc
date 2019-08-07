@@ -515,7 +515,14 @@ augroup vimrc
 
   " allow netrw windows to be closed
   autocmd FileType netrw setl bufhidden=delete
+
+  " highlight suggested commit title length
+  autocmd FileType gitcommit set colorcolumn=51
+
+  " highlight suggested commit description length
+  autocmd FileType gitcommit set colorcolumn+=73
 augroup end
+
 
 let &t_SI.="\e[5 q" " cursor is blinking bar in insert mode
 let &t_SR.="\e[4 q" " cursor is solid underscore in replace mode
