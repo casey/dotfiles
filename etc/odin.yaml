@@ -5,3 +5,10 @@ templates:
   rust-stdlib: https://doc.rust-lang.org/std/?search={{query}}
   stack-overflow: https://stackoverflow.com/search?q={{query}}
   crates-io: https://crates.io/search?q={{query}}
+
+aliases:
+  gh: github
+  gg: google
+  rs: rust-stdlib
+  ci: crates.io
+  so: stack-overflow
