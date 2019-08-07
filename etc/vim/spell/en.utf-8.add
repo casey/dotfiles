@@ -77,3 +77,5 @@ unix
 homedirs
 Dotfiles
 casey
+config
+aliases
