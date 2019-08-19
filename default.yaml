@@ -35,8 +35,8 @@
   - mkdir -p ~/opt/npm
   - mkdir -p ~/src
   - mkdir -p ~/tmp
-  - rm -f ~/.xscreensaver
   - rm -f ~/.config/mimeapps.list
+  - rm -f ~/.xscreensaver
 
 - link:
     ~/app: app
