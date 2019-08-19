@@ -520,10 +520,10 @@ augroup vimrc
   autocmd bufreadpost *.adoc set filetype=text
 
   " use local and stdlib rusty-tags.vi as rust source tags file
-  autocmd BufRead *.rs :setlocal tags=./.rusty-tags.vi;/,$RUST_SRC_PATH/.rusty-tags.vi
+  autocmd BufRead *.rs setlocal tags=./.rusty-tags.vi;/,$RUST_SRC_PATH/.rusty-tags.vi
 
   " allow netrw windows to be closed
-  autocmd FileType netrw setl bufhidden=delete
+  autocmd FileType netrw setlocal bufhidden=delete
 
   " highlight suggested commit title length
   autocmd FileType gitcommit set colorcolumn=51
