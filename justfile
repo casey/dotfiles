@@ -26,17 +26,22 @@ crates:
 	cargo +nightly install --force racer
 
 formulae:
+	# packages
 	brew install cmake
-	brew install python
-	brew install reattach-to-user-namespace
-	brew install tmux
-	brew install zsh
+	brew install fish
 	brew install gpg
 	brew install macvim
+	brew install python
+	brew install reattach-to-user-namespace
+	brew install tig
+	brew install tmux
+	brew install zsh
+	# casks
 	brew cask install vlc
 	brew cask install alacritty
 	brew cask install google-chrome
 	brew cask install quicksilver
+	# fonts
 	brew tap homebrew/cask-fonts
 	brew cask install font-dejavu-sans-mono-for-powerline
 	# yabai and skhd
