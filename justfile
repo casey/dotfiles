@@ -39,6 +39,14 @@ formulae:
 	brew cask install quicksilver
 	brew tap homebrew/cask-fonts
 	brew cask install font-dejavu-sans-mono-for-powerline
+	# yabai and skhd
+	brew tap koekeishiya/formulae
+	brew install --HEAD yabai
+	brew install skhd
+
+services:
+	brew services start koekeishiya/formulae/yabai
+	brew services start koekeishiya/formulae/skhd
 
 hunter:
 	brew install gstreamer

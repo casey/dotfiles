@@ -14,12 +14,14 @@
   - mkdir -p ~/.config/neofetch
   - mkdir -p ~/.config/nixpkgs/overlays
   - mkdir -p ~/.config/polybar
+  - mkdir -p ~/.config/skhd
   - mkdir -p ~/.config/sway
   - mkdir -p ~/.config/swaylock
   - mkdir -p ~/.config/swaynag
   - mkdir -p ~/.config/taffybar
   - mkdir -p ~/.config/xmobar
   - mkdir -p ~/.config/xonsh
+  - mkdir -p ~/.config/yabai
   - mkdir -p ~/.elinks
   - mkdir -p ~/.gnupg
   - mkdir -p ~/.local/share
@@ -54,6 +56,8 @@
     ~/.config/user-dirs.dirs:       etc/user-dirs.dirs
     ~/.config/xmobar/xmobarrc:      etc/xmobarrc
     ~/.config/xonsh/config.json:    etc/xonsh.json
+    ~/.config/yabai/yabairc:        etc/yabairc
+    ~/.skhdrc:                      etc/skhdrc
     ~/.elinks/elinks.conf:          etc/elinks.conf
     ~/.fn.zsh:                      etc/fn.zsh
     ~/.fxfile:                      etc/fxfile

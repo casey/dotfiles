@@ -1,0 +1,50 @@
+# focus
+rcmd - h : yabai -m window --focus west
+rcmd - j : yabai -m window --focus south
+rcmd - k : yabai -m window --focus north
+rcmd - l : yabai -m window --focus east
+
+# warp
+rcmd + shift - h : yabai -m window --swap west
+rcmd + shift - j : yabai -m window --swap south
+rcmd + shift - k : yabai -m window --swap north
+rcmd + shift - l : yabai -m window --swap east
+
+# swap
+rcmd + alt - h : yabai -m window --swap west
+rcmd + alt - j : yabai -m window --swap south
+rcmd + alt - k : yabai -m window --swap north
+rcmd + alt - l : yabai -m window --swap east
+
+# expand
+rcmd - a : yabai -m window --resize left:-20:0
+rcmd - s : yabai -m window --resize bottom:0:20
+rcmd - w : yabai -m window --resize top:0:-20
+rcmd - d : yabai -m window --resize right:20:0
+
+# contract
+rcmd + shift - a : yabai -m window --resize left:20:0
+rcmd + shift - s : yabai -m window --resize bottom:0:-20
+rcmd + shift - w : yabai -m window --resize top:0:20
+rcmd + shift - d : yabai -m window --resize right:-20:0
+
+# yabai fullscreen
+rcmd - f : yabai -m window --toggle zoom-fullscreen
+
+# native fullscreen
+rcmd + shift - f : yabai -m window --toggle native-fullscreen
+
+# toggle split
+rcmd - tab : yabai -m window --toggle split
+
+# balance
+rcmd - 0x18 : yabai -m space --balance
+
+# toggle float
+rcmd - return : yabai -m window --toggle float
+
+# open terminal
+rcmd - t : /Applications/Alacritty.app/Contents/MacOS/alacritty
+
+# open browser
+rcmd - b : "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
