@@ -1,4 +1,5 @@
 "" plugins
+
 filetype plugin on " turn on filetype plugins
 
 call plug#begin()
@@ -261,6 +262,11 @@ let g:rooter_patterns = ['Cargo.toml', '.git', '.git/', 'justfile', 'Justfile'] 
 
 let g:syntastic_mode_map = {'mode': 'passive'} " only run syntastic on demand
 
+" cursor styling
+let &t_SI.="\e[5 q" " cursor is blinking bar in insert mode
+let &t_SR.="\e[4 q" " cursor is solid underscore in replace mode
+let &t_EI.="\e[1 q" " cursor is blinking block in normal mode
+
 
 "" mappings
 
@@ -414,6 +420,7 @@ nnoremap <leader>ev :e $MYVIMRC<cr>
 nnoremap <leader>ee :e $MYVIMRC<cr>
 nnoremap <leader>es :e ~/.zshrc<cr>
 
+
 "" aliases
 
 call Alias('Tab',  'Tabularize')
@@ -524,9 +531,6 @@ augroup vimrc
 augroup end
 
 
-let &t_SI.="\e[5 q" " cursor is blinking bar in insert mode
-let &t_SR.="\e[4 q" " cursor is solid underscore in replace mode
-let &t_EI.="\e[1 q" " cursor is blinking block in normal mode
-
 "" notocommands
+
 command! -narg=* PyEval python3 EvaluateCurrentLine(<f-args>)
