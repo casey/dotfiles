@@ -401,7 +401,9 @@ vnoremap j gj|                                      " go to next screen line
 vnoremap k gk|                                      " go to previous screen line
 
 " use c-c to open completion menu and also move down selections
-inoremap <expr> <c-c> pumvisible() ? '<c-n>' : '<c-x><c-o><c-n><c-p><c-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+inoremap <expr> <c-c> pumvisible()
+  \ ? '<c-n>'
+  \ : '<c-x><c-o><c-n><c-p><c-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
 " enter key selects highlighted menu item when completion menu is visible
 inoremap <expr> <cr> pumvisible() ? "\<c-y>" : "\<c-g>u\<cr>"
