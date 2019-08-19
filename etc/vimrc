@@ -376,7 +376,7 @@ nnoremap <leader>tg :GitGutterToggle<cr>|           " toggle gitgutter
 nnoremap <leader>th :Hexmode<cr>|										" toggle hex mode
 nnoremap <leader>ts :setlocal spell!<cr>|           " toggle spelling
 nnoremap <leader>tu :UndotreeToggle<cr>|            " toggle undotree
-nnoremap <leader>tw :set list!<cr>|                 " toggle whitespace
+nnoremap <leader>tw :call ToggleWhitespace()<cr>|   " toggle whitespace
 nnoremap <leader>tp :Goyo<cr>|                      " toggle prose mode
 nnoremap <leader>tf :call ToggleRustfmt()<cr>|      " toggle rustfmt autosave
 nnoremap <leader>wo <c-w>o|                         " close all windows but current

@@ -43,6 +43,17 @@ function! ToggleColor()
   endif
 endfun
 
+" toggle visible whitespace and color column
+function! ToggleWhitespace()
+  if &colorcolumn == 101
+    set colorcolumn=0
+    set nolist
+  else
+    set colorcolumn=101
+    set list
+  endif
+endfun
+
 " toggle line numbers
 function! ToggleLineNumbers()
   set number!         " toggle line numbers
