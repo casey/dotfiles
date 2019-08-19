@@ -1,2 +1,3 @@
 --smart-case
 --glob=!Cargo.lock
+--glob=!target
