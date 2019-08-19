@@ -3,15 +3,16 @@ tabspaces:                         2
 
 shell:
   program: zsh
-  args:    ['-l', '-i', '-c', '/usr/bin/env tmux new-session -A -s main']
+  args: ['-i', '-c', 'shell']
 
 window:
   dimensions:
     columns: 80
     lines:   24
   padding:
-    x: 2
-    y: 2
+    x: 4
+    y: 4
+  dynamic_padding: true
   decorations: buttonless
 
 dpi:
@@ -31,7 +32,7 @@ font:
     family: DejaVu Sans Mono for Powerline
     style:  Oblique
 
-  size: 11.0
+  size: 12.0
 
   offset:
     x: 0
