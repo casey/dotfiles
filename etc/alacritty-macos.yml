@@ -3,7 +3,7 @@ tabspaces:                         2
 
 shell:
   program: zsh
-  args: ['-i', '-c', 'shell']
+  args:    ['-i', '-c', 'shell']
 
 window:
   dimensions:
