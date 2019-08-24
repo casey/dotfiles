@@ -46,7 +46,6 @@
     ~/.config/feh:                  etc/feh
     ~/.config/gsimplecal/config:    etc/gsimplecal
     ~/.config/i3status/config:      etc/i3status.config
-    ~/.config/odin.yaml:            etc/odin.yaml
     ~/.config/polybar/config:       etc/polybar
     ~/.config/sway/config:          etc/sway.config
     ~/.config/swaylock/config:      etc/swaylock.config
