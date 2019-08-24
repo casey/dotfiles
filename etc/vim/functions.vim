@@ -45,11 +45,11 @@ endfun
 
 " toggle visible whitespace and color column
 function! ToggleWhitespace()
-  if &colorcolumn == 101
+  if &colorcolumn != 0
     set colorcolumn=0
     set nolist
   else
-    set colorcolumn=101
+    set colorcolumn=51,73,80,101
     set list
   endif
 endfun
