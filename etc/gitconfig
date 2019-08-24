@@ -1,7 +1,6 @@
 [user]
 name  = Casey Rodarmor
 email = casey@rodarmor.com
-signingkey = 7E24C85CFB7113B0A32530F281FFC09B5FF9D250
 
 [github]
 user = casey

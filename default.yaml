@@ -8,6 +8,7 @@
   - mkdir -p ~/.cargo
   - mkdir -p ~/.config
   - mkdir -p ~/.config/alacritty
+  - mkdir -p ~/.config/git
   - mkdir -p ~/.config/gsimplecal
   - mkdir -p ~/.config/i3status
   - mkdir -p ~/.config/menus
@@ -61,7 +62,7 @@
     ~/.fn.zsh:                      etc/fn.zsh
     ~/.fxfile:                      etc/fxfile
     ~/.gdbinit:                     etc/gdbinit
-    ~/.gitconfig:                   etc/gitconfig
+    ~/.config/git/config:           etc/gitconfig
     ~/.gitignore.global:            etc/gitignore.global
     ~/.gnupg/gpg.conf:              etc/gpg.conf
     ~/.gnupg/gpg-agent.conf:        etc/gpg-agent.conf
@@ -97,8 +98,16 @@
     ~/.vim/autoload/plug.vim: submodules/vim-plug/plug.vim
 
 - shell:
-  - "if [[ `uname` = Darwin ]]; then ./submodules/dotbot/bin/dotbot -c macos.yaml; fi"
-  - "if [[ `uname` = Linux  ]]; then ./submodules/dotbot/bin/dotbot -c linux.yaml; fi"
+  - |
+    OS_CONFIG=os/`uname | tr '[:upper:]' '[:lower:]'`/default.yaml
+    if [[ -f $OS_CONFIG ]]; then
+      ./submodules/dotbot/bin/dotbot -c $OS_CONFIG
+    fi
+  - |
+    HOST_CONFIG=host/$HOST/default.yaml
+    if [[ -f $HOST_CONFIG ]]; then
+      ./submodules/dotbot/bin/dotbot -c $HOST_CONFIG
+    fi
   - chmod 700 ~/.vim
   - chmod 700 ~/.ssh
   - chmod 700 ~/.gnupg
