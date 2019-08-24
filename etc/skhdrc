@@ -48,3 +48,11 @@ rcmd - t : /Applications/Alacritty.app/Contents/MacOS/alacritty
 
 # open browser
 rcmd - b : "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+
+# mouse
+# rctrl + ralt + rshift - 7    : yabai -m window --toggle float
+# rctrl + ralt + rshift - 8    : yabai -m window --toggle float
+# rctrl + ralt + rshift - 9    : yabai -m window --toggle float
+# rctrl + ralt + rshift - 0    : yabai -m window --toggle float
+# rctrl + ralt + rshift - 0x1B : yabai -m window --toggle float
+# rctrl + ralt + rshift - 0x18 : yabai -m window --toggle float
