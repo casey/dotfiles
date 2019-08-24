@@ -64,6 +64,7 @@
     ~/.gitconfig:                   etc/gitconfig
     ~/.gitignore.global:            etc/gitignore.global
     ~/.gnupg/gpg.conf:              etc/gpg.conf
+    ~/.gnupg/gpg-agent.conf:        etc/gpg-agent.conf
     ~/.hushlogin:                   etc/hushlogin
     ~/.inputrc:                     etc/inputrc
     ~/.lldbinit:                    etc/lldbinit

@@ -36,6 +36,7 @@ formulae:
 	brew install tig
 	brew install tmux
 	brew install zsh
+	brew install pinentry-mac
 	# casks
 	brew cask install vlc
 	brew cask install alacritty
