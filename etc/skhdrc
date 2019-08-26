@@ -4,17 +4,17 @@ rcmd - j : yabai -m window --focus south
 rcmd - k : yabai -m window --focus north
 rcmd - l : yabai -m window --focus east
 
-# warp
+# swap
 rcmd + shift - h : yabai -m window --swap west
 rcmd + shift - j : yabai -m window --swap south
 rcmd + shift - k : yabai -m window --swap north
 rcmd + shift - l : yabai -m window --swap east
 
-# swap
-rcmd + alt - h : yabai -m window --swap west
-rcmd + alt - j : yabai -m window --swap south
-rcmd + alt - k : yabai -m window --swap north
-rcmd + alt - l : yabai -m window --swap east
+# warp
+rcmd + alt - h : yabai -m window --warp west
+rcmd + alt - j : yabai -m window --warp south
+rcmd + alt - k : yabai -m window --warp north
+rcmd + alt - l : yabai -m window --warp east
 
 # expand
 rcmd - a : yabai -m window --resize left:-20:0
