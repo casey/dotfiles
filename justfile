@@ -64,3 +64,13 @@ hunter:
 
 ledger:
 	pip3 install ledger_agent
+
+dia-x2160:
+	#!/usr/bin/env bash
+	set -euo pipefail
+	DIR=rsc/dia/x2160
+	rm -rf $DIR
+	mogrify \
+		-filter point -resize '1600%' \
+		-background transparent -gravity center -extent 2160x2160 \
+		-path $DIR rsc/dia/original/*.png
