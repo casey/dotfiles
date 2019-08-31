@@ -70,6 +70,7 @@ dia-x2160:
 	set -euo pipefail
 	DIR=rsc/dia/x2160
 	rm -rf $DIR
+	mkdir $DIR
 	mogrify \
 		-filter point -resize '1600%' \
 		-background transparent -gravity center -extent 2160x2160 \
