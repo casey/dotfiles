@@ -49,7 +49,6 @@ Plug 'tyru/open-browser.vim'              " open urls in browser
 Plug 'vim-airline/vim-airline'            " pretty and lightweight status and tab lines
 Plug 'vim-scripts/AnsiEsc.vim'            " draw ansi escape sequences as colors
 Plug 'vim-scripts/Rename'                 " rename the current file
-Plug 'vim-syntastic/syntastic'            " syntax and lint checking
 Plug 'vim-utils/vim-man'                  " improved man page viewing
 Plug 'wellle/targets.vim'                 " additional text objects
 Plug 'xolox/vim-misc'                     " misc funcionality for other plugins
@@ -207,8 +206,6 @@ let g:rustfmt_autosave                   = 1            " run rustfmt on save
 let g:solarized_contrast                 = 'high'       " use high contrast solarized colors
 let g:solarized_visibility               = 'high'       " use high contrast colors for 'list'
 let g:surround_indent                    = 1            " indent with '=' after surrounding
-let g:syntastic_always_populate_loc_list = 1            " populate the location list with errors
-let g:syntastic_python_checkers          = ['python3']  " use python3 as python checker
 let g:tmux_navigator_no_mappings         = 1            " disable default tmux navigator mappings
 let g:undotree_WindowLayout              = 2            " put undotree on left with full width diff
 let g:vim_markdown_folding_disabled      = 1            " disable folding for markdown files
@@ -259,8 +256,6 @@ let g:vim_markdown_preview_hotkey  = '<leader>pm'    " remap markdown preview ho
 let g:vim_markdown_preview_toggle  = 1               " update markdown preview on buffer write
 
 let g:rooter_patterns = ['Cargo.toml', '.git', '.git/', 'justfile', 'Justfile'] " stop patterns
-
-let g:syntastic_mode_map = {'mode': 'passive'} " only run syntastic on demand
 
 " cursor styling
 let &t_SI.="\e[5 q" " cursor is blinking bar in insert mode
@@ -517,7 +512,7 @@ augroup vimrc
   autocmd FileType rust nmap gv <Plug>(rust-def-vertical)
 
   " turn off misbehaving asciidoc plugin
-  autocmd bufreadpost *.adoc set filetype=text
+  autocmd BufReadPost *.adoc set filetype=text
 
   " use local and stdlib rusty-tags.vi as rust source tags file
   autocmd BufRead *.rs setlocal tags=./.rusty-tags.vi;/,$RUST_SRC_PATH/.rusty-tags.vi
