@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+if [[ $# -lt 1 ]]; then
+  echo "usage: forget-host LINE_NUMBER"
+  exit 1
+fi
+
+sed -i '' -e "${1}d" ~/.ssh/known_hosts

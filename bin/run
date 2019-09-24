@@ -1,7 +1,7 @@
 #!/bin/sh
 
 if hash reattach-to-user-namespace 2> /dev/null; then
-  exec reattach-to-user-namespace -l zsh
+  exec reattach-to-user-namespace -l $SHELL
 else
-  exec zsh
+  exec $SHELL
 fi

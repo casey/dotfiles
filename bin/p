@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+python3 -ic "import math, time, random, re, sys, itertools, os, string;"
+
+stty sane
