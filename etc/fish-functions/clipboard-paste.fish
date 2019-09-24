@@ -1,4 +1,3 @@
 function clipboard-paste
-  # pst | ???
-  commandline -f yank
+  fish_clipboard_paste
 end
