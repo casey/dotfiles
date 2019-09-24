@@ -1,2 +1,3 @@
 - link:
     ~/.config/alacritty/alacritty.yml: alacritty.yml
+    ~/Library/Application Support/Code/User/settings.json: ../../etc/vscode.json
