@@ -1,5 +1,8 @@
 {
     "workbench.startupEditor": "none",
     "telemetry.enableCrashReporter": false,
-    "telemetry.enableTelemetry": false
+    "telemetry.enableTelemetry": false,
+    "terminal.integrated.shell.osx": "/usr/local/bin/fish",
+    "workbench.activityBar.visible": true,
+    "terminal.integrated.macOptionIsMeta": true
 }
