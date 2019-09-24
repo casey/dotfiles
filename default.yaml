@@ -7,6 +7,7 @@
 - shell:
   - mkdir -p ~/.cargo
   - mkdir -p ~/.config
+  - mkdir -p ~/.config/fish
   - mkdir -p ~/.config/alacritty
   - mkdir -p ~/.config/git
   - mkdir -p ~/.config/gsimplecal
@@ -54,6 +55,7 @@
     ~/.config/taffybar/taffybar.hs: etc/taffybar.hs
     ~/.config/taffybar/taffybar.rc: etc/taffybar.rc
     ~/.config/user-dirs.dirs:       etc/user-dirs.dirs
+    ~/.config/fish/functions:       etc/fish-functions
     ~/.config/xmobar/xmobarrc:      etc/xmobarrc
     ~/.config/xonsh/config.json:    etc/xonsh.json
     ~/.config/yabai/yabairc:        etc/yabairc
