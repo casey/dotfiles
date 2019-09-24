@@ -1,8 +1,11 @@
 {
-    "workbench.startupEditor": "none",
+    "editor.tabSize": 2,
     "telemetry.enableCrashReporter": false,
     "telemetry.enableTelemetry": false,
+    "terminal.integrated.fontFamily": "DejaVu Sans Mono for Powerline",
+    "terminal.integrated.macOptionIsMeta": true,
     "terminal.integrated.shell.osx": "/usr/local/bin/fish",
+    "terminal.integrated.shellArgs.osx": ["-i", "-c", "shell"],
     "workbench.activityBar.visible": true,
-    "terminal.integrated.macOptionIsMeta": true
+    "workbench.startupEditor": "none"
 }
