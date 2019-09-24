@@ -1,1 +1,1 @@
-fzf_key_bindings
+# - read through zshrc

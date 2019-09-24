@@ -1,35 +1,35 @@
 function fish_prompt
-  # red if root
-  # yellow if command failed
-  # username if sshing
+  if test $status -ne 0
+    set_color yellow
+  else if test (id -u) -eq 0
+    set_color red
+  else
+    set_color blue
+  end
 
-  set_color brblue
+  if set -q SSH_CONNECTION
+    echo -n (hostname)
+  end
 
-  switch $fish_bind_mode
-    case insert
-      echo -n ": "
-    case default
-      echo -n "· "
-    case visual
-      echo -n "· "
+  if jobs -q
+    switch $fish_bind_mode
+      case insert
+        echo -n "⁑ "
+      case default
+        echo -n "∗ "
+      case visual
+        echo -n "∗ "
+    end
+  else
+    switch $fish_bind_mode
+      case insert
+        echo -n ": "
+      case default
+        echo -n "· "
+      case visual
+        echo -n "· "
+    end
   end
 
   set_color normal
 end
-
-
-# display host if we're sshing
-# if [[ -n "$SSH_CONNECTION" ]]; then
-#   H="%m"
-# fi
-
-# scary red prompt if root
-# if [[ $UID == 0 ]]; then
-#   PROMPT_COLOR=$PR_RED
-# else
-#   PROMPT_COLOR=$PR_LIGHT_BLUE
-# fi
-
-# local MODE="${${KEYMAP/vicmd/·}/(main|viins)/:}"
-# local BACKGROUND_MODE="${${KEYMAP/vicmd/∗}/(main|viins)/⁑}"
-# PS1="%0(?.$PROMPT_COLOR.$PR_LIGHT_YELLOW)$H%1(j.$BACKGROUND_MODE.$MODE) $CLEAR_COLOR"

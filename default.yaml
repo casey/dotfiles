@@ -46,6 +46,9 @@
 
     ~/.colordiffrc:                 etc/colordiffrc
     ~/.config/feh:                  etc/feh
+    ~/.config/fish/config.fish:     etc/config.fish
+    ~/.config/fish/functions:       etc/fish-functions
+    ~/.config/git/config:           etc/gitconfig
     ~/.config/gsimplecal/config:    etc/gsimplecal
     ~/.config/i3status/config:      etc/i3status.config
     ~/.config/polybar/config:       etc/polybar
@@ -55,19 +58,16 @@
     ~/.config/taffybar/taffybar.hs: etc/taffybar.hs
     ~/.config/taffybar/taffybar.rc: etc/taffybar.rc
     ~/.config/user-dirs.dirs:       etc/user-dirs.dirs
-    ~/.config/fish/functions:       etc/fish-functions
     ~/.config/xmobar/xmobarrc:      etc/xmobarrc
     ~/.config/xonsh/config.json:    etc/xonsh.json
     ~/.config/yabai/yabairc:        etc/yabairc
-    ~/.skhdrc:                      etc/skhdrc
     ~/.elinks/elinks.conf:          etc/elinks.conf
     ~/.fn.zsh:                      etc/fn.zsh
     ~/.fxfile:                      etc/fxfile
     ~/.gdbinit:                     etc/gdbinit
-    ~/.config/git/config:           etc/gitconfig
     ~/.gitignore.global:            etc/gitignore.global
-    ~/.gnupg/gpg.conf:              etc/gpg.conf
     ~/.gnupg/gpg-agent.conf:        etc/gpg-agent.conf
+    ~/.gnupg/gpg.conf:              etc/gpg.conf
     ~/.hushlogin:                   etc/hushlogin
     ~/.inputrc:                     etc/inputrc
     ~/.lldbinit:                    etc/lldbinit
@@ -79,6 +79,7 @@
     ~/.ripgreprc:                   etc/ripgreprc
     ~/.rusty-tags/config.toml:      etc/rusty-tags.toml
     ~/.sh.py:                       etc/sh.py
+    ~/.skhdrc:                      etc/skhdrc
     ~/.spacemacs:                   etc/spacemacs
     ~/.ssh/config:                  etc/sshconfig
     ~/.tmux.conf:                   etc/tmux.conf
