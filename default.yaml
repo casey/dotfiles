@@ -7,8 +7,8 @@
 - shell:
   - mkdir -p ~/.cargo
   - mkdir -p ~/.config
-  - mkdir -p ~/.config/fish
   - mkdir -p ~/.config/alacritty
+  - mkdir -p ~/.config/fish
   - mkdir -p ~/.config/git
   - mkdir -p ~/.config/gsimplecal
   - mkdir -p ~/.config/i3status
@@ -17,6 +17,7 @@
   - mkdir -p ~/.config/nixpkgs/overlays
   - mkdir -p ~/.config/polybar
   - mkdir -p ~/.config/skhd
+  - mkdir -p ~/.config/src
   - mkdir -p ~/.config/sway
   - mkdir -p ~/.config/swaylock
   - mkdir -p ~/.config/swaynag
@@ -52,6 +53,7 @@
     ~/.config/gsimplecal/config:    etc/gsimplecal
     ~/.config/i3status/config:      etc/i3status.config
     ~/.config/polybar/config:       etc/polybar
+    ~/.config/src/config.yaml:      etc/src.yaml
     ~/.config/sway/config:          etc/sway.config
     ~/.config/swaylock/config:      etc/swaylock.config
     ~/.config/swaynag/config:       etc/swaynag.config

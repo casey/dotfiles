@@ -1,0 +1,12 @@
+default-provider: bitbucket
+default-user:     rodarmor
+srcdir:           ~/src
+tmpdir:           ~/tmp
+
+providers:
+  github:
+    default-user:    casey
+    remote-template: git@github.com:{{user}}/{{project}}.git
+  bitbucket:
+    default-user:    rodarmor
+    remote-template: git@bitbucket.org:{{user}}/{{project}}.git
