@@ -453,25 +453,6 @@ if &t_Co > 2 || has("gui_running")
   hi SpellRare  cterm=italic
 endif
 
-if g:colors_name == 'base16-materia'
-let g:rainbow_conf = {
-\  'separately': {
-\    'html': {},
-\    'vim':  {},
-\    'tex':  {},
-\  }
-\}
-else
-let g:rainbow_conf = {
-\	'ctermfgs': ['blue', 'yellow', 'cyan', 'magenta'],
-\ 'separately': {
-\    'html': {},
-\    'vim':  {},
-\    'tex':  {},
-\  }
-\}
-endif
-
 
 "" autocommands
 
