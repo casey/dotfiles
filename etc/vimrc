@@ -436,7 +436,7 @@ digraphs fr 9753|  " reversed horizontal fleuron
 if &t_Co > 2 || has("gui_running")
   syntax on
   set t_Co=256
-  if filereadable(expand("~/.vimrc_background"))
+  if $TERM_PROGRAM != "vscode" && filereadable(expand("~/.vimrc_background"))
     let base16colorspace=256
     source ~/.vimrc_background
   endif
