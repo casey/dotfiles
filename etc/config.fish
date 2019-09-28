@@ -40,6 +40,9 @@ alias diff colordiff
 alias grep 'grep --color=auto'
 alias rwd  'cd (pwd -P)'
 
+# abbreviations
+abbr -g g git
+
 # tty configuration
 stty -ixoff      # disable sending start/stop characters
 stty -ixon       # disable start/stop output control
