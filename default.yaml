@@ -48,6 +48,7 @@
     ~/.colordiffrc:                 etc/colordiffrc
     ~/.config/feh:                  etc/feh
     ~/.config/fish/config.fish:     etc/config.fish
+    ~/.config/fish/completions:     etc/fish-completions
     ~/.config/fish/functions:       etc/fish-functions
     ~/.config/git/config:           etc/gitconfig
     ~/.config/gsimplecal/config:    etc/gsimplecal
