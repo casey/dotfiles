@@ -66,6 +66,7 @@ Plug 'tyru/capture.vim',    {'on': 'Capture'       } " capture command output in
 Plug 'Glench/Vim-Jinja2-Syntax' " jinja2
 Plug 'LnL7/vim-nix'             " nix
 Plug 'cespare/vim-toml'         " toml
+Plug 'dag/vim-fish'             " fish shell
 Plug 'fatih/vim-go'             " go
 Plug 'nsf/gocode'               " go autocomplete
 Plug 'pangloss/vim-javascript'  " javascript
