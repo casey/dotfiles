@@ -10,3 +10,6 @@ providers:
   bitbucket:
     default-user:    rodarmor
     remote-template: git@bitbucket.org:{{user}}/{{project}}.git
+  gitlab:
+    default-user:    rodarmor
+    remote-template: git@gitlab.com:{{user}}/{{project}}.git
