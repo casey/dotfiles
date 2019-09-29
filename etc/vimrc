@@ -288,7 +288,7 @@ map  #  <plug>(incsearch-nohl-#)|         " incsearch: word under cursor backwar
 map  *  <plug>(incsearch-nohl-*)|         " incsearch: word under cursor forward
 map  /  <plug>(incsearch-forward)|        " incsearch: search forward
 map  ?  <plug>(incsearch-backward)|       " incsearch: search backward
-"map  N  <plug>(incsearch-nohl-N)|         " incsearch: repeat last search backward
+map  N  <plug>(incsearch-nohl-N)|         " incsearch: repeat last search backward
 map  g# <plug>(incsearch-nohl-g#)|        " incsearch: word under cursor backward match non-words
 map  g* <plug>(incsearch-nohl-g*)|        " incsearch: word under cursor forward match non-words
 map  g/ <plug>(incsearch-stay)|           " incsearch: forward without moving cursor
@@ -492,12 +492,6 @@ augroup vimrc
 
   " don't highlight trailing whitespace in python files
   autocmd FileType python syn clear pythonSpaceError
-
-  " take <c-j> back from incsearch.vim
-  autocmd VimEnter * IncSearchNoreMap <c-j> <c-c><esc>
-
-  " take <c-k> back from incsearch.vim
-  autocmd VimEnter * IncSearchNoreMap <c-k> <c-k>
 
   " don't display line numbers in man pages
   autocmd VimEnter * call VimEnter()
