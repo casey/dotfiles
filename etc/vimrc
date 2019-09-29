@@ -11,6 +11,7 @@ Plug 'casey/reap.vim'                     " read, evaluate, and annotate
 Plug 'casey/vim-airline-themes'           " color themes for airline
 Plug 'christoomey/vim-tmux-navigator'     " navigate between vim and tmux splits
 Plug 'coderifous/textobj-word-column.vim' " column related text objects
+Plug 'dense-analysis/ale'                 " async lint 'n' fix engine
 Plug 'easymotion/vim-easymotion'          " jump to character
 Plug 'editorconfig/editorconfig-vim'      " respect .editorconfig
 Plug 'emonkak/vim-operator-sort'          " sort operator
@@ -140,7 +141,7 @@ set numberwidth   =3                     " use a minimum of three spaces for num
 set scrolloff     =5                     " keep three context lines above and below cursor
 set shortmess     =atsI                  " shorten some messages
 set sidescrolloff =3                     " keep three context columns left and right of cursor
-set signcolumn    =auto                  " show sign column when there is something to display
+set signcolumn    =yes                   " always show sign column
 set spellcapcheck =''                    " turn off checking for capitalized sentences
 set spelllang     =en_us                 " use american english as the spellcheck language
 set tabpagemax    =50                    " open a maximum of 30 tabs when vim is started with -p
@@ -188,7 +189,7 @@ let mapleader        = "\<space>"  " space is my leader
 let g:NERDTreeMinimalUI             = 1        " hide nerdtree help shortcut
 let g:NERDTreeWinSize               = 20       " make nerdtree 20 columns wide
 let g:gist_post_private             = 1        " make gists private by default
-let g:gitgutter_enabled             = 0        " disable gitgutter by default
+let g:gitgutter_enabled             = 1        " enable gitgutter by default
 let g:hardtime_allow_different_key  = 1        " allow different keys under time limit
 let g:hardtime_default_on           = 0        " turn off hardtime by default
 let g:hardtime_ignore_quickfix      = 1        " disable hardtime in quickfix
@@ -203,7 +204,7 @@ let g:rainbow_active                = 1        " enable rainbow delimiters
 let g:ranger_map_keys               = 0        " don't define any keybindings
 let g:ranger_replace_netrw          = 1        " open directories with ranger
 let g:rust_recommended_style        = 0        " use 2 space instead of 4 space tabs
-let g:rustfmt_autosave              = 1        " run rustfmt on save
+let g:rustfmt_autosave              = 0        " run rustfmt on save
 let g:solarized_contrast            = 'high'   " use high contrast solarized colors
 let g:solarized_visibility          = 'high'   " use high contrast colors for 'list'
 let g:surround_indent               = 1        " indent with '=' after surrounding
@@ -211,6 +212,7 @@ let g:tmux_navigator_no_mappings    = 1        " disable default tmux navigator 
 let g:undotree_WindowLayout         = 2        " put undotree on left with full width diff
 let g:vim_markdown_folding_disabled = 1        " disable folding for markdown files
 
+let g:airline#extensions#ale#enabled               = 1   " enable ale extension
 let g:airline#extensions#tabline#buffer_idx_mode   = 1   " show buffer indices
 let g:airline#extensions#tabline#buffer_min_count  = 2   " no tabline for less than 2 buffers
 let g:airline#extensions#tabline#buffer_nr_show    = 0   " don't show buffer numbers
@@ -257,6 +259,22 @@ let g:vim_markdown_preview_toggle  = 1               " update markdown preview o
 
 let g:rooter_patterns = ['Cargo.toml', '.git', '.git/', 'justfile', 'Justfile'] " stop patterns
 
+let g:ale_fix_on_save                  = 1 " fix on save
+let g:ale_lint_on_save                 = 1 " lint on save
+let g:ale_rust_cargo_check_all_targets = 1 " run cargo check with all targets
+let g:ale_set_highlights               = 0 " don't set highlights for lints
+let g:ale_set_loclist                  = 1 " set loclist for lints
+let g:ale_set_signs                    = 1 " set signs for lints
+
+" ale fixers
+let g:ale_fixers = {
+\ '*':    ['remove_trailing_lines', 'trim_whitespace'],
+\ 'rust': ['rustfmt'],
+\}
+
+" ale fixers
+let g:ale_linters = { 'rust': ['rls'] }
+
 " cursor styling
 let &t_SI.="\e[5 q" " cursor is blinking bar in insert mode
 let &t_SR.="\e[4 q" " cursor is solid underscore in replace mode
@@ -279,6 +297,8 @@ map  s  <plug>(easymotion-s)|             " easymotion
 nmap K  <plug>(Man)|                      " look up man page for word under cursor
 nmap gx <plug>(openbrowser-smart-search)| " open url under cursor in browser
 vmap gx <plug>(openbrowser-smart-search)| " open url under cursor in browser
+nmap ]l <Plug>(ale_next_wrap)|            " next ale error
+nmap [l <Plug>(ale_previous_wrap)|        " previous ale error
 
 " operators
 map <leader>od :call OpenWiktionary()<cr>| " look up in wiktionary
@@ -331,7 +351,6 @@ nnoremap <leader>a: :Tabularize :<cr>|              " align on :s
 nnoremap <leader>a= :Tabularize =<cr>|              " align on =s
 nnoremap <leader>bd :bd<cr>|                        " buffer delete
 nnoremap <leader>cx :!chmod u+x %<cr>|              " chmod +x current file
-nnoremap <leader>el :call LoadErrorfile()<cr>|      " open error file
 nnoremap <leader>fe :call FixEmoji()<cr>|           " fix emoji
 nnoremap <leader>ff gqae<cr>|                       " fix formatting
 nnoremap <leader>ft :retab<cr>|                     " fix tabs
@@ -365,6 +384,7 @@ nnoremap <leader>sh :History<cr>|                   " search history
 nnoremap <leader>sl :Lines<cr>|                     " lines in current buffer
 nnoremap <leader>st :Tags<cr>|                      " search ctags
 nnoremap <leader>sv :source $MYVIMRC<cr>:nohl<cr>|  " source ~/.vimrc
+nnoremap <leader>ta :call ToggleALE()<cr>|          " toggle ale
 nnoremap <leader>tc :call ToggleColor()<cr>|        " toggle syntax highlighting
 nnoremap <leader>tn :call ToggleLineNumbers()<cr>|  " toggle line numbers
 nnoremap <leader>tg :GitGutterToggle<cr>|           " toggle gitgutter
@@ -373,7 +393,6 @@ nnoremap <leader>ts :setlocal spell!<cr>|           " toggle spelling
 nnoremap <leader>tu :UndotreeToggle<cr>|            " toggle undotree
 nnoremap <leader>tw :call ToggleWhitespace()<cr>|   " toggle whitespace
 nnoremap <leader>tp :Goyo<cr>|                      " toggle prose mode
-nnoremap <leader>tf :call ToggleRustfmt()<cr>|      " toggle rustfmt autosave
 nnoremap <leader>wo <c-w>o|                         " close all windows but current
 nnoremap Q @@|                                      " repeat last macro
 nnoremap Y y$|                                      " yank to end of line

@@ -61,13 +61,17 @@ function! ToggleLineNumbers()
 endfun
 
 " toggle rustfmt autosave
-function! ToggleRustfmt()
-  if g:rustfmt_autosave 
-    let g:rustfmt_autosave = 0
-    echo 'Rustfmt autosave off'
+function! ToggleALE()
+  if g:ale_enabled
+    let g:ale_fix_on_save  = 0
+    let g:ale_lint_on_save = 0
+    let g:ale_enabled      = 0
+    echo 'ALE disabled'
   else
-    let g:rustfmt_autosave = 1
-    echo 'Rustfmt autosave on'
+    let g:ale_fix_on_save  = 1
+    let g:ale_lint_on_save = 1
+    let g:ale_enabled      = 1
+    echo 'ALE enabled'
   endif
 endfun
 
@@ -165,19 +169,6 @@ endfunction
 
 function! OpenWiktionary()
   call system('xdg-open "https://en.wiktionary.org/wiki/'.Selection().'"')
-endfunction
-
-function! LoadErrors()
-  let l:tempfile = tempname() . '-pane.txt'
-  execute '!tmux capture-pane -p -t 2 > ' . l:tempfile
-  cfile l:tempfile
-
-  " strip color escape codes from error file
-  " silent execute '!perl -pe "s/\\x1b\\[[0-9;]*[mG]//g" .errors > .errors.txt'
-  " load error file and jump to first error
-  " cfile
-  " redraw the screen
-  " redraw!
 endfunction
 
 function! DetectCargoScript()
