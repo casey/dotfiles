@@ -4,7 +4,6 @@ import os, sys
 
 from pathlib import Path
 
-
 def bins():
   for component in os.environ["PATH"].split(os.path.pathsep):
     path = Path(component)
