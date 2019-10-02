@@ -11,6 +11,9 @@ homebrew:
 rust:
 	rustup install nightly
 	rustup component add rustfmt
+	rustup component add rls
+	rustup component add rust-analysis
+	rustup component add rust-src
 
 crates:
 	cargo install --force ripgrep
