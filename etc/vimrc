@@ -300,6 +300,7 @@ vmap gx <plug>(openbrowser-smart-search)| " open url under cursor in browser
 nmap ]l <Plug>(ale_next_wrap)|            " next ale error
 nmap [l <Plug>(ale_previous_wrap)|        " previous ale error
 nmap +  <Plug>(ale_detail)|               " toggle ale details
+nmap <leader>. <Plug>(easymotion-repeat)| " repeat last motion
 
 " operators
 map <leader>od :call OpenWiktionary()<cr>| " look up in wiktionary
