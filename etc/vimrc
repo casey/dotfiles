@@ -259,6 +259,7 @@ let g:vim_markdown_preview_toggle  = 1               " update markdown preview o
 
 let g:rooter_patterns = ['Cargo.toml', '.git', '.git/', 'justfile', 'Justfile'] " stop patterns
 
+let g:ale_completion_enabled           = 1 " enable completion
 let g:ale_fix_on_save                  = 1 " fix on save
 let g:ale_lint_on_save                 = 1 " lint on save
 let g:ale_rust_cargo_check_all_targets = 1 " run cargo check with all targets
