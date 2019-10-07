@@ -285,23 +285,28 @@ let &t_EI.="\e[1 q" " cursor is blinking block in normal mode
 "" mappings
 
 " recursive mappings
-map  #  <plug>(incsearch-nohl-#)|         " incsearch: word under cursor backward
-map  *  <plug>(incsearch-nohl-*)|         " incsearch: word under cursor forward
-map  /  <plug>(incsearch-forward)|        " incsearch: search forward
-map  ?  <plug>(incsearch-backward)|       " incsearch: search backward
-map  N  <plug>(incsearch-nohl-N)|         " incsearch: repeat last search backward
-map  g# <plug>(incsearch-nohl-g#)|        " incsearch: word under cursor backward match non-words
-map  g* <plug>(incsearch-nohl-g*)|        " incsearch: word under cursor forward match non-words
-map  g/ <plug>(incsearch-stay)|           " incsearch: forward without moving cursor
-map  n  <plug>(incsearch-nohl-n)|         " incsearch: repeat last search forward
-map  s  <plug>(easymotion-s)|             " easymotion
-nmap K  <plug>(Man)|                      " look up man page for word under cursor
-nmap gx <plug>(openbrowser-smart-search)| " open url under cursor in browser
-vmap gx <plug>(openbrowser-smart-search)| " open url under cursor in browser
-nmap ]l <Plug>(ale_next_wrap)|            " next ale error
-nmap [l <Plug>(ale_previous_wrap)|        " previous ale error
-nmap +  <Plug>(ale_detail)|               " toggle ale details
-nmap <leader>. <Plug>(easymotion-repeat)| " repeat last motion
+map  #  <plug>(incsearch-nohl-#)|               " incsearch: word under cursor backward
+map  *  <plug>(incsearch-nohl-*)|               " incsearch: word under cursor forward
+map  /  <plug>(incsearch-forward)|              " incsearch: search forward
+map  ?  <plug>(incsearch-backward)|             " incsearch: search backward
+map  N  <plug>(incsearch-nohl-N)|               " incsearch: repeat last search backward
+map  g# <plug>(incsearch-nohl-g#)|              " incsearch: word under cursor backward non-words
+map  g* <plug>(incsearch-nohl-g*)|              " incsearch: word under cursor forward non-words
+map  g/ <plug>(incsearch-stay)|                 " incsearch: forward without moving cursor
+map  n  <plug>(incsearch-nohl-n)|               " incsearch: repeat last search forward
+map  s  <plug>(easymotion-s)|                   " easymotion
+nmap +  <Plug>(ale_detail)|                     " toggle ale details
+nmap K  <plug>(Man)|                            " look up man page for word under cursor
+nmap [l <Plug>(ale_previous_wrap)|              " previous ale error
+nmap ]l <Plug>(ale_next_wrap)|                  " next ale error
+nmap gd <Plug>(ale_go_to_definition)|           " definition of symbol under cursor
+nmap gs <Plug>(ale_go_to_definition_in_split)|  " definition of symbol under cursor in split
+nmap gv <Plug>(ale_go_to_definition_in_vsplit)| " definition of symbol under cursor in vsplit
+nmap gz <Plug>(ale_go_to_type_definition)|      " type definition of symbol under cursor
+vmap gx <plug>(openbrowser-smart-search)|       " open url under cursor in browser
+
+" repeat last motion
+nmap <leader>. <Plug>(easymotion-repeat)
 
 " operators
 map <leader>od :call OpenWiktionary()<cr>| " look up in wiktionary
@@ -350,8 +355,8 @@ nnoremap <leader>= :split<cr>|                      " horizontal split
 nnoremap <leader>aa :A<cr>|                         " alternate article
 nnoremap <leader>al :SidewaysLeft<cr>|              " move function argument left
 nnoremap <leader>ar :SidewaysRight<cr>|             " move function argument right
-nnoremap <leader>a: :Tabularize :<cr>|              " align on :s
-nnoremap <leader>a= :Tabularize =<cr>|              " align on =s
+nnoremap <leader>a: :Tabularize :<cr>|              " align on :
+nnoremap <leader>a= :Tabularize =<cr>|              " align on =
 nnoremap <leader>bd :bd<cr>|                        " buffer delete
 nnoremap <leader>cx :!chmod u+x %<cr>|              " chmod +x current file
 nnoremap <leader>fe :call FixEmoji()<cr>|           " fix emoji
@@ -498,15 +503,6 @@ augroup vimrc
 
   " don't display line numbers in man pages
   autocmd VimEnter * call VimEnter()
-
-  " go to definition of identifier under cursor
-  autocmd FileType rust nmap gd <Plug>(rust-def)
-
-  " open split with definition of identifier under cursor
-  autocmd FileType rust nmap gs <Plug>(rust-def-split)
-
-  " open vertical split with definition of identifier under cursor
-  autocmd FileType rust nmap gv <Plug>(rust-def-vertical)
 
   " turn off misbehaving asciidoc plugin
   autocmd BufReadPost *.adoc set filetype=text
