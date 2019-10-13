@@ -275,7 +275,7 @@ let g:ale_fixers = {
 \}
 
 " ale fixers
-let g:ale_linters = { 'rust': ['rls'] }
+let g:ale_linters = { 'rust': ['rls'], 'fish': [] }
 
 " cursor styling
 let &t_SI.="\e[5 q" " cursor is blinking bar in insert mode
