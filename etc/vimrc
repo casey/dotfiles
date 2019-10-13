@@ -261,6 +261,7 @@ let g:rooter_patterns = ['Cargo.toml', '.git', '.git/', 'justfile', 'Justfile'] 
 
 let g:ale_completion_enabled           = 0 " enable completion
 let g:ale_fix_on_save                  = 1 " fix on save
+let g:ale_lint_on_text_changed         = 0 " don't lint when text is changed
 let g:ale_lint_on_save                 = 1 " lint on save
 let g:ale_rust_cargo_check_all_targets = 1 " run cargo check with all targets
 let g:ale_set_highlights               = 0 " don't set highlights for lints
