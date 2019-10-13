@@ -39,6 +39,9 @@ alias ls   exa
 alias diff colordiff
 alias grep 'grep --color=auto'
 alias rwd  'cd (pwd -P)'
+alias github 'src remote github'
+alias bitbucket 'src remote bitbucket'
+alias generate-bin 'cargo generate --git https://github.com/casey/bin.git --name'
 
 # abbreviations
 abbr -g g git
