@@ -5,7 +5,40 @@
     "terminal.integrated.fontFamily": "DejaVu Sans Mono for Powerline",
     "terminal.integrated.macOptionIsMeta": true,
     "terminal.integrated.shell.osx": "/usr/local/bin/fish",
-    "terminal.integrated.shellArgs.osx": ["-i", "-c", "shell"],
-    "workbench.activityBar.visible": true,
-    "workbench.startupEditor": "none"
+    "terminal.integrated.shellArgs.osx": [
+        "-i",
+        "-c",
+        "shell"
+    ],
+    "workbench.activityBar.visible": false,
+    "workbench.startupEditor": "none",
+    "rust-client.channel": "stable",
+    "rust-client.rustupPath": "~/.cargo/bin/rustup",
+    "rust.build_on_save": true,
+    "rust.show_warnings": false,
+    "editor.formatOnSave": true,
+    "breadcrumbs.enabled": false,
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "[",
+                "l"
+            ],
+            "commands": [
+                "editor.action.marker.prevInFiles",
+            ]
+        },
+        {
+            "before": [
+                "]",
+                "l"
+            ],
+            "commands": [
+                "editor.action.marker.nextInFiles",
+            ]
+        }
+    ],
+    "editor.lineNumbers": "relative",
+    "vim.easymotion": true,
+    "vim.leader": "<space>"
 }
