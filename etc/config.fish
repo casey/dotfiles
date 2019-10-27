@@ -1,19 +1,20 @@
 # path variable
-path: ~/bin                           # artisanal binaries
-path: ~/sbin                          # admin binaries
+path: ~/bin                           # artisanal
+path: ~/sbin                          # admin
 path: ~/.cargo/bin                    # cargo
-path: ~/.fzf/bin                      # fzf binary
-path: ~/.nix-profile/bin              # nix env binaries
+path: ~/.fzf/bin                      # fzf
+path: ~/.nix-profile/bin              # nix env
 path: ~/.vim/plugged/vim-superman/bin # vman script
-path: ~/opt/npm/bin                   # npm binaries
-path: /usr/local/bin                  # homebrew binaries
-path: /usr/local/sbin                 # admin homebrew binaries
-path: /usr/local/opt/bin              # keg-only homebrew binaries
-path: /usr/bin                        # binaries
-path: /usr/sbin                       # admin binaries
+path: ~/opt/npm/bin                   # npm
+path: /usr/local/bin                  # homebrew
+path: /usr/local/sbin                 # admin homebrew
+path: /usr/local/opt/bin              # keg-only homebrew
+path: /opt/local/bin                  # macports
+path: /usr/bin                        # distro
+path: /usr/sbin                       # distro admin
 path: /usr/games                      # games
-path: /bin                            # core binaries
-path: /sbin                           # core admin binaries
+path: /bin                            # core
+path: /sbin                           # core admin
 
 # environment variables
 set -x CLICOLOR   1              # use color
