@@ -26,6 +26,9 @@ set -x LS_OPTIONS '--color=auto' # make ls use color
 set -x PAGER      less           # less as pager
 set -x VISUAL     vim            # vim as visual editor
 
+# shell settings
+set fish_prompt_pwd_dir_length 0 # use full paths in prompt
+
 # use ripgrep with fzf
 set -x FZF_DEFAULT_COMMAND "rg --files --hidden --glob '!.git/*' --glob '!*.pyc'"
 
