@@ -445,10 +445,11 @@ nnoremap <silent> k :TmuxNavigateUp<cr>
 nnoremap <silent> j :TmuxNavigateDown<cr>
 nnoremap <silent> l :TmuxNavigateRight<cr>
 
-" edit configuration files
+" edit named files
 nnoremap <leader>ev :e $MYVIMRC<cr>
 nnoremap <leader>ee :e $MYVIMRC<cr>
 nnoremap <leader>es :e ~/.zshrc<cr>
+nnoremap <leader>en :e notes.md<cr>
 
 
 "" aliases
