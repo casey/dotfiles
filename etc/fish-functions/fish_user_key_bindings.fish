@@ -1,6 +1,9 @@
 function fish_user_key_bindings
   fish_hybrid_key_bindings
+
+  source ~/.fzf/shell/key-bindings.fish
   fzf_key_bindings
+
   bind -M insert -m default \cj force-repaint
   bind -M default -m default \cj force-repaint
 
