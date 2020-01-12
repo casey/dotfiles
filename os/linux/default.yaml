@@ -1,3 +1,4 @@
+- shell:
+    - mkdir -p ~/.config/alacritty
 - link:
-    ~/.config/alacritty/alacritty.yml: alacritty
-    ~/.npmrc:                          npmrc
+    ~/.config/alacritty/alacritty.yml: alacritty.yml
