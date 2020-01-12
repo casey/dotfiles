@@ -2,4 +2,4 @@
 
 set -euxo pipefail
 
-exec google-chrome-stable "$@"
+exec google-chrome-stable --force-dark-mode "$@"
