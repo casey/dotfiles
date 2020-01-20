@@ -1,0 +1,7 @@
+#!/usr/bin/env zsh
+
+set -euxo pipefail
+
+for machine in broome crosby mercer spring; do
+  ssh $machine.cluster.recurse.com who
+done
