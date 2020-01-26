@@ -399,6 +399,7 @@ nnoremap <leader>sl :Lines<cr>|                     " lines in current buffer
 nnoremap <leader>st :Tags<cr>|                      " search ctags
 nnoremap <leader>sv :source $MYVIMRC<cr>:nohl<cr>|  " source ~/.vimrc
 nnoremap <leader>ta :call ToggleALE()<cr>|          " toggle ale
+nnoremap <leader>tb :set wrap!<cr>|                 " toggle line breaks
 nnoremap <leader>tc :call ToggleColor()<cr>|        " toggle syntax highlighting
 nnoremap <leader>tn :call ToggleLineNumbers()<cr>|  " toggle line numbers
 nnoremap <leader>tg :GitGutterToggle<cr>|           " toggle gitgutter
