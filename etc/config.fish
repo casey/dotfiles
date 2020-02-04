@@ -6,6 +6,7 @@ path: ~/.fzf/bin                      # fzf
 path: ~/.nix-profile/bin              # nix env
 path: ~/.vim/plugged/vim-superman/bin # vman script
 path: ~/opt/npm/bin                   # npm
+path: ~/.local/bin                    # pipx
 path: /usr/local/bin                  # homebrew
 path: /usr/local/sbin                 # admin homebrew
 path: /usr/local/opt/bin              # keg-only homebrew
