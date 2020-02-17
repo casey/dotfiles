@@ -21,6 +21,7 @@ Plug 'glts/vim-magnum'                    " bignums
 Plug 'glts/vim-radical'                   " convert numbers between bases
 Plug 'godlygeek/tabular'                  " align lines according to patterns
 Plug 'haya14busa/incsearch.vim'           " improved incremental search
+Plug 'inside/vim-search-pulse'            " pulse search pattern
 Plug 'jez/vim-superman'                   " use vim as a manpage pager
 Plug 'junegunn/fzf.vim'                   " fuzzy searching using fzf
 Plug 'junegunn/goyo.vim'                  " prose mode
@@ -186,31 +187,32 @@ call Stops(2)
 let c_no_curly_error = 1           " {} inside [] or () is not an error
 let mapleader        = "\<space>"  " space is my leader
 
-let g:NERDTreeMinimalUI             = 1        " hide nerdtree help shortcut
-let g:NERDTreeWinSize               = 20       " make nerdtree 20 columns wide
-let g:gist_post_private             = 1        " make gists private by default
-let g:gitgutter_enabled             = 0        " enable gitgutter by default
-let g:hardtime_allow_different_key  = 1        " allow different keys under time limit
-let g:hardtime_default_on           = 0        " turn off hardtime by default
-let g:hardtime_ignore_quickfix      = 1        " disable hardtime in quickfix
-let g:hardtime_timeout              = 250      " only allow hjkl every 250ms
-let g:hexmode_patterns              = '*.wasm' " open wasm files in hexmode
-let g:incsearch#auto_nohlsearch     = 1        " turn off hlsearch
-let g:investigate_use_dash          = 1        " make investigate use dash on macos
-let g:netrw_fastbrowse              = 0        " don't retain closed netrw buffers
-let g:netrw_nogx                    = 1        " disable netrw's gx mapping
-let g:pastedtext_select_key         = 'gl'     " use gl for last pasted text mappings
-let g:rainbow_active                = 1        " enable rainbow delimiters
-let g:ranger_map_keys               = 0        " don't define any keybindings
-let g:ranger_replace_netrw          = 1        " open directories with ranger
-let g:rust_recommended_style        = 0        " use 2 space instead of 4 space tabs
-let g:rustfmt_autosave              = 0        " run rustfmt on save
-let g:solarized_contrast            = 'high'   " use high contrast solarized colors
-let g:solarized_visibility          = 'high'   " use high contrast colors for 'list'
-let g:surround_indent               = 1        " indent with '=' after surrounding
-let g:tmux_navigator_no_mappings    = 1        " disable default tmux navigator mappings
-let g:undotree_WindowLayout         = 2        " put undotree on left with full width diff
-let g:vim_markdown_folding_disabled = 1        " disable folding for markdown files
+let g:NERDTreeMinimalUI             = 1         " hide nerdtree help shortcut
+let g:NERDTreeWinSize               = 20        " make nerdtree 20 columns wide
+let g:gist_post_private             = 1         " make gists private by default
+let g:gitgutter_enabled             = 0         " enable gitgutter by default
+let g:hardtime_allow_different_key  = 1         " allow different keys under time limit
+let g:hardtime_default_on           = 0         " turn off hardtime by default
+let g:hardtime_ignore_quickfix      = 1         " disable hardtime in quickfix
+let g:hardtime_timeout              = 250       " only allow hjkl every 250ms
+let g:hexmode_patterns              = '*.wasm'  " open wasm files in hexmode
+let g:incsearch#auto_nohlsearch     = 1         " turn off hlsearch
+let g:investigate_use_dash          = 1         " make investigate use dash on macos
+let g:netrw_fastbrowse              = 0         " don't retain closed netrw buffers
+let g:netrw_nogx                    = 1         " disable netrw's gx mapping
+let g:pastedtext_select_key         = 'gl'      " use gl for last pasted text mappings
+let g:rainbow_active                = 1         " enable rainbow delimiters
+let g:ranger_map_keys               = 0         " don't define any keybindings
+let g:ranger_replace_netrw          = 1         " open directories with ranger
+let g:rust_recommended_style        = 0         " use 2 space instead of 4 space tabs
+let g:rustfmt_autosave              = 0         " run rustfmt on save
+let g:solarized_contrast            = 'high'    " use high contrast solarized colors
+let g:solarized_visibility          = 'high'    " use high contrast colors for 'list'
+let g:surround_indent               = 1         " indent with '=' after surrounding
+let g:tmux_navigator_no_mappings    = 1         " disable default tmux navigator mappings
+let g:undotree_WindowLayout         = 2         " put undotree on left with full width diff
+let g:vim_markdown_folding_disabled = 1         " disable folding for markdown files
+let g:vim_search_pulse_mode         = 'pattern' " pulse pattern not line
 
 let g:airline#extensions#ale#enabled               = 1   " enable ale extension
 let g:airline#extensions#tabline#buffer_idx_mode   = 1   " show buffer indices
@@ -294,26 +296,26 @@ map  #  <plug>(incsearch-nohl-#)|               " incsearch: word under cursor b
 map  *  <plug>(incsearch-nohl-*)|               " incsearch: word under cursor forward
 map  /  <plug>(incsearch-forward)|              " incsearch: search forward
 map  ?  <plug>(incsearch-backward)|             " incsearch: search backward
-map  N  <plug>(incsearch-nohl-N)|               " incsearch: repeat last search backward
-map  g# <plug>(incsearch-nohl-g#)|              " incsearch: word under cursor backward non-words
-map  g* <plug>(incsearch-nohl-g*)|              " incsearch: word under cursor forward non-words
-map  g/ <plug>(incsearch-stay)|                 " incsearch: forward without moving cursor
-map  n  <plug>(incsearch-nohl-n)|               " incsearch: repeat last search forward
+map  N  <plug>(incsearch-nohl-N)<Plug>Pulse|    " incsearch: repeat last search backward
+map  g# <plug>(incsearch-nohl-g#)<Plug>Pulse|   " incsearch: word under cursor backward non-words
+map  g* <plug>(incsearch-nohl-g*)<Plug>Pulse|   " incsearch: word under cursor forward non-words
+map  g/ <plug>(incsearch-stay)<Plug>Pulse|      " incsearch: forward without moving cursor
+map  n  <plug>(incsearch-nohl-n)<Plug>Pulse|    " incsearch: repeat last search forward
 map  s  <plug>(easymotion-s)|                   " easymotion
 nmap K  <plug>(Man)|                            " look up man page for word under cursor
-nmap [l <Plug>(ale_previous_wrap)|              " previous ale error
-nmap ]l <Plug>(ale_next_wrap)|                  " next ale error
-nmap gd <Plug>(ale_go_to_definition)|           " definition of symbol under cursor
-nmap gs <Plug>(ale_go_to_definition_in_split)|  " definition of symbol under cursor in split
-nmap gv <Plug>(ale_go_to_definition_in_vsplit)| " definition of symbol under cursor in vsplit
-nmap gz <Plug>(ale_go_to_type_definition)|      " type definition of symbol under cursor
+nmap [l <plug>(ale_previous_wrap)|              " previous ale error
+nmap ]l <plug>(ale_next_wrap)|                  " next ale error
+nmap gd <plug>(ale_go_to_definition)|           " definition of symbol under cursor
+nmap gs <plug>(ale_go_to_definition_in_split)|  " definition of symbol under cursor in split
+nmap gv <plug>(ale_go_to_definition_in_vsplit)| " definition of symbol under cursor in vsplit
+nmap gz <plug>(ale_go_to_type_definition)|      " type definition of symbol under cursor
 vmap gx <plug>(openbrowser-smart-search)|       " open url under cursor in browser
 
 " toggle ale details
-nmap +  <Plug>(ale_detail)
+nmap +  <plug>(ale_detail)
 
 " repeat last motion
-nmap <leader>. <Plug>(easymotion-repeat)
+nmap <leader>. <plug>(easymotion-repeat)
 
 " operators
 map <leader>od :call OpenWiktionary()<cr>| " look up in wiktionary
@@ -331,8 +333,8 @@ nmap <leader>6 <plug>AirlineSelectTab6
 nmap <leader>7 <plug>AirlineSelectTab7
 nmap <leader>8 <plug>AirlineSelectTab8
 nmap <leader>9 <plug>AirlineSelectTab9
-nmap <c-h> <Plug>AirlineSelectPrevTab
-nmap <c-l> <Plug>AirlineSelectNextTab
+nmap <c-h> <plug>AirlineSelectPrevTab
+nmap <c-l> <plug>AirlineSelectNextTab
 
 " objects
 " free g?:        byzjk
