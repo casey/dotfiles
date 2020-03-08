@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -euxo pipefail
+
+vim /etc/hosts
+
+dscacheutil -flushcache
