@@ -412,6 +412,7 @@ nnoremap <leader>tu :UndotreeToggle<cr>|            " toggle undotree
 nnoremap <leader>tw :call ToggleWhitespace()<cr>|   " toggle whitespace
 nnoremap <leader>tp :Goyo<cr>|                      " toggle prose mode
 nnoremap <leader>wo <c-w>o|                         " close all windows but current
+nnoremap <leader>zz :x<cr>|                         " save file and exit
 nnoremap Q @@|                                      " repeat last macro
 nnoremap Y y$|                                      " yank to end of line
 nnoremap j gj|                                      " go down one screen line
