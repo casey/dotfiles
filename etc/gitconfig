@@ -12,10 +12,11 @@ status = auto
 ui     = true
 
 [core]
+autocrlf     = false
 excludesfile = ~/.gitignore.global
+pager        = less -FRX
 quotepath    = false
 trustctime   = false
-autocrlf     = false
 
 [alias]
 br    = branch
@@ -70,6 +71,3 @@ gpgsign = 1
 
 [gpg]
 program = gpg
-
-[pager]
-branch = false
