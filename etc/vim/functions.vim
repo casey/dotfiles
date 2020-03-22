@@ -167,6 +167,14 @@ function! Selection()
   return join(lines, "\n")
 endfunction
 
+function! ShowDocumentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
 function! OpenWiktionary()
   call system('xdg-open "https://en.wiktionary.org/wiki/'.Selection().'"')
 endfunction

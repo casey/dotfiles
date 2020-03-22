@@ -55,6 +55,9 @@ Plug 'vim-utils/vim-man'                  " improved man page viewing
 Plug 'wellle/targets.vim'                 " additional text objects
 Plug 'xolox/vim-misc'                     " misc funcionality for other plugins
 
+" language server client
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 " base16 color schemes
 Plug 'danielwe/base16-vim'       " repository with fix for errors
 " Plug 'chriskempson/base16-vim' " original repository w/errors
@@ -140,7 +143,7 @@ set makeprg       =just                  " use just as the makeprg
 set mouse         =a                     " enable mouse use in all modes
 set numberwidth   =3                     " use a minimum of three spaces for numbers in gutter
 set scrolloff     =5                     " keep three context lines above and below cursor
-set shortmess     =atsI                  " shorten some messages
+set shortmess     =actsI                 " shorten some messages
 set sidescrolloff =3                     " keep three context columns left and right of cursor
 set signcolumn    =yes                   " always show sign column
 set spellcapcheck =''                    " turn off checking for capitalized sentences
@@ -303,12 +306,6 @@ map  g/ <plug>(incsearch-stay)<Plug>Pulse|      " incsearch: forward without mov
 map  n  <plug>(incsearch-nohl-n)<Plug>Pulse|    " incsearch: repeat last search forward
 map  s  <plug>(easymotion-s)|                   " easymotion
 nmap K  <plug>(Man)|                            " look up man page for word under cursor
-nmap [l <plug>(ale_previous_wrap)|              " previous ale error
-nmap ]l <plug>(ale_next_wrap)|                  " next ale error
-nmap gd <plug>(ale_go_to_definition)|           " definition of symbol under cursor
-nmap gs <plug>(ale_go_to_definition_in_split)|  " definition of symbol under cursor in split
-nmap gv <plug>(ale_go_to_definition_in_vsplit)| " definition of symbol under cursor in vsplit
-nmap gz <plug>(ale_go_to_type_definition)|      " type definition of symbol under cursor
 vmap gx <plug>(openbrowser-smart-search)|       " open url under cursor in browser
 
 " toggle ale details
@@ -336,11 +333,39 @@ nmap <leader>9 <plug>AirlineSelectTab9
 nmap <c-h> <plug>AirlineSelectPrevTab
 nmap <c-l> <plug>AirlineSelectNextTab
 
+" range selection
+nmap <silent> <tab> <Plug>(coc-range-select)
+xmap <silent> <tab> <Plug>(coc-range-select)
+
+" coc
+nmap <leader>ca <Plug>(coc-codeaction)|  " apply code action to current line
+nmap <leader>cf <Plug>(coc-fix-current)| " autofix current line
+nmap <leader>cr <Plug>(coc-rename)|      " rename symbol under cursor
+
+" apply code action to selected region
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+" code navigation
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+
 " objects
 " free g?:        byzjk
 " free a? and i?: dfghijkmoqruvxyz
 "omap gl <plug>(textobj-pastedtext-text)| " last pasted text - operator pending mode (example)
 "vmap gl <plug>(textobj-pastedtext-text)| " last pasted text - visual mode and select mode (example)
+
+" function objects
+omap af <Plug>(coc-funcobj-a)
+omap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+xmap if <Plug>(coc-funcobj-i)
 
 " non-recursive mappings
 cnoremap <c-j> <c-c><esc>|                          " exit command mode
@@ -433,10 +458,13 @@ vnoremap <leader>s  :sort<cr>|                      " sort lines
 vnoremap j gj|                                      " go to next screen line
 vnoremap k gk|                                      " go to previous screen line
 
+" show documentation in preview window.
+nnoremap <silent> K :call ShowDocumentation()<CR>
+
 " use c-c to open completion menu and also move down selections
-inoremap <expr> <c-c> pumvisible()
-  \ ? '<c-n>'
-  \ : '<c-x><c-o><c-n><c-p><c-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+" inoremap <expr> <c-c> pumvisible()
+"   \ ? '<c-n>'
+"   \ : '<c-x><c-o><c-n><c-p><c-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
 " enter key selects highlighted menu item when completion menu is visible
 inoremap <expr> <cr> pumvisible() ? "\<c-y>" : "\<c-g>u\<cr>"
@@ -455,7 +483,6 @@ nnoremap <leader>ev :e $MYVIMRC<cr>
 nnoremap <leader>ee :e $MYVIMRC<cr>
 nnoremap <leader>es :e ~/.zshrc<cr>
 nnoremap <leader>en :e notes.md<cr>
-
 
 "" aliases
 
