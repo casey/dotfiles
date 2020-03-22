@@ -362,6 +362,8 @@ nmap <silent> gr <Plug>(coc-references)
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
+" trigger completion
+inoremap <silent><expr> <c-c> coc#refresh()
 
 " objects
 " free g?:        byzjk
