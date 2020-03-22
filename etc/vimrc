@@ -238,6 +238,12 @@ let g:airline_detect_modified                      = 1   " highlight modified bu
 let g:airline_left_sep                             = ''  " turn off left separator
 let g:airline_powerline_fonts                      = 1   " fixes missing whitespace in tabline
 let g:airline_right_sep                            = ''  " turn off right separator
+
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_symbols.dirty = '…'
+
 let g:airline_skip_empty_sections                  = 1   " hide empty sections
 
 let g:EasyMotion_do_mapping = 0                             " disable default mappings
