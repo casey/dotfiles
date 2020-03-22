@@ -342,6 +342,15 @@ nmap <leader>ca <Plug>(coc-codeaction)|  " apply code action to current line
 nmap <leader>cf <Plug>(coc-fix-current)| " autofix current line
 nmap <leader>cr <Plug>(coc-rename)|      " rename symbol under cursor
 
+nnoremap <silent> <leader>cc  :<C-u>CocList commands<cr>|    " commands
+nnoremap <silent> <leader>cd  :<C-u>CocList diagnostics<cr>| " diagnostics
+nnoremap <silent> <leader>ce  :<C-u>CocList extensions<cr>|  " extensions
+nnoremap <silent> <leader>cj  :<C-u>CocNext<CR>|             " default action for next item
+nnoremap <silent> <leader>ck  :<C-u>CocPrev<CR>|             " default action for previous item
+nnoremap <silent> <leader>co  :<C-u>CocList outline<cr>|     " file symbols
+nnoremap <silent> <leader>cp  :<C-u>CocListResume<CR>|       " resume latest coc list.
+nnoremap <silent> <leader>cs  :<C-u>CocList -I symbols<cr>|  " workspace symbols
+
 " apply code action to selected region
 xmap <leader>a  <Plug>(coc-codeaction-selected)
 nmap <leader>a  <Plug>(coc-codeaction-selected)
@@ -560,6 +569,9 @@ augroup vimrc
 
   " highlight symbol under cursor
   autocmd CursorHold * silent call CocActionAsync('highlight')
+
+  " update signature help on jump placeholder
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
 
