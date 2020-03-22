@@ -90,6 +90,13 @@ stty stop undef  # unmap c-s
 # use vi keybindings
 bindkey -v
 
+# set up completions
+fpath+=$HOME/.zsh/completions
+zstyle ':completion:*:descriptions' format "%U%B%d%b%u"
+zstyle ':completion:*:messages' format "%F{green}%d%f"
+autoload -Uz compinit
+compinit -u
+
 # add custom bindings
 bind: ' '    magic-space
 bind: '\e^?' backward-kill-word
