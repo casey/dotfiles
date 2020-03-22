@@ -557,6 +557,9 @@ augroup vimrc
 
   " highlight suggested commit description length
   autocmd FileType gitcommit set colorcolumn+=73
+
+  " highlight symbol under cursor
+  autocmd CursorHold * silent call CocActionAsync('highlight')
 augroup end
 
 
