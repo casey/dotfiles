@@ -5,9 +5,11 @@ function fish_right_prompt
   set_color normal
 
   if __fish_is_git_repository
-    if not git diff --quiet
+    if git_untracked_files
       set_color red
-    else if not git diff --cached --quiet
+    else if git_worktree_dirty
+      set_color red
+    else if not git diff --cached --quiet > /dev/null 2> /dev/null
       set_color green
     else
 	    set_color brblue
