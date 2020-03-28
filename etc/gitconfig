@@ -14,7 +14,7 @@ ui     = true
 [core]
 autocrlf     = false
 excludesfile = ~/.gitignore.global
-pager        = less -FRX
+pager        = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less -FRX
 quotepath    = false
 trustctime   = false
 
