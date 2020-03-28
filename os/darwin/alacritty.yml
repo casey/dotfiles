@@ -7,8 +7,8 @@ shell:
 
 window:
   dimensions:
-    columns: 80
-    lines:   24
+    columns: 100
+    lines:   30
   padding:
     x: 4
     y: 4
