@@ -76,7 +76,6 @@ Plug 'fatih/vim-go'             " go
 Plug 'nsf/gocode'               " go autocomplete
 Plug 'pangloss/vim-javascript'  " javascript
 Plug 'plasticboy/vim-markdown'  " markdown
-Plug 'racer-rust/vim-racer'     " rust autocomplete
 Plug 'rhysd/vim-wasm'           " wasm
 Plug 'rust-lang/rust.vim'       " rust
 Plug 'tikhomirov/vim-glsl'      " glsl
@@ -258,9 +257,6 @@ let g:grepper.tools  = ['rg', 'git']
 let g:rooter_resolve_links                          = 1         " follow symlinks
 let g:rooter_change_directory_for_non_project_files = 'current' " autochdir if not a project file
 let g:rooter_silent_chdir                           = 1         " not message when chdiring
-
-let g:racer_experimental_completer = 1 " show complete signature
-let g:racer_insert_paren           = 1 " insert parenthesis into completion
 
 let g:vim_markdown_preview_browser = 'Google Chrome' " open markdown preview in chrome
 let g:vim_markdown_preview_github  = 1               " render github flavored markdown with grip
