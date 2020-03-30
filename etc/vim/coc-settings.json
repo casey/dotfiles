@@ -1,3 +1,7 @@
 {
-  "suggest.autoTrigger": "none"
+  "diagnostic.enable": false,
+  "signature.enable": false,
+  "suggest.autoTrigger": "none",
+  "suggest.floatEnable": false,
+  "rust-analyzer.cargo-watch.enable": false
 }
