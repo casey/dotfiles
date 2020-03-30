@@ -365,7 +365,7 @@ nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " trigger completion
-inoremap <silent><expr> <c-c> coc#refresh()
+inoremap <silent><expr> <c-n> coc#refresh()
 
 " objects
 " free g?:        byzjk
@@ -472,17 +472,6 @@ vnoremap k gk|                                      " go to previous screen line
 
 " show documentation in preview window.
 nnoremap <silent> K :call ShowDocumentation()<CR>
-
-" use c-c to open completion menu and also move down selections
-" inoremap <expr> <c-c> pumvisible()
-"   \ ? '<c-n>'
-"   \ : '<c-x><c-o><c-n><c-p><c-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-
-" enter key selects highlighted menu item when completion menu is visible
-inoremap <expr> <cr> pumvisible() ? "\<c-y>" : "\<c-g>u\<cr>"
-
-" keep complete menu item highlighted, so typing narrows match
-inoremap <expr> <c-n> pumvisible() ? '<c-n>' : '<c-n><c-r>=pumvisible() ? "\<lt>Down>" : ""<cr>'
 
 " tmux vim navigator
 nnoremap <silent> h :TmuxNavigateLeft<cr>
