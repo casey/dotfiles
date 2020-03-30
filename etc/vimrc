@@ -292,6 +292,9 @@ let &t_SI.="\e[5 q" " cursor is blinking bar in insert mode
 let &t_SR.="\e[4 q" " cursor is solid underscore in replace mode
 let &t_EI.="\e[1 q" " cursor is blinking block in normal mode
 
+" use a sane shell
+let $SHELL = '/bin/sh'
+
 
 "" mappings
 
