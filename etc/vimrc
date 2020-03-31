@@ -428,6 +428,8 @@ nnoremap <leader>mk :make<cr>|                      " make
 nnoremap <leader>ms :mksession! ~/.vim/session<cr>| " make session
 nnoremap <leader>op :silent !ope %<cr>|             " open current file
 nnoremap <leader>od :RangerCurrentDirectory<cr>|    " open current directory
+nnoremap <leader>oj o<esc>|                         " insert line below cursor
+nnoremap <leader>ok O<esc>|                         " insert line above cursor
 nnoremap <leader>pc :pwd<cr>|                       " print cwd
 nnoremap <leader>pu :PlugUpdate<cr>|                " plug update
 nnoremap <leader>py :PyEval<cr>|                    " evaluate current line with python3
