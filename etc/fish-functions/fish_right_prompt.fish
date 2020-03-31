@@ -18,9 +18,14 @@ function fish_right_prompt
     echo -n " ⟦"
 
     if git symbolic-ref -q HEAD > /dev/null 2> /dev/null
-      git branch --show-current
-      if test (git branch | wc -l) -gt 1
-        echo '…'
+      set branch (git branch --show-current)
+
+      echo $branch
+
+      if test $branch = master
+        if test (git branch | wc -l) -gt 1
+          echo '…'
+        end
       end
     else
       echo DETACHED
