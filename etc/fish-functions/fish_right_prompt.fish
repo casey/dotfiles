@@ -17,7 +17,11 @@ function fish_right_prompt
 
     echo -n " ⟦"
 
-    git branch --show-current
+    if git symbolic-ref -q HEAD > /dev/null 2> /dev/null
+      git branch --show-current
+    else
+      echo DETACHED
+    end
 
     if git rev-parse -q --verify refs/stash > /dev/null
       set stashes (git rev-list --walk-reflogs --count refs/stash)
