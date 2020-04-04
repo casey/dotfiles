@@ -54,6 +54,7 @@ Plug 'vim-scripts/Rename'                 " rename the current file
 Plug 'vim-utils/vim-man'                  " improved man page viewing
 Plug 'wellle/targets.vim'                 " additional text objects
 Plug 'xolox/vim-misc'                     " misc funcionality for other plugins
+Plug 'SirVer/ultisnips'                   " snippets
 
 " language server client
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
