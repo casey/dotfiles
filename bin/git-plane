@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -euxo pipefail
+
+if git diff --no-ext-diff --quiet --exit-code --staged; then
+  git commit
+fi
+
+while !  git diff --no-ext-diff --quiet --exit-code; do
+  git commit -p
+done
