@@ -14,5 +14,6 @@ done
 
 # finally, add and commit any untracked files
 if git ls-files --exclude-standard --others --error-unmatch . > /dev/null 2> /dev/null; then
-  git commit `git rev-parse --show-toplevel`
+  git add --all
+  git commit
 fi
