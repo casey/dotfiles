@@ -451,11 +451,12 @@ nnoremap <leader>tb :set wrap!<cr>|                 " toggle line breaks
 nnoremap <leader>tc :call ToggleColor()<cr>|        " toggle syntax highlighting
 nnoremap <leader>tn :call ToggleLineNumbers()<cr>|  " toggle line numbers
 nnoremap <leader>tg :GitGutterToggle<cr>|           " toggle gitgutter
-nnoremap <leader>th :Hexmode<cr>|										" toggle hex mode
+nnoremap <leader>th :Hexmode<cr>|                   " toggle hex mode
 nnoremap <leader>ts :setlocal spell!<cr>|           " toggle spelling
 nnoremap <leader>tu :UndotreeToggle<cr>|            " toggle undotree
 nnoremap <leader>tw :call ToggleWhitespace()<cr>|   " toggle whitespace
 nnoremap <leader>tp :Goyo<cr>|                      " toggle prose mode
+nnoremap <leader>wa :wa<cr>|                        " write all buffers
 nnoremap <leader>wo <c-w>o|                         " close all windows but current
 nnoremap <leader>zz :x<cr>|                         " save file and exit
 nnoremap Q @@|                                      " repeat last macro
