@@ -346,9 +346,10 @@ nmap <leader>ca <Plug>(coc-codeaction)|  " apply code action to current line
 nmap <leader>cf <Plug>(coc-fix-current)| " autofix current line
 nmap <leader>cr <Plug>(coc-rename)|      " rename symbol under cursor
 
-nnoremap <silent> <leader>cc  :<C-u>CocList commands<cr>|    " commands
+nnoremap <silent> <leader>cc  :<C-u>CocConfig<cr>|           " commands
 nnoremap <silent> <leader>cd  :<C-u>CocList diagnostics<cr>| " diagnostics
 nnoremap <silent> <leader>ce  :<C-u>CocList extensions<cr>|  " extensions
+nnoremap <silent> <leader>cl  :<C-u>CocList<cr>|             " list
 nnoremap <silent> <leader>cj  :<C-u>CocNext<CR>|             " default action for next item
 nnoremap <silent> <leader>ck  :<C-u>CocPrev<CR>|             " default action for previous item
 nnoremap <silent> <leader>co  :<C-u>CocList outline<cr>|     " file symbols
@@ -369,6 +370,9 @@ nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " trigger completion
 inoremap <silent><expr> <c-n> coc#refresh()
+
+" select and confirm when no completion is selected with <c-c>
+inoremap <silent><expr> <c-c> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
 
 " objects
 " free g?:        byzjk
@@ -573,8 +577,10 @@ augroup vimrc
 
   " update signature help on jump placeholder
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-augroup end
 
+  " close preview window when completion done
+  autocmd CompleteDone * if pumvisible() == 0 | pclose | endif
+augroup end
 
 "" notocommands
 
