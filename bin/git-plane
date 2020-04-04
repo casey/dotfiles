@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -euxo pipefail
+set -euo pipefail
 
 # first commit any staged changes
 if ! git diff --no-ext-diff --quiet --exit-code --staged; then
