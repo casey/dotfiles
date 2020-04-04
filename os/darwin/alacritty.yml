@@ -10,8 +10,8 @@ window:
     columns: 100
     lines:   30
   padding:
-    x: 4
-    y: 4
+    x: 0
+    y: 0
   dynamic_padding: true
   decorations: buttonless
 
