@@ -434,6 +434,8 @@ nnoremap <leader>pc :pwd<cr>|                       " print cwd
 nnoremap <leader>pu :PlugUpdate<cr>|                " plug update
 nnoremap <leader>py :PyEval<cr>|                    " evaluate current line with python3
 nnoremap <leader>qq :q<cr>|                         " quit
+nnoremap <leader>ra :!cargo add <c-r><c-w><cr>|     " add crate name under cursor
+nnoremap <leader>rp Ipub(crate) <esc>|              " change visibility to pub(crate)
 nnoremap <leader>rg :Grepper<cr>|                   " recursive grep
 nnoremap <leader>rb :Quickrun<cr>|                  " run buffer
 nnoremap <leader>sb :Buffers<cr>|                   " search buffers
