@@ -2,10 +2,17 @@
 
 set -euxo pipefail
 
-if git diff --no-ext-diff --quiet --exit-code --staged; then
+# first commit any staged changes
+if ! git diff --no-ext-diff --quiet --exit-code --staged; then
   git commit
 fi
 
+# then iterate and commit unstaged changes in patch mode
 while !  git diff --no-ext-diff --quiet --exit-code; do
   git commit -p
 done
+
+# finally, add and commit any untracked files
+if git ls-files --exclude-standard --others --error-unmatch . > /dev/null 2> /dev/null; then
+  git commit `git rev-parse --show-toplevel`
+fi
