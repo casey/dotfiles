@@ -13,3 +13,6 @@ providers:
   gitlab:
     default-user:    rodarmor
     remote-template: git@gitlab.com:{{user}}/{{project}}.git
+  keybase:
+    default-user:    rodarmor
+    remote-template: keybase://private/{{user}}/{{project}}
