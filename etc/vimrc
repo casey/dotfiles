@@ -394,15 +394,15 @@ inoremap <c-s> <c-g>u<Esc>[s1z=`]a<c-g>u|           " fix last spelling error
 nnoremap <c-b> <c-o>|                               " jump back
 nnoremap <c-f> <c-i>|                               " jump forward
 nnoremap <c-j> <esc>|                               " exit normal mode
+nnoremap <c-k> :Rg .<cr>|                           " search project lines
 nnoremap <c-n> :NERDTreeToggle<cr>|                 " open nerdtree
 nnoremap <c-p> :Files<cr>|                          " search files
-nnoremap <c-k> :Rg .<cr>|                           " search project lines
 nnoremap <c-q> :call Leave()<cr>|                   " close window, close buffer or quit
 nnoremap <c-s> [s1z=<c-o>|                          " correct last spelling error
 nnoremap <leader> <nop>|                            " reserve for three-key mappings
 nnoremap <leader>" :vsplit<cr>|                     " vertical split
 nnoremap <leader>.. :cd ..<cr>|                     " go up one directory
-nnoremap <leader><cr> :nohlsearch<cr>|              " clear search highlights
+nnoremap <leader><cr> :wall<cr>|                    " save all changed buffers
 nnoremap <leader><space> :wall<cr>|                 " save all changed buffers
 nnoremap <leader>= :split<cr>|                      " horizontal split
 nnoremap <leader>aa :A<cr>|                         " alternate article
@@ -465,6 +465,7 @@ nnoremap <leader>wo <c-w>o|                         " close all windows but curr
 nnoremap <leader>zz :x<cr>|                         " save file and exit
 nnoremap Q @@|                                      " repeat last macro
 nnoremap Y y$|                                      " yank to end of line
+nnoremap _ :nohlsearch<cr>|                         " clear search highlights
 nnoremap j gj|                                      " go down one screen line
 nnoremap k gk|                                      " go up one screen line
 noremap! <c-a> <home>|                              " move cursor to beginning of line
