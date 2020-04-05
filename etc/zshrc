@@ -5,18 +5,9 @@ unalias -m '*'
 
 ## plugins
 
-# prevent antigen from checking config files for changes
-ANTIGEN_AUTO_CONFIG=false
-
-# source antigen
-source /usr/local/share/antigen/antigen.zsh
-
-antigen bundle zsh-users/zsh-syntax-highlighting      # command-line syntax highlighting
-antigen bundle zsh-users/zsh-autosuggestions          # tab-completion preview
-antigen bundle zsh-users/zsh-history-substring-search # search enhancement
-
-# apply antigen configuration
-antigen apply
+source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 
 ## autoloading
@@ -39,7 +30,7 @@ fpath=(~/.zsh/completions $fpath)
 zstyle ':completion:*:descriptions' format "%U%B%d%b%u"
 zstyle ':completion:*:messages' format "%F{green}%d%f"
 autoload -Uz compinit
-compinit -u
+compinit -d ~/.zsh/compdump
 
 
 ## path
