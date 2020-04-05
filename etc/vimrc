@@ -5,6 +5,7 @@ filetype plugin on " turn on filetype plugins
 call plug#begin()
 
 " general purpose plugins
+Plug 'SirVer/ultisnips'                   " snippet engine
 Plug 'airblade/vim-gitgutter'             " show git hunks in gutter
 Plug 'airblade/vim-rooter'                " automatic cd to project root
 Plug 'casey/reap.vim'                     " read, evaluate, and annotate
@@ -21,6 +22,7 @@ Plug 'glts/vim-magnum'                    " bignums
 Plug 'glts/vim-radical'                   " convert numbers between bases
 Plug 'godlygeek/tabular'                  " align lines according to patterns
 Plug 'haya14busa/incsearch.vim'           " improved incremental search
+Plug 'honza/vim-snippets'                 " snippets
 Plug 'inside/vim-search-pulse'            " pulse search pattern
 Plug 'jez/vim-superman'                   " use vim as a manpage pager
 Plug 'junegunn/fzf.vim'                   " fuzzy searching using fzf
@@ -29,7 +31,6 @@ Plug 'junegunn/vim-emoji'                 " emoji autocomplete
 Plug 'kana/vim-operator-user'             " allow user defined operators
 Plug 'kana/vim-textobj-entire'            " text object for the entire buffer
 Plug 'kana/vim-textobj-user'              " user defined text objects
-Plug 'landock/vim-expand-region'          " incrementally expand selection
 Plug 'luochen1990/rainbow'                " rainbow delimiters
 Plug 'mattn/webapi-vim'                   " web functionality
 Plug 'mbbill/undotree'                    " visualize undo history as tree
@@ -54,7 +55,6 @@ Plug 'vim-scripts/Rename'                 " rename the current file
 Plug 'vim-utils/vim-man'                  " improved man page viewing
 Plug 'wellle/targets.vim'                 " additional text objects
 Plug 'xolox/vim-misc'                     " misc funcionality for other plugins
-Plug 'SirVer/ultisnips'                   " snippets
 
 " language server client
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
