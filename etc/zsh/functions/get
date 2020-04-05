@@ -1,0 +1,3 @@
+for item in "$@"; do
+  aria2c -x 8 --file-allocation=none "$item"
+done

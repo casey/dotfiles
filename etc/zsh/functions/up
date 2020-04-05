@@ -1,0 +1,16 @@
+target=${1:-.git}
+d="`pwd`"
+
+while true; do
+    if [[ -e "$d/$target" ]]; then
+      cd "$d"
+      return 0
+    fi
+
+    if [[ "$d" == / ]]; then
+        echo "No $target found."
+        return 1
+    fi
+
+    d=`dirname "$d"`
+done

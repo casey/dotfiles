@@ -1,16 +1,47 @@
-unalias -m '*' # remove aliases
+## plugins
 
-autoload colors       # color array builder
-autoload run-help     # help function
-autoload zcalc        # calculator
-autoload zsh/terminfo # interface to terminfo database
+# prevent antigen from checking config files for changes
+ANTIGEN_AUTO_CONFIG=false
 
-source ~/.fn.zsh # load functions
+# source antigen
+source /usr/local/share/antigen/antigen.zsh
 
-INITIAL_PATH_ELEMENTS=(${(s/:/)PATH}) # save initial path elements
+antigen bundle zsh-users/zsh-syntax-highlighting      # command-line syntax highlighting
+antigen bundle zsh-users/zsh-autosuggestions          # tab-completion preview
+antigen bundle zsh-users/zsh-history-substring-search # search enhancement
+
+# apply antigen configuration
+antigen apply
+
+
+## autoloading
+
+# add local functions directory to fpath
+fpath=(~/.zsh/functions $fpath)
+
+autoload colors             # color array builder
+autoload run-help           # help function
+autoload zcalc              # calculator
+autoload zsh/terminfo       # interface to terminfo database
+autoload ~/.zsh/functions/* # autoload all functions in local functions directory
+
+
+## completions
+
+zstyle ':completion:*:descriptions' format "%U%B%d%b%u"
+zstyle ':completion:*:messages' format "%F{green}%d%f"
+autoload -Uz compinit
+compinit -u
+
+
+## path
+
+INITIAL_PATH_ELEMENTs=(${(s/:/)PATH}) # save initial path elements
 PATH=''                               # clear path variable
 
 path: ~/bin                           # artisanal binaries
+path: ~/.fzf/bin                      # fzf
+path: ~/.local/bin                    # pipx
 path: ~/.local/bin/polaris            # polaris binaries
 path: ~/sbin                          # admin binaries
 path: ~/.cargo/bin                    # cargo
@@ -20,6 +51,7 @@ path: ~/opt/npm/bin                   # npm binaries
 path: /usr/local/bin                  # homebrew binaries
 path: /usr/local/sbin                 # admin homebrew binaries
 path: /usr/local/opt/bin              # keg-only homebrew binaries
+path: /opt/local/bin                  # macports
 path: /usr/bin                        # binaries
 path: /usr/sbin                       # admin binaries
 path: /usr/games                      # games
@@ -31,15 +63,18 @@ for PART in $INITIAL_PATH_ELEMENTS; do
   path: $PART
 done
 
+
+## exported variables
+
 unset MAILCHECK # don't check for mail
 
 export BLOCKSIZE=K                  # show blocks as kilobytes
 export CLICOLOR=1                   # use color
 export EDITOR=vim                   # vim as editor
 export EDMV_EDITOR=vim              # vim as editor in edmv
-export GOPATH=~/go                  # set go path
 export HISTFILE=~/.history          # location for the history file
 export HISTSIZE=5500000             # save lots of history in memory
+export HOST=`hostname`              # set HOST variable
 export KEYTIMEOUT=1                 # don't wait for multibyte sequences
 export LANG=en_US.UTF-8             # use the english utf-8 locale
 export LESS=-ifRMx2                 # default options for less
@@ -47,10 +82,9 @@ export LS_OPTIONS='--color=auto'    # make ls use color
 export PAGER=less                   # less as pager
 export SAVEHIST=5000000             # save lots of history to disk
 export VISUAL=vim                   # vim as visual editor
-export ZLE_REMOVE_SUFFIX_CHARS=''   # don't remove spaces after completion
 
 # tell ripgrep to use a config file
-export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
+export RIPGREP_CONFIG_PATH=~/.ripgreprc
 
 # rust src path for use with rusty-tags
 export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/src/
@@ -58,9 +92,18 @@ export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/src/
 # use ripgrep with fzf
 export FZF_DEFAULT_COMMAND="rg --files --hidden --glob '!.git/*' --glob '!*.pyc'"
 
-# set up base16 shell
-BASE16_SHELL=$HOME/src/local/submodules/base16-shell/
-[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
+
+## local variables
+
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=black,bold" # make autosuggestions grey
+ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20              # don't autosuggest when buffer is large
+ZLE_REMOVE_SUFFIX_CHARS=''                      # don't remove spaces after completion
+
+
+## options
+
+unsetopt beep    # never beep
+unsetopt correct # don't correct command spelling
 
 setopt auto_pushd             # cd also invokes pushd
 setopt auto_remove_slash      # automatically remove slash from completions
@@ -76,35 +119,28 @@ setopt multios                # allow redirection to multiple files
 setopt prompt_subst           # expand the prompt string
 setopt rc_quotes              # allow '' to represent a quote in single quoted strings
 
-unsetopt beep    # never beep
-unsetopt correct # don't correct command spelling
 
-# use dircolors if present
-is-file ~/.dir_colors/dircolors && eval `dircolors ~/.dir_colors/dircolors`
+## tty
 
 stty -ixoff      # disable sending start/stop characters
 stty -ixon       # disable start/stop output control
 stty start undef # unmap c-q
 stty stop undef  # unmap c-s
 
+
+## editing
+
 # use vi keybindings
 bindkey -v
 
-# set up completions
-fpath+=$HOME/.zsh/completions
-zstyle ':completion:*:descriptions' format "%U%B%d%b%u"
-zstyle ':completion:*:messages' format "%F{green}%d%f"
-autoload -Uz compinit
-compinit -u
-
 # add custom bindings
 bind: ' '    magic-space
+bind: '\eK'  kill-line-to-system-clipboard
+bind: '\eY'  yank-from-system-clipboard
 bind: '\e^?' backward-kill-word
 bind: '\eb'  backward-word
 bind: '\ef'  forward-word
-bind: '\eK'  kill-line-to-system-clipboard
 bind: '\ek'  kill-line-to-system-clipboard
-bind: '\eY'  yank-from-system-clipboard
 bind: '\ey'  yank-from-system-clipboard
 bind: '^?'   backward-delete-char
 bind: '^A'   beginning-of-line
@@ -124,6 +160,17 @@ bind: '^W'   backward-kill-word
 bind: '^X'   fzf-history-widget
 bind: '^Y'   yank-from-x-selection
 bind: '^Z'   fzf-file-widget
+bind: '^[[A' history-substring-search-up
+bind: '^[[B' history-substring-search-down
+
+zle -N zle-line-init prompt-reset     # redraw prompt on line editor start
+zle -N zle-keymap-select prompt-reset # redraw prompt when keymap changes
+
+
+## aliases
+
+# clear aliases
+unalias -m '*'
 
 # single letter aliases
 alias g='git'
@@ -148,9 +195,13 @@ alias psg="ps aux | grep"
 alias rwd='cd `pwd -P`'
 alias sane='stty sane'
 alias gd='cd "$(tail -n1 ~/.savedir)"'
+alias github='src remote github'
+alias bitbucket='src remote bitbucket'
 
-# source
-source: ~/.prompt.zsh # prompt
-source: ~/.extrarc    # extras
-source: /etc/zshrc    # site
-source: ~/.fzf.zsh    # fzf
+
+## config files
+
+source: ~/.extrarc           # extras
+source: ~/.zsh/clipboard.zsh # set up system keyboard integration
+source: ~/.zsh/prompt.zsh    # set up prompt
+source: ~/.base16_theme      # load base16 theme

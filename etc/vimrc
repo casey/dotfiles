@@ -293,9 +293,6 @@ let &t_SI.="\e[5 q" " cursor is blinking bar in insert mode
 let &t_SR.="\e[4 q" " cursor is solid underscore in replace mode
 let &t_EI.="\e[1 q" " cursor is blinking block in normal mode
 
-" use a sane shell
-let $SHELL = '/bin/sh'
-
 
 "" mappings
 
@@ -403,7 +400,7 @@ nnoremap <c-s> [s1z=<c-o>|                          " correct last spelling erro
 nnoremap <leader> <nop>|                            " reserve for three-key mappings
 nnoremap <leader>" :vsplit<cr>|                     " vertical split
 nnoremap <leader>.. :cd ..<cr>|                     " go up one directory
-nnoremap <leader><cr> :wall<cr>|                    " save all changed buffers
+nnoremap <leader><cr> :nohlsearch<cr>|              " clear search highlights
 nnoremap <leader><space> :wall<cr>|                 " save all changed buffers
 nnoremap <leader>= :split<cr>|                      " horizontal split
 nnoremap <leader>aa :A<cr>|                         " alternate article
@@ -466,7 +463,7 @@ nnoremap <leader>wo <c-w>o|                         " close all windows but curr
 nnoremap <leader>zz :x<cr>|                         " save file and exit
 nnoremap Q @@|                                      " repeat last macro
 nnoremap Y y$|                                      " yank to end of line
-nnoremap _ :nohlsearch<cr>|                         " clear search highlights
+nnoremap _ :wall<cr>|                               " save all changed buffers
 nnoremap j gj|                                      " go down one screen line
 nnoremap k gk|                                      " go up one screen line
 noremap! <c-a> <home>|                              " move cursor to beginning of line

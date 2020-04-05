@@ -1,0 +1,9 @@
+if [[ $UID == 0 ]]; then
+  # scary red prompt if root
+  SUCCESS=$PROMPT_RED
+else
+  # happy blue prompt otherwise
+  SUCCESS=$PROMPT_BLUE
+fi
+
+echo -n "%0(?.$SUCCESS.$PROMPT_YELLOW)"

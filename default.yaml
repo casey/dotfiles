@@ -65,7 +65,6 @@
     ~/.config/xonsh/config.json:    etc/xonsh.json
     ~/.config/yabai/yabairc:        etc/yabairc
     ~/.elinks/elinks.conf:          etc/elinks.conf
-    ~/.fn.zsh:                      etc/fn.zsh
     ~/.fxfile:                      etc/fxfile
     ~/.gdbinit:                     etc/gdbinit
     ~/.gitignore.global:            etc/gitignore.global
@@ -98,6 +97,7 @@
     ~/.xscreensaver:                etc/xscreensaver
     ~/.zlogout:                     etc/zlogout
     ~/.zshrc:                       etc/zshrc
+    ~/.zsh:                         etc/zsh
 
 - link:
     ~/.tmux/plugins/tpm:      submodules/tpm

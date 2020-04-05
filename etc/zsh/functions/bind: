@@ -1,0 +1,2 @@
+bindkey -M viins "$1" "$2"
+bindkey -M vicmd "$1" "$2"

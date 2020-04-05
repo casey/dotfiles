@@ -1,0 +1,9 @@
+local PARTS=(${(s/:/)PATH})
+if [[ -d "$1" ]]; then
+  if [[ ${PARTS[(i)$1]} -le ${#PARTS} ]]; then
+    # already in parts
+  else
+    PARTS+=("$1")
+  fi
+fi
+export PATH=${(j/:/)PARTS}

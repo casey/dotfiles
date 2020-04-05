@@ -1,0 +1,6 @@
+if [[ $# -lt 1 ]]; then
+  echo "usage: forget-host LINE_NUMBER"
+  return 1
+fi
+
+sed -i '' -e "${1}d" ~/.ssh/known_hosts

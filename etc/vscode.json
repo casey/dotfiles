@@ -4,7 +4,7 @@
     "telemetry.enableTelemetry": false,
     "terminal.integrated.fontFamily": "DejaVu Sans Mono for Powerline",
     "terminal.integrated.macOptionIsMeta": true,
-    "terminal.integrated.shell.osx": "/usr/local/bin/fish",
+    "terminal.integrated.shell.osx": "/usr/local/bin/zsh",
     "terminal.integrated.shellArgs.osx": [
         "-i",
         "-c",

@@ -1,0 +1,42 @@
+echo -n $PROMPT_BLUE
+
+echo -n %~
+
+if is-git-repository; then
+  if is-git-untracked-files; then
+    echo -n $PROMPT_RED
+  elif is-git-worktree-dirty; then
+    echo -n $PROMPT_RED
+  elif is-git-staged-changes; then
+    echo -n $PROMPT_GREEN
+  fi
+
+  echo -n ' ⟦'
+
+  if is-git-attached; then
+    local BRANCH=`git branch --show-current`
+
+    echo -n $BRANCH
+
+    if [[ $BRANCH == master ]]; then
+      if [[ `git branch | wc -l` -gt 1 ]]; then
+        echo -n …
+      fi
+    fi
+
+    if git rev-parse -q --verify refs/stash > /dev/null; then
+      local STASH_COUNT=`git rev-list --walk-reflogs --count refs/stash`
+
+      if [[ $STASH_COUNT -gt 0 ]]; then
+        echo -n "|$STASH_COUNT"
+      fi
+    fi
+
+  else
+    echo -n DETACHED
+  fi
+
+  echo -n ⟧
+fi
+
+echo -n $PROMPT_CLEAR

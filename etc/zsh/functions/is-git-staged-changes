@@ -1,0 +1,1 @@
+! git diff --cached --quiet > /dev/null 2> /dev/null

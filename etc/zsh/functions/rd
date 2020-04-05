@@ -1,0 +1,9 @@
+if [[ $# -lt 2 ]]; then
+  echo "usage: rd OLD NEW [FLAGS]"
+  return 1
+fi
+
+old=`pwd`
+new=`pwd | sed "s:$1:$2:$3"`
+echo $old '->' $new
+cd $new

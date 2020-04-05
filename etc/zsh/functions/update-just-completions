@@ -1,0 +1,1 @@
+just --completions zsh > ~/.zsh/completions/_just

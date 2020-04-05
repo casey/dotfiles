@@ -1,0 +1,1 @@
+man $@ | col -b | col -f | less

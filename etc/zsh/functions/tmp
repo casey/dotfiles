@@ -1,0 +1,2 @@
+mkdir ~/tmp/$1
+pushd ~/tmp/$1

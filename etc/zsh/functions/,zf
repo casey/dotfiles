@@ -1,0 +1,3 @@
+# add a new zsh function
+
+vim ~/.zsh/functions/$1

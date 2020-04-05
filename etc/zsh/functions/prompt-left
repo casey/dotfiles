@@ -1,0 +1,25 @@
+if [[ -n $SSH_CONNECTION ]]; then
+  echo -n %m
+fi
+
+case $KEYMAP in
+  vicmd)
+    echo -n "%(1j.∗.·) "
+    ;;
+  *)
+    echo -n "%(1j.⁑.:) "
+    ;;
+esac
+
+function TEMP {
+
+  # redraw prompt on line editor start and keymap select
+  function redraw-prompt {
+    ps1
+    # re-expand prompt
+    zle reset-prompt
+  }
+
+  zle -N zle-line-init redraw-prompt     # redraw prompt on line editor start
+  zle -N zle-keymap-select redraw-prompt # redraw prompt when keymap changes
+}

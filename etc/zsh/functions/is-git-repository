@@ -1,0 +1,1 @@
+git rev-parse --is-inside-work-tree 2>/dev/null >/dev/null
