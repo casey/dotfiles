@@ -176,10 +176,14 @@ unalias -m '*'
 alias g='git'
 alias m='vman'
 
+# two letter aliases
+alias .j="j --justfile ~/.justfile --working-directory ~"
+alias gd='cd "$(tail -n1 ~/.savedir)"'
+alias ls="exa"
+alias kb=keybase
+
 # multi-letter aliases
 alias ..='cd ..'
-alias .j="j --justfile ~/.justfile --working-directory ~"
-alias ls="exa"
 alias Kill='kill -9'
 alias cd..='cd ..'
 alias diff='colordiff'
@@ -194,7 +198,6 @@ alias port='port -vuRc'
 alias psg="ps aux | grep"
 alias rwd='cd `pwd -P`'
 alias sane='stty sane'
-alias gd='cd "$(tail -n1 ~/.savedir)"'
 alias github='src remote github'
 alias bitbucket='src remote bitbucket'
 
