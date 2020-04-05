@@ -77,7 +77,6 @@
     ~/.nixpkgs/config.nix:          etc/nixpkgs.nix
     ~/.plan:                        etc/plan
     ~/.project:                     etc/project
-    ~/.prompt.zsh:                  etc/prompt.zsh
     ~/.ripgreprc:                   etc/ripgreprc
     ~/.rusty-tags/config.toml:      etc/rusty-tags.toml
     ~/.sh.py:                       etc/sh.py
