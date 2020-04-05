@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+git branch -v 
+
+echo ---
+
+git status -v
