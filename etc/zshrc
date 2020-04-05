@@ -28,7 +28,7 @@ autoload ~/.zsh/functions/* # autoload all functions in local functions director
 fpath=(~/.zsh/completions $fpath)
 
 zstyle ':completion:*:descriptions' format "%U%B%d%b%u"
-zstyle ':completion:*:messages' format "%F{green}%d%f"
+zstyle ':completion:*:messages' format "%F{blue}%d%f"
 autoload -Uz compinit
 compinit -d ~/.zsh/compdump
 
