@@ -1,0 +1,9 @@
+# list recent keybase chat messages
+
+user=$1
+
+if [[ -n $user ]]; then
+  keybase chat read $user
+else
+  keybase chat lsur | grep -Ev '\[#[a-z]+\]'
+fi
