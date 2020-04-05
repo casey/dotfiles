@@ -1,0 +1,5 @@
+FILE=`(fzf)`
+
+if [[ -n $FILE ]]; then
+  vim $FILE
+fi

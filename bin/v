@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-FILE=`(fzf)`
-
-if [[ -z $FILE ]]; then
-  exit 0
-fi
-
-exec vim $FILE

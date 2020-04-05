@@ -1,6 +1,0 @@
-# list functions
-
-for function in ~/.zsh/functions/,*; do
-  comment=`head -1 $function`
-  echo $function:t $comment
-done

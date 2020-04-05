@@ -1,0 +1,6 @@
+local length=$1
+local aliases=``
+
+for alias in `alias | cut -d= -f1 | grep -E "^.{$length}$"`; do
+  alias $alias
+done

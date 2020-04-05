@@ -1,3 +1,8 @@
+##  clear existing aliases
+
+unalias -m '*'
+
+
 ## plugins
 
 # prevent antigen from checking config files for changes
@@ -167,45 +172,11 @@ zle -N zle-line-init prompt-reset     # redraw prompt on line editor start
 zle -N zle-keymap-select prompt-reset # redraw prompt when keymap changes
 
 
-## aliases
-
-# clear aliases
-unalias -m '*'
-
-# single letter aliases
-alias g='git'
-alias m='vman'
-
-# two letter aliases
-alias .j="j --justfile ~/.justfile --working-directory ~"
-alias gd='cd "$(tail -n1 ~/.savedir)"'
-alias ls="exa"
-alias kb=keybase
-
-# multi-letter aliases
-alias ..='cd ..'
-alias Kill='kill -9'
-alias cd..='cd ..'
-alias diff='colordiff'
-alias egrep="egrep --color=auto"
-alias eject='drutil tray eject'
-alias grep="grep --color=auto"
-alias help='run-help'
-alias how='howdoi -a'
-alias pare='tr -s "[:blank:]" " " | cut -d " " -f'
-alias perlfunc='perldoc -f'
-alias port='port -vuRc'
-alias psg="ps aux | grep"
-alias rwd='cd `pwd -P`'
-alias sane='stty sane'
-alias github='src remote github'
-alias bitbucket='src remote bitbucket'
-
-
 ## config files
 
 source: ~/.base16_theme      # load base16 theme
 source: ~/.extrarc           # extras
 source: ~/.fzf.zsh           # fzf bindings
+source: ~/.zsh/aliases.zsh   # aliases
 source: ~/.zsh/clipboard.zsh # set up system keyboard integration
 source: ~/.zsh/prompt.zsh    # set up prompt

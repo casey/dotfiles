@@ -1,0 +1,6 @@
+local k=$1
+local v=$2
+
+if [[ -n "$v" ]]; then
+  alias "$k"="$v"
+fi
