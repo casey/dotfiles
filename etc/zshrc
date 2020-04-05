@@ -201,7 +201,8 @@ alias bitbucket='src remote bitbucket'
 
 ## config files
 
+source: ~/.base16_theme      # load base16 theme
 source: ~/.extrarc           # extras
+source: ~/.fzf.zsh           # fzf bindings
 source: ~/.zsh/clipboard.zsh # set up system keyboard integration
 source: ~/.zsh/prompt.zsh    # set up prompt
-source: ~/.base16_theme      # load base16 theme
