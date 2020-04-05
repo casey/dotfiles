@@ -2,8 +2,8 @@
 
 set -euo pipefail
 
-git branch -v 
+git branch -v
 
-echo ---
+echo '----'
 
 git status -v
