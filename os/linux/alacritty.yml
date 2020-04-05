@@ -11,10 +11,6 @@ window:
     columns: 80
     lines:   24
 
-  padding:
-    x: 2
-    y: 2
-
 font:
   size:             9.0
   use_thin_strokes: false
