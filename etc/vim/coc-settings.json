@@ -1,7 +1,10 @@
 {
+  "coc.preferences.snippets.enable": false,
   "coc.source.around.enable": false,
   "coc.source.buffer.enable": false,
   "coc.source.dictionary.enable": false,
+  "coc.source.emoji.enable": false,
+  "coc.source.ultisnips.enable": false,
   "diagnostic.checkCurrentLine": false,
   "diagnostic.enable": true,
   "rust-analyzer.cargo-watch.enable": true,
