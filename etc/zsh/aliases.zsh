@@ -32,6 +32,8 @@ alias: grb 'git rebase'
 alias: grs 'git restore'
 alias: gpl 'git plane'
 alias: gif 'git info'
+alias: glg 'git lg'
+
 
 ## Ⅳ
 alias: Kill 'kill -9'

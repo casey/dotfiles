@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+HASH='%Cred%h%Creset'
+REFS='-%C(yellow)%d%Creset'
+SUBJ='%s'
+TIME='%Cgreen(%cr)%Creset'
+AUTH='%C(bold blue)<%an>%Creset'
+
+FORMAT="$HASH $REFS $SUBJ $TIME $AUTH"
+
+git                         \
+  log                       \
+  --color                   \
+  --graph                   \
+  --abbrev-commit           \
+  "--pretty=tformat:$FORMAT" \
+  "$@"
