@@ -392,7 +392,7 @@ inoremap <c-s> <c-g>u<Esc>[s1z=`]a<c-g>u|           " fix last spelling error
 nnoremap <c-b> <c-o>|                               " jump back
 nnoremap <c-f> <c-i>|                               " jump forward
 nnoremap <c-j> <esc>|                               " exit normal mode
-nnoremap <c-k> :Rg .<cr>|                           " search project lines
+nnoremap <c-k> :Rg<cr>|                             " search project lines
 nnoremap <c-n> :NERDTreeToggle<cr>|                 " open nerdtree
 nnoremap <c-p> :Files<cr>|                          " search files
 nnoremap <c-q> :call Leave()<cr>|                   " close window, close buffer or quit
