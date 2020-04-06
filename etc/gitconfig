@@ -19,17 +19,6 @@ pager        = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight |
 quotepath    = false
 trustctime   = false
 
-[alias]
-br    = branch
-ci    = commit
-co    = checkout
-df    = diff
-exec  = "!exec "
-files = diff-tree --no-commit-id --name-status -r
-sl    = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
-st    = status
-dt    = difftool
-
 [branch "master"]
 merge  = refs/head/master
 remote = origin
