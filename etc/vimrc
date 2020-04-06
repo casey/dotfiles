@@ -437,6 +437,7 @@ nnoremap <leader>pc :pwd<cr>|                       " print cwd
 nnoremap <leader>pu :PlugUpdate<cr>|                " plug update
 nnoremap <leader>py :PyEval<cr>|                    " evaluate current line with python3
 nnoremap <leader>qq :q<cr>|                         " quit
+nnoremap <leader>qe :cq<cr>|                        " quit with error code
 nnoremap <leader>ra :!cargo add <c-r><c-w><cr>|     " add crate name under cursor
 nnoremap <leader>rp Ipub(crate) <esc>|              " change visibility to pub(crate)
 nnoremap <leader>rg :Grepper<cr>|                   " recursive grep
@@ -461,7 +462,7 @@ nnoremap <leader>tw :call ToggleWhitespace()<cr>|   " toggle whitespace
 nnoremap <leader>tp :Goyo<cr>|                      " toggle prose mode
 nnoremap <leader>wa :wa<cr>|                        " write all buffers
 nnoremap <leader>wo <c-w>o|                         " close all windows but current
-nnoremap <leader>zz :x<cr>|                         " save file and exit
+nnoremap <leader>zz :wqa<cr>|                       " save all files and exit
 nnoremap Q @@|                                      " repeat last macro
 nnoremap Y y$|                                      " yank to end of line
 nnoremap _ :wall<cr>|                               " save all changed buffers
@@ -477,7 +478,7 @@ noremap! <m-d> <s-right><Delete>|                   " delete next word
 noremap! <m-f> <s-right>|                           " go forward one word
 noremap! <m-d> <c-w>|                               " delete last word
 vnoremap <c-a> <home>|                              " move selection to beginning of line
-vnoremap <c-j> <esc>|                               " use ctrl-j for escape
+vnoremap <c-j> <esc>|                               " exit visual mode
 vnoremap <leader>t: :Tabularize :<cr>               " align on :
 vnoremap <leader>t= :Tabularize =<cr>               " align on =
 vnoremap <leader>s  :sort<cr>|                      " sort lines
@@ -495,8 +496,8 @@ nnoremap <silent> l :TmuxNavigateRight<cr>
 
 " edit named files
 nnoremap <leader>ev :e $MYVIMRC<cr>
-nnoremap <leader>ee :e $MYVIMRC<cr>
 nnoremap <leader>es :e ~/.zshrc<cr>
+nnoremap <leader>ea :e ~/.zsh/aliases.zsh<cr>
 nnoremap <leader>en :e notes.md<cr>
 
 "" aliases
