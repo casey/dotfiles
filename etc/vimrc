@@ -1,3 +1,11 @@
+"" <c-j> is best escape
+
+cnoremap <c-j> <c-c>
+inoremap <c-j> <esc>
+nnoremap <c-j> <esc>
+vnoremap <c-j> <esc>
+
+
 "" plugins
 
 filetype plugin on " turn on filetype plugins
@@ -381,13 +389,10 @@ xmap af <Plug>(coc-funcobj-a)
 xmap if <Plug>(coc-funcobj-i)
 
 " non-recursive mappings
-cnoremap <c-j> <c-c><esc>|                          " exit command mode
 cnoremap <c-k> <c-\>eKillCmdline()<cr>|             " kill to end of line
-inoremap <c-j> <esc>|                               " exit insert mode
 inoremap <c-s> <c-g>u<Esc>[s1z=`]a<c-g>u|           " fix last spelling error
 nnoremap <c-b> <c-o>|                               " jump back
 nnoremap <c-f> <c-i>|                               " jump forward
-nnoremap <c-j> <esc>|                               " exit normal mode
 nnoremap <c-k> :Rg<cr>|                             " search project lines
 nnoremap <c-n> :NERDTreeToggle<cr>|                 " open nerdtree
 nnoremap <c-p> :Files<cr>|                          " search files
@@ -474,7 +479,6 @@ noremap! <m-d> <s-right><Delete>|                   " delete next word
 noremap! <m-f> <s-right>|                           " go forward one word
 noremap! <m-d> <c-w>|                               " delete last word
 vnoremap <c-a> <home>|                              " move selection to beginning of line
-vnoremap <c-j> <esc>|                               " exit visual mode
 vnoremap <leader>t: :Tabularize :<cr>               " align on :
 vnoremap <leader>t= :Tabularize =<cr>               " align on =
 vnoremap <leader>s  :sort<cr>|                      " sort lines
