@@ -5,6 +5,8 @@
   "coc.source.dictionary.enable": false,
   "coc.source.emoji.enable": false,
   "coc.source.ultisnips.enable": false,
+  "snippets.ultisnips.enable": false,
+  "snippets.snipmate.enable": false,
   "diagnostic.checkCurrentLine": false,
   "diagnostic.enable": true,
   "rust-analyzer.cargo-watch.enable": true,
