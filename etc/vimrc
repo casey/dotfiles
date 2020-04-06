@@ -314,9 +314,6 @@ map  s  <plug>(easymotion-s)|                   " easymotion
 nmap K  <plug>(Man)|                            " look up man page for word under cursor
 vmap gx <plug>(openbrowser-smart-search)|       " open url under cursor in browser
 
-" toggle ale details
-nmap +  <plug>(ale_detail)
-
 " repeat last motion
 nmap <leader>. <plug>(easymotion-repeat)
 
@@ -427,9 +424,6 @@ nnoremap <leader>id "=Date()<cr>p|                  " insert date
 nnoremap <leader>io o<esc>|                         " insert line below cursor
 nnoremap <leader>jj :!just<cr>|                     " run just
 nnoremap <leader>ls :source ~/.vim/session<cr>|     " load session
-nnoremap <leader>mr qa|                             " record a macro
-nnoremap <leader>me q|                              " end current macro recording
-nnoremap <leader>mm @a|                             " run macro
 nnoremap <leader>op :silent !ope %<cr>|             " open current file
 nnoremap <leader>od :RangerCurrentDirectory<cr>|    " open current directory
 nnoremap <leader>oj o<esc>|                         " insert line below cursor
@@ -464,10 +458,9 @@ nnoremap <leader>tp :Goyo<cr>|                      " toggle prose mode
 nnoremap <leader>wa :wa<cr>|                        " write all buffers
 nnoremap <leader>wo <c-w>o|                         " close all windows but current
 nnoremap <leader>zz :wqa<cr>|                       " save all files and exit
-nnoremap Q @@|                                      " repeat last macro
 nnoremap Y y$|                                      " yank to end of line
 nnoremap _ :wall<cr>|                               " save all changed buffers
-nnoremap + @a|                                      " run the macro in a
+nnoremap + @@|                                      " run the macro in a
 nnoremap j gj|                                      " go down one screen line
 nnoremap k gk|                                      " go up one screen line
 noremap! <c-a> <home>|                              " move cursor to beginning of line
