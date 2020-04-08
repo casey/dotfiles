@@ -55,6 +55,8 @@ sleep 5
 mkfs.ext4 /dev/vda3 -Lroot
 mount /dev/vda3 /mnt
 
+nix-channel --add https://nixos.org/channels/nixos-unstable nixos
+
 # generate Nixos config
 nixos-generate-config --root /mnt
 
