@@ -9,8 +9,8 @@
   "snippets.snipmate.enable": false,
   "diagnostic.checkCurrentLine": false,
   "diagnostic.enable": true,
-  "rust-analyzer.cargo-watch.enable": true,
   "signature.enable": true,
   "suggest.autoTrigger": "always",
-  "suggest.floatEnable": true
+  "suggest.floatEnable": true,
+  "rust-analyzer.checkOnSave.enable": false
 }
