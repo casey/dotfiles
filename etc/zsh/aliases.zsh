@@ -27,7 +27,7 @@ alias: p1 'ping 1.1.1.1'
 alias: p6 'ping6 2606:4700:4700::1111'
 alias: p8 'ping 8.8.8.8'
 alias: pw 'curl https://rodarmor.com'
-alias: tp 'term --command ssh pair@45.77.216.55'
+alias: tp 'term --command ssh pair@pair.rodarmor.com'
 alias: zf 'zsh-edit-function'
 
 ## Ⅲ
