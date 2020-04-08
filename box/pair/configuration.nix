@@ -84,7 +84,7 @@
       fd
       file
       fzf
-      gitAndTools.gitull
+      gitAndTools.gitFull
       gnumake
       gnupg
       gopher
@@ -109,7 +109,7 @@
       unrar
       unzip
       urbit
-      vimHuge
+      vim
       wget
       whois
       ympd
