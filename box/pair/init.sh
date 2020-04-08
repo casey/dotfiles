@@ -12,6 +12,9 @@ set -euxo pipefail
 
 CONFIG_URL='https://raw.githubusercontent.com/casey/local/master/box/pair/configuration.nix'
 
+nix-channel --add https://nixos.org/channels/nixos-unstable nixos
+nix-channel --update
+
 umount /dev/vda* || true
 swapoff /dev/vda1 || true
 
@@ -60,8 +63,6 @@ sleep 5
 mkfs.ext4 /dev/vda3 -Lroot
 mount /dev/vda3 /mnt
 
-nix-channel --add https://nixos.org/channels/nixos-unstable nixos
-
 # generate Nixos config
 nixos-generate-config --root /mnt
 
@@ -71,7 +72,7 @@ echo "System configuration.nix:"
 cat /mnt/etc/nixos/configuration.nix
 
 # install Nixos
-nixos-install
+nixos-install --no-root-passwd
 
 # unmount
 sync
