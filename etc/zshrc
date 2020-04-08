@@ -34,7 +34,7 @@ compinit -d ~/.zsh/compdump
 
 ## path
 
-INITIAL_PATH_ELEMENTs=(${(s/:/)PATH}) # save initial path elements
+INITIAL_PATH_ELEMENTS=(${(s/:/)PATH}) # save initial path elements
 PATH=''                               # clear path variable
 
 path: ~/bin                           # artisanal binaries
