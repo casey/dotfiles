@@ -86,24 +86,25 @@
       fd
       file
       fzf
-      perl
       gitAndTools.diff-so-fancy
       gitAndTools.gitFull
       gnumake
-      just
-      nodejs
       gnupg
       gopher
       htop
       imagemagick
+      just
       ncurses
       neofetch
       nmap
+      nodejs
       parted
+      perl
       pkgconfig
       python38
       qemu
       ranger
+      ripgrep
       rustup
       sysstat
       tcpdump
