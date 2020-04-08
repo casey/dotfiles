@@ -14,7 +14,6 @@
     loader.grub = {
       enable     = true;
       devices    = ["/dev/vda"];
-      efiSupport = true;
       version    = 2;
     };
   };
