@@ -11,9 +11,9 @@
   boot = {
     cleanTmpDir = true;
 
-    grub = {
+    loader.grub = {
       enable     = true;
-      device     = "/dev/vda";
+      devices    = ["/dev/vda"];
       efiSupport = true;
       version    = 2;
     };

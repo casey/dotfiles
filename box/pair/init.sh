@@ -13,6 +13,7 @@ set -euxo pipefail
 CONFIG_URL='https://raw.githubusercontent.com/casey/local/master/box/pair/configuration.nix'
 
 umount /dev/vda* || true
+swapoff /dev/vda1 || true
 
 # create partitions (with 2G swap)
 (
@@ -64,8 +65,10 @@ nix-channel --add https://nixos.org/channels/nixos-unstable nixos
 # generate Nixos config
 nixos-generate-config --root /mnt
 
+curl "$CONFIG_URL" > /mnt/etc/nixos/configuration.nix
+
 echo "System configuration.nix:"
-curl "$CONFIG_URL" | tee /mnt/etc/nixos/configuration.nix
+cat /mnt/etc/nixos/configuration.nix
 
 # install Nixos
 nixos-install
