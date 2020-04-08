@@ -13,7 +13,6 @@ filetype plugin on " turn on filetype plugins
 call plug#begin()
 
 " general purpose plugins
-Plug 'SirVer/ultisnips'                   " snippet engine
 Plug 'airblade/vim-gitgutter'             " show git hunks in gutter
 Plug 'airblade/vim-rooter'                " automatic cd to project root
 Plug 'casey/reap.vim'                     " read, evaluate, and annotate
@@ -30,7 +29,6 @@ Plug 'glts/vim-magnum'                    " bignums
 Plug 'glts/vim-radical'                   " convert numbers between bases
 Plug 'godlygeek/tabular'                  " align lines according to patterns
 Plug 'haya14busa/incsearch.vim'           " improved incremental search
-Plug 'honza/vim-snippets'                 " snippets
 Plug 'inside/vim-search-pulse'            " pulse search pattern
 Plug 'jez/vim-superman'                   " use vim as a manpage pager
 Plug 'junegunn/fzf.vim'                   " fuzzy searching using fzf
