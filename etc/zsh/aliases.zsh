@@ -33,6 +33,7 @@ alias: grs 'git restore'
 alias: gpl 'git plane'
 alias: gif 'git info'
 alias: glg 'git lg'
+alias: gcb 'git checkout -b'
 
 
 ## Ⅳ
@@ -44,6 +45,7 @@ alias: help 'run-help'
 alias: pare 'tr -s "[:blank:]" " " | cut -d " " -f'
 alias: port 'port -vuRc'
 alias: sane 'stty sane'
+alias: post 'cd ~/src/blog && just post'
 
 ## Ⅴ
 alias: egrep 'egrep --color=auto'
