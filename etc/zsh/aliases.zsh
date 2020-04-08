@@ -59,3 +59,6 @@ alias: file 'cd ~/src/blog && just file'
 ## Ⅴ
 alias: egrep 'egrep --color=auto'
 alias: eject 'drutil tray eject'
+
+## Ⅸ
+alias: colortest '~/src/local/submodules/base16-shell/colortest'
