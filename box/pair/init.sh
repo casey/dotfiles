@@ -2,6 +2,10 @@
 #
 # Adapted from https://eipi.xyz/blog/nixos-on-vultr/
 #
+# Run this with:
+#
+#     curl https://raw.githubusercontent.com/casey/local/master/box/pair/init.sh | bash
+#
 # Install NixOS on a Vultr VPS
 
 set -euxo pipefail
