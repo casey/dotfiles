@@ -88,6 +88,8 @@
       fzf
       gitAndTools.gitFull
       gnumake
+      just
+      nodejs
       gnupg
       gopher
       htop
