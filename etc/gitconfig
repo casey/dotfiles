@@ -1,7 +1,6 @@
 [user]
 name       = Casey Rodarmor
 email      = casey@rodarmor.com
-signingkey = 3259DAEDB29636B0E2025A70556186B153EC6FE0
 
 [github]
 user = casey
@@ -57,7 +56,6 @@ trustExitCode = true
 
 [commit]
 verbose = true
-# gpgsign = 1
 
 [gpg]
 program = gpg
