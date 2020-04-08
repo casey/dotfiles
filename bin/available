@@ -1,0 +1,22 @@
+#!/usr/bin/env python3
+
+import sys, requests, time, string
+
+chars = string.digits + string.ascii_lowercase
+
+def check(user):
+  status = requests.get(f"https://github.com/{user}").status_code
+  print(status, user)
+  time.sleep(1)
+
+for a in chars:
+  check(a)
+
+for a in chars:
+  for b in chars:
+    check(a + b)
+
+for a in chars:
+  for b in chars:
+    for c in chars:
+      check(a + b + c)
