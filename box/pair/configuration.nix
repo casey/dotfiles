@@ -78,6 +78,7 @@
       binutils
       cargo-edit
       cargo-watch
+      clang
       cmake
       colordiff
       dash
