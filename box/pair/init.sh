@@ -12,7 +12,7 @@ set -euxo pipefail
 
 CONFIG_URL='https://raw.githubusercontent.com/casey/local/master/box/pair/configuration.nix'
 
-umount /dev/vda*
+umount /dev/vda* || true
 
 # create partitions (with 2G swap)
 (
