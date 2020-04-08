@@ -86,6 +86,8 @@
       fd
       file
       fzf
+      perl
+      gitAndTools.diff-so-fancy
       gitAndTools.gitFull
       gnumake
       just
