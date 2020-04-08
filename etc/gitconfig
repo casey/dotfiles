@@ -15,7 +15,7 @@ ui     = true
 [core]
 autocrlf     = false
 excludesfile = ~/.gitignore.global
-pager        = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less -FRX
+pager        = diff-so-fancy | less --tabs=4 -RFX
 quotepath    = false
 trustctime   = false
 
@@ -42,7 +42,7 @@ tool = meld
 prompt = false
 
 [difftool "meld"]
-cmd           = open -W -a Meld --args \"$LOCAL\" \"$PWD/$REMOTE\"
+cmd = open -W -a Meld --args \"$LOCAL\" \"$PWD/$REMOTE\"
 trustExitCode = true
 
 [merge]
@@ -52,12 +52,26 @@ tool = meld
 prompt = false
 
 [mergetool "meld"]
-cmd           = open -W -a Meld --args --auto-merge \"$PWD/$LOCAL\" \"$PWD/$BASE\" \"$PWD/$REMOTE\" --output = \"$PWD/$MERGED\"
+cmd = open -W -a Meld --args --auto-merge \"$PWD/$LOCAL\" \"$PWD/$BASE\" \"$PWD/$REMOTE\" --output = \"$PWD/$MERGED\"
 trustExitCode = true
 
 [commit]
 verbose = true
-gpgsign = 1
+# gpgsign = 1
 
 [gpg]
 program = gpg
+
+[color "diff-highlight"]
+oldNormal    = red bold
+oldHighlight = red bold 52
+newNormal    = green bold
+newHighlight = green bold 22
+
+[color "diff"]
+meta       = 11
+frag       = magenta bold
+commit     = yellow bold
+old        = red bold
+new        = green bold
+whitespace = red reverse
