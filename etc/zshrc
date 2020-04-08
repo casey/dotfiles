@@ -168,6 +168,11 @@ zle -N zle-keymap-select prompt-reset # redraw prompt when keymap changes
 
 ## config files
 
+if [[ ! -f ~/.base16_theme ]]; then
+  eval "$(~/src/local/submodules/base16-shell/profile_helper.sh)"
+  base16_seti
+fi
+
 source: ~/.base16_theme      # load base16 theme
 source: ~/.extrarc           # extras
 source: ~/.fzf.zsh           # fzf bindings
