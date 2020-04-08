@@ -488,10 +488,11 @@ nnoremap <silent> j :TmuxNavigateDown<cr>
 nnoremap <silent> l :TmuxNavigateRight<cr>
 
 " edit named files
-nnoremap <leader>ev :e $MYVIMRC<cr>
-nnoremap <leader>es :e ~/.zshrc<cr>
 nnoremap <leader>ea :e ~/.zsh/aliases.zsh<cr>
 nnoremap <leader>en :e notes.md<cr>
+nnoremap <leader>es :e ~/.zshrc<cr>
+nnoremap <leader>et :e ~/.config/alacritty/alacritty.yml<cr>
+nnoremap <leader>ev :e $MYVIMRC<cr>
 
 "" aliases
 
