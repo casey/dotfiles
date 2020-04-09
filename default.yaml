@@ -46,6 +46,7 @@
     ~/bin: bin
 
     ~/.colordiffrc:                 etc/colordiffrc
+    ~/.config/bpython:              etc/bpython
     ~/.config/feh:                  etc/feh
     ~/.config/fish/config.fish:     etc/config.fish
     ~/.config/fish/completions:     etc/fish-completions

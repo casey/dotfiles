@@ -1,0 +1,42 @@
+# hushlogin
+
+[general]
+
+# number of lines to store in history
+hist_length = 1000
+
+# soft tab size
+tab_length = 2
+
+
+[keyboard]
+
+backspace                  = C-h
+clear_line                 = C-u
+clear_screen               = C-l
+clear_word                 = C-w
+cut_to_buffer              = C-k
+down_one_line              = C-n
+edit_config                = F3
+exit                       = C-d
+external_editor            = F7
+help                       =
+incremental_search         = M-s
+last_output                = F9
+pastebin                   = F8
+reimport                   = F6
+reverse_incremental_search = C-r
+save                       = C-s
+search                     = C-o
+show_source                = F2
+toggle_file_watch          = F5
+undo                       = C-r
+up_one_line                = C-p
+yank_from_buffer           = C-y
+
+
+[curtsies]
+
+# previous line key searches for current line
+# right arrow completes current line with the first match from history
+right_arrow_completion = True

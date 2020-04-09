@@ -3,8 +3,7 @@ alias: g 'git'
 alias: m 'vman'
 alias: j 'just'
 alias: f 'fd'
-alias: p 'python3 -ic "import math, time, random, re, sys, itertools, os, string;"'
-alias: v vim-fzf
+alias: v 'vim-fzf'
 
 ## Ⅱ
 alias: .. 'cd ..'
