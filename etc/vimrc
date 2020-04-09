@@ -458,8 +458,6 @@ nnoremap <leader>wa :wa<cr>|                        " write all buffers
 nnoremap <leader>wo <c-w>o|                         " close all windows but current
 nnoremap <leader>zz :wqa<cr>|                       " save all files and exit
 nnoremap Y y$|                                      " yank to end of line
-nnoremap _ :wall<cr>|                               " save all changed buffers
-nnoremap + @@|                                      " run the macro in a
 nnoremap j gj|                                      " go down one screen line
 nnoremap k gk|                                      " go up one screen line
 noremap! <c-a> <home>|                              " move cursor to beginning of line
