@@ -405,6 +405,7 @@ nnoremap <leader>al :SidewaysLeft<cr>|              " move function argument lef
 nnoremap <leader>ar :SidewaysRight<cr>|             " move function argument right
 nnoremap <leader>a: :Tabularize :<cr>|              " align on :
 nnoremap <leader>a= :Tabularize =<cr>|              " align on =
+nnoremap <leader>a# :Tabularize /#<cr>|             " align on #
 nnoremap <leader>a<bar> :Tabularize \|<cr>|         " align on |
 nnoremap <leader>bd :bd<cr>|                        " buffer delete
 nnoremap <leader>cx :!chmod u+x %<cr>|              " chmod +x current file
