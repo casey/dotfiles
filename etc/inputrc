@@ -12,23 +12,3 @@ set show-mode-in-prompt on
 "\C-e": end-of-line
 "\C-f": forward-char
 "\C-b": backward-char
-
-# bind: ' '    magic-space
-# bind: '\e^?' backward-kill-word
-# bind: '\eb'  backward-word
-# bind: '\ef'  forward-word
-# bind: '\eK'  kill-line-to-system-clipboard
-# bind: '\eY'  yank-from-system-clipboard
-# bind: '^?'   backward-delete-char
-# bind: '^B'   backward-char
-# bind: '^E'   end-of-line
-# bind: '^F'   forward-char
-# bind: '^G'   fzf-cd-widget
-# bind: '^H'   backward-delete-char
-# bind: '^K'   kill-line-to-x-selection
-# bind: '^R'   history-incremental-search-backward
-# bind: '^S'   history-incremental-search-forward
-# bind: '^U'   kill-whole-line
-# bind: '^X'   fzf-history-widget
-# bind: '^Y'   yank-from-x-selection
-# bind: '^Z'   fzf-file-widget
