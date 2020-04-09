@@ -77,6 +77,7 @@ Plug 'tyru/capture.vim',    {'on': 'Capture'       } " capture command output in
 " language specific plugins
 Plug 'Glench/Vim-Jinja2-Syntax' " jinja2
 Plug 'LnL7/vim-nix'             " nix
+Plug 'casey/vim-fidl'           " fidl
 Plug 'cespare/vim-toml'         " toml
 Plug 'dag/vim-fish'             " fish shell
 Plug 'fatih/vim-go'             " go
