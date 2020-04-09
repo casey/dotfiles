@@ -1,58 +1,42 @@
-# focus
-rcmd - h : yabai -m window --focus west
-rcmd - j : yabai -m window --focus south
-rcmd - k : yabai -m window --focus north
-rcmd - l : yabai -m window --focus east
+## open
 
-# swap
-rcmd + shift - h : yabai -m window --swap west
-rcmd + shift - j : yabai -m window --swap south
-rcmd + shift - k : yabai -m window --swap north
-rcmd + shift - l : yabai -m window --swap east
+rshift - t : "/Applications/Alacritty.app/Contents/MacOS/alacritty"         # terminal
+rshift - b : "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" # browser
 
-# warp
-rcmd + alt - h : yabai -m window --warp west
-rcmd + alt - j : yabai -m window --warp south
-rcmd + alt - k : yabai -m window --warp north
-rcmd + alt - l : yabai -m window --warp east
 
-# expand
-rcmd - a : yabai -m window --resize left:-20:0
-rcmd - s : yabai -m window --resize bottom:0:20
-rcmd - w : yabai -m window --resize top:0:-20
-rcmd - d : yabai -m window --resize right:20:0
+## yabai
 
-# contract
-rcmd + shift - a : yabai -m window --resize left:20:0
-rcmd + shift - s : yabai -m window --resize bottom:0:-20
-rcmd + shift - w : yabai -m window --resize top:0:20
-rcmd + shift - d : yabai -m window --resize right:-20:0
+rcmd + alt -   h : yabai -m window --warp    west              # warp west
+rcmd + alt -   j : yabai -m window --warp    south             # warp south
+rcmd + alt -   k : yabai -m window --warp    north             # warp north
+rcmd + alt -   l : yabai -m window --warp    east              # warp east
 
-# yabai fullscreen
-rcmd - f : yabai -m window --toggle zoom-fullscreen
+rcmd + shift - a : yabai -m window --resize  left:20:0         # contract left
+rcmd + shift - d : yabai -m window --resize  right:-20:0       # contract right
+rcmd + shift - f : yabai -m window --toggle  native-fullscreen # enter native fullscreen
+rcmd + shift - h : yabai -m window --swap    west              # swap west
+rcmd + shift - j : yabai -m window --swap    south             # swap south
+rcmd + shift - k : yabai -m window --swap    north             # swap north
+rcmd + shift - l : yabai -m window --swap    east              # swap east
+rcmd + shift - s : yabai -m window --resize  bottom:0:-20      # contract bottom
+rcmd + shift - w : yabai -m window --resize  top:0:20          # contract top
 
-# native fullscreen
-rcmd + shift - f : yabai -m window --toggle native-fullscreen
+rcmd - 0x18      : yabai -m space  --balance                   # balance
+rcmd - a         : yabai -m window --resize  left:-20:0        # expand left
+rcmd - d         : yabai -m window --resize  right:20:0        # expand right
+rcmd - f         : yabai -m window --toggle  zoom-fullscreen   # toggle fullscreen
+rcmd - h         : yabai -m window --focus   west              # focus west
+rcmd - j         : yabai -m window --focus   south             # focus south
+rcmd - k         : yabai -m window --focus   north             # focus north
+rcmd - l         : yabai -m window --focus   east              # focus east
+rcmd - return    : yabai -m window --toggle  float             # toggle float
+rcmd - s         : yabai -m window --resize  bottom:0:20       # expand bottom
+rcmd - tab       : yabai -m window --toggle  split             # toggle split
+rcmd - w         : yabai -m window --resize  top:0:-20         # expand top
 
-# toggle split
-rcmd - tab : yabai -m window --toggle split
-
-# balance
-rcmd - 0x18 : yabai -m space --balance
-
-# toggle float
-rcmd - return : yabai -m window --toggle float
-
-# open terminal
-rcmd - t : /Applications/Alacritty.app/Contents/MacOS/alacritty
-
-# open browser
-rcmd - b : "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
-
-# mouse
-# rctrl + ralt + rshift - 7    : yabai -m window --toggle float
-# rctrl + ralt + rshift - 8    : yabai -m window --toggle float
-# rctrl + ralt + rshift - 9    : yabai -m window --toggle float
-# rctrl + ralt + rshift - 0    : yabai -m window --toggle float
-# rctrl + ralt + rshift - 0x1B : yabai -m window --toggle float
-# rctrl + ralt + rshift - 0x18 : yabai -m window --toggle float
+rctrl + ralt + rshift - 7    : yabai -m window --toggle float # toggle float
+rctrl + ralt + rshift - 8    : yabai -m window --toggle float # toggle float
+rctrl + ralt + rshift - 9    : yabai -m window --toggle float # toggle float
+rctrl + ralt + rshift - 0    : yabai -m window --toggle float # toggle float
+rctrl + ralt + rshift - 0x1B : yabai -m window --toggle float # toggle float
+rctrl + ralt + rshift - 0x18 : yabai -m window --toggle float # toggle float
