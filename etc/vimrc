@@ -367,10 +367,7 @@ nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " trigger completion
-inoremap <silent><expr> <c-n> coc#refresh()
-
-" select and confirm when no completion is selected with <c-c>
-inoremap <silent><expr> <c-c> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
+inoremap <silent><expr> <c-c> pumvisible() ? coc#_select_confirm() : coc#refresh()
 
 " objects
 " free g?:        byzjk
