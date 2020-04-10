@@ -174,12 +174,15 @@ if [[ ! -f ~/.base16_theme ]]; then
   base16_seti
 fi
 
-source: ~/.base16_theme      # load base16 theme
-source: ~/.extrarc           # extras
-source: ~/.fzf.zsh           # fzf bindings
-source: ~/.zsh/aliases.zsh   # aliases
-source: ~/.zsh/clipboard.zsh # set up system keyboard integration
-source: ~/.zsh/prompt.zsh    # set up prompt
+source: ~/.base16_theme                 # load base16 theme
+source: ~/.extrarc                      # extras
+source: ~/.fzf.zsh                      # fzf bindings
+source: ~/.zsh/aliases.zsh              # aliases
+source: ~/.zsh/clipboard.zsh            # set up system keyboard integration
+source: ~/.zsh/prompt.zsh               # set up prompt
+
+# fuchsia setup doesn't like the `source:` function
+. ~/src/fuchsia/scripts/fx-env.sh
 
 # zsh-syntax-highlightning must be sourced last
-source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source: ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
