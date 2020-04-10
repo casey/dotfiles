@@ -38,6 +38,7 @@ INITIAL_PATH_ELEMENTS=(${(s/:/)PATH}) # save initial path elements
 PATH=''                               # clear path variable
 
 path: ~/bin                           # artisanal binaries
+path: ~/src/fuchsia/.jiri_root/bin    # fuchsia binaries
 path: ~/.fzf/bin                      # fzf
 path: ~/.local/bin                    # pipx
 path: ~/.local/bin/polaris            # polaris binaries
