@@ -60,6 +60,15 @@ function! ToggleLineNumbers()
   set relativenumber! " toggle relative line numbers
 endfun
 
+" toggle line wrapping
+function! ToggleLineWrap()
+  if &textwidth != 0
+    set textwidth=0
+  else
+    set textwidth=79
+  endif
+endfun
+
 " toggle rustfmt autosave
 function! ToggleALE()
   if g:ale_enabled
