@@ -138,12 +138,13 @@ set wildmenu       " show completion menu
 
 set background    =dark                  " use a dark background
 set backspace     =indent,eol,start      " backspace kills everything
-set errorfile     =.errors.txt           " set error file name
 set backupdir     =~/.vim/backup         " backup directory location
 set clipboard     =unnamed               " use the system clipboard
 set completefunc  =emoji#complete        " auto complete emoji
 set dictionary    =/usr/share/dict/words " dictionary completion mode words
 set directory     =~/.vim/swap           " swap directory location
+set equalprg      =evaluate-python3      " evaluate argument to '=' as python expression
+set errorfile     =.errors.txt           " set error file name
 set history       =10000                 " lines of history to remember
 set laststatus    =2                     " always show statusline
 set makeprg       =just                  " use just as the makeprg
@@ -165,7 +166,6 @@ set whichwrap     =b,s,h,l,~,[,],<,>     " all movement keys wrap
 set wildchar      =<Tab>                 " use tab for completions
 set wildignore    =*.pyc                 " ignore python bytecode files
 set wildmode      =list:longest          " list all matches and complete longest common string
-set equalprg      =evaluate-python3      " evaluate argument to '=' as python expression
 
 set completeopt  =menuone " show the completion menu even when there is only one item
 set completeopt +=longest " auto-complete the longest text common to all matches
