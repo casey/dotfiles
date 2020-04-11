@@ -490,6 +490,7 @@ nnoremap <silent> l :TmuxNavigateRight<cr>
 
 " edit named files
 nnoremap <leader>ea :e ~/.zsh/aliases.zsh<cr>
+nnoremap <leader>em :e ~/.mutt/muttrc<cr>
 nnoremap <leader>en :e notes.md<cr>
 nnoremap <leader>es :e ~/.zshrc<cr>
 nnoremap <leader>et :e ~/.config/alacritty/alacritty.yml<cr>

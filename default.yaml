@@ -98,6 +98,7 @@
     ~/.zlogout:                     etc/zlogout
     ~/.zshrc:                       etc/zshrc
     ~/.zsh:                         etc/zsh
+    ~/.mutt:                        etc/mutt
 
 - link:
     ~/.tmux/plugins/tpm:      submodules/tpm
