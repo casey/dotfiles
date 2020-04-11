@@ -156,6 +156,7 @@ set signcolumn    =yes                   " always show sign column
 set spellcapcheck =''                    " turn off checking for capitalized sentences
 set spelllang     =en_us                 " use american english as the spellcheck language
 set tabpagemax    =50                    " open a maximum of 30 tabs when vim is started with -p
+set textwidth     =0                     " disable wrapping by default
 set undodir       =~/.vim/undo           " backup directory location
 set undolevels    =10000                 " remember last 10000 changes
 set updatetime    =250                   " set update time to 250ms
@@ -170,9 +171,14 @@ set completeopt  =menuone " show the completion menu even when there is only one
 set completeopt +=longest " auto-complete the longest text common to all matches
 set completeopt +=preview " show additional information by matches
 
-set formatoptions +=r                    " insert comment leader after <enter> in insert mode
-set formatoptions -=t                    " don't auto-wrap code at textwidth
-set formatoptions -=j                    " don't merge comments when joining lines
+set formatoptions +=2 " use paragraph second line indent
+set formatoptions +=c " auto-wrap comments at textwidth
+set formatoptions +=j " merge comments when joining lines
+set formatoptions +=q " allow formatting comments with `gq`
+set formatoptions +=r " insert comment leader after <enter> in insert mode
+set formatoptions +=t " auto-wrap at textwidth
+set formatoptions -=a " disable automatic formatting of paragraphs
+set formatoptions -=l " format long lines when inserting
 
 set printoptions  +=header:0             " don't add a header to hardcopies
 
