@@ -3,3 +3,6 @@ signingkey = 3259DAEDB29636B0E2025A70556186B153EC6FE0
 
 [commit]
 gpgsign = 1
+
+[http]
+cookiefile = /Users/rodarmor/.gitcookies
