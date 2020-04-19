@@ -73,6 +73,7 @@ Plug 'danielwe/base16-vim'       " repository with fix for errors
 Plug 'mattn/gist-vim',      {'on': 'Gist'          } " create gists
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'} " nerd tree file drawer
 Plug 'tyru/capture.vim',    {'on': 'Capture'       } " capture command output in a buffer
+" Plug 'ap/vim-css-color'                   " show css colors
 
 " language specific plugins
 Plug 'Glench/Vim-Jinja2-Syntax' " jinja2
