@@ -34,7 +34,7 @@ alias: zf 'zsh-edit-function'
 ## Ⅲ
 alias: gap 'git add -p'
 alias: gaa 'git commit --amend --all'
-alias: gbr 'git branch'
+alias: gbr 'git branch --verbose'
 alias: gba 'git branch --all'
 alias: gbd 'git branch --delete'
 alias: gca 'git commit --all'
