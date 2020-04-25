@@ -90,6 +90,9 @@ export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/src/
 # use ripgrep with fzf
 export FZF_DEFAULT_COMMAND="rg --files --hidden --glob '!.git/*' --glob '!*.pyc'"
 
+# use fd for fzf-file-widget
+export FZF_CTRL_T_COMMAND="fd --hidden --exclude '.git' --exclude '.git/*'"
+
 
 ## local variables
 
@@ -154,6 +157,7 @@ bind: '^N'   down-history
 bind: '^P'   up-history
 bind: '^R'   history-incremental-search-backward
 bind: '^S'   history-incremental-search-forward
+bind: '^T'   fzf-file-widget
 bind: '^U'   kill-whole-line
 bind: '^W'   backward-kill-word
 bind: '^X'   fzf-history-widget
