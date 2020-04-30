@@ -249,13 +249,13 @@ let g:airline_detect_modified                      = 1   " highlight modified bu
 let g:airline_left_sep                             = ''  " turn off left separator
 let g:airline_powerline_fonts                      = 1   " fixes missing whitespace in tabline
 let g:airline_right_sep                            = ''  " turn off right separator
+let g:airline_skip_empty_sections                  = 1   " hide empty sections
 
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
-let g:airline_symbols.dirty = '…'
 
-let g:airline_skip_empty_sections                  = 1   " hide empty sections
+let g:airline_symbols.dirty = '…'
 
 let g:EasyMotion_do_mapping = 0                             " disable default mappings
 let g:EasyMotion_keys       = 'ASDGHKLQWERTYUIOPZXCVBNMFJ;' " targets
@@ -270,12 +270,12 @@ let g:rooter_resolve_links                          = 1         " follow symlink
 let g:rooter_change_directory_for_non_project_files = 'current' " autochdir if not a project file
 let g:rooter_silent_chdir                           = 1         " not message when chdiring
 
+let g:rooter_patterns = ["Cargo.toml", '.git', '.git/', 'justfile', 'Justfile'] " stop patterns
+
 let g:vim_markdown_preview_browser = 'Google Chrome' " open markdown preview in chrome
 let g:vim_markdown_preview_github  = 1               " render github flavored markdown with grip
 let g:vim_markdown_preview_hotkey  = '<leader>pm'    " remap markdown preview hotkey
 let g:vim_markdown_preview_toggle  = 1               " update markdown preview on buffer write
-
-let g:rooter_patterns = ["Cargo.toml", '.git', '.git/', 'justfile', 'Justfile'] " stop patterns
 
 let g:ale_completion_enabled           = 0 " enable completion
 let g:ale_fix_on_save                  = 1 " fix on save
