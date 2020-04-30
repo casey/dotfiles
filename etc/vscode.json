@@ -40,5 +40,6 @@
     ],
     "editor.lineNumbers": "relative",
     "vim.easymotion": true,
-    "vim.leader": "<space>"
+    "vim.leader": "<space>",
+    "python.pythonPath": "/usr/local/bin/python3"
 }
