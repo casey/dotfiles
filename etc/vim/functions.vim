@@ -193,3 +193,11 @@ function! DetectCargoScript()
     set ft=rust
   endif
 endfun
+
+function! SpellOrSymbols()
+  if &spell == 'nospell'
+    CocList -I symbols
+  else
+    execute 'normal! [s1z=<c-o>'
+  endif
+endfun

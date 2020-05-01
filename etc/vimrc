@@ -398,7 +398,7 @@ nnoremap <c-k> :Rg<cr>|                             " search project lines
 nnoremap <c-n> :NERDTreeToggle<cr>|                 " open nerdtree
 nnoremap <c-p> :Files<cr>|                          " search files
 nnoremap <c-q> :call Leave()<cr>|                   " close window, close buffer or quit
-nnoremap <c-s> [s1z=<c-o>|                          " correct last spelling error
+nnoremap <c-s> :call SpellOrSymbols()<cr>|          " correct spelling error or search symbols
 nnoremap <leader> <nop>|                            " reserve for three-key mappings
 nnoremap <leader>" :vsplit<cr>|                     " vertical split
 nnoremap <leader>.. :cd ..<cr>|                     " go up one directory
