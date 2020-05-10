@@ -120,3 +120,13 @@ Intermodal's
 uninsurance
 HSA
 HSAs
+Enum
+enums
+schemas
+u16
+enum
+u8
+u64
+accessors
+endian
+canonicality
