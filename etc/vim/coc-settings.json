@@ -12,5 +12,6 @@
   "signature.enable": true,
   "suggest.autoTrigger": "always",
   "suggest.floatEnable": true,
+  "rust-analyzer.diagnostics.enable": false,
   "rust-analyzer.checkOnSave.enable": false
 }
