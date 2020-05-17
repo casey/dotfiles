@@ -130,3 +130,10 @@ u64
 accessors
 endian
 canonicality
+structs
+getters
+FIDL
+deprecations
+Flatbuffers
+vtable
+vtables
