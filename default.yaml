@@ -16,7 +16,6 @@
   - mkdir -p ~/.config/neofetch
   - mkdir -p ~/.config/nixpkgs/overlays
   - mkdir -p ~/.config/polybar
-  - mkdir -p ~/.config/skhd
   - mkdir -p ~/.config/src
   - mkdir -p ~/.config/sway
   - mkdir -p ~/.config/swaylock
@@ -24,7 +23,6 @@
   - mkdir -p ~/.config/taffybar
   - mkdir -p ~/.config/xmobar
   - mkdir -p ~/.config/xonsh
-  - mkdir -p ~/.config/yabai
   - mkdir -p ~/.elinks
   - mkdir -p ~/.gnupg
   - mkdir -p ~/.local/share
@@ -48,8 +46,8 @@
     ~/.colordiffrc:                 etc/colordiffrc
     ~/.config/bpython:              etc/bpython
     ~/.config/feh:                  etc/feh
-    ~/.config/fish/config.fish:     etc/config.fish
     ~/.config/fish/completions:     etc/fish-completions
+    ~/.config/fish/config.fish:     etc/config.fish
     ~/.config/fish/functions:       etc/fish-functions
     ~/.config/git/config:           etc/gitconfig
     ~/.config/gsimplecal/config:    etc/gsimplecal
@@ -64,7 +62,6 @@
     ~/.config/user-dirs.dirs:       etc/user-dirs.dirs
     ~/.config/xmobar/xmobarrc:      etc/xmobarrc
     ~/.config/xonsh/config.json:    etc/xonsh.json
-    ~/.config/yabai/yabairc:        etc/yabairc
     ~/.elinks/elinks.conf:          etc/elinks.conf
     ~/.fxfile:                      etc/fxfile
     ~/.gdbinit:                     etc/gdbinit
@@ -74,6 +71,7 @@
     ~/.hushlogin:                   etc/hushlogin
     ~/.inputrc:                     etc/inputrc
     ~/.lldbinit:                    etc/lldbinit
+    ~/.mutt:                        etc/mutt
     ~/.nethackrc:                   etc/nethackrc
     ~/.nixpkgs/config.nix:          etc/nixpkgs.nix
     ~/.plan:                        etc/plan
@@ -95,10 +93,10 @@
     ~/.xonshrc:                     etc/xonshrc
     ~/.xresources:                  etc/xresources
     ~/.xscreensaver:                etc/xscreensaver
+    ~/.yabairc:                     etc/yabairc
     ~/.zlogout:                     etc/zlogout
-    ~/.zshrc:                       etc/zshrc
     ~/.zsh:                         etc/zsh
-    ~/.mutt:                        etc/mutt
+    ~/.zshrc:                       etc/zshrc
 
 - link:
     ~/.tmux/plugins/tpm:      submodules/tpm
