@@ -16,17 +16,18 @@ rust:
 	rustup component add rust-src
 
 crates:
-	cargo install --force ripgrep
-	cargo install --force exa
-	cargo install --force bat
-	cargo install --force fd-find
-	cargo install --force remote
-	cargo install --force just
-	cargo install --force cargo-watch
-	cargo install --force cargo-check
-	cargo install --force cargo-outdated
-	cargo install --force cargo-edit
-	cargo +nightly install --force racer
+	cargo install bat
+	cargo install cargo-check
+	cargo install cargo-edit
+	cargo install cargo-outdated
+	cargo install cargo-watch
+	cargo install exa
+	cargo install fd-find
+	cargo install just
+	cargo install remote
+	cargo install ripgrep
+	cargo install src
+	cargo install --path pkg/shell
 
 formulae:
 	# packages
@@ -34,12 +35,12 @@ formulae:
 	brew install fish
 	brew install gpg
 	brew install macvim
+	brew install pinentry-mac
 	brew install python
 	brew install reattach-to-user-namespace
 	brew install tig
 	brew install tmux
 	brew install zsh
-	brew install pinentry-mac
 	# casks
 	brew cask install vlc
 	brew cask install alacritty
@@ -50,7 +51,7 @@ formulae:
 	brew cask install font-dejavu-sans-mono-for-powerline
 	# yabai and skhd
 	brew tap koekeishiya/formulae
-	brew install --HEAD yabai
+	brew install yabai
 	brew install skhd
 
 services:
