@@ -182,7 +182,7 @@ source: ~/.zsh/clipboard.zsh            # set up system keyboard integration
 source: ~/.zsh/prompt.zsh               # set up prompt
 
 # fuchsia setup doesn't like the `source:` function
-. ~/src/fuchsia/scripts/fx-env.sh
+# . ~/src/fuchsia/scripts/fx-env.sh
 
 # zsh-syntax-highlightning must be sourced last
 source: ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
