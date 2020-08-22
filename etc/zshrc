@@ -29,7 +29,7 @@ fpath=(~/.zsh/completions $fpath)
 zstyle ':completion:*:descriptions' format "%U%B%d%b%u"
 zstyle ':completion:*:messages' format "%F{blue}%d%f"
 autoload -Uz compinit
-compinit -d ~/.zsh/compdump
+compinit -C -d ~/.zsh/compdump
 
 
 ## path
