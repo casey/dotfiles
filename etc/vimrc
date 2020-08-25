@@ -462,6 +462,7 @@ nnoremap <leader>tp :Goyo<cr>|                      " toggle prose mode
 nnoremap <leader>ts :setlocal spell!<cr>|           " toggle spelling
 nnoremap <leader>tu :UndotreeToggle<cr>|            " toggle undotree
 nnoremap <leader>tw :call ToggleWhitespace()<cr>|   " toggle whitespace
+nnoremap <leader>tz :call ToggleZoom()<cr>|         " toggle zoom
 nnoremap <leader>wa :wa<cr>|                        " write all buffers
 nnoremap <leader>wo <c-w>o|                         " close all windows but current
 nnoremap <leader>zz :wqa<cr>|                       " save all files and exit

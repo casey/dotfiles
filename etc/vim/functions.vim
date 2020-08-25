@@ -201,3 +201,22 @@ function! SpellOrSymbols()
     execute 'normal! [s1z=<c-o>'
   endif
 endfun
+
+let s:zoom = 0
+function! ToggleZoom()
+    if s:zoom  == 0
+        let s:zoom = 1
+        set laststatus=0
+        set noruler
+        set noshowcmd
+        set noshowmode
+        set signcolumn=no
+    else
+        let s:zoom = 0
+        set laststatus=2
+        set ruler
+        set showcmd
+        set showmode
+        set signcolumn=yes
+    endif
+endfunction
