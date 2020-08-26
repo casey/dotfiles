@@ -53,6 +53,7 @@
     ~/.config/gsimplecal/config:    etc/gsimplecal
     ~/.config/i3status/config:      etc/i3status.config
     ~/.config/polybar/config:       etc/polybar
+    ~/.config/ranger:               etc/ranger
     ~/.config/src/config.yaml:      etc/src.yaml
     ~/.config/sway/config:          etc/sway.config
     ~/.config/swaylock/config:      etc/swaylock.config

@@ -71,7 +71,6 @@ alias: pare 'tr -s "[:blank:]" " " | cut -d " " -f'
 alias: port 'port -vuRc'
 alias: sane 'stty sane'
 alias: post 'cd ~/src/blog && just post'
-alias: file 'cd ~/src/blog && just file'
 
 ## Ⅴ
 alias: egrep 'egrep --color=auto'
@@ -79,3 +78,4 @@ alias: eject 'drutil tray eject'
 
 ## Ⅸ
 alias: colortest '~/src/local/submodules/base16-shell/colortest'
+alias: post-file 'cd ~/src/blog && just file'
