@@ -171,7 +171,7 @@ set wildmode      =list:longest          " list all matches and complete longest
 
 set completeopt  =menuone " show the completion menu even when there is only one item
 set completeopt +=longest " auto-complete the longest text common to all matches
-set completeopt +=preview " show additional information by matches
+set completeopt +=preview " show additional information in preview window
 
 set formatoptions +=2 " use paragraph second line indent
 set formatoptions +=c " auto-wrap comments at textwidth
