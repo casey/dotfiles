@@ -1,17 +1,21 @@
 {
+  "coc.preferences.hoverTarget": "preview",
+  "coc.preferences.previewAutoClose": false,
+  "coc.preferences.previewMaxHeight": 20,
   "coc.preferences.snippets.enable": false,
   "coc.source.around.enable": false,
   "coc.source.buffer.enable": false,
   "coc.source.dictionary.enable": false,
   "coc.source.emoji.enable": false,
-  "coc.source.ultisnips.enable": false,
-  "snippets.ultisnips.enable": false,
-  "snippets.snipmate.enable": false,
   "diagnostic.checkCurrentLine": false,
   "diagnostic.enable": true,
-  "signature.enable": true,
-  "suggest.autoTrigger": "always",
-  "suggest.floatEnable": true,
+  "rust-analyzer.checkOnSave.enable": false,
   "rust-analyzer.diagnostics.enable": false,
-  "rust-analyzer.checkOnSave.enable": false
+  "signature.enable": false,
+  "signature.target": "float",
+  "suggest.autoTrigger": "none",
+  "suggest.detailField": "preview",
+  "suggest.disableKind": true,
+  "suggest.enablePreview": true,
+  "suggest.floatEnable": true
 }
