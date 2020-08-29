@@ -395,7 +395,7 @@ cnoremap <c-k> <c-\>eKillCmdline()<cr>|             " kill to end of line
 inoremap <c-s> <c-g>u<Esc>[s1z=`]a<c-g>u|           " fix last spelling error
 nnoremap <c-b> <c-o>|                               " jump back
 nnoremap <c-f> <c-i>|                               " jump forward
-nnoremap <c-k> :Rg<cr>|                             " search project lines
+nnoremap <c-k> :AllLines<cr>|                       " search all lines in all files
 nnoremap <c-n> :NERDTreeToggle<cr>|                 " open nerdtree
 nnoremap <c-p> :Files<cr>|                          " search files
 nnoremap <c-q> :call Leave()<cr>|                   " close window, close buffer or quit
@@ -538,6 +538,17 @@ if &t_Co > 2 || has("gui_running")
 endif
 
 
+"" commands
+
+command! -narg=* PyEval python3 EvaluateCurrentLine(<f-args>)
+
+command! -bang -nargs=* AllLines
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>),
+  \   1,
+  \   fzf#vim#with_preview({'options': ['--delimiter=:', '--nth=4..']}), <bang>0)
+
+
 "" autocommands
 
 augroup vimrc
@@ -589,7 +600,3 @@ augroup vimrc
   " (should be unnecessary when https://github.com/vim/vim/issues/6587 is fixed)
   autocmd Syntax vim syn match vimUsrCmd '^\s*\zs\u\%(\w*\)\@>(\@!'
 augroup end
-
-"" notocommands
-
-command! -narg=* PyEval python3 EvaluateCurrentLine(<f-args>)
