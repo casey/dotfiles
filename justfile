@@ -14,8 +14,12 @@ rust:
 	rustup component add rls
 	rustup component add rust-analysis
 	rustup component add rust-src
-	echo 'For coc.nvim rust analyzer integration:'
-	echo '	:CocInstall coc-rust-analyzer'
+
+coc:
+	echo ':CocInstall coc-rust-analyzer'
+	echo ':CocInstall coc-json'
+	echo ':CocInstall coc-dictionary'
+	echo ':CocInstall coc-emoji'
 
 crates:
 	cargo install bat
