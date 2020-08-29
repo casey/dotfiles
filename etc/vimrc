@@ -151,6 +151,7 @@ set laststatus    =2                     " always show statusline
 set makeprg       =just                  " use just as the makeprg
 set mouse         =a                     " enable mouse use in all modes
 set numberwidth   =3                     " use a minimum of three spaces for numbers in gutter
+set previewheight =30                    " set preview window height
 set scrolloff     =5                     " keep three context lines above and below cursor
 set shortmess     =actsI                 " shorten some messages
 set sidescrolloff =3                     " keep three context columns left and right of cursor
