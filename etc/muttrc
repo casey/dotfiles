@@ -1,0 +1,41 @@
+## default mailbox location
+
+set folder = imaps://imap.gmail.com/ # must be set before any use of `+` or `=`
+
+
+## account
+
+source ~/.mutt/account
+
+
+## folders
+
+mailboxes     = +INBOX              # new mail
+set postponed = +[Gmail]/Drafts     # postponed / drafts
+set spoolfile = +INBOX              # incoming mail
+set record    ="+[Gmail]/Sent Mail" # sent mail
+
+
+## settings
+
+set header_cache     = ~/.cache/mutt        # header cache location
+set imap_keepalive   = 300                  # poll connections every 300s
+set mail_check       = 120                  # check for new mail every 120s
+set mark_old         = no                   # mark as read automatically
+set message_cachedir = ~/.cache/mutt        # message cache location
+
+
+## unsettings
+
+unset imap_passive # automatically open imap connections without prompting
+
+
+## macros
+
+bind index <space> noop
+
+macro index <space>ga "<change-folder>=[Gmail]/All<tab><enter>" "Go to all mail"
+macro index <space>gd "<change-folder>=[Gmail]/Drafts<enter>"   "Go to drafts"
+macro index <space>gi "<change-folder>=INBOX<enter>"            "Go to inbox"
+macro index <space>gs "<change-folder>=[Gmail]/Starred<enter>"  "Go to starred messages"
+macro index <space>gt "<change-folder>=[Gmail]/Trash<enter>"    "Go to trash"

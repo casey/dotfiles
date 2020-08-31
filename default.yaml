@@ -26,6 +26,7 @@
   - mkdir -p ~/.elinks
   - mkdir -p ~/.gnupg
   - mkdir -p ~/.local/share
+  - mkdir -p ~/.mutt
   - mkdir -p ~/.nixpkgs
   - mkdir -p ~/.rusty-tags
   - mkdir -p ~/.ssh
@@ -72,7 +73,7 @@
     ~/.hushlogin:                   etc/hushlogin
     ~/.inputrc:                     etc/inputrc
     ~/.lldbinit:                    etc/lldbinit
-    ~/.mutt:                        etc/mutt
+    ~/.mutt/muttrc:                 etc/muttrc
     ~/.nethackrc:                   etc/nethackrc
     ~/.nixpkgs/config.nix:          etc/nixpkgs.nix
     ~/.plan:                        etc/plan
