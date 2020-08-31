@@ -67,10 +67,11 @@ alias: cd.. 'cd ..'
 alias: diff 'colordiff'
 alias: grep 'grep --color=auto'
 alias: help 'run-help'
+alias: mutt 'neomutt'
 alias: pare 'tr -s "[:blank:]" " " | cut -d " " -f'
 alias: port 'port -vuRc'
-alias: sane 'stty sane'
 alias: post 'cd ~/src/blog && just post'
+alias: sane 'stty sane'
 
 ## Ⅴ
 alias: egrep 'egrep --color=auto'
