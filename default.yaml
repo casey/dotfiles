@@ -5,6 +5,8 @@
   - ~/.ssh
 
 - shell:
+  - mkdir -p ~/.cache/mutt/headers
+  - mkdir -p ~/.cache/mutt/messages
   - mkdir -p ~/.cargo
   - mkdir -p ~/.config
   - mkdir -p ~/.config/alacritty

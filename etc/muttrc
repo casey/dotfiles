@@ -18,11 +18,11 @@ set record    ="+[Gmail]/Sent Mail" # sent mail
 
 ## settings
 
-set header_cache     = ~/.cache/mutt        # header cache location
-set imap_keepalive   = 300                  # poll connections every 300s
-set mail_check       = 120                  # check for new mail every 120s
-set mark_old         = no                   # mark as read automatically
-set message_cachedir = ~/.cache/mutt        # message cache location
+set header_cache     = ~/.cache/mutt/headers  # header cache location
+set imap_keepalive   = 300                    # poll connections every 300s
+set mail_check       = 120                    # check for new mail every 120s
+set mark_old         = no                     # mark as read automatically
+set message_cachedir = ~/.cache/mutt/messages # message cache location
 
 
 ## unsettings
