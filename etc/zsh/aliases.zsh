@@ -31,18 +31,25 @@ alias: tp 'term --command ssh pair@pair.rodarmor.com'
 alias: tb 'nc termbin.com 9999'
 alias: zf 'zsh-edit-function'
 
-## Ⅲ
+## Ⅲ: misc
+alias: how 'howdoi -a'
+alias: psg 'ps aux | grep'
+alias: rwd 'cd `pwd -P`'
+
+## Ⅲ: git
 alias: gaa 'git commit --amend --all'
+alias: gac 'git commit --amend'
 alias: gap 'git add -p'
 alias: gba 'git branch --all'
 alias: gbd 'git branch --delete'
 alias: gbr 'git branch --verbose'
-alias: gct 'git commit'
 alias: gca 'git commit --all'
 alias: gcb 'git checkout -b'
 alias: gcf 'git config --local --unset rodarmor.slow true'
 alias: gco 'git checkout'
 alias: gcs 'git config --local --add rodarmor.slow true'
+alias: gct 'git commit'
+alias: gcp 'git commit --patch'
 alias: gdc 'git diff --cached'
 alias: gdi 'git diff --cached'
 alias: gif 'git info'
@@ -57,9 +64,6 @@ alias: grs 'git restore'
 alias: gst 'git info'
 alias: gsu 'git submodule update --init --recursive'
 alias: gsw 'git switch'
-alias: how 'howdoi -a'
-alias: psg 'ps aux | grep'
-alias: rwd 'cd `pwd -P`'
 
 ## Ⅳ
 alias: Kill 'kill -9'
