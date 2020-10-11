@@ -1,3 +1,4 @@
+APIs
 ASIC
 ASICs
 Allocator
@@ -74,6 +75,7 @@ chicago
 codebase
 combinator
 combinators
+composable
 config
 counterparty
 crypto
@@ -139,6 +141,7 @@ queryable
 rackspace
 readme
 recursers
+refactorings
 rightsholders
 roadmap
 runtime
