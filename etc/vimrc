@@ -63,7 +63,7 @@ Plug 'wellle/targets.vim'                 " additional text objects
 Plug 'xolox/vim-misc'                     " misc funcionality for other plugins
 
 " language server client
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " base16 color schemes
 Plug 'danielwe/base16-vim'       " repository with fix for errors
@@ -588,10 +588,10 @@ augroup vimrc
   autocmd FileType gitcommit set colorcolumn+=73
 
   " highlight symbol under cursor
-  autocmd CursorHold * silent call CocActionAsync('highlight')
+  " autocmd CursorHold * silent call CocActionAsync('highlight')
 
   " update signature help on jump placeholder
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+  " autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 
   " close preview window when completion done
   autocmd CompleteDone * if pumvisible() == 0 | pclose | endif
