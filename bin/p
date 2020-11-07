@@ -1,13 +1,7 @@
-#!/usr/bin/env python3
+#!/usr/bin/env bash
 
-import bpython
-import itertools
-import math
-import os
-import random
-import re
-import string
-import sys
-import time
+set -euo pipefail
 
-bpython.embed(locals_=locals(), banner=None)
+python3 -ic "import itertools, math, os, random, re, string, sys, time;"
+
+stty sane
