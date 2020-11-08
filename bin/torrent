@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+set -euxo pipefail
+
+shopt -s nullglob
+
+torrents=(~/Desktop/*.torrent)
+
+if [ ${#torrents[@]} -gt 0 ]; then
+  scp ${#torrents[@]} magellan.whatbox.ca:watch
+  rm ${#torrents[@]}
+fi
+
+rsync -avz --delete magellan.whatbox.ca:files/ ~/bulk/files/
