@@ -15,6 +15,7 @@ augroup filetypedetect
   au BufNewFile,BufRead *.s++                           setf cpp
   au BufNewFile,BufRead *.ts                            setf typescript
   au BufNewFile,BufRead *.yaml,*.yml                    setf yaml
+  au BufNewFile,BufRead *.applescript                   setf applescript
   au BufNewFile,BufRead BUCK                            setf python
   au BufNewFile,BufRead SConstruct,sconstruct           setf python
   au BufNewFile,BufRead sconscript                      setf python
