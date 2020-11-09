@@ -1,6 +1,8 @@
 - shell:
     - mkdir -p ~/.config/alacritty
     - mkdir -p ~/Library/Application\ Support/Code/User
+
 - link:
     ~/.config/alacritty/alacritty.yml: alacritty.yml
+    ~/Library/iTunes/Scripts: ../../itunes
     ~/Library/Application Support/Code/User/settings.json: ../../etc/vscode.json

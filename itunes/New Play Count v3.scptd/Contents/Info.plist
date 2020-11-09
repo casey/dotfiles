@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleIdentifier</key>
+	<string>com.dougscripts.newplaycount</string>
+	<key>CFBundleName</key>
+	<string>New Play Count</string>
+	<key>CFBundleShortVersionString</key>
+	<string>3.0</string>
+	<key>CFBundleVersion</key>
+	<string>3009</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>©2003-2018, Doug Adams. All Rights Reserved.</string>
+	<key>WindowState</key>
+	<dict>
+		<key>bundleDividerCollapsed</key>
+		<false/>
+		<key>bundlePositionOfDivider</key>
+		<real>1256</real>
+		<key>dividerCollapsed</key>
+		<false/>
+		<key>eventLogLevel</key>
+		<integer>2</integer>
+		<key>name</key>
+		<string>ScriptWindowState</string>
+		<key>positionOfDivider</key>
+		<real>726</real>
+		<key>savedFrame</key>
+		<string>45 46 1555 1369 0 0 2560 1417 </string>
+		<key>selectedTab</key>
+		<string>log</string>
+	</dict>
+</dict>
+</plist>
