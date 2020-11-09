@@ -4,3 +4,10 @@ version = "0.0.0"
 authors = ["Casey Rodarmor <casey@rodarmor.com>"]
 edition = "2018"
 publish = false
+
+[dependencies]
+walkdir = "2.3.1"
+dirs = "3.0.1"
+snafu = "0.6.9"
+id3 = "0.5.1"
+chrono = "0.4.19"
