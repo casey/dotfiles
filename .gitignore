@@ -6,5 +6,4 @@
 /etc/vim/viminfo
 /etc/vim/view
 /etc/zsh/compdump
-/pkg/shell/target
-/pkg/space/target
+/pkg/target
