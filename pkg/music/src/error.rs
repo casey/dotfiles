@@ -52,6 +52,9 @@ pub(crate) enum Error {
   TrackAlbumArtist {
     path: PathBuf,
   },
+  TrackName {
+    path: PathBuf,
+  },
   Rename {
     src:    PathBuf,
     dst:    PathBuf,
@@ -59,6 +62,13 @@ pub(crate) enum Error {
   },
   RenameDstExists {
     path: PathBuf,
+  },
+  TranscodeInvoke {
+    source: io::Error,
+  },
+  TranscodeStatus {
+    status: ExitStatus,
+    stderr: String,
   },
 }
 

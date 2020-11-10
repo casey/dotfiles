@@ -17,6 +17,58 @@ impl Subcommand {
   }
 
   fn transcode() -> Result<()> {
+    let flacs = library::sources()?
+      .into_iter()
+      .filter_map(|source| {
+        if let Source::Flac(path) = source {
+          Some(path)
+        } else {
+          None
+        }
+      })
+      .collect::<Vec<PathBuf>>();
+
+    eprintln!("{} FLAC files to transcode…", flacs.len());
+
+    return Ok(());
+
+    let tmpdir = TempDir::new().unwrap();
+
+    let results = flacs
+      .par_iter()
+      .map(|flac| {
+        let mut tmp = tmpdir.path().join(flac.file_name().unwrap());
+        tmp.set_extension("mp3");
+
+        Command::new("ffmpeg")
+          .arg("-i")
+          .arg(&flac)
+          .arg("-qscale:a")
+          .arg("0")
+          .arg(&tmp)
+          .output()
+          .context(error::TranscodeInvoke)
+          .and_then(|output| {
+            if output.status.success() {
+              let mp3 = library::mp3_dir().unwrap().join(tmp.file_name().unwrap());
+              fs::rename(&tmp, &mp3)
+            } else {
+              Err(Error::TranscodeStatus {
+                status: output.status,
+                stderr: String::from_utf8_lossy(&output.stderr).into_owned(),
+              })
+            }
+          })
+      })
+      .collect::<Vec<Result<()>>>();
+
+    for result in results {
+      match result {
+        Err(err) => eprintln!("Transcode error: {}", err),
+        Ok(()) => eprint!("."),
+      }
+    }
+
     Ok(())
   }
 
@@ -141,7 +193,7 @@ impl Subcommand {
         (false, true) => b,
       };
 
-      pairs.insert((transcode, master.to_owned()));
+      pairs.insert((master.to_owned(), transcode));
     }
 
     for (transcode, master) in &pairs {
@@ -159,9 +211,9 @@ impl Subcommand {
 
     let tracks = mp3
       .into_iter()
-      .map(|mp3| (mp3, None))
-      .chain(pairs.into_iter().map(|(mp3, flac)| (mp3, Some(flac))))
-      .map(|(mp3, flac)| Track::new(mp3, flac))
+      .map(|mp3| Source::mp3(mp3))
+      .chain(pairs.into_iter().map(|(flac, mp3)| Source::both(flac, mp3)))
+      .map(TryInto::try_into)
       .collect::<Result<Vec<Track>>>()?;
 
     {
@@ -171,7 +223,7 @@ impl Subcommand {
         let album = albums.entry(track.album_key()).or_insert(BTreeMap::new());
 
         if album.contains_key(&track.track_key()) {
-          eprintln!("{}", track.mp3.display());
+          eprintln!("{}", track.mp3().unwrap().display());
         }
 
         album.insert(track.track_key(), track);
@@ -237,10 +289,10 @@ impl Subcommand {
         dst.push("mp3");
         dst.push(&stem);
         dst.set_extension("mp3");
-        fs::rename(&track.mp3, &dst)?;
+        fs::rename(track.mp3().unwrap(), &dst)?;
       }
 
-      if let Some(flac) = &track.flac {
+      if let Some(flac) = track.flac() {
         let mut dst = new.clone();
         dst.push("flac");
         dst.push(&stem);

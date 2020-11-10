@@ -5,6 +5,7 @@ mod error;
 mod fs;
 mod import;
 mod library;
+mod source;
 mod subcommand;
 mod track;
 
