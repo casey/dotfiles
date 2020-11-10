@@ -18,6 +18,13 @@ pub(crate) enum Error {
     source: id3::Error,
     path:   PathBuf,
   },
+  Flac {
+    source: metaflac::Error,
+    path:   PathBuf,
+  },
+  VorbisCommentMissing {
+    path: PathBuf,
+  },
   HomeDir,
   Timestamp {
     source: ParseIntError,
@@ -50,4 +57,13 @@ pub(crate) enum Error {
     dst:    PathBuf,
     source: io::Error,
   },
+  RenameDstExists {
+    path: PathBuf,
+  },
+}
+
+impl From<walkdir::Error> for Error {
+  fn from(source: walkdir::Error) -> Self {
+    Error::Walkdir { source }
+  }
 }
