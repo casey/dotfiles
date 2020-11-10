@@ -15,4 +15,4 @@ else
 fi
 
 echo "Syncing…"
-rsync -avz --delete magellan.whatbox.ca:files/ ~/seedbox/
+rsync -avz magellan.whatbox.ca:files/ ~/seedbox/
