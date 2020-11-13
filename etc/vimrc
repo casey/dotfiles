@@ -345,38 +345,38 @@ nmap <c-h> <plug>AirlineSelectPrevTab
 nmap <c-l> <plug>AirlineSelectNextTab
 
 " range selection
-nmap <silent> <tab> <Plug>(coc-range-select)
-xmap <silent> <tab> <Plug>(coc-range-select)
+" nmap <silent> <tab> <Plug>(coc-range-select)
+" xmap <silent> <tab> <Plug>(coc-range-select)
 
 " coc
-nmap <leader>ca <Plug>(coc-codeaction)|  " apply code action to current line
-nmap <leader>cf <Plug>(coc-fix-current)| " autofix current line
-nmap <leader>cr <Plug>(coc-rename)|      " rename symbol under cursor
+" nmap <leader>ca <Plug>(coc-codeaction)|  " apply code action to current line
+" nmap <leader>cf <Plug>(coc-fix-current)| " autofix current line
+" nmap <leader>cr <Plug>(coc-rename)|      " rename symbol under cursor
 
-nnoremap <silent> <leader>cc  :<C-u>CocConfig<cr>|           " commands
-nnoremap <silent> <leader>cd  :<C-u>CocList diagnostics<cr>| " diagnostics
-nnoremap <silent> <leader>ce  :<C-u>CocList extensions<cr>|  " extensions
-nnoremap <silent> <leader>cl  :<C-u>CocList<cr>|             " list
-nnoremap <silent> <leader>cj  :<C-u>CocNext<CR>|             " default action for next item
-nnoremap <silent> <leader>ck  :<C-u>CocPrev<CR>|             " default action for previous item
-nnoremap <silent> <leader>co  :<C-u>CocList outline<cr>|     " file symbols
-nnoremap <silent> <leader>cp  :<C-u>CocListResume<CR>|       " resume latest coc list.
-nnoremap <silent> <leader>cs  :<C-u>CocList -I symbols<cr>|  " workspace symbols
+" nnoremap <silent> <leader>cc  :<C-u>CocConfig<cr>|           " commands
+" nnoremap <silent> <leader>cd  :<C-u>CocList diagnostics<cr>| " diagnostics
+" nnoremap <silent> <leader>ce  :<C-u>CocList extensions<cr>|  " extensions
+" nnoremap <silent> <leader>cl  :<C-u>CocList<cr>|             " list
+" nnoremap <silent> <leader>cj  :<C-u>CocNext<CR>|             " default action for next item
+" nnoremap <silent> <leader>ck  :<C-u>CocPrev<CR>|             " default action for previous item
+" nnoremap <silent> <leader>co  :<C-u>CocList outline<cr>|     " file symbols
+" nnoremap <silent> <leader>cp  :<C-u>CocListResume<CR>|       " resume latest coc list.
+" nnoremap <silent> <leader>cs  :<C-u>CocList -I symbols<cr>|  " workspace symbols
 
 " apply code action to selected region
-xmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
+" xmap <leader>a  <Plug>(coc-codeaction-selected)
+" nmap <leader>a  <Plug>(coc-codeaction-selected)
 
 " code navigation
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
+" nmap <silent> gd <Plug>(coc-definition)
+" nmap <silent> gy <Plug>(coc-type-definition)
+" nmap <silent> gi <Plug>(coc-implementation)
+" nmap <silent> gr <Plug>(coc-references)
+" nmap <silent> [g <Plug>(coc-diagnostic-prev)
+" nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " trigger completion
-inoremap <silent><expr> <c-c> pumvisible() ? coc#_select_confirm() : coc#refresh()
+" inoremap <silent><expr> <c-c> pumvisible() ? coc#_select_confirm() : coc#refresh()
 
 " objects
 " free g?:        byzjk
@@ -385,10 +385,10 @@ inoremap <silent><expr> <c-c> pumvisible() ? coc#_select_confirm() : coc#refresh
 "vmap gl <plug>(textobj-pastedtext-text)| " last pasted text - visual mode and select mode (example)
 
 " function objects
-omap af <Plug>(coc-funcobj-a)
-omap if <Plug>(coc-funcobj-i)
-xmap af <Plug>(coc-funcobj-a)
-xmap if <Plug>(coc-funcobj-i)
+" omap af <Plug>(coc-funcobj-a)
+" omap if <Plug>(coc-funcobj-i)
+" xmap af <Plug>(coc-funcobj-a)
+" xmap if <Plug>(coc-funcobj-i)
 
 " non-recursive mappings
 cnoremap <c-k> <c-\>eKillCmdline()<cr>|             " kill to end of line
@@ -399,7 +399,7 @@ nnoremap <c-k> :AllLines<cr>|                       " search all lines in all fi
 nnoremap <c-n> :NERDTreeToggle<cr>|                 " open nerdtree
 nnoremap <c-p> :Files<cr>|                          " search files
 nnoremap <c-q> :call Leave()<cr>|                   " close window, close buffer or quit
-nnoremap <c-s> :call SpellOrSymbols()<cr>|          " correct spelling error or search symbols
+nnoremap <c-s> :call CorrectSpellingError()<cr>|    " correct spelling error or search symbols
 nnoremap <leader> <nop>|                            " reserve for three-key mappings
 nnoremap <leader>" :vsplit<cr>|                     " vertical split
 nnoremap <leader>.. :cd ..<cr>|                     " go up one directory

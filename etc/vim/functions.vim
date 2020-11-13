@@ -180,8 +180,6 @@ function! ShowDocumentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
   else
-    call CocAction('doHover')
-  endif
 endfunction
 
 function! OpenWiktionary()
@@ -194,12 +192,8 @@ function! DetectCargoScript()
   endif
 endfun
 
-function! SpellOrSymbols()
-  if &spell == 'nospell'
-    CocList -I symbols
-  else
-    execute 'normal! [s1z=<c-o>'
-  endif
+function! CorrectSpellingError()
+  execute 'normal! [s1z=<c-o>'
 endfun
 
 let s:zoom = 0
