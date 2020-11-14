@@ -61,7 +61,7 @@ impl TryFrom<&Path> for Import {
       Format::Mp3 => {
         let tag = id3::Tag::read_from_path(&path)?;
 
-        let missing = || anyhow!("FLAC file missing metadata: `{}`", path.display());
+        let missing = || anyhow!("MP3 file missing metadata: `{}`", path.display());
 
         title = tag.title().ok_or_else(missing)?.to_owned();
         disc_number = tag.disc().ok_or_else(missing)? - 1;

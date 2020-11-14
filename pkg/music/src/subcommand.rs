@@ -108,9 +108,10 @@ impl Subcommand {
         info!("- {}", cluster_key);
       }
 
-      let input: bool = input().msg("Do these clusters look okay? ").get();
+      let input: String = input().msg("Do these clusters look okay? ").get();
 
-      if !input {
+      if &input[..1] != "y" {
+        info!("Cancelling…");
         return;
       }
 
