@@ -2,161 +2,62 @@ use crate::common::*;
 
 #[derive(StructOpt)]
 pub(crate) enum Subcommand {
-  MbidToNumbered,
-  Import { paths: Vec<PathBuf> },
+  Import,
   Transcode,
 }
 
 impl Subcommand {
-  pub(crate) fn run(self) -> Result<()> {
+  #[throws]
+  pub(crate) fn run(self) {
+    let library = Library::new()?;
+
+    let appender = tracing_appender::rolling::never(library.base_dir(), "log.txt");
+
+    let (non_blocking, _guard) = tracing_appender::non_blocking(appender);
+
+    let filter = EnvFilter::from_default_env()
+      .add_directive("music=info".parse()?)
+      .add_directive("warn".parse()?);
+
+    let subscriber = tracing_subscriber::registry()
+      .with(filter)
+      .with(tracing_subscriber::fmt::Layer::new())
+      .with(
+        tracing_subscriber::fmt::Layer::new()
+          .json()
+          .with_writer(non_blocking),
+      );
+
+    tracing_log::LogTracer::init()?;
+
+    tracing::subscriber::set_global_default(subscriber)?;
+
     match self {
-      Self::MbidToNumbered => Self::mbid_to_numbered(),
-      Self::Import { paths } => Self::import(&paths),
-      Self::Transcode => Self::transcode(),
+      Self::Import => Self::import(&library)?,
+      Self::Transcode => Self::transcode(&library)?,
     }
   }
 
-  fn transcode() -> Result<()> {
-    let flacs = library::sources()?
-      .into_iter()
-      .filter_map(|source| {
-        if let Source::Flac(path) = source {
-          Some(path)
-        } else {
-          None
-        }
-      })
-      .collect::<Vec<PathBuf>>();
+  #[throws]
+  fn import(library: &Library) {
+    let span = span!(Level::INFO, "import");
+    let _guard = span.enter();
 
-    eprintln!("{} FLAC files to transcode…", flacs.len());
+    info!("Looking for new tracks…");
 
-    return Ok(());
+    let mut mp3s = 0;
+    let mut flacs = 0;
+    let mut others = 0;
+    let mut clusterizer = Clusterizer::new();
 
-    let tmpdir = TempDir::new().unwrap();
-
-    let results = flacs
-      .par_iter()
-      .map(|flac| {
-        let mut tmp = tmpdir.path().join(flac.file_name().unwrap());
-        tmp.set_extension("mp3");
-
-        Command::new("ffmpeg")
-          .arg("-i")
-          .arg(&flac)
-          .arg("-qscale:a")
-          .arg("0")
-          .arg(&tmp)
-          .output()
-          .context(error::TranscodeInvoke)
-          .and_then(|output| {
-            if output.status.success() {
-              let mp3 = library::mp3_dir().unwrap().join(tmp.file_name().unwrap());
-              fs::rename(&tmp, &mp3)
-            } else {
-              Err(Error::TranscodeStatus {
-                status: output.status,
-                stderr: String::from_utf8_lossy(&output.stderr).into_owned(),
-              })
-            }
-          })
-      })
-      .collect::<Vec<Result<()>>>();
-
-    for result in results {
-      match result {
-        Err(err) => eprintln!("Transcode error: {}", err),
-        Ok(()) => eprint!("."),
-      }
-    }
-
-    Ok(())
-  }
-
-  fn import(paths: &[PathBuf]) -> Result<()> {
-    let mut imports = Vec::new();
-
-    for path in paths {
-      for result in WalkDir::new(path) {
-        let entry = result?;
-
-        if entry.file_type().is_dir() {
-          continue;
-        }
-
-        let path = entry.path();
-
-        let extension = path
-          .extension()
-          .unwrap_or_default()
-          .to_string_lossy()
-          .into_owned();
-
-        match extension.as_str() {
-          "flac" => imports.push(Import::new(path)?),
-          _ => eprintln!("Skipping {}…", path.display()),
-        }
-      }
-    }
-
-    let mut albums = BTreeMap::new();
-
-    for import in &imports {
-      let album = albums.entry(import.album_key()).or_insert_with(Vec::new);
-      album.push(import);
-      album.sort_by_key(|import| import.track);
-    }
-
-    let next_id = library::next_id()?;
-
-    let mut id = next_id;
-    eprintln!("Found {} albums.", albums.len());
-    for ((artist, album), imports) in &albums {
-      eprintln!("{} by {}", album, artist);
-
-      for (i, import) in imports.iter().enumerate() {
-        assert_eq!(i, import.track as usize);
-        eprintln!("{:02} - {}", import.track, import.title);
-        assert!(!library::flac(id as u32)?.exists());
-        id += 1;
-      }
-    }
-
-    eprintln!("Renaming {} tracks…", albums.values().flatten().count());
-    for (i, import) in albums.values().flatten().enumerate() {
-      fs::rename(&import.path, &library::flac(next_id + i as u32)?)?;
-    }
-
-    Self::transcode()?;
-
-    Ok(())
-  }
-
-  fn mbid_to_numbered() -> Result<()> {
-    let home = dirs::home_dir().ok_or(Error::HomeDir)?;
-
-    let music = home.join("Dropbox/music");
-    let itunes = music.join("iTunes");
-
-    let mut flac = BTreeSet::new();
-    let mut mp3 = BTreeSet::new();
-    let mut other = BTreeSet::new();
-    let mut ignore = BTreeSet::new();
-    let mut m4a = BTreeSet::new();
-
-    let filter = |entry: &DirEntry| !entry.path().starts_with(&itunes);
-
-    for result in WalkDir::new(&music).into_iter().filter_entry(filter) {
+    for result in WalkDir::new(library.new_dir()) {
       let entry = result?;
 
       if entry.file_type().is_dir() {
         continue;
       }
 
-      let path = entry.path().to_path_buf();
-
-      if path.file_name() == Some(OsStr::new(".DS_Store")) {
-        continue;
-      }
+      let path = entry.path().to_owned();
 
       let extension = path
         .extension()
@@ -165,142 +66,130 @@ impl Subcommand {
         .into_owned();
 
       match extension.as_str() {
-        "mp3" => mp3.insert(path),
-        "flac" => flac.insert(path),
-        "m4a" => m4a.insert(path),
-        "m3u" | "cue" | "log" | "png" | "jpg" => ignore.insert(path),
-        _ => other.insert(path),
+        "mp3" => {
+          clusterizer.insert(&path)?;
+          mp3s += 1;
+        },
+        "flac" => {
+          clusterizer.insert(&path)?;
+          flacs += 1;
+        },
+        _ => others += 1,
       };
     }
 
-    let mut pairs = BTreeSet::new();
+    info!("Found {} MP3s.", mp3s);
+    info!("Found {} FLACs.", flacs);
+    info!("Found {} other files.", others);
 
-    for master in &flac {
-      let mut a = music.join("library");
-      a.push(master.file_name().unwrap());
-      a.set_extension("mp3");
+    let next_id = library.next_id()?;
 
-      let mut b = master.to_owned();
-      b.set_extension("flac.mp3");
+    info!("Next ID: {}", next_id);
 
-      let a_exists = mp3.contains(&a);
-      let b_exists = mp3.contains(&b);
-
-      let transcode = match (a_exists, b_exists) {
-        (true, true) => return Err(Error::DuplicateTranscodes { a, b }),
-        (false, false) => continue,
-        (true, false) => a,
-        (false, true) => b,
-      };
-
-      pairs.insert((master.to_owned(), transcode));
-    }
-
-    for (transcode, master) in &pairs {
-      assert!(flac.contains(master));
-      flac.remove(master);
-      assert!(mp3.contains(transcode));
-      mp3.remove(transcode);
-    }
-
-    assert!(flac.is_empty());
-    assert!(other.is_empty());
-
-    eprintln!("{} pairs", pairs.len());
-    eprintln!("{} mp3s", mp3.len());
-
-    let tracks = mp3
-      .into_iter()
-      .map(|mp3| Source::mp3(mp3))
-      .chain(pairs.into_iter().map(|(flac, mp3)| Source::both(flac, mp3)))
-      .map(TryInto::try_into)
-      .collect::<Result<Vec<Track>>>()?;
+    clusterizer.check()?;
 
     {
-      let mut albums = BTreeMap::new();
-
-      for track in &tracks {
-        let album = albums.entry(track.album_key()).or_insert(BTreeMap::new());
-
-        if album.contains_key(&track.track_key()) {
-          eprintln!("{}", track.mp3().unwrap().display());
-        }
-
-        album.insert(track.track_key(), track);
-      }
-
-      for album in albums.values() {
-        let mut last_disc = 0;
-        let mut last_track_number = 0;
-        let mut gap = false;
-
-        for ((disc, track_number), track) in album {
-          if *disc != last_disc {
-            if *disc != last_disc + 1 {
-              gap = true;
-            } else {
-              last_track_number = 0;
-            }
+      let mut next_id = next_id;
+      for cluster in clusterizer.clusters() {
+        for import in cluster.imports() {
+          let destination = import.destination(library, next_id);
+          if destination.exists() {
+            bail!("Import destination exists: `{}`", destination.display());
           }
-
-          if *track_number != last_track_number {
-            if *track_number != last_track_number + 1 {
-              gap = true;
-            }
-          }
-
-          if gap {
-            eprintln!(
-              "{}/{} {} {}",
-              disc, track_number, track.album, track.album_artist
-            );
-          }
-
-          last_disc = *disc;
-          last_track_number = *track_number;
-          gap = false;
+          next_id = next_id.next();
         }
       }
     }
 
-    let sequence = tracks
-      .iter()
-      .map(|track| {
-        (
-          (
-            track.added,
-            track.album_artist.as_str(),
-            track.album.as_str(),
-            track.disc,
-            track.track,
-          ),
-          track,
-        )
-      })
-      .collect::<BTreeMap<(DateTime<Utc>, &str, &str, u32, u32), &Track>>();
+    info!("Found {} clusters:", clusterizer.cluster_count());
 
-    let new = home.join("Dropbox/new");
+    if clusterizer.cluster_count() > 0 {
+      for cluster_key in clusterizer.keys() {
+        info!("- {}", cluster_key);
+      }
 
-    for (i, track) in sequence.values().enumerate() {
-      let stem = format!("{:06}", i);
+      let _input: String = input().msg("Do these clusters look okay? ").get();
 
       {
-        let mut dst = new.clone();
-        dst.push("mp3");
-        dst.push(&stem);
-        dst.set_extension("mp3");
-        fs::rename(track.mp3().unwrap(), &dst)?;
-      }
-
-      if let Some(flac) = track.flac() {
-        let mut dst = new.clone();
-        dst.push("flac");
-        dst.push(&stem);
-        dst.set_extension("flac");
-        fs::rename(&flac, &dst)?;
+        let mut next_id = next_id;
+        for cluster in clusterizer.clusters() {
+          for import in cluster.imports() {
+            let destination = import.destination(library, next_id);
+            fs::rename(&import.path(), &destination)?;
+            next_id = next_id.next();
+          }
+        }
       }
     }
 
-    Ok(())
+    Self::transcode(library)?;
+  }
+
+  #[throws]
+  fn transcode(library: &Library) {
+    let span = span!(Level::INFO, "transcode");
+    let _guard = span.enter();
+
+    let mut flacs = library.flacs()?;
+
+    for mp3 in library.mp3s()? {
+      flacs.remove(&Flac::from_id(mp3.id()));
+    }
+
+    let total = flacs.len();
+    let total_width = total.to_string().len();
+    info!("{} FLACs to transcode…", total);
+
+    let tmpdir = TempDir::new().unwrap();
+
+    let i = AtomicUsize::new(0);
+
+    let results = flacs
+      .par_iter()
+      .map(|flac| {
+        let mp3 = Mp3::from_id(flac.id());
+        let src = library.flac_path(*flac);
+        let tmp = tmpdir.path().join(mp3.file_name());
+        let dst = library.mp3_path(mp3);
+
+        Command::new("ffmpeg")
+          .arg("-i")
+          .arg(&src)
+          .arg("-qscale:a")
+          .arg("0")
+          .arg(&tmp)
+          .output()
+          .with_context(|| anyhow!("Failed to invoke ffmpeg"))
+          .and_then(|output| {
+            let i = i.fetch_add(1, Ordering::Relaxed);
+            let count = format!("{:width$}/{}", i + 1, total, width = total_width);
+            if output.status.success() {
+              info!("{} [+] {}", count, flac.file_name());
+              Ok((src, tmp, dst))
+            } else {
+              error!("{} [x] {}", count, flac.file_name());
+              Err(anyhow!(
+                "Transcoding failed: {}:\n{}",
+                output.status,
+                String::from_utf8_lossy(&output.stderr).into_owned()
+              ))
+            }
+          })
+      })
+      .collect::<Vec<Result<(PathBuf, PathBuf, PathBuf)>>>();
+
+    let mut records = Vec::new();
+
+    for result in results {
+      match result {
+        Err(err) => bail!("{}", err),
+        Ok(record) => records.push(record),
+      }
+    }
+
+    for (_, tmp, dst) in records {
+      info!("Renaming {:?} to {:?}", tmp, &dst);
+      fs::rename(&tmp, &dst)?;
+    }
   }
 }

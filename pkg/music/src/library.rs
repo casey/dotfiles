@@ -1,135 +1,176 @@
 use crate::common::*;
 
-fn id_string(id: u32) -> String {
-  format!("{:06}", id)
+pub(crate) struct Library {
+  base: PathBuf,
+  flac: PathBuf,
+  mp3:  PathBuf,
+  new:  PathBuf,
 }
 
-fn flac_filename(id: u32) -> String {
-  let mut s = id_string(id);
-  s.push_str(".flac");
-  s
-}
+impl Library {
+  #[throws]
+  pub(crate) fn new() -> Self {
+    let base = dirs::home_dir()
+      .ok_or_else(|| anyhow!("Failed to find home dir"))?
+      .join("Dropbox/music");
+    Self::check_dir(&base)?;
 
-fn mp3_filename(id: u32) -> String {
-  let mut s = id_string(id);
-  s.push_str(".mp3");
-  s
-}
+    let new = base.join("new");
+    Self::check_dir(&new)?;
 
-pub(crate) fn base() -> Result<PathBuf> {
-  Ok(
-    dirs::home_dir()
-      .ok_or(Error::HomeDir)?
-      .join("Dropbox/music"),
-  )
-}
+    let flac = base.join("flac");
+    Self::check_dir(&flac)?;
 
-pub(crate) fn flac_dir() -> Result<PathBuf> {
-  Ok(base()?.join("flac"))
-}
+    let mp3 = base.join("mp3");
+    Self::check_dir(&mp3)?;
 
-pub(crate) fn mp3_dir() -> Result<PathBuf> {
-  Ok(base()?.join("mp3"))
-}
+    let library = Self {
+      base,
+      new,
+      flac,
+      mp3,
+    };
 
-pub(crate) fn flac(id: u32) -> Result<PathBuf> {
-  Ok(flac_dir()?.join(flac_filename(id)))
-}
+    library.check()?;
 
-pub(crate) fn mp3(id: u32) -> Result<PathBuf> {
-  Ok(flac_dir()?.join(mp3_filename(id)))
-}
-
-pub(crate) fn next_id() -> Result<u32> {
-  let mp3s = mp3s()?;
-
-  Ok(mp3s.len() as u32)
-}
-
-pub(crate) fn mp3s() -> Result<Vec<PathBuf>> {
-  let dir = mp3_dir()?;
-
-  let mut mp3s = Vec::new();
-
-  for result in WalkDir::new(dir).sort_by(|a, b| a.path().cmp(b.path())) {
-    let entry = result?;
-
-    if entry.file_type().is_dir() {
-      continue;
-    }
-
-    let path = entry.path().to_path_buf();
-
-    let file_name = path.file_name().unwrap().to_string_lossy().into_owned();
-
-    if file_name == ".DS_Store" {
-      continue;
-    }
-
-    assert_eq!(path.extension().unwrap().to_string_lossy(), "mp3");
-
-    mp3s.push(path);
+    library
   }
 
-  Ok(mp3s)
-}
-
-pub(crate) fn flacs() -> Result<Vec<PathBuf>> {
-  let dir = flac_dir()?;
-
-  let mut flacs = Vec::new();
-
-  for result in WalkDir::new(dir).sort_by(|a, b| a.path().cmp(b.path())) {
-    let entry = result?;
-
-    if entry.file_type().is_dir() {
-      continue;
-    }
-
-    let path = entry.path().to_path_buf();
-
-    let file_name = path.file_name().unwrap().to_string_lossy().into_owned();
-
-    if file_name == ".DS_Store" {
-      continue;
-    }
-
-    let (id, extension) = file_name.split_at(6);
-
-    assert_eq!(extension, ".flac");
-
-    id.parse::<u64>().unwrap();
-
-    flacs.push(path);
+  pub(crate) fn base_dir(&self) -> &Path {
+    &self.base
   }
 
-  Ok(flacs)
-}
+  pub(crate) fn new_dir(&self) -> &Path {
+    &self.new
+  }
 
-pub(crate) fn sources() -> Result<Vec<Source>> {
-  let mut mp3s = self::mp3s()?.into_iter().collect::<BTreeSet<PathBuf>>();
+  pub(crate) fn flac_dir(&self) -> &Path {
+    &self.flac
+  }
 
-  let mut sources = Vec::new();
+  pub(crate) fn mp3_dir(&self) -> &Path {
+    &self.mp3
+  }
 
-  for flac in self::flacs()? {
-    let file_name = flac.file_name().unwrap();
-    let mut mp3 = mp3_dir()?.join(file_name);
-    mp3.set_extension("mp3");
+  pub(crate) fn flac_path(&self, flac: Flac) -> PathBuf {
+    self.flac_dir().join(flac.file_name())
+  }
 
-    if let Some(mp3) = mp3s.take(&mp3) {
-      sources.push(Source::both(flac, mp3))
-    } else {
-      sources.push(Source::flac(flac));
+  pub(crate) fn mp3_path(&self, mp3: Mp3) -> PathBuf {
+    self.mp3_dir().join(mp3.file_name())
+  }
+
+  #[throws]
+  pub(crate) fn flacs(&self) -> BTreeSet<Flac> {
+    Self::ids(&self.flac, "flac")?
+      .into_iter()
+      .map(Flac::from_id)
+      .collect()
+  }
+
+  #[throws]
+  pub(crate) fn mp3s(&self) -> BTreeSet<Mp3> {
+    Self::ids(&self.mp3, "mp3")?
+      .into_iter()
+      .map(Mp3::from_id)
+      .collect()
+  }
+
+  #[throws]
+  pub(crate) fn next_id(&self) -> Id {
+    let flacs = self.flacs()?;
+    let mp3s = self.mp3s()?;
+
+    flacs
+      .into_iter()
+      .map(|flac| flac.id())
+      .chain(mp3s.into_iter().map(|mp3| mp3.id()))
+      .last()
+      .map(Id::next)
+      .unwrap_or_else(|| Id::new(0))
+  }
+
+  #[throws]
+  fn check(&self) {
+    let flacs = self.flacs()?;
+    let mp3s = self
+      .mp3s()?
+      .into_iter()
+      .map(Mp3::id)
+      .collect::<BTreeSet<Id>>();
+
+    for flac in flacs {
+      if !mp3s.contains(&flac.id()) {
+        warn!(
+          "`{}` exists but corresponding MP3 doesn't",
+          flac.file_name(),
+        );
+
+        let extra_mp3s = mp3s
+          .range(flac.id().next()..=Id::max_value())
+          .map(|id| Mp3::from_id(*id).to_string())
+          .collect::<Vec<String>>();
+
+        if !extra_mp3s.is_empty() {
+          bail!("MP3s after missing MP3: {}", extra_mp3s.join(", "));
+        }
+      }
     }
   }
 
-  for mp3 in mp3s {
-    sources.push(Source::mp3(mp3));
+  #[throws]
+  fn ids(dir: &Path, expected_extension: &str) -> BTreeSet<Id> {
+    let mut ids = BTreeSet::new();
+
+    for result in WalkDir::new(dir) {
+      let entry = result?;
+
+      if entry.depth() == 0 {
+        continue;
+      }
+
+      let path = entry.path().to_path_buf();
+
+      if entry.file_type().is_dir() {
+        bail!(
+          "Unexpected directory in `{}`: {}",
+          dir.display(),
+          path.display()
+        );
+      }
+
+      let file_name = path
+        .file_name()
+        .ok_or_else(|| anyhow!("Missing filename: `{}`", path.display()))?
+        .to_string_lossy()
+        .into_owned();
+
+      if file_name == ".DS_Store" {
+        continue;
+      }
+
+      let (id, extension) = file_name.split_at(6);
+
+      let id = id
+        .parse::<u32>()
+        .with_context(|| anyhow!("Invalid ID: {}", path.display()))?;
+
+      let extension = &extension[1..];
+
+      if extension != expected_extension {
+        bail!("Invalid extension: {}", path.display());
+      }
+
+      ids.insert(Id::new(id));
+    }
+
+    ids
   }
 
-  Ok(sources)
-}
-
-pub(crate) fn tracks() -> Result<Vec<Track>> {
-  sources()?.into_iter().map(TryInto::try_into).collect()
+  #[throws]
+  fn check_dir(path: &Path) {
+    if !(path.exists() && path.is_dir()) {
+      bail!("Library directory does not exist: `{}`", path.display());
+    }
+  }
 }

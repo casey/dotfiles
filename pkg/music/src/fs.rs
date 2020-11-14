@@ -1,13 +1,16 @@
 use crate::common::*;
 
-pub(crate) fn rename(src: &Path, dst: &Path) -> Result<()> {
-  eprintln!("Renaming\n{}\n{}", src.display(), dst.display());
-
+#[throws]
+pub(crate) fn rename(src: &Path, dst: &Path) {
   if dst.exists() {
-    return Err(Error::RenameDstExists {
-      path: dst.to_owned(),
-    });
+    bail!("Rename destination exists: `{}`", dst.display());
   }
 
-  std::fs::rename(src, dst).context(error::Rename { src, dst })
+  std::fs::rename(src, dst).with_context(|| {
+    anyhow!(
+      "Rename failed: src `{}`, dst: `{}",
+      src.display(),
+      dst.display()
+    )
+  })?;
 }
