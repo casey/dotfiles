@@ -108,7 +108,11 @@ impl Subcommand {
         info!("- {}", cluster_key);
       }
 
-      let _input: String = input().msg("Do these clusters look okay? ").get();
+      let input: bool = input().msg("Do these clusters look okay? ").get();
+
+      if !input {
+        return;
+      }
 
       {
         let mut next_id = next_id;
