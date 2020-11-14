@@ -4,6 +4,11 @@ use crate::common::*;
 pub(crate) enum Subcommand {
   Import,
   Transcode,
+  FixTranscodeTags,
+  #[structopt(alias("show"))]
+  Info {
+    ids: Vec<u32>,
+  },
 }
 
 impl Subcommand {
@@ -32,8 +37,87 @@ impl Subcommand {
 
     match self {
       Self::Import => Self::import(&library)?,
+      Self::FixTranscodeTags => Self::fix_transcode_tags(&library)?,
       Self::Transcode => Self::transcode(&library)?,
+      Self::Info { ids } => Self::info(&library, &ids)?,
     }
+  }
+
+  #[throws]
+  fn info(library: &Library, ids: &[u32]) {
+    for id in ids {
+      let id = Id::new(*id);
+      {
+        let mp3 = Mp3::from_id(id);
+        let path = library.mp3_path(mp3);
+        if !path.exists() {
+          continue;
+        }
+
+        let tag = id3::Tag::read_from_path(&path)?;
+
+        for frame in tag.frames() {
+          eprint!("{}: ", frame.name());
+          use id3::Content::*;
+          match frame.content() {
+            Unknown(bytes) => eprintln!("Unknown: {:?}", String::from_utf8_lossy(&bytes)),
+            Picture(picture) => eprintln!("Picture {}", picture.description),
+            Text(text) => eprintln!("{}", text),
+            ExtendedText(item) => eprintln!("{:?} {:?}", item.description, item.value),
+            Comment(comment) => eprintln!("{} {}", comment.description, comment.text),
+            _ => eprintln!("Unsupported content type"),
+          }
+        }
+      }
+    }
+  }
+
+  #[throws]
+  fn fix_transcode_tags(library: &Library) {
+    let span = span!(Level::INFO, "tag");
+    let _guard = span.enter();
+
+    for mp3 in library.mp3s()?.into_iter() {
+      let path = library.mp3_path(mp3);
+      let mut tag = id3::Tag::read_from_path(&path)?;
+
+      let mut trackid = None;
+      let mut albumid = None;
+
+      for extended_text in tag.extended_texts() {
+        match extended_text.description.as_str() {
+          "MUSICBRAINZ_ALBUMID" => {
+            albumid = Some(extended_text.value.trim_matches('\0').to_owned());
+          },
+          "MUSICBRAINZ_TRACKID" => {
+            trackid = Some(extended_text.value.trim_matches('\0').to_owned());
+          },
+          _ => {},
+        }
+      }
+
+      if let Some(trackid) = trackid {
+        trace!("Retagging {}", mp3);
+        eprint!("•");
+
+        let albumid =
+          albumid.ok_or_else(|| anyhow!("Track had track ID but not album ID: {}", mp3))?;
+
+        let ufid = format!("http://musicbrainz.org\0{}", trackid).into();
+        tag.add_frame(id3::Frame::with_content(
+          "UFID",
+          id3::Content::Unknown(ufid),
+        ));
+
+        tag.add_extended_text("MusicBrainz Album Id", format!("{}\0", albumid));
+
+        tag.write_to_path(&path, id3::Version::Id3v24)?;
+      } else {
+        trace!("Skipping {}", mp3);
+        eprint!("·");
+      }
+    }
+    eprintln!();
   }
 
   #[throws]
