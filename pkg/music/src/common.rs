@@ -17,6 +17,7 @@ pub(crate) use ::{
   structopt::StructOpt,
   tempfile::TempDir,
   tracing::{error, info, span, warn, Level},
+  tracing_log::LogTracer,
   tracing_subscriber::{layer::SubscriberExt, EnvFilter},
   walkdir::WalkDir,
 };

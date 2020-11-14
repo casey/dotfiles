@@ -9,6 +9,8 @@ pub(crate) enum Subcommand {
 impl Subcommand {
   #[throws]
   pub(crate) fn run(self) {
+    use tracing_subscriber::fmt::Layer;
+
     let library = Library::new()?;
 
     let appender = tracing_appender::rolling::never(library.base_dir(), "log.txt");
@@ -21,14 +23,10 @@ impl Subcommand {
 
     let subscriber = tracing_subscriber::registry()
       .with(filter)
-      .with(tracing_subscriber::fmt::Layer::new())
-      .with(
-        tracing_subscriber::fmt::Layer::new()
-          .json()
-          .with_writer(non_blocking),
-      );
+      .with(Layer::new())
+      .with(Layer::new().with_writer(non_blocking));
 
-    tracing_log::LogTracer::init()?;
+    LogTracer::init()?;
 
     tracing::subscriber::set_global_default(subscriber)?;
 
