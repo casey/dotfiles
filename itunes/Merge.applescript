@@ -118,6 +118,7 @@ tell application "iTunes"
     end
   end
 
+  set old_database_ids to {}
   repeat with i from 1 to count of n
     set old to item i of o
     set new to item i of n
@@ -127,7 +128,10 @@ tell application "iTunes"
     set new's «class pPlC» to old_plays + new_plays
     set old's «class pPlC» to 0
     my trash_file(location of old)
-    delete (some track of library playlist 1 whose database ID is old_dbid)
+    set end of old_database_ids to old_dbid
   end
 
+  repeat with old_database_id in old_database_ids
+    delete (some track of library playlist 1 whose database ID is old_database_id)
+  end
 end
