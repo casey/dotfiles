@@ -84,7 +84,7 @@ tell application "iTunes"
     set old_name to old's name
     set new_name to new's name
 
-    set message to message & old_track & ".  " & old_name & "\n"
+    set message to message & old_track & ".	" & old_name & "\n"
 
     if new_name ≠ old_name
       set message to message & "	" & new_name & "\n"
