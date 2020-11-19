@@ -14,7 +14,7 @@ tell application "iTunes"
     if y ≥ 2020 and m ≥ 11 and d ≥ 16
 		  set g to (y & "." &  m & "." & d & "." & a & "." & di & "." & ti)
     else
-		  set g to (a & "." & di & "." & ti)
+		  set g to ("0000" & "." & a & "." & di & "." & ti)
     end
 		set grouping of innerTrack to g
 	end
