@@ -10,10 +10,6 @@ impl Mp3 {
     Self { id }
   }
 
-  pub(crate) fn id(self) -> Id {
-    self.id
-  }
-
   pub(crate) fn file_name(self) -> String {
     format!("{}.mp3", self.id)
   }

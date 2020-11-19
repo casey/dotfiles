@@ -2,7 +2,6 @@ use crate::common::*;
 
 pub(crate) struct Library {
   base: PathBuf,
-  flac: PathBuf,
   mp3:  PathBuf,
   new:  PathBuf,
 }
@@ -18,20 +17,10 @@ impl Library {
     let new = base.join("new");
     Self::check_dir(&new)?;
 
-    let flac = base.join("flac");
-    Self::check_dir(&flac)?;
-
     let mp3 = base.join("mp3");
     Self::check_dir(&mp3)?;
 
-    let library = Self {
-      base,
-      new,
-      flac,
-      mp3,
-    };
-
-    library.check()?;
+    let library = Self { base, new, mp3 };
 
     library
   }
@@ -44,28 +33,12 @@ impl Library {
     &self.new
   }
 
-  pub(crate) fn flac_dir(&self) -> &Path {
-    &self.flac
-  }
-
   pub(crate) fn mp3_dir(&self) -> &Path {
     &self.mp3
   }
 
-  pub(crate) fn flac_path(&self, flac: Flac) -> PathBuf {
-    self.flac_dir().join(flac.file_name())
-  }
-
   pub(crate) fn mp3_path(&self, mp3: Mp3) -> PathBuf {
     self.mp3_dir().join(mp3.file_name())
-  }
-
-  #[throws]
-  pub(crate) fn flacs(&self) -> BTreeSet<Flac> {
-    Self::ids(&self.flac, "flac")?
-      .into_iter()
-      .map(Flac::from_id)
-      .collect()
   }
 
   #[throws]
@@ -78,44 +51,11 @@ impl Library {
 
   #[throws]
   pub(crate) fn next_id(&self) -> Id {
-    let flacs = self.flacs()?;
-    let mp3s = self.mp3s()?;
-
-    flacs
-      .into_iter()
-      .map(|flac| flac.id())
-      .chain(mp3s.into_iter().map(|mp3| mp3.id()))
+    Self::ids(&self.mp3, "mp3")?
+      .iter()
       .last()
-      .map(Id::next)
+      .map(|id| id.next())
       .unwrap_or_else(|| Id::new(0))
-  }
-
-  #[throws]
-  fn check(&self) {
-    let flacs = self.flacs()?;
-    let mp3s = self
-      .mp3s()?
-      .into_iter()
-      .map(Mp3::id)
-      .collect::<BTreeSet<Id>>();
-
-    for flac in flacs {
-      if !mp3s.contains(&flac.id()) {
-        warn!(
-          "`{}` exists but corresponding MP3 doesn't",
-          flac.file_name(),
-        );
-
-        let extra_mp3s = mp3s
-          .range(flac.id().next()..=Id::max_value())
-          .map(|id| Mp3::from_id(*id).to_string())
-          .collect::<Vec<String>>();
-
-        if !extra_mp3s.is_empty() {
-          bail!("MP3s after missing MP3: {}", extra_mp3s.join(", "));
-        }
-      }
-    }
   }
 
   #[throws]

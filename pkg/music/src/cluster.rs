@@ -29,7 +29,6 @@ impl Cluster {
 
     let mut disc = 0;
     let mut track = 0;
-    let format = self.imports.values().next().unwrap().format();
 
     for (key, import) in &self.imports {
       if key.disc_number() != disc {
@@ -47,13 +46,6 @@ impl Cluster {
         } else {
           bail!("Missing track before import: `{}`", import.path().display());
         }
-      }
-
-      if import.format() != format {
-        bail!(
-          "Track format doesn't match cluster format: `{}`",
-          import.path().display()
-        );
       }
     }
   }

@@ -15,12 +15,6 @@ impl Id {
       number: self.number + 1,
     }
   }
-
-  pub(crate) fn max_value() -> Self {
-    Self {
-      number: u32::max_value(),
-    }
-  }
 }
 
 impl Display for Id {

@@ -4,19 +4,16 @@ pub(crate) use std::{
   convert::{TryFrom, TryInto},
   fmt::{self, Display, Formatter},
   path::{Path, PathBuf},
-  process::{self, Command},
-  sync::atomic::{AtomicUsize, Ordering},
+  process::{self},
 };
 
 /// dependencies
 pub(crate) use ::{
-  anyhow::{anyhow, bail, Context, Error, Result},
+  anyhow::{anyhow, bail, Context, Error},
   fehler::throws,
-  rayon::iter::{IntoParallelRefIterator, ParallelIterator},
   read_input::{shortcut::input, InputBuild},
   structopt::StructOpt,
-  tempfile::TempDir,
-  tracing::{error, info, span, trace, warn, Level},
+  tracing::{info, span, trace, Level},
   tracing_log::LogTracer,
   tracing_subscriber::{layer::SubscriberExt, EnvFilter},
   walkdir::WalkDir,
@@ -27,7 +24,6 @@ pub(crate) use crate::fs;
 
 /// structs and enums
 pub(crate) use crate::{
-  cluster::Cluster, cluster_key::ClusterKey, clusterizer::Clusterizer, flac::Flac, format::Format,
-  id::Id, import::Import, import_key::ImportKey, library::Library, mp3::Mp3,
-  subcommand::Subcommand,
+  cluster::Cluster, cluster_key::ClusterKey, clusterizer::Clusterizer, id::Id, import::Import,
+  import_key::ImportKey, library::Library, mp3::Mp3, subcommand::Subcommand,
 };

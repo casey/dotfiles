@@ -4,8 +4,6 @@ mod cluster;
 mod cluster_key;
 mod clusterizer;
 mod common;
-mod flac;
-mod format;
 mod fs;
 mod id;
 mod import;
