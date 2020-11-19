@@ -4,11 +4,19 @@ tell application "iTunes"
 	set sel to selection
 
 	repeat with outerTrack in sel
-		tell outerTrack to set {da, tr, di, alb} to {date added, track number, disc number, album}
+		tell outerTrack to set {da, tn, dn, a} to {date added, track number, disc number, album}
 		set innerTrack to contents of outerTrack
-		set yr to (do shell script "echo " & date string of da & " | grep -o '[0-9]\\{4\\}'")
-		set da_sortable to (yr & "." & ((month of da) as integer) & "." & day of da & "." & alb & "." & (10 - di) & "." & (100 - tr))
-		set grouping of the innerTrack to the da_sortable
-	end repeat
+		set y to (do shell script "echo " & date string of da & " | grep -o '[0-9]\\{4\\}'")
+    set m to ((month of da) as integer)
+    set d to day of da
+    set di to 10 - dn
+    set ti to 100 - tn
+    if y ≥ 2020 and m ≥ 11 and d ≥ 16
+		  set g to (y & "." &  m & "." & d & "." & a & "." & di & "." & ti)
+    else
+		  set g to (a & "." & di & "." & ti)
+    end
+		set grouping of innerTrack to g
+	end
 
-end tell
+end
