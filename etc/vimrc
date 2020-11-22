@@ -267,7 +267,7 @@ let g:grepper        = {}
 let g:grepper.prompt = 1
 let g:grepper.tools  = ['rg', 'git']
 
-let g:rooter_resolve_links                          = 1         " follow symlinks
+let g:rooter_resolve_links                          = 0         " follow symlinks
 let g:rooter_change_directory_for_non_project_files = 'current' " autochdir if not a project file
 let g:rooter_silent_chdir                           = 1         " not message when chdiring
 
