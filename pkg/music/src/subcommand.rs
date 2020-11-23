@@ -237,6 +237,7 @@ impl Subcommand {
 
     let tmpdir = TempDir::new().unwrap();
     let i = AtomicUsize::new(0);
+    let n = AtomicUsize::new(0);
 
     let results = flacs
       .par_iter()
@@ -255,7 +256,8 @@ impl Subcommand {
           .output()
           .with_context(|| anyhow!("Failed to invoke ffmpeg"))
           .and_then(|output| {
-            let count = format!("{:width$}/{}", i + 1, total, width = total_width);
+            let n = n.fetch_add(1, Ordering::Relaxed);
+            let count = format!("{:width$}/{}", n + 1, total, width = total_width);
             let src_file_name = src.file_name().unwrap_or_default().to_string_lossy();
             if output.status.success() {
               info!("{} [+] {}", count, src_file_name);
