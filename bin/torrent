@@ -8,11 +8,8 @@ torrents=(~/Desktop/*.torrent)
 
 if [ ${#torrents[@]} -gt 0 ]; then
   echo "Uploading ${#torrents[@]} torrents…"
-  scp ${torrents[@]} magellan.whatbox.ca:watch
-  rm ${torrents[@]}
+  scp "${torrents[@]}" magellan.whatbox.ca:watch
+  rm "${torrents[@]}"
 else
   echo "No torrents to upload."
 fi
-
-echo "Syncing…"
-rsync -avz magellan.whatbox.ca:files/ ~/seedbox/
