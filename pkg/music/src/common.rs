@@ -4,16 +4,19 @@ pub(crate) use std::{
   convert::{TryFrom, TryInto},
   fmt::{self, Display, Formatter},
   path::{Path, PathBuf},
-  process::{self},
+  process::{self, Command},
+  sync::atomic::{AtomicUsize, Ordering},
 };
 
 /// dependencies
 pub(crate) use ::{
-  anyhow::{anyhow, bail, Context, Error},
+  anyhow::{anyhow, bail, Context, Error, Result},
   fehler::throws,
+  rayon::iter::{IntoParallelRefIterator, ParallelIterator},
   read_input::{shortcut::input, InputBuild},
   structopt::StructOpt,
-  tracing::{info, span, trace, Level},
+  tempfile::TempDir,
+  tracing::{error, info, span, trace, Level},
   tracing_log::LogTracer,
   tracing_subscriber::{layer::SubscriberExt, EnvFilter},
   walkdir::WalkDir,

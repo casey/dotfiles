@@ -8,6 +8,7 @@ pub(crate) enum Subcommand {
   Info {
     ids: Vec<u32>,
   },
+  Transcode,
 }
 
 impl Subcommand {
@@ -38,6 +39,7 @@ impl Subcommand {
       Self::Import => Self::import(&library)?,
       Self::FixTranscodeTags => Self::fix_transcode_tags(&library)?,
       Self::Info { ids } => Self::info(&library, &ids)?,
+      Self::Transcode => Self::transcode(&library)?,
     }
   }
 
@@ -202,71 +204,86 @@ impl Subcommand {
     }
   }
 
-  // #[throws]
-  // fn transcode(library: &Library) {
-  // let span = span!(Level::INFO, "transcode");
-  // let _guard = span.enter();
-  //
-  // let mut flacs = library.flacs()?;
-  //
-  // for mp3 in library.mp3s()? {
-  // flacs.remove(&Flac::from_id(mp3.id()));
-  // }
-  //
-  // let total = flacs.len();
-  // let total_width = total.to_string().len();
-  // info!("{} FLACs to transcode…", total);
-  //
-  // let tmpdir = TempDir::new().unwrap();
-  //
-  // let i = AtomicUsize::new(0);
-  //
-  // let results = flacs
-  // .par_iter()
-  // .map(|flac| {
-  // let mp3 = Mp3::from_id(flac.id());
-  // let src = library.flac_path(*flac);
-  // let tmp = tmpdir.path().join(mp3.file_name());
-  // let dst = library.mp3_path(mp3);
-  //
-  // Command::new("ffmpeg")
-  // .arg("-i")
-  // .arg(&src)
-  // .arg("-qscale:a")
-  // .arg("0")
-  // .arg(&tmp)
-  // .output()
-  // .with_context(|| anyhow!("Failed to invoke ffmpeg"))
-  // .and_then(|output| {
-  // let i = i.fetch_add(1, Ordering::Relaxed);
-  // let count = format!("{:width$}/{}", i + 1, total, width = total_width);
-  // if output.status.success() {
-  // info!("{} [+] {}", count, flac.file_name());
-  // Ok((src, tmp, dst))
-  // } else {
-  // error!("{} [x] {}", count, flac.file_name());
-  // Err(anyhow!(
-  // "Transcoding failed: {}:\n{}",
-  // output.status,
-  // String::from_utf8_lossy(&output.stderr).into_owned()
-  // ))
-  // }
-  // })
-  // })
-  // .collect::<Vec<Result<(PathBuf, PathBuf, PathBuf)>>>();
-  //
-  // let mut records = Vec::new();
-  //
-  // for result in results {
-  // match result {
-  // Err(err) => bail!("{}", err),
-  // Ok(record) => records.push(record),
-  // }
-  // }
-  //
-  // for (_, tmp, dst) in records {
-  // info!("Renaming {:?} to {:?}", tmp, &dst);
-  // fs::rename(&tmp, &dst)?;
-  // }
-  // }
+  #[throws]
+  fn transcode(library: &Library) {
+    let span = span!(Level::INFO, "transcode");
+    let _guard = span.enter();
+
+    let mut flacs = BTreeSet::new();
+
+    for result in WalkDir::new(library.new_dir()) {
+      let entry = result?;
+
+      if entry.file_type().is_dir() {
+        continue;
+      }
+
+      let path = entry.path().to_owned();
+
+      let extension = path
+        .extension()
+        .unwrap_or_default()
+        .to_string_lossy()
+        .into_owned();
+
+      if extension.as_str() == "flac" {
+        flacs.insert(path);
+      }
+    }
+
+    let total = flacs.len();
+    let total_width = total.to_string().len();
+    info!("{} FLACs to transcode…", total);
+
+    let tmpdir = TempDir::new().unwrap();
+    let i = AtomicUsize::new(0);
+
+    let results = flacs
+      .par_iter()
+      .map(|src| {
+        let src = src.to_path_buf();
+        let i = i.fetch_add(1, Ordering::Relaxed);
+        let tmp = tmpdir.path().join(format!("{}.mp3", i));
+        let dst = src.with_extension("mp3");
+
+        Command::new("ffmpeg")
+          .arg("-i")
+          .arg(&src)
+          .arg("-qscale:a")
+          .arg("0")
+          .arg(&tmp)
+          .output()
+          .with_context(|| anyhow!("Failed to invoke ffmpeg"))
+          .and_then(|output| {
+            let count = format!("{:width$}/{}", i + 1, total, width = total_width);
+            let src_file_name = src.file_name().unwrap_or_default().to_string_lossy();
+            if output.status.success() {
+              info!("{} [+] {}", count, src_file_name);
+              Ok((src, tmp, dst))
+            } else {
+              error!("{} [x] {}", count, src_file_name);
+              Err(anyhow!(
+                "Transcoding failed: {}:\n{}",
+                output.status,
+                String::from_utf8_lossy(&output.stderr).into_owned()
+              ))
+            }
+          })
+      })
+      .collect::<Vec<Result<(PathBuf, PathBuf, PathBuf)>>>();
+
+    let mut records = Vec::new();
+
+    for result in results {
+      match result {
+        Err(err) => bail!("{}", err),
+        Ok(record) => records.push(record),
+      }
+    }
+
+    for (_, tmp, dst) in records {
+      info!("Renaming `{}` to `{}`", tmp.display(), dst.display());
+      fs::rename(&tmp, &dst)?;
+    }
+  }
 }
