@@ -63,6 +63,7 @@ alias: gri 'git rebase -i'
 alias: grm 'git rm'
 alias: grs 'git restore'
 alias: gst 'git info'
+alias: gss 'git status --short'
 alias: gsu 'git submodule update --init --recursive'
 alias: gsw 'git switch'
 
