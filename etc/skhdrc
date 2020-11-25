@@ -8,6 +8,7 @@ rshift - b : "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" # br
 rcmd + shift - f : yabai -m window --toggle  native-fullscreen # enter native fullscreen
 rcmd - 0x18      : yabai -m space  --balance                   # balance
 rcmd - f         : yabai -m window --toggle  zoom-fullscreen   # toggle fullscreen
+rcmd - r         : yabai -m space  --rotate 90                 # rotate
 rcmd - return    : yabai -m window --toggle  float             # toggle float
 rcmd - tab       : yabai -m window --toggle  split             # toggle split
 
