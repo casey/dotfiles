@@ -11,11 +11,7 @@ tell application "iTunes"
     set d to day of da
     set di to 10 - dn
     set ti to 100 - tn
-    if y ≥ 2020 and m ≥ 11 and d ≥ 16
-		  set g to (y & "." &  m & "." & d & "." & a & "." & di & "." & ti)
-    else
-		  set g to ("0000" & "." & a & "." & di & "." & ti)
-    end
+		set g to (y & "." &  m & "." & d & "." & a & "." & di & "." & ti)
 		set grouping of innerTrack to g
 	end
 
