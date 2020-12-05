@@ -84,7 +84,6 @@ Plug 'dag/vim-fish'             " fish shell
 Plug 'fatih/vim-go'             " go
 Plug 'nsf/gocode'               " go autocomplete
 Plug 'pangloss/vim-javascript'  " javascript
-Plug 'plasticboy/vim-markdown'  " markdown
 Plug 'rhysd/vim-wasm'           " wasm
 Plug 'rust-lang/rust.vim'       " rust
 Plug 'tikhomirov/vim-glsl'      " glsl
