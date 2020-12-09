@@ -2,5 +2,10 @@
 
 set -euo pipefail
 
+new=~/Dropbox/music/new/
+
 echo "Syncing…"
-rsync -avz magellan.whatbox.ca:files/ ~/seedbox/
+rsync -avz magellan.whatbox.ca:files/ $new
+open --wait-apps -a 'MusicBrainz Picard' $new
+music import
+open $new
