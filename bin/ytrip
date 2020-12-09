@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+set -euxo pipefail
+
+youtube-dlc \
+  --verbose \
+  --yes-playlist \
+  --ignore-errors \
+  --format bestaudio \
+  --extract-audio \
+  --audio-format mp3 \
+  --audio-quality 0 \
+  --output ~/Dropbox/music/new/youtube/'%(title)s.%(ext)s' \
+  $1
