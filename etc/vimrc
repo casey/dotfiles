@@ -305,6 +305,10 @@ let &t_SR.="\e[4 q" " cursor is solid underscore in replace mode
 let &t_EI.="\e[1 q" " cursor is blinking block in normal mode
 
 
+"" abbreviations
+cabbrev <expr> %% expand('%:p:h')
+
+
 "" mappings
 
 " recursive mappings
