@@ -270,7 +270,7 @@ let g:rooter_resolve_links                          = 0         " follow symlink
 let g:rooter_change_directory_for_non_project_files = 'current' " autochdir if not a project file
 let g:rooter_silent_chdir                           = 1         " not message when chdiring
 
-let g:rooter_patterns = ["Cargo.toml", '.git', '.git/', 'justfile', 'Justfile'] " stop patterns
+let g:rooter_patterns = ['.git', '.git/', 'justfile', 'Justfile'] " stop patterns
 
 let g:vim_markdown_preview_browser = 'Google Chrome' " open markdown preview in chrome
 let g:vim_markdown_preview_github  = 1               " render github flavored markdown with grip
