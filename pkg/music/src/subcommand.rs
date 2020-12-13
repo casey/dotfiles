@@ -177,30 +177,49 @@ impl Subcommand {
       }
     }
 
+    if clusterizer.cluster_count() == 0 {
+      info!("No tracks to import");
+      return;
+    }
+
     info!("Found {} clusters:", clusterizer.cluster_count());
 
-    if clusterizer.cluster_count() > 0 {
-      for cluster_key in clusterizer.keys() {
-        info!("- {}", cluster_key);
-      }
+    let mut imported = Vec::new();
 
-      let input: String = input().msg("Do these clusters look okay? ").get();
+    for cluster_key in clusterizer.keys() {
+      info!("- {}", cluster_key);
+    }
 
-      if &input[..1] != "y" {
-        info!("Cancelling…");
-        return;
-      }
+    let input: String = input().msg("Do these clusters look okay? ").get();
 
-      {
-        let mut next_id = next_id;
-        for cluster in clusterizer.clusters() {
-          for import in cluster.imports() {
-            let destination = import.destination(library, next_id);
-            fs::rename(&import.path(), &destination)?;
-            next_id = next_id.next();
-          }
+    if &input[..1] != "y" {
+      info!("Cancelling…");
+      return;
+    }
+
+    {
+      let mut next_id = next_id;
+      for cluster in clusterizer.clusters() {
+        for import in cluster.imports() {
+          let destination = import.destination(library, next_id);
+          fs::rename(&import.path(), &destination)?;
+          imported.push(destination);
+          next_id = next_id.next();
         }
       }
+    }
+
+    info!("Opening with iTunes…");
+
+    let status = Command::new("open")
+      .arg("-a")
+      .arg("iTunes")
+      .args(imported)
+      .status()
+      .unwrap();
+
+    if !status.success() {
+      process::exit(status.code().unwrap_or(1))
     }
   }
 
