@@ -48,7 +48,7 @@ impl TryFrom<&Path> for Import {
     let missing = || anyhow!("MP3 file missing metadata: `{}`", path.display());
 
     let title = tag.title().ok_or_else(missing)?.to_owned();
-    let disc_number = tag.disc().ok_or_else(missing)? - 1;
+    let disc_number = tag.disc().unwrap_or(1) - 1;
     let track_number = tag.track().ok_or_else(missing)? - 1;
     let album = tag.album().ok_or_else(missing)?.to_owned();
     let album_artist = tag.album_artist().ok_or_else(missing)?.to_owned();

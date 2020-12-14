@@ -10,18 +10,13 @@ impl CommandExt for Command {
     self.stdout(Stdio::piped());
     self.stderr(Stdio::piped());
 
-    let child = self.spawn().map_err(|
+    let child = Command::new("yabai")
+      .arg("-m")
+      .arg("query")
+      .arg("--windows")
+      .stdout(Stdio::piped())
+      .spawn()?;
 
-
-  let child = Command::new("yabai")
-    .arg("-m")
-    .arg("query")
-    .arg("--windows")
-    .stdout(Stdio::piped())
-    .spawn()?;
-
-  Ok(serde_json::from_reader(child.stdout.unwrap())?)
-
-
+    Ok(serde_json::from_reader(child.stdout.unwrap())?)
   }
 }

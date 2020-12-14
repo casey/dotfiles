@@ -2,17 +2,17 @@ use crate::common::*;
 
 #[derive(Copy, Clone)]
 pub(crate) struct App {
-  pub(crate) name: &'static str,
+  pub(crate) name:   &'static str,
   pub(crate) binary: &'static str,
 }
 
 pub(crate) const ALACRITTY: App = App {
-  name: "Alacritty",
+  name:   "Alacritty",
   binary: "/Applications/Alacritty.app/Contents/MacOS/alacritty",
 };
 
 pub(crate) const CHROME: App = App {
-  name: "Google Chrome",
+  name:   "Google Chrome",
   binary: "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
 };
 
