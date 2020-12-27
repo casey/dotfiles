@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-new=~/Dropbox/music/new/
+new=~/dat/new/
 
 echo "Syncing…"
 rsync -avz --progress magellan.whatbox.ca:files/ $new
