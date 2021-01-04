@@ -8,6 +8,7 @@ pub(crate) enum Subcommand {
   Info {
     ids: Vec<u32>,
   },
+  Sync,
   Transcode,
 }
 
@@ -39,6 +40,7 @@ impl Subcommand {
       Self::Import => Self::import(&library)?,
       Self::FixTranscodeTags => Self::fix_transcode_tags(&library)?,
       Self::Info { ids } => Self::info(&library, &ids)?,
+      Self::Sync => Self::sync(&library)?,
       Self::Transcode => Self::transcode(&library)?,
     }
   }
@@ -118,6 +120,40 @@ impl Subcommand {
       }
     }
     eprintln!();
+  }
+
+  #[throws]
+  fn sync(library: &Library) {
+    let status = Command::new("rsync")
+      .args(&["-avz", "--progress", "magellan.whatbox.ca:files/"])
+      .arg(library.new_dir())
+      .status()
+      .with_context(|| anyhow!("Failed to invoke rsync"))?;
+
+    if !status.success() {
+      bail!("rsync failed: {}", status);
+    }
+
+    let status = Command::new("open")
+      .args(&["--wait-apps", "-a", "MusicBrainz Picard"])
+      .arg(library.new_dir())
+      .status()
+      .with_context(|| anyhow!("Failed to invoke open"))?;
+
+    if !status.success() {
+      bail!("open failed: {}", status);
+    }
+
+    Self::import(library)?;
+
+    let status = Command::new("open")
+      .arg(library.new_dir())
+      .status()
+      .with_context(|| anyhow!("Failed to invoke open"))?;
+
+    if !status.success() {
+      bail!("open failed: {}", status);
+    }
   }
 
   #[throws]
