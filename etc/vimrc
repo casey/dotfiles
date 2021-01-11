@@ -566,9 +566,6 @@ augroup vimrc
   " turn on relative numbers when focus is gained
   autocmd FocusGained * if &number | set relativenumber | endif
 
-  " don't highlight trailing whitespace in markdown files
-  autocmd BufRead,BufNewFile *.md syn clear mkdLineBreak
-
   " don't highlight trailing whitespace in python files
   autocmd FileType python syn clear pythonSpaceError
 
