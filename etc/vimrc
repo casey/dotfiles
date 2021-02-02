@@ -173,13 +173,13 @@ set completeopt +=longest " auto-complete the longest text common to all matches
 set completeopt +=preview " show additional information in preview window
 
 set formatoptions +=2 " use paragraph second line indent
-set formatoptions +=c " auto-wrap comments at textwidth
 set formatoptions +=j " merge comments when joining lines
 set formatoptions +=q " allow formatting comments with `gq`
 set formatoptions +=r " insert comment leader after <enter> in insert mode
-set formatoptions +=t " auto-wrap at textwidth
 set formatoptions -=a " disable automatic formatting of paragraphs
+set formatoptions -=c " don't auto-wrap comments at textwidth
 set formatoptions -=l " format long lines when inserting
+set formatoptions -=t " don't auto-wrap at textwidth
 
 set printoptions  +=header:0             " don't add a header to hardcopies
 
