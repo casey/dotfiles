@@ -6,7 +6,7 @@ on timestamp(datetime)
 	return do shell script command
 end timestamp
 
-tell application "iTunes"
+tell application "Music"
 	set sel to selection
 
 	repeat with outerTrack in sel

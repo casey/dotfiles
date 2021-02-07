@@ -43,7 +43,7 @@ to cancel(m)
   error number -128
 end
 
-tell application "iTunes"
+tell application "Music"
   set n to {}
   set o to {}
 

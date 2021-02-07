@@ -1,6 +1,6 @@
 property my_title : "Save Play Count to BPM"
 
-tell application "iTunes"
+tell application "Music"
 	set sel to selection
 	repeat with t in sel
     set plays to t's «class pPlC»

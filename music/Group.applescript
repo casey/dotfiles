@@ -1,6 +1,6 @@
 property my_title : "Group"
 
-tell application "iTunes"
+tell application "Music"
 	set sel to selection
 
 	repeat with outerTrack in sel

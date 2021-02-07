@@ -1,6 +1,6 @@
 property my_title : "Refresh"
 
-tell application "iTunes"
+tell application "Music"
   repeat with aTrack in selection
     try
       refresh aTrack
