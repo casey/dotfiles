@@ -63,8 +63,8 @@ Plug 'vim-utils/vim-man'                  " improved man page viewing
 Plug 'wellle/targets.vim'                 " additional text objects
 Plug 'xolox/vim-misc'                     " misc funcionality for other plugins
 
-" language server client
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" split/join single/multi line constructs
+Plug 'AndrewRadev/splitjoin.vim', { 'branch': 'stable' }
 
 " base16 color schemes
 Plug 'danielwe/base16-vim'       " repository with fix for errors
