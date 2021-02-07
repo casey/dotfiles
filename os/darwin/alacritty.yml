@@ -17,8 +17,8 @@ window:
   #   columns: 73
   #   lines:   18
   padding:
-    x: 0
-    y: 0
+    x: 2
+    y: 2
   dynamic_padding: true
   decorations: buttonless
 
@@ -40,8 +40,6 @@ font:
     style:  Oblique
 
   size: 12.0
-
-  # size: 16.0
 
   offset:
     x: 0
