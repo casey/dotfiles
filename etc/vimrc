@@ -52,6 +52,7 @@ Plug 'tpope/vim-commentary'               " comment and uncomment operations
 Plug 'tpope/vim-eunuch'                   " unix helpers
 Plug 'tpope/vim-fugitive'                 " git integration
 Plug 'tpope/vim-repeat'                   " repeat support for plugins
+Plug 'tpope/vim-rsi'                      " readline bindings
 Plug 'tpope/vim-surround'                 " quoting and parenthesizing
 Plug 'tpope/vim-unimpaired'               " pairs of bracket mappings
 Plug 'tyru/open-browser.vim'              " open urls in browser
@@ -473,15 +474,6 @@ nnoremap <leader>zz :wqa<cr>|                       " save all files and exit
 nnoremap Y y$|                                      " yank to end of line
 nnoremap j gj|                                      " go down one screen line
 nnoremap k gk|                                      " go up one screen line
-noremap! <c-a> <home>|                              " move cursor to beginning of line
-noremap! <c-b> <left>|                              " move cursor right one character
-noremap! <c-d> <del>|                               " delete character at cursor
-noremap! <c-f> <right>|                             " move cursor left one character
-noremap! <m-b> <s-left>|                            " go back one word
-noremap! <m-d> <s-right><Delete>|                   " delete next word
-noremap! <m-f> <s-right>|                           " go forward one word
-noremap! <m-d> <c-w>|                               " delete last word
-vnoremap <c-a> <home>|                              " move selection to beginning of line
 vnoremap <leader>t: :Tabularize :<cr>               " align on :
 vnoremap <leader>t= :Tabularize =<cr>               " align on =
 vnoremap <leader>s  :sort<cr>|                      " sort lines
