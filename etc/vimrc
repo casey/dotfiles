@@ -15,7 +15,6 @@ call plug#begin()
 " general purpose plugins
 Plug 'airblade/vim-gitgutter'             " show git hunks in gutter
 Plug 'airblade/vim-rooter'                " automatic cd to project root
-Plug 'casey/reap.vim'                     " read, evaluate, and annotate
 Plug 'casey/vim-airline-themes'           " color themes for airline
 Plug 'christoomey/vim-tmux-navigator'     " navigate between vim and tmux splits
 Plug 'coderifous/textobj-word-column.vim' " column related text objects
@@ -144,7 +143,6 @@ set clipboard     =unnamed               " use the system clipboard
 set completefunc  =emoji#complete        " auto complete emoji
 set dictionary    =/usr/share/dict/words " dictionary completion mode words
 set directory     =~/.vim/swap//         " swap directory location
-set equalprg      =evaluate-python3      " evaluate argument to '=' as python expression
 set errorfile     =.errors.txt           " set error file name
 set history       =10000                 " lines of history to remember
 set laststatus    =2                     " always show statusline
