@@ -12,7 +12,7 @@ tell application "Music"
     set di to 10 - dn
     set ti to 100 - tn
 		set g to (y & "." &  m & "." & d & "." & a & "." & di & "." & ti)
-		set grouping of innerTrack to g
+		set comment of innerTrack to g
 	end
 
 end
