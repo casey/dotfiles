@@ -40,7 +40,7 @@ enum ItemType {
 }
 
 const ROOTS: &[(&str, usize)] = &[
-  ("Desktop", 0),
+  ("Desktop", 1),
   ("Dropbox", 1),
   ("Library", 0),
   ("dat", 1),
