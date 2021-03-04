@@ -13,6 +13,8 @@ filetype plugin on " turn on filetype plugins
 call plug#begin()
 
 " general purpose plugins
+
+Plug 'AndrewRadev/splitjoin.vim'          " split/join single/multi line constructs
 Plug 'airblade/vim-gitgutter'             " show git hunks in gutter
 Plug 'airblade/vim-rooter'                " automatic cd to project root
 Plug 'casey/vim-airline-themes'           " color themes for airline
@@ -61,9 +63,6 @@ Plug 'vim-scripts/Rename'                 " rename the current file
 Plug 'vim-utils/vim-man'                  " improved man page viewing
 Plug 'wellle/targets.vim'                 " additional text objects
 Plug 'xolox/vim-misc'                     " misc funcionality for other plugins
-
-" split/join single/multi line constructs
-Plug 'AndrewRadev/splitjoin.vim', { 'branch': 'stable' }
 
 " base16 color schemes
 Plug 'danielwe/base16-vim'       " repository with fix for errors
