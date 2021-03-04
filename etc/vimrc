@@ -39,6 +39,7 @@ Plug 'kana/vim-operator-user'             " allow user defined operators
 Plug 'kana/vim-textobj-entire'            " text object for the entire buffer
 Plug 'kana/vim-textobj-user'              " user defined text objects
 Plug 'luochen1990/rainbow'                " rainbow delimiters
+Plug 'machakann/vim-highlightedyank'      " make the highlighted region apparent
 Plug 'mattn/webapi-vim'                   " web functionality
 Plug 'mbbill/undotree'                    " visualize undo history as tree
 Plug 'mhinz/vim-grepper'                  " win at grep
