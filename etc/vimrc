@@ -42,9 +42,9 @@ Plug 'luochen1990/rainbow'                " rainbow delimiters
 Plug 'machakann/vim-highlightedyank'      " make the highlighted region apparent
 Plug 'mattn/webapi-vim'                   " web functionality
 Plug 'mbbill/undotree'                    " visualize undo history as tree
+Plug 'mg979/vim-visual-multi'             " multiple cursors
 Plug 'mhinz/vim-grepper'                  " win at grep
 Plug 'saaguero/vim-textobj-pastedtext'    " text object for last pasted text
-Plug 'terryma/vim-multiple-cursors'       " use multiple cursors
 Plug 'tmux-plugins/vim-tmux'              " tmux configuration
 Plug 'tmux-plugins/vim-tmux-focus-events' " recognize tmux focus events
 Plug 'tommcdo/vim-exchange'               " exchange operator
