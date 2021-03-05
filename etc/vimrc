@@ -406,7 +406,6 @@ inoremap <c-s> <c-g>u<Esc>[s1z=`]a<c-g>u|           " fix last spelling error
 nnoremap <c-b> <c-o>|                               " jump back
 nnoremap <c-f> <c-i>|                               " jump forward
 nnoremap <c-k> :AllLines<cr>|                       " search all lines in all files
-nnoremap <c-n> :NERDTreeToggle<cr>|                 " open nerdtree
 nnoremap <c-p> :Files<cr>|                          " search files
 nnoremap <c-q> :call Leave()<cr>|                   " close window, close buffer or quit
 nnoremap <c-s> :call CorrectSpellingError()<cr>|    " correct spelling error or search symbols
@@ -471,6 +470,7 @@ nnoremap <leader>tl :call ToggleLineWrap()<cr>|     " toggle line wrapping
 nnoremap <leader>tn :call ToggleLineNumbers()<cr>|  " toggle line numbers
 nnoremap <leader>tp :Goyo<cr>|                      " toggle prose mode
 nnoremap <leader>ts :setlocal spell!<cr>|           " toggle spelling
+nnoremap <leader>tt :NERDTreeToggle<cr>|            " toggle nerdtree
 nnoremap <leader>tu :UndotreeToggle<cr>|            " toggle undotree
 nnoremap <leader>tw :call ToggleWhitespace()<cr>|   " toggle whitespace
 nnoremap <leader>tz :call ToggleZoom()<cr>|         " toggle zoom
