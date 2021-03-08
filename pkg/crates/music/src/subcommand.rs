@@ -245,11 +245,11 @@ impl Subcommand {
       }
     }
 
-    info!("Opening with iTunes…");
+    info!("Opening with Music…");
 
     let status = Command::new("open")
       .arg("-a")
-      .arg("iTunes")
+      .arg("Music")
       .args(imported)
       .status()
       .unwrap();
