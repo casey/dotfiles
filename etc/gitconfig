@@ -5,6 +5,9 @@ email = casey@rodarmor.com
 [github]
 user = casey
 
+[init]
+defaultBranch = master
+
 [color]
 branch = auto
 diff   = auto
