@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+exec rsync -avz --progress magellan.whatbox.ca:files/ ~/bulk/files
