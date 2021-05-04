@@ -17,7 +17,7 @@ ui     = true
 [core]
 autocrlf     = false
 excludesfile = ~/.gitignore.global
-pager        = diff-so-fancy | less --tabs=4 -RFX
+pager        = delta
 quotepath    = false
 trustctime   = false
 
