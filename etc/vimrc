@@ -306,6 +306,9 @@ let g:vimwiki_list = [{
 \ 'ext': 'md',
 \}]
 
+" disable rainbow delimiters in justfiles
+let g:rainbow_conf = {'separately': {'just': 0}}
+
 " cursor styling
 let &t_SI.="\e[5 q" " cursor is blinking bar in insert mode
 let &t_SR.="\e[4 q" " cursor is solid underscore in replace mode
