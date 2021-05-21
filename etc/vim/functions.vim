@@ -56,8 +56,8 @@ endfun
 
 " toggle line numbers
 function! ToggleLineNumbers()
-  set number!         " toggle line numbers
-  set relativenumber! " toggle relative line numbers
+  bufdo set number!         " toggle line numbers
+  bufdo set relativenumber! " toggle relative line numbers
 endfun
 
 " toggle line wrapping
