@@ -20,12 +20,6 @@ if is-git-repository; then
 
     echo -n $BRANCH
 
-    if [[ $BRANCH == master ]]; then
-      if [[ `git branch | wc -l` -gt 1 ]]; then
-        echo -n …
-      fi
-    fi
-
     if git rev-parse -q --verify refs/stash > /dev/null; then
       local STASH_COUNT=`git rev-list --walk-reflogs --count refs/stash`
 
