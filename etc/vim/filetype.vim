@@ -9,7 +9,6 @@ augroup filetypedetect
   au BufNewFile,BufRead *.go                            setf go
   au BufNewFile,BufRead *.go                            setlocal noet ts=2 sw=2 sts=2
   au BufNewFile,BufRead *.ino                           setf cpp
-  au BufNewFile,BufRead *.just,justfile                 setf make
   au BufNewFile,BufRead *.lalrpop                       setf rust
   au BufNewFile,BufRead *.mm,*.m++                      setf objcpp
   au BufNewFile,BufRead *.s++                           setf cpp
