@@ -75,6 +75,12 @@ hunter:
 ledger:
 	pip3 install ledger_agent
 
+gh-md-toc:
+  curl https://raw.githubusercontent.com/\
+    ekalinin/github-markdown-toc/master/gh-md-toc \
+    > bin/gh-md-toc
+  chmod +x bin/gh-md-toc
+
 dia-x2160:
 	#!/usr/bin/env bash
 	set -euo pipefail
