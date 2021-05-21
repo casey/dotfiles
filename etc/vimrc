@@ -401,90 +401,91 @@ nmap <c-l> <plug>AirlineSelectNextTab
 " xmap if <Plug>(coc-funcobj-i)
 
 " non-recursive mappings
-cnoremap <c-k> <c-\>eKillCmdline()<cr>|             " kill to end of line
-inoremap <c-s> <c-g>u<Esc>[s1z=`]a<c-g>u|           " fix last spelling error
-nnoremap <c-b> <c-o>|                               " jump back
-nnoremap <c-f> <c-i>|                               " jump forward
-nnoremap <c-k> :AllLines<cr>|                       " search all lines in all files
-nnoremap <c-p> :Files<cr>|                          " search files
-nnoremap <c-q> :call Leave()<cr>|                   " close window, close buffer or quit
-nnoremap <c-s> :call CorrectSpellingError()<cr>|    " correct spelling error or search symbols
-nnoremap <leader> <nop>|                            " reserve for three-key mappings
-nnoremap <leader>" :vsplit<cr>|                     " vertical split
-nnoremap <leader>.. :cd ..<cr>|                     " go up one directory
-nnoremap <leader><cr> :nohlsearch<cr>|              " clear search highlights
-nnoremap <leader><space> :wall<cr>|                 " save all changed buffers
-nnoremap <leader>= :split<cr>|                      " horizontal split
-nnoremap <leader>aa :A<cr>|                         " alternate article
-nnoremap <leader>al :SidewaysLeft<cr>|              " move function argument left
-nnoremap <leader>ar :SidewaysRight<cr>|             " move function argument right
-nnoremap <leader>a: :Tabularize :<cr>|              " align on :
-nnoremap <leader>a= :Tabularize =<cr>|              " align on =
-nnoremap <leader>a# :Tabularize /#<cr>|             " align on #
-nnoremap <leader>a<bar> :Tabularize \|<cr>|         " align on |
-nnoremap <leader>bd :bd<cr>|                        " buffer delete
-nnoremap <leader>cx :!chmod u+x %<cr>|              " chmod +x current file
-nnoremap <leader>fe :call FixEmoji()<cr>|           " fix emoji
-nnoremap <leader>ff gqae<cr>|                       " fix formatting
-nnoremap <leader>ft :retab<cr>|                     " fix tabs
-nnoremap <leader>fw ::%s/\s\+$//e<cr>|              " fix whitespace
-nnoremap <leader>fp gqip|                           " fix/format paragraph
-nnoremap <leader>gc :!git commit -v<cr><cr>|        " git commit
-nnoremap <leader>gd :!git diff<cr><cr>|             " git diff
-nnoremap <leader>gm :!git commit -av<cr><cr>|       " git mash
-nnoremap <leader>gs :!git status<cr>|               " git status
-nnoremap <leader>hd :Capture digraphs<cr>|          " display digraphs
-nnoremap <leader>hm :Capture map<cr>|               " display mappings
-nnoremap <leader>iO O<esc>|                         " insert line above cursor
-nnoremap <leader>id "=Date()<cr>p|                  " insert date
-nnoremap <leader>io o<esc>|                         " insert line below cursor
-nnoremap <leader>jj :!just<cr>|                     " run just
-nnoremap <leader>ls :source ~/.vim/session<cr>|     " load session
-nnoremap <leader>op :silent !ope %<cr>|             " open current file
-nnoremap <leader>od :RangerCurrentDirectory<cr>|    " open current directory
-nnoremap <leader>oj o<esc>|                         " insert line below cursor
-nnoremap <leader>ok O<esc>|                         " insert line above cursor
-nnoremap <leader>pc :pwd<cr>|                       " print cwd
-nnoremap <leader>pu :PlugUpdate<cr>|                " plug update
-nnoremap <leader>py :PyEval<cr>|                    " evaluate current line with python3
-nnoremap <leader>qq :q<cr>|                         " quit
-nnoremap <leader>qe :cq<cr>|                        " quit with error code
-nnoremap <leader>ra :!cargo add <c-r><c-w><cr>|     " add crate name under cursor
-nnoremap <leader>rp Ipub(crate) <esc>|              " change visibility to pub(crate)
-nnoremap <leader>rg :Grepper<cr>|                   " recursive grep
-nnoremap <leader>rb :Quickrun<cr>|                  " run buffer
-nnoremap <leader>sb :Buffers<cr>|                   " search buffers
-nnoremap <leader>sc :Commands<cr>|                  " search commands
-nnoremap <leader>sf :Files<cr>|                     " search files
-nnoremap <leader>sg :Commits<cr>|                   " search git
-nnoremap <leader>sh :History<cr>|                   " search history
-nnoremap <leader>sl :Lines<cr>|                     " lines in current buffer
-nnoremap <leader>st :Tags<cr>|                      " search ctags
-nnoremap <leader>sv :source $MYVIMRC<cr>:nohl<cr>|  " source ~/.vimrc
-nnoremap <leader>ta :call ToggleALE()<cr>|          " toggle ale
-nnoremap <leader>tb :set wrap!<cr>|                 " toggle line breaks
-nnoremap <leader>tc :call ToggleColor()<cr>|        " toggle syntax highlighting
-nnoremap <leader>tg :GitGutterToggle<cr>|           " toggle gitgutter
-nnoremap <leader>th :Hexmode<cr>|                   " toggle hex mode
-nnoremap <leader>tl :call ToggleLineWrap()<cr>|     " toggle line wrapping
-nnoremap <leader>tn :call ToggleLineNumbers()<cr>|  " toggle line numbers
-nnoremap <leader>tp :Goyo<cr>|                      " toggle prose mode
-nnoremap <leader>ts :setlocal spell!<cr>|           " toggle spelling
-nnoremap <leader>tt :NERDTreeToggle<cr>|            " toggle nerdtree
-nnoremap <leader>tu :UndotreeToggle<cr>|            " toggle undotree
-nnoremap <leader>tw :call ToggleWhitespace()<cr>|   " toggle whitespace
-nnoremap <leader>tz :call ToggleZoom()<cr>|         " toggle zoom
-nnoremap <leader>wa :wa<cr>|                        " write all buffers
-nnoremap <leader>wo <c-w>o|                         " close all windows but current
-nnoremap <leader>zz :wqa<cr>|                       " save all files and exit
-nnoremap Y y$|                                      " yank to end of line
-nnoremap j gj|                                      " go down one screen line
-nnoremap k gk|                                      " go up one screen line
-vnoremap <leader>t: :Tabularize :<cr>               " align on :
-vnoremap <leader>t= :Tabularize =<cr>               " align on =
-vnoremap <leader>s  :sort<cr>|                      " sort lines
-vnoremap j gj|                                      " go to next screen line
-vnoremap k gk|                                      " go to previous screen line
+cnoremap <c-k> <c-\>eKillCmdline()<cr>|                " kill to end of line
+inoremap <c-s> <c-g>u<Esc>[s1z=`]a<c-g>u|              " fix last spelling error
+nnoremap <c-b> <c-o>|                                  " jump back
+nnoremap <c-f> <c-i>|                                  " jump forward
+nnoremap <c-k> :AllLines<cr>|                          " search all lines in all files
+nnoremap <c-p> :Files<cr>|                             " search files
+nnoremap <c-q> :call Leave()<cr>|                      " close window, close buffer or quit
+nnoremap <c-s> :call CorrectSpellingError()<cr>|       " correct spelling error or search symbols
+nnoremap <leader> <nop>|                               " reserve for three-key mappings
+nnoremap <leader>" :vsplit<cr>|                        " vertical split
+nnoremap <leader>.. :cd ..<cr>|                        " go up one directory
+nnoremap <leader><cr> :nohlsearch<cr>|                 " clear search highlights
+nnoremap <leader><space> :wall<cr>|                    " save all changed buffers
+nnoremap <leader>= :split<cr>|                         " horizontal split
+nnoremap <leader>a# :Tabularize /#<cr>|                " align on #
+nnoremap <leader>a: :Tabularize :<cr>|                 " align on :
+nnoremap <leader>a<bar> :Tabularize \|<cr>|            " align on |
+nnoremap <leader>a= :Tabularize =<cr>|                 " align on =
+nnoremap <leader>aa :A<cr>|                            " alternate article
+nnoremap <leader>al :SidewaysLeft<cr>|                 " move function argument left
+nnoremap <leader>ar :SidewaysRight<cr>|                " move function argument right
+nnoremap <leader>bd :bd<cr>|                           " buffer delete
+nnoremap <leader>cx :!chmod u+x %<cr>|                 " chmod +x current file
+nnoremap <leader>fe :call FixEmoji()<cr>|              " fix emoji
+nnoremap <leader>ff gqae<cr>|                          " fix formatting
+nnoremap <leader>fp gqip|                              " fix/format paragraph
+nnoremap <leader>ft :retab<cr>|                        " fix tabs
+nnoremap <leader>fw ::%s/\s\+$//e<cr>|                 " fix whitespace
+nnoremap <leader>gc :!git commit -v<cr><cr>|           " git commit
+nnoremap <leader>gd :!git diff<cr><cr>|                " git diff
+nnoremap <leader>gm :!git commit -av<cr><cr>|          " git mash
+nnoremap <leader>gs :!git status<cr>|                  " git status
+nnoremap <leader>hd :Capture digraphs<cr>|             " display digraphs
+nnoremap <leader>hm :Capture map<cr>|                  " display mappings
+nnoremap <leader>iO O<esc>|                            " insert line above cursor
+nnoremap <leader>id "=Date()<cr>p|                     " insert date
+nnoremap <leader>io o<esc>|                            " insert line below cursor
+nnoremap <leader>jj :!just<cr>|                        " run just
+nnoremap <leader>ls :source ~/.vim/session<cr>|        " load session
+nnoremap <leader>od :RangerCurrentDirectory<cr>|       " open current directory
+nnoremap <leader>oj o<esc>|                            " insert line below cursor
+nnoremap <leader>ok O<esc>|                            " insert line above cursor
+nnoremap <leader>op :silent !ope %<cr>|                " open current file
+nnoremap <leader>pc :pwd<cr>|                          " print cwd
+nnoremap <leader>pu :PlugUpdate<cr>|                   " plug update
+nnoremap <leader>py :PyEval<cr>|                       " evaluate current line with python3
+nnoremap <leader>qe :cq<cr>|                           " quit with error code
+nnoremap <leader>qq :q<cr>|                            " quit
+nnoremap <leader>ra :!cargo add <c-r><c-w><cr>|        " add crate name under cursor
+nnoremap <leader>rb :Quickrun<cr>|                     " run buffer
+nnoremap <leader>rg :Grepper<cr>|                      " recursive grep
+nnoremap <leader>rp Ipub(crate) <esc>|                 " change visibility to pub(crate)
+nnoremap <leader>sb :Buffers<cr>|                      " search buffers
+nnoremap <leader>sc :Commands<cr>|                     " search commands
+nnoremap <leader>sf :Files<cr>|                        " search files
+nnoremap <leader>sg :Commits<cr>|                      " search git
+nnoremap <leader>sh :History<cr>|                      " search history
+nnoremap <leader>sl :Lines<cr>|                        " lines in current buffer
+nnoremap <leader>st :Tags<cr>|                         " search ctags
+nnoremap <leader>sv :source $MYVIMRC<cr>:nohl<cr>|     " source ~/.vimrc
+nnoremap <leader>ta :call ToggleALE()<cr>|             " toggle ale
+nnoremap <leader>tb :set wrap!<cr>|                    " toggle line breaks
+nnoremap <leader>tc :call ToggleColor()<cr>|           " toggle syntax highlighting
+nnoremap <leader>tg :GitGutterToggle<cr>|              " toggle gitgutter
+nnoremap <leader>th :Hexmode<cr>|                      " toggle hex mode
+nnoremap <leader>tl :call ToggleLineWrap()<cr>|        " toggle line wrapping
+nnoremap <leader>tn :call ToggleLineNumbers()<cr>|     " toggle line numbers
+nnoremap <leader>tp :Goyo<cr>|                         " toggle prose mode
+nnoremap <leader>tr :call ToggleRelativeNumbers()<cr>| " toggle line numbers
+nnoremap <leader>ts :setlocal spell!<cr>|              " toggle spelling
+nnoremap <leader>tt :NERDTreeToggle<cr>|               " toggle nerdtree
+nnoremap <leader>tu :UndotreeToggle<cr>|               " toggle undotree
+nnoremap <leader>tw :call ToggleWhitespace()<cr>|      " toggle whitespace
+nnoremap <leader>tz :call ToggleZoom()<cr>|            " toggle zoom
+nnoremap <leader>wa :wa<cr>|                           " write all buffers
+nnoremap <leader>wo <c-w>o|                            " close all windows but current
+nnoremap <leader>zz :wqa<cr>|                          " save all files and exit
+nnoremap Y y$|                                         " yank to end of line
+nnoremap j gj|                                         " go down one screen line
+nnoremap k gk|                                         " go up one screen line
+vnoremap <leader>s  :sort<cr>|                         " sort lines
+vnoremap <leader>t: :Tabularize :<cr>                  " align on :
+vnoremap <leader>t= :Tabularize =<cr>                  " align on =
+vnoremap j gj|                                         " go to next screen line
+vnoremap k gk|                                         " go to previous screen line
 
 " show documentation in preview window.
 nnoremap <silent> K :call ShowDocumentation()<CR>
@@ -549,6 +550,8 @@ command! -bang -nargs=* AllLines
   \   1,
   \   fzf#vim#with_preview({'options': ['--delimiter=:', '--nth=4..']}), <bang>0)
 
+command! -nargs=+ -complete=command BufDo call BufDo(<q-args>)
+
 
 "" autocommands
 
@@ -562,7 +565,7 @@ augroup vimrc
   autocmd FocusLost * if &number | set norelativenumber | endif
 
   " turn on relative numbers when focus is gained
-  autocmd FocusGained * if &number | set relativenumber | endif
+  autocmd FocusGained * if &number && !g:relative_numbers_off | set relativenumber | endif
 
   " don't highlight trailing whitespace in python files
   autocmd FileType python syn clear pythonSpaceError

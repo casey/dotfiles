@@ -5,6 +5,13 @@ function! Alias(from, to)
         \ .'? ("'. a:to .'") : ("'. a:from .'"))'
 endfunction
 
+" execute <command> in all buffers and return to original buffer
+function! BufDo(command)
+  let current=bufnr("%")
+  execute 'bufdo ' . a:command
+  execute 'buffer ' . current
+endfunction
+
 " format a buffer name for the tabline
 function! FormatBufferForTabLine(bufnr, buffers)
   if getbufvar(a:bufnr, '&mod')
@@ -58,6 +65,16 @@ endfun
 function! ToggleLineNumbers()
   bufdo set number!         " toggle line numbers
   bufdo set relativenumber! " toggle relative line numbers
+endfun
+
+function! ToggleRelativeNumbers()
+  BufDo set relativenumber! " toggle relative line numbers
+
+  if !&relativenumber
+    let g:relative_numbers_off = 1
+  else
+    let g:relative_numbers_off = 0
+  endif
 endfun
 
 " toggle line wrapping
