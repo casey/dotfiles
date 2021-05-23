@@ -44,6 +44,7 @@ Plug 'mbbill/undotree'                    " visualize undo history as tree
 Plug 'mg979/vim-visual-multi'             " multiple cursors
 Plug 'mhinz/vim-grepper'                  " win at grep
 Plug 'saaguero/vim-textobj-pastedtext'    " text object for last pasted text
+Plug 'sheerun/vim-polyglot'               " syntax and indentation for many languages
 Plug 'tmux-plugins/vim-tmux'              " tmux configuration
 Plug 'tmux-plugins/vim-tmux-focus-events' " recognize tmux focus events
 Plug 'tommcdo/vim-exchange'               " exchange operator
