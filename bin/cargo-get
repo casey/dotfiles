@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+mkdir -p ~/tmp/crates
+cd ~/tmp/crates
+cargo download --extract "${@:2}"
