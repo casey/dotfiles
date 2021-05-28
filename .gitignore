@@ -7,3 +7,4 @@
 /etc/vim/view
 /etc/zsh/compdump
 /pkg/target
+/pkg/crates/overviews/images
