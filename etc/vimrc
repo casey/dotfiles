@@ -225,9 +225,8 @@ let g:solarized_visibility              = 'high'    " use high contrast colors f
 let g:surround_indent                   = 1         " indent with '=' after surrounding
 let g:tmux_navigator_no_mappings        = 1         " disable default tmux navigator mappings
 let g:undotree_WindowLayout             = 2         " put undotree on left with full width diff
-let g:vim_markdown_folding_disabled     = 1         " disable folding for markdown files
-let g:vim_markdown_new_list_item_indent = 2         " indent lists with two spaces
 let g:vim_search_pulse_mode             = 'pattern' " pulse pattern not line
+let g:vimwiki_conceallevel              = 0         " disable syntax concealing
 
 let g:airline#extensions#ale#enabled               = 1   " enable ale extension
 let g:airline#extensions#tabline#buffer_idx_mode   = 1   " show buffer indices
@@ -272,11 +271,6 @@ let g:rooter_change_directory_for_non_project_files = 'current' " autochdir if n
 let g:rooter_silent_chdir                           = 1         " not message when chdiring
 
 let g:rooter_patterns = ['.git', '.git/', 'justfile', 'Justfile', 'Cargo.toml'] " stop patterns
-
-let g:vim_markdown_preview_browser = 'Google Chrome' " open markdown preview in chrome
-let g:vim_markdown_preview_github  = 1               " render github flavored markdown with grip
-let g:vim_markdown_preview_hotkey  = '<leader>pm'    " remap markdown preview hotkey
-let g:vim_markdown_preview_toggle  = 1               " update markdown preview on buffer write
 
 let g:ale_completion_enabled           = 0 " enable completion
 let g:ale_fix_on_save                  = 1 " fix on save
