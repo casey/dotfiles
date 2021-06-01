@@ -196,7 +196,7 @@ endfunction
 function! ShowDocumentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
-  else
+  endif
 endfunction
 
 function! OpenWiktionary()
