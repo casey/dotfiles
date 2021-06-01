@@ -331,6 +331,10 @@ map  s  <plug>(easymotion-s)|                   " easymotion
 nmap K  <plug>(Man)|                            " look up man page for word under cursor
 vmap gx <plug>(openbrowser-smart-search)|       " open url under cursor in browser
 
+" quickfix mappings
+map <leader>cc <plug>(qf_qf_toggle_stay)
+map  + <plug>(qf_qf_next)
+
 " repeat last motion
 nmap <leader>. <plug>(easymotion-repeat)
 
