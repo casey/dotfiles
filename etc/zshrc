@@ -85,9 +85,6 @@ export HOMEBREW_NO_AUTO_UPDATE=1 # don't automatically update packages
 # tell ripgrep to use a config file
 export RIPGREP_CONFIG_PATH=~/.ripgreprc
 
-# rust src path for use with rusty-tags
-export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/src/
-
 # use ripgrep with fzf
 export FZF_DEFAULT_COMMAND="rg --files --hidden --glob '!.git/*' --glob '!*.pyc'"
 
