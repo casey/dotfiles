@@ -206,28 +206,29 @@ call Stops(2)
 let c_no_curly_error = 1           " {} inside [] or () is not an error
 let mapleader        = "\<space>"  " space is my leader
 
-let g:NERDTreeMinimalUI                 = 1         " hide nerdtree help shortcut
-let g:NERDTreeWinSize                   = 20        " make nerdtree 20 columns wide
-let g:gist_post_private                 = 1         " make gists private by default
-let g:gitgutter_enabled                 = 0         " enable gitgutter by default
-let g:hexmode_patterns                  = '*.wasm'  " open wasm files in hexmode
-let g:incsearch#auto_nohlsearch         = 1         " turn off hlsearch
-let g:investigate_use_dash              = 1         " make investigate use dash on macos
-let g:netrw_fastbrowse                  = 0         " don't retain closed netrw buffers
-let g:netrw_nogx                        = 1         " disable netrw's gx mapping
-let g:pastedtext_select_key             = 'gl'      " use gl for last pasted text mappings
-let g:rainbow_active                    = 1         " enable rainbow delimiters
-let g:ranger_map_keys                   = 0         " don't define any keybindings
-let g:ranger_replace_netrw              = 1         " open directories with ranger
-let g:rust_recommended_style            = 0         " use 2 space instead of 4 space tabs
-let g:rustfmt_autosave                  = 0         " run rustfmt on save
-let g:solarized_contrast                = 'high'    " use high contrast solarized colors
-let g:solarized_visibility              = 'high'    " use high contrast colors for 'list'
-let g:surround_indent                   = 1         " indent with '=' after surrounding
-let g:tmux_navigator_no_mappings        = 1         " disable default tmux navigator mappings
-let g:undotree_WindowLayout             = 2         " put undotree on left with full width diff
-let g:vim_search_pulse_mode             = 'pattern' " pulse pattern not line
-let g:vimwiki_conceallevel              = 0         " disable syntax concealing
+let g:NERDTreeMinimalUI          = 1         " hide nerdtree help shortcut
+let g:NERDTreeWinSize            = 20        " make nerdtree 20 columns wide
+let g:gist_post_private          = 1         " make gists private by default
+let g:gitgutter_enabled          = 0         " enable gitgutter by default
+let g:hexmode_patterns           = '*.wasm'  " open wasm files in hexmode
+let g:incsearch#auto_nohlsearch  = 1         " turn off hlsearch
+let g:investigate_use_dash       = 1         " make investigate use dash on macos
+let g:netrw_fastbrowse           = 0         " don't retain closed netrw buffers
+let g:netrw_nogx                 = 1         " disable netrw's gx mapping
+let g:pastedtext_select_key      = 'gl'      " use gl for last pasted text mappings
+let g:qf_bufname_or_text         = 2         " filter only on quickfix text
+let g:rainbow_active             = 1         " enable rainbow delimiters
+let g:ranger_map_keys            = 0         " don't define any keybindings
+let g:ranger_replace_netrw       = 1         " open directories with ranger
+let g:rust_recommended_style     = 0         " use 2 space instead of 4 space tabs
+let g:rustfmt_autosave           = 0         " run rustfmt on save
+let g:solarized_contrast         = 'high'    " use high contrast solarized colors
+let g:solarized_visibility       = 'high'    " use high contrast colors for 'list'
+let g:surround_indent            = 1         " indent with '=' after surrounding
+let g:tmux_navigator_no_mappings = 1         " disable default tmux navigator mappings
+let g:undotree_WindowLayout      = 2         " put undotree on left with full width diff
+let g:vim_search_pulse_mode      = 'pattern' " pulse pattern not line
+let g:vimwiki_conceallevel       = 0         " disable syntax concealing
 
 let g:airline#extensions#ale#enabled               = 1   " enable ale extension
 let g:airline#extensions#tabline#buffer_idx_mode   = 1   " show buffer indices
@@ -333,7 +334,6 @@ vmap gx <plug>(openbrowser-smart-search)|       " open url under cursor in brows
 
 " quickfix mappings
 map <leader>cc <plug>(qf_qf_toggle_stay)
-map  + <plug>(qf_qf_next)
 
 " repeat last motion
 nmap <leader>. <plug>(easymotion-repeat)
@@ -364,6 +364,8 @@ nmap <c-l> <plug>AirlineSelectNextTab
 " non-recursive mappings
 cnoremap <c-k> <c-\>eKillCmdline()<cr>|                " kill to end of line
 inoremap <c-s> <c-g>u<Esc>[s1z=`]a<c-g>u|              " fix last spelling error
+nnoremap + :call Quickfix(0)<cr>|                      " go to next error
+nnoremap _ :call Quickfix(1)<cr>|                      " go to previous error
 nnoremap <c-b> <c-o>|                                  " jump back
 nnoremap <c-f> <c-i>|                                  " jump forward
 nnoremap <c-k> :AllLines<cr>|                          " search all lines in all files

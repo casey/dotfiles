@@ -39,6 +39,43 @@ function! Date()
   return a . b
 endfunction
 
+function! Quickfix(previous)
+  if !filereadable('.errors.txt')
+    echo 'Error file not found.'
+    return
+  endif
+
+  if !exists("s:errorfile_hash")
+    let s:errorfile_hash = ""
+  endif
+
+  let l:errorfile_hash = system('cat .errors.txt | openssl dgst -sha256')
+
+  if l:errorfile_hash != s:errorfile_hash
+    execute 'cgetfile'
+    let s:errorfile_hash = l:errorfile_hash
+  endif
+
+  let l:quickfix_window_is_open = 0
+
+  for n in range(1, winnr('$'))
+    if getwinvar(n, '&syntax') == 'qf'
+      let l:quickfix_window_is_open = 1
+    endif
+  endfor
+
+  if !l:quickfix_window_is_open
+    execute "normal \<plug>(qf_qf_toggle_stay)"
+    execute 'cc 1'
+  else
+    if a:previous
+      execute "normal \<plug>(qf_qf_previous)"
+    else
+      execute "normal \<plug>(qf_qf_next)"
+    endif
+  endif
+endfunction
+
 " toggle syntax highlighting
 function! ToggleColor()
   if exists('g:syntax_on')
