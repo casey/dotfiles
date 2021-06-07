@@ -52,8 +52,9 @@ function! Quickfix(previous)
   let l:errorfile_hash = system('cat .errors.txt | openssl dgst -sha256')
 
   if l:errorfile_hash != s:errorfile_hash
-    execute 'cgetfile'
+    execute 'cfile'
     let s:errorfile_hash = l:errorfile_hash
+    return
   endif
 
   let l:quickfix_window_is_open = 0

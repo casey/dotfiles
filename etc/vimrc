@@ -490,16 +490,16 @@ if &t_Co > 2 || has("gui_running")
     source ~/.vimrc_background
   endif
   hi NonText ctermfg=11
+  hi SpellBad   cterm=underline
+  hi SpellCap   cterm=italic
+  hi SpellLocal cterm=italic
+  hi SpellRare  cterm=italic
   hi link EasyMotionIncSearch     Search
   hi link EasyMotionMoveHL        Search
   hi link EasyMotionShade         Comment
   hi link EasyMotionTarget        ErrorMsg
   hi link EasyMotionTarget2First  Search
   hi link EasyMotionTarget2Second Search
-  hi SpellBad   cterm=underline
-  hi SpellCap   cterm=italic
-  hi SpellLocal cterm=italic
-  hi SpellRare  cterm=italic
 endif
 
 
