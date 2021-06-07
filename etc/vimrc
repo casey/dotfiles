@@ -525,10 +525,10 @@ augroup vimrc
   autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
   " turn off relative numbers when focus is lost
-  autocmd FocusLost * if &number | set norelativenumber | endif
+  autocmd FocusLost * if &number | let g:restore_relativenumber = &relativenumber | set norelativenumber | endif
 
   " turn on relative numbers when focus is gained
-  autocmd FocusGained * if &number && !g:relative_numbers_off | set relativenumber | endif
+  autocmd FocusGained * if &number && exists('g:restore_relativenumber') && g:restore_relativenumber | set relativenumber | endif
 
   " don't highlight trailing whitespace in python files
   autocmd FileType python syn clear pythonSpaceError
