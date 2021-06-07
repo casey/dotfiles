@@ -88,11 +88,13 @@ Plug 'fatih/vim-go'             " go
 Plug 'nsf/gocode'               " go autocomplete
 Plug 'pangloss/vim-javascript'  " javascript
 Plug 'rhysd/vim-wasm'           " wasm
-Plug 'rust-lang/rust.vim'       " rust
 Plug 'tikhomirov/vim-glsl'      " glsl
 Plug 'tomlion/vim-solidity'     " solidity
 Plug 'urbit/hoon.vim'           " hoon
 Plug 'zchee/vim-flatbuffers'    " flatbuffers
+
+" switch back to rust-lang/rust.vim when PR 445
+Plug 'casey/rust.vim', { 'branch': 'patch-1' } " rust
 
 " dependencies
 Plug 'rbgrouleff/bclose.vim' " required for ranger.vim
