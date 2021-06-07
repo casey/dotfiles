@@ -1,8 +1,8 @@
 " create an alias
 function! Alias(from, to)
-  exec 'cnoreabbrev <expr> ' . a:from
-        \ .' ((getcmdtype() is# ":" && getcmdline() is# "'.a:from.'")'
-        \ .'? ("'. a:to .'") : ("'. a:from .'"))'
+  execute 'cnoreabbrev <expr> ' . a:from
+    \ .' ((getcmdtype() is# ":" && getcmdline() is# "'.a:from.'")'
+    \ .'? ("'. a:to .'") : ("'. a:from .'"))'
 endfunction
 
 " execute <command> in all buffers and return to original buffer
