@@ -12,27 +12,31 @@ rcmd - r         : yabai -m space  --rotate 90                 # rotate
 rcmd - return    : yabai -m window --toggle  float             # toggle float
 rcmd - tab       : yabai -m window --toggle  split             # toggle split
 
-rcmd + alt -   h : yabai -m window --warp    west              # warp west
-rcmd + alt -   j : yabai -m window --warp    south             # warp south
-rcmd + alt -   k : yabai -m window --warp    north             # warp north
-rcmd + alt -   l : yabai -m window --warp    east              # warp east
+rcmd + alt -   h : yabai -m window --warp    west         # warp west
+rcmd + alt -   j : yabai -m window --warp    south        # warp south
+rcmd + alt -   k : yabai -m window --warp    north        # warp north
+rcmd + alt -   l : yabai -m window --warp    east         # warp east
 
-rcmd + shift - a : yabai -m window --resize  left:20:0         # contract left
-rcmd + shift - d : yabai -m window --resize  right:-20:0       # contract right
-rcmd + shift - s : yabai -m window --resize  bottom:0:-20      # contract bottom
-rcmd + shift - w : yabai -m window --resize  top:0:20          # contract top
+rcmd + shift - a : yabai -m window --resize  left:20:0    # contract left
+rcmd + shift - d : yabai -m window --resize  right:-20:0  # contract right
+rcmd + shift - s : yabai -m window --resize  bottom:0:-20 # contract bottom
+rcmd + shift - w : yabai -m window --resize  top:0:20     # contract top
 
-rcmd + shift - h : yabai -m window --swap    west              # swap west
-rcmd + shift - j : yabai -m window --swap    south             # swap south
-rcmd + shift - k : yabai -m window --swap    north             # swap north
-rcmd + shift - l : yabai -m window --swap    east              # swap east
+rcmd + shift - h : yabai -m window --swap    west         # swap west
+rcmd + shift - j : yabai -m window --swap    south        # swap south
+rcmd + shift - k : yabai -m window --swap    north        # swap north
+rcmd + shift - l : yabai -m window --swap    east         # swap east
 
-rcmd - a         : yabai -m window --resize  left:-20:0        # expand left
-rcmd - d         : yabai -m window --resize  right:20:0        # expand right
-rcmd - s         : yabai -m window --resize  bottom:0:20       # expand bottom
-rcmd - w         : yabai -m window --resize  top:0:-20         # expand top
+rcmd - a         : yabai -m window --resize  left:-20:0   # expand left
+rcmd - d         : yabai -m window --resize  right:20:0   # expand right
+rcmd - s         : yabai -m window --resize  bottom:0:20  # expand bottom
+rcmd - w         : yabai -m window --resize  top:0:-20    # expand top
 
-rcmd - h         : yabai -m window --focus   west              # focus west
-rcmd - j         : yabai -m window --focus   south             # focus south
-rcmd - k         : yabai -m window --focus   north             # focus north
-rcmd - l         : yabai -m window --focus   east              # focus east
+rcmd - h         : yabai -m window --focus   west         # focus west
+rcmd - j         : yabai -m window --focus   south        # focus south
+rcmd - k         : yabai -m window --focus   north        # focus north
+rcmd - l         : yabai -m window --focus   east         # focus east
+
+# toggle layout between `bsp` and `stack`
+rcmd - t : yabai -m space --layout \
+  $(yabai -m query --spaces --space | jq -r 'if .type == "bsp" then "stack" else "bsp" end')
