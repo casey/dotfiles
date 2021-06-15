@@ -16,3 +16,6 @@ providers:
   keybase:
     default-user:    rodarmor
     remote-template: keybase://private/{{user}}/{{project}}
+  salsa:
+    default-user:    rodarmor
+    remote-template: git@salsa.debian.org:{{user}}/{{project}}.git
