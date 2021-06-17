@@ -31,7 +31,7 @@
   - mkdir -p ~/.mutt
   - mkdir -p ~/.nixpkgs
   - mkdir -p ~/.rusty-tags
-  - mkdir -p ~/.ssh
+  - mkdir -p ~/.ssh/connections
   - mkdir -p ~/.terminfo
   - mkdir -p ~/.tmux/plugins
   - mkdir -p ~/.xmonad
