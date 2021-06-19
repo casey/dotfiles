@@ -6,8 +6,8 @@ shell:
 
 window:
   dimensions:
-    columns: 100
-    lines:   50
+    columns: 199
+    lines:   59
   # intermodal full-sized demo
   # dimensions:
   #   columns: 73

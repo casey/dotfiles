@@ -40,4 +40,6 @@ yabai -m config right_padding                20
 yabai -m config window_gap                   20
 
 # rules
-yabai -m rule --add label="Ignore" app="^.*" manage=off
+yabai -m rule --add app="^.*$"             manage=off
+yabai -m rule --add app="^Google Chrome$"  manage=on
+yabai -m rule --add app="^Alacritty$"      manage=on
