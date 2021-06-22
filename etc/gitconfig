@@ -80,3 +80,6 @@ commit     = yellow bold
 old        = red bold
 new        = green bold
 whitespace = red reverse
+
+[http]
+cookiefile = ~/.gitcookies
