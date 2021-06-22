@@ -35,6 +35,7 @@ helper = osxkeychain
 default = current
 
 [pull]
+default = current
 rebase = true
 
 [merge]
