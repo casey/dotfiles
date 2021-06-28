@@ -345,6 +345,7 @@ map <leader>od :call OpenWiktionary()<cr>| " look up in wiktionary
 map <leader>og <plug>(GrepperOperator)|    " grepper operator
 map <leader>or <plug>(quickrun-op)|        " run
 map <leader>os <plug>(operator-sort)|      " sort operator
+map <leader>of gq|                         " fix/format operator
 
 " airline navigation
 nmap <leader>1 <plug>AirlineSelectTab1
