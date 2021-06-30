@@ -54,6 +54,7 @@
     ~/.config/fish/functions:       etc/fish-functions
     ~/.config/git/config:           etc/gitconfig
     ~/.config/gsimplecal/config:    etc/gsimplecal
+    ~/.tigrc:                       etc/tigrc
     ~/.config/i3status/config:      etc/i3status.config
     ~/.config/polybar/config:       etc/polybar
     ~/.config/src/config.yaml:      etc/src.yaml
