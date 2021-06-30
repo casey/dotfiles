@@ -1,11 +1,11 @@
-## Ⅰ
-alias: g 'git'
-alias: m 'vman'
-alias: j 'just'
+# Ⅰ
 alias: f 'fd'
+alias: g 'git'
+alias: j 'just'
+alias: m 'vman'
 alias: v 'vim-fzf'
 
-## Ⅱ
+# Ⅱ
 alias: .. 'cd ..'
 alias: .j 'j --justfile ~/.justfile --working-directory ~'
 alias: a1 'alias-list 1'
@@ -32,12 +32,12 @@ alias: tb 'nc termbin.com 9999'
 alias: tp 'term --command ssh pair@pair.rodarmor.com'
 alias: zf 'zsh-edit-function'
 
-## Ⅲ: misc
+# Ⅲ: misc
 alias: how 'howdoi -a'
 alias: psg 'ps aux | grep'
 alias: rwd 'cd `pwd -P`'
 
-## Ⅲ: git
+# Ⅲ: git
 alias: gaa 'git commit --amend --all'
 alias: gac 'git commit --amend'
 alias: gad 'git add'
@@ -73,7 +73,7 @@ alias: gst 'git info'
 alias: gsu 'git submodule update --init --recursive'
 alias: gsw 'git switch'
 
-## Ⅳ
+# Ⅳ
 alias: Kill 'kill -9'
 alias: cd.. 'cd ..'
 alias: diff 'colordiff'
@@ -85,10 +85,10 @@ alias: port 'port -vuRc'
 alias: post 'cd ~/src/blog && just post'
 alias: sane 'stty sane'
 
-## Ⅴ
+# Ⅴ
 alias: egrep 'egrep --color=auto'
 alias: eject 'drutil tray eject'
 
-## Ⅸ
+# Ⅸ
 alias: colortest '~/src/local/submodules/base16-shell/colortest'
 alias: post-file 'cd ~/src/blog && just file'
