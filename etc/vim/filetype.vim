@@ -11,6 +11,7 @@ augroup filetypedetect
   autocmd BufNewFile,BufRead *.go                            setf go
   autocmd BufNewFile,BufRead *.go                            setlocal noet ts=2 sw=2 sts=2
   autocmd BufNewFile,BufRead *.ino                           setf cpp
+  autocmd BufNewFile,BufRead *.justfile                      setf just
   autocmd BufNewFile,BufRead *.lalrpop                       setf rust
   autocmd BufNewFile,BufRead *.mm,*.m++                      setf objcpp
   autocmd BufNewFile,BufRead *.s++                           setf cpp
