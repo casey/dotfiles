@@ -12,6 +12,9 @@ rcmd - r         : yabai -m space  --rotate 90                 # rotate
 rcmd - return    : yabai -m window --toggle  float             # toggle float
 rcmd - tab       : yabai -m window --toggle  split             # toggle split
 
+rcmd + shift - 0x21 : yabai -m space  --rotate 90         # rotate right
+rcmd + shift - 0x1E : yabai -m space  --rotate 270        # rotate left
+
 rcmd + alt -   h : yabai -m window --warp    west         # warp west
 rcmd + alt -   j : yabai -m window --warp    south        # warp south
 rcmd + alt -   k : yabai -m window --warp    north        # warp north
