@@ -7,8 +7,8 @@
 - shell:
   - mkdir -p ~/.cache/mutt/headers
   - mkdir -p ~/.cache/mutt/messages
+  - mkdir -p ~/.cache/mutt/messages
   - mkdir -p ~/.cargo
-  - mkdir -p ~/.config
   - mkdir -p ~/.config/alacritty
   - mkdir -p ~/.config/fish
   - mkdir -p ~/.config/git
@@ -17,6 +17,7 @@
   - mkdir -p ~/.config/menus
   - mkdir -p ~/.config/neofetch
   - mkdir -p ~/.config/nixpkgs/overlays
+  - mkdir -p ~/.config/nvim
   - mkdir -p ~/.config/polybar
   - mkdir -p ~/.config/src
   - mkdir -p ~/.config/sway
@@ -54,8 +55,8 @@
     ~/.config/fish/functions:       etc/fish-functions
     ~/.config/git/config:           etc/gitconfig
     ~/.config/gsimplecal/config:    etc/gsimplecal
-    ~/.tigrc:                       etc/tigrc
     ~/.config/i3status/config:      etc/i3status.config
+    ~/.config/nvim/init.vim:        etc/nvim.vim
     ~/.config/polybar/config:       etc/polybar
     ~/.config/src/config.yaml:      etc/src.yaml
     ~/.config/sway/config:          etc/sway.config
@@ -86,6 +87,7 @@
     ~/.skhdrc:                      etc/skhdrc
     ~/.spacemacs:                   etc/spacemacs
     ~/.ssh/config:                  etc/sshconfig
+    ~/.tigrc:                       etc/tigrc
     ~/.tmux.conf:                   etc/tmux.conf
     ~/.vim.py:                      etc/vim.py
     ~/.vim:                         etc/vim
