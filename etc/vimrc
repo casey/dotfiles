@@ -479,9 +479,9 @@ call Alias('Grep', 'Grepper'   )
 
 "" digraphs
 
-digraphs fv 10086| " vertical fleuron
-digraphs fh 10087| " horizontal fleuron
 digraphs fH 9753|  " reversed horizontal fleuron
+digraphs fh 10087| " horizontal fleuron
+digraphs fv 10086| " vertical fleuron
 
 
 "" colors
