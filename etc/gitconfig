@@ -85,3 +85,6 @@ whitespace = red reverse
 
 [http]
 cookiefile = ~/.gitcookies
+
+[fetch]
+prune = true
