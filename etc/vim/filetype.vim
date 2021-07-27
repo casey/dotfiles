@@ -19,6 +19,7 @@ augroup filetypedetect
   autocmd BufNewFile,BufRead *.yaml,*.yml                    setf yaml
   autocmd BufNewFile,BufRead BUCK                            setf python
   autocmd BufNewFile,BufRead SConstruct,sconstruct           setf python
+  autocmd BufNewFile,BufRead Vagrantfile                     setf ruby
   autocmd BufNewFile,BufRead gitconfig                       setf gitconfig
   autocmd BufNewFile,BufRead sconscript                      setf python
   autocmd BufNewFile,BufRead ~/.zsh/functions/*              setf zsh
