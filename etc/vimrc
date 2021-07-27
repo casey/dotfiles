@@ -433,6 +433,7 @@ nnoremap <leader>tb :set wrap!<cr>|                    " toggle line breaks
 nnoremap <leader>tc :call ToggleColor()<cr>|           " toggle syntax highlighting
 nnoremap <leader>tg :GitGutterToggle<cr>|              " toggle gitgutter
 nnoremap <leader>th :Hexmode<cr>|                      " toggle hex mode
+nnoremap <leader>ti :call ToggleInterface()<cr>|       " toggle interface elements
 nnoremap <leader>tl :call ToggleLineWrap()<cr>|        " toggle line wrapping
 nnoremap <leader>tn :call ToggleLineNumbers()<cr>|     " toggle line numbers
 nnoremap <leader>tp :Goyo<cr>|                         " toggle prose mode

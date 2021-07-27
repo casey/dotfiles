@@ -115,6 +115,23 @@ function! ToggleRelativeNumbers()
   endif
 endfun
 
+let s:interface = 0
+function! ToggleInterface()
+    if s:interface == 0
+        let s:interface = 1
+        set noshowmode
+        set noruler
+        set laststatus=0
+        set noshowcmd
+    else
+        let s:interface = 0
+        set showmode
+        set ruler
+        set laststatus=2
+        set showcmd
+    endif
+endfunction
+
 " toggle line wrapping
 function! ToggleLineWrap()
   if &textwidth != 0
