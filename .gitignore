@@ -1,10 +1,12 @@
 /etc/vim/.netrwhist
 /etc/vim/autoload/plug.vim
+/etc/vim/nviminfo
 /etc/vim/plugged
 /etc/vim/session
 /etc/vim/spell/*.add.spl
-/etc/vim/viminfo
+/etc/vim/undo
 /etc/vim/view
+/etc/vim/viminfo
 /etc/zsh/compdump
-/pkg/target
 /pkg/crates/overviews/images
+/pkg/target
