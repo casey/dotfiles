@@ -163,7 +163,6 @@ set spellcapcheck =                      " turn off checking for capitalized sen
 set spelllang     =en_us                 " use american english as the spellcheck language
 set tabpagemax    =50                    " open a maximum of 30 tabs when vim is started with -p
 set textwidth     =0                     " disable wrapping by default
-set undodir       =~/.vim/undo           " backup directory location
 set undolevels    =10000                 " remember last 10000 changes
 set updatetime    =250                   " set update time to 250ms
 set virtualedit   =block                 " visual block mode not confined to character boundaries
@@ -193,15 +192,18 @@ set viminfo +=f1   " save file marks
 set viminfo +=h    " disable hlsearch
 set viminfo +=s10  " maximum number of KB to save from a register
 
+" vi flavor specific configuration
 if has('nvim')
-  set viminfo +=n~/.vim/nviminfo " set viminfo file name for neovim
+  set viminfo +=n~/.config/nvim/viminfo " set viminfo file name for neovim
+  set undodir =~/.config/nvim/undo " backup directory location
 else
-  set viminfo +=n~/.vim/viminfo " set viminfo file name for vim
+  set viminfo +=n~/.vim/viminfo " set viminfo file name
+  set undodir =~/.vim/undo " backup directory location
 endif
 
 " use the unnamedplus clipboard if supported
 if has('unnamedplus')
-    set clipboard=unnamedplus
+  set clipboard=unnamedplus
 endif
 
 " use two space soft tabs
