@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+pwd_escaped=$(pwd | sed 's!/!%!g')
+export NVIM_LISTEN_ADDRESS="/tmp/nvim-${pwd_escaped}"
+
+# check if we can connect, otherwise remove the socket
+nvr -s --nostart || rm -f "${NVIM_LISTEN_ADDRESS}"
+
+exec nvim -p "$@"
