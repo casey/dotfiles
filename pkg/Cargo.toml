@@ -1,11 +1,9 @@
 [workspace]
 members = [
   "alfred-files",
-  "e",
   "music",
-  "nvim-listen-path",
+  "nvim-remote-open",
   "overviews",
-  "re",
   "shell",
   "space",
 ]

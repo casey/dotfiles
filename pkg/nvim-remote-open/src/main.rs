@@ -1,10 +1,9 @@
 use std::{
   env,
   os::unix::process::CommandExt,
+  path::Path,
   process::{self, Command},
 };
-
-use nvim_listen_path::nvim_listen_path;
 
 fn main() {
   if let Err(message) = run() {
@@ -32,11 +31,29 @@ fn run() -> Result<(), String> {
     ));
   }
 
+  let tmpdir = env::var("TMPDIR")
+    .map_err(|error| format!("Failed to get `TMPDIR` environment variable: {}", error))?;
+
+  let current_dir =
+    env::current_dir().map_err(|error| format!("Failed to get current directory: {}", error))?;
+
+  let current_dir = current_dir.to_str().ok_or_else(|| {
+    format!(
+      "Current directory not valid unicode: {}",
+      current_dir.display()
+    )
+  })?;
+
+  let listen_path = Path::new(&tmpdir).join(format!(
+    "nvim-{}",
+    current_dir.trim_matches('/').replace('/', "%")
+  ));
+
   let error = Command::new("nvr")
     .arg("-s")
     .arg("--nostart")
     .arg("--servername")
-    .arg(nvim_listen_path()?)
+    .arg(listen_path)
     .arg("--remote-send")
     .arg(cmd)
     .exec();

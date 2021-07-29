@@ -202,6 +202,12 @@ if has('nvim')
   nnoremap <silent> <m-k> :TmuxNavigateUp<cr>
   nnoremap <silent> <m-j> :TmuxNavigateDown<cr>
   nnoremap <silent> <m-l> :TmuxNavigateRight<cr>
+
+  " listen on named pipe for remote commands
+  augroup nvim
+    autocmd!
+    autocmd VimEnter * nested call ServerStart()
+  augroup end
 else
   " settings
   set viminfo +=n~/.vim/viminfo " set viminfo file name

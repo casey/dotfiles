@@ -39,6 +39,17 @@ function! Date()
   return a . b
 endfunction
 
+function! ServerStart()
+  let escaped_path = substitute(trim(getcwd(), "/") , "/", "%", "g")
+  let listen_socket_path = $TMPDIR . "nvim-" . escaped_path
+
+  if filereadable(listen_socket_path)
+    return
+  endif
+
+  call serverstart(listen_socket_path)
+endfunction
+
 function! Quickfix(previous)
   if !filereadable('.errors.txt')
     echo 'Error file not found.'
