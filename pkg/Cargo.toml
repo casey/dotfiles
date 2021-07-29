@@ -1,2 +1,9 @@
 [workspace]
-members = ["crates/*"]
+members = [
+  "alfred-files",
+  "e",
+  "music",
+  "overviews",
+  "shell",
+  "space",
+]
