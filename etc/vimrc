@@ -486,6 +486,7 @@ nnoremap <silent> K :call ShowDocumentation()<CR>
 
 " edit named files
 nnoremap <leader>ea :e ~/.zsh/aliases.zsh<cr>
+nnoremap <leader>ef :e ~/.vim/functions.vim<cr>
 nnoremap <leader>em :e ~/.mutt/muttrc<cr>
 nnoremap <leader>en :e notes.md<cr>
 nnoremap <leader>es :e ~/.zshrc<cr>
