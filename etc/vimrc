@@ -196,9 +196,22 @@ set viminfo +=s10  " maximum number of KB to save from a register
 if has('nvim')
   set viminfo +=n~/.config/nvim/viminfo " set viminfo file name for neovim
   set undodir =~/.config/nvim/undo " backup directory location
+
+  " tmux navigator bindings
+  nnoremap <silent> <m-h> :TmuxNavigateLeft<cr>
+  nnoremap <silent> <m-k> :TmuxNavigateUp<cr>
+  nnoremap <silent> <m-j> :TmuxNavigateDown<cr>
+  nnoremap <silent> <m-l> :TmuxNavigateRight<cr>
 else
+  " settings
   set viminfo +=n~/.vim/viminfo " set viminfo file name
   set undodir =~/.vim/undo " backup directory location
+
+  " tmux navigator bindings
+  nnoremap <silent> h :TmuxNavigateLeft<cr>
+  nnoremap <silent> k :TmuxNavigateUp<cr>
+  nnoremap <silent> j :TmuxNavigateDown<cr>
+  nnoremap <silent> l :TmuxNavigateRight<cr>
 endif
 
 " use the unnamedplus clipboard if supported
@@ -464,12 +477,6 @@ vnoremap k gk|                                         " go to previous screen l
 
 " show documentation in preview window.
 nnoremap <silent> K :call ShowDocumentation()<CR>
-
-" tmux vim navigator
-nnoremap <silent> h :TmuxNavigateLeft<cr>
-nnoremap <silent> k :TmuxNavigateUp<cr>
-nnoremap <silent> j :TmuxNavigateDown<cr>
-nnoremap <silent> l :TmuxNavigateRight<cr>
 
 " edit named files
 nnoremap <leader>ea :e ~/.zsh/aliases.zsh<cr>
