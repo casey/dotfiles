@@ -67,6 +67,7 @@ done
 unset MAILCHECK # don't check for mail
 
 export BLOCKSIZE=K               # show blocks as kilobytes
+export CARGO_OPEN=re             # make cargo-limit open files with re
 export CLICOLOR=1                # use color
 export EDITOR=e                  # e as editor
 export EDMV_EDITOR=e             # e as editor in edmv
