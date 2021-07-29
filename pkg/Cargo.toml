@@ -3,7 +3,9 @@ members = [
   "alfred-files",
   "e",
   "music",
+  "nvim-listen-path",
   "overviews",
+  "re",
   "shell",
   "space",
 ]
