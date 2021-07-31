@@ -41,13 +41,13 @@ endfunction
 
 function! ServerStart()
   let escaped_path = substitute(trim(getcwd(), "/") , "/", "%", "g")
-  let listen_socket_path = $TMPDIR . "nvim-" . escaped_path
+  let g:server_pipe_path = $TMPDIR . "nvim-" . escaped_path
 
-  if filereadable(listen_socket_path)
+  if filereadable(g:server_pipe_path)
     return
   endif
 
-  call serverstart(listen_socket_path)
+  call serverstart(g:server_pipe_path)
 endfunction
 
 function! Quickfix(previous)
