@@ -450,7 +450,7 @@ nnoremap <leader>sb :Buffers<cr>|                      " search buffers
 nnoremap <leader>sc :Commands<cr>|                     " search commands
 nnoremap <leader>sf :Files<cr>|                        " search files
 nnoremap <leader>sg :Commits<cr>|                      " search git
-nnoremap <leader>sh :History<cr>|                      " search history
+nnoremap <leader>sh :History:<cr>|                     " search command history
 nnoremap <leader>sl :Lines<cr>|                        " lines in current buffer
 nnoremap <leader>st :Tags<cr>|                         " search ctags
 nnoremap <leader>sv :source $MYVIMRC<cr>:nohl<cr>|     " source ~/.vimrc
