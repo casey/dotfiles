@@ -193,6 +193,9 @@ set viminfo +=s10  " maximum number of KB to save from a register
 
 " vi flavor specific configuration
 if has('nvim')
+  " load lua functions
+  lua require('functions')
+
   set viminfo +=n~/.config/nvim/viminfo " set viminfo file name for neovim
   set undodir =~/.config/nvim/undo " backup directory location
 
@@ -486,6 +489,7 @@ nnoremap <silent> K :call ShowDocumentation()<CR>
 " edit named files
 nnoremap <leader>ea :e ~/.zsh/aliases.zsh<cr>
 nnoremap <leader>ef :e ~/.vim/functions.vim<cr>
+nnoremap <leader>el :e ~/.vim/lua/functions.lua<cr>
 nnoremap <leader>em :e ~/.mutt/muttrc<cr>
 nnoremap <leader>en :e notes.md<cr>
 nnoremap <leader>es :e ~/.zshrc<cr>
