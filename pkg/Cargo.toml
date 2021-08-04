@@ -4,6 +4,7 @@ members = [
   "music",
   "nvim-remote-open",
   "overviews",
+  "project-root",
   "shell",
   "space",
 ]

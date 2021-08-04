@@ -80,6 +80,7 @@
     ~/.nethackrc:                   etc/nethackrc
     ~/.nixpkgs/config.nix:          etc/nixpkgs.nix
     ~/.plan:                        etc/plan
+    ~/.project-root.yaml:           etc/project-root.yaml
     ~/.project:                     etc/project
     ~/.ripgreprc:                   etc/ripgreprc
     ~/.rusty-tags/config.toml:      etc/rusty-tags.toml
