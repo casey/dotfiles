@@ -21,6 +21,7 @@ Plug 'casey/vim-airline-themes'           " color themes for airline
 Plug 'christoomey/vim-tmux-navigator'     " navigate between vim and tmux splits
 Plug 'coderifous/textobj-word-column.vim' " column related text objects
 Plug 'dense-analysis/ale'                 " async lint 'n' fix engine
+Plug 'dstein64/vim-startuptime'           " profile startup time
 Plug 'easymotion/vim-easymotion'          " jump to character
 Plug 'editorconfig/editorconfig-vim'      " respect .editorconfig
 Plug 'emonkak/vim-operator-sort'          " sort operator
@@ -83,8 +84,6 @@ Plug 'NoahTheDuke/vim-just'     " just
 Plug 'casey/vim-fidl'           " fidl
 Plug 'cespare/vim-toml'         " toml
 Plug 'dag/vim-fish'             " fish shell
-Plug 'fatih/vim-go'             " go
-Plug 'nsf/gocode'               " go autocomplete
 Plug 'pangloss/vim-javascript'  " javascript
 Plug 'rhysd/vim-wasm'           " wasm
 Plug 'tikhomirov/vim-glsl'      " glsl
