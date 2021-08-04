@@ -34,19 +34,12 @@ fn run() -> Result<(), String> {
   let tmpdir = env::var("TMPDIR")
     .map_err(|error| format!("Failed to get `TMPDIR` environment variable: {}", error))?;
 
-  let current_dir =
-    env::current_dir().map_err(|error| format!("Failed to get current directory: {}", error))?;
-
-  let current_dir = current_dir.to_str().ok_or_else(|| {
-    format!(
-      "Current directory not valid unicode: {}",
-      current_dir.display()
-    )
-  })?;
+  let project_root = project_root::from_current_dir()
+    .map_err(|error| format!("Failed to get project root: {}", error))?;
 
   let listen_path = Path::new(&tmpdir).join(format!(
     "nvim-{}",
-    current_dir.trim_matches('/').replace('/', "%")
+    project_root.trim_matches('/').replace('/', "%")
   ));
 
   let error = Command::new("nvr")

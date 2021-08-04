@@ -6,13 +6,12 @@ mod context;
 mod error;
 mod spec;
 
-pub fn project_root(starting_dir: Option<&Path>) -> Result<String, Error> {
-  let home_dir = dirs::home_dir().ok_or(Error::HomeDir)?;
+pub fn from_current_dir() -> Result<String, Error> {
+  from_starting_dir(&env::current_dir().context(error::CurrentDir)?)
+}
 
-  let starting_dir = match starting_dir {
-    Some(starting_dir) => starting_dir.to_owned(),
-    None => env::current_dir().context(error::CurrentDir)?,
-  };
+pub fn from_starting_dir(starting_dir: &Path) -> Result<String, Error> {
+  let home_dir = dirs::home_dir().ok_or(Error::HomeDir)?;
 
   let config_path = home_dir.join(".project-root.yaml");
 
@@ -23,7 +22,7 @@ pub fn project_root(starting_dir: Option<&Path>) -> Result<String, Error> {
     .context(error::ConfigDeserialize { path: &config_path })?;
 
   let context = Context {
-    starting_dir: starting_dir.clone(),
+    starting_dir: starting_dir.to_owned(),
   };
 
   for group in config.specs {

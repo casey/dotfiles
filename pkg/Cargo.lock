@@ -1041,6 +1041,9 @@ dependencies = [
 [[package]]
 name = "nvim-remote-open"
 version = "0.0.0"
+dependencies = [
+ "project-root",
+]
 
 [[package]]
 name = "once_cell"
