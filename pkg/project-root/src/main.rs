@@ -10,7 +10,12 @@ struct Arguments {
 fn main() {
   let arguments = Arguments::from_args();
 
-  match project_root::fom_staring_dir(&arguments.starting_dir) {
+  let result = match arguments.starting_dir {
+    Some(starting_dir) => project_root::from_starting_dir(&starting_dir),
+    None => project_root::from_current_dir(),
+  };
+
+  match result {
     Ok(project_root) => println!("{}", project_root),
     Err(error) => {
       eprintln!("error: {}", error);

@@ -28,7 +28,7 @@ pub fn from_starting_dir(starting_dir: &Path) -> Result<String, Error> {
   for group in config.specs {
     for dir in starting_dir.ancestors() {
       for spec in &group {
-        if spec.check(&context, dir) {
+        if spec.check(&context, dir)? {
           return Ok(
             dir
               .to_str()

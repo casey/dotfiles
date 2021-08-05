@@ -6,4 +6,6 @@ pub(crate) use std::{
 pub(crate) use serde::Deserialize;
 pub(crate) use snafu::{ResultExt, Snafu};
 
+pub(crate) use crate::error;
+
 pub(crate) use crate::{config::Config, context::Context, error::Error, spec::Spec};
