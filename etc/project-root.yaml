@@ -1,4 +1,3 @@
 specs:
 - - contains: .git
-- - contains: Cargo.toml
 - - starting-dir

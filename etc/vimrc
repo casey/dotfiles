@@ -301,7 +301,7 @@ let g:rooter_resolve_links                          = 0         " follow symlink
 let g:rooter_change_directory_for_non_project_files = 'current' " autochdir if not a project file
 let g:rooter_silent_chdir                           = 1         " not message when chdiring
 
-let g:rooter_patterns = ['.git', '.git/', 'justfile', 'Justfile', 'Cargo.toml'] " stop patterns
+let g:rooter_patterns = ['.git', '.git/'] " stop patterns
 
 let g:ale_completion_enabled           = 0 " enable completion
 let g:ale_fix_on_save                  = 1 " fix on save
