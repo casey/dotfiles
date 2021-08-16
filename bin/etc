@@ -4,10 +4,10 @@ if [[ ! -t 1 ]]; then
   exec alacritty --command zsh -lic etc
 fi
 
-FILE=`(cd ~/src/local && fzf)`
+FILE=`(cd ~/.dotfiles && fzf)`
 
 if [[ -z $FILE ]]; then
   return 0
 fi
 
-exec vim ~/src/local/$FILE
+exec vim ~/.dotfiles/$FILE

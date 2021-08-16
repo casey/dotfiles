@@ -44,9 +44,6 @@
   - rm -f ~/.xscreensaver
 
 - link:
-    ~/app: app
-    ~/bin: bin
-
     ~/.colordiffrc:                 etc/colordiffrc
     ~/.config/bpython:              etc/bpython
     ~/.config/feh:                  etc/feh
@@ -67,6 +64,7 @@
     ~/.config/user-dirs.dirs:       etc/user-dirs.dirs
     ~/.config/xmobar/xmobarrc:      etc/xmobarrc
     ~/.config/xonsh/config.json:    etc/xonsh.json
+    ~/.dotfiles:                    .
     ~/.elinks/elinks.conf:          etc/elinks.conf
     ~/.fxfile:                      etc/fxfile
     ~/.gdbinit:                     etc/gdbinit
@@ -104,6 +102,8 @@
     ~/.zlogout:                     etc/zlogout
     ~/.zsh:                         etc/zsh
     ~/.zshrc:                       etc/zshrc
+    ~/app:                          app
+    ~/bin:                          bin
 
 - link:
     ~/.tmux/plugins/tpm:      submodules/tpm

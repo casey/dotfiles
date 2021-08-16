@@ -1,5 +1,5 @@
-local file=`(cd ~/src/local && fzf)`
+local file=`(cd ~/.dotfiles && fzf)`
 if [[ -z $file ]]; then
   return 0
 fi
-vim ~/src/local/$file
+vim ~/.dotfiles/$file
