@@ -1,6 +1,5 @@
-default:
-	git submodule update --init --recursive .
-	SHELL=sh ./submodules/dotbot/bin/dotbot -c default.yaml
+bootstrap:
+  ./bootstrap
 
 rustup:
 	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
