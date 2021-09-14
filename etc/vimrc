@@ -397,7 +397,6 @@ inoremap <c-s> <c-g>u<Esc>[s1z=`]a<c-g>u|              " fix last spelling error
 nnoremap + :call Quickfix(0)<cr>|                      " go to next error
 nnoremap _ :call Quickfix(1)<cr>|                      " go to previous error
 nnoremap <c-b> <c-o>|                                  " jump back
-nnoremap <c-c> :Commands<cr>|                          " search commands
 nnoremap <c-f> <c-i>|                                  " jump forward
 nnoremap <c-k> :AllLines<cr>|                          " search all lines in all files
 nnoremap <c-p> :Files<cr>|                             " search files
