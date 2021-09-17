@@ -147,6 +147,7 @@ set completefunc  =emoji#complete        " auto complete emoji
 set dictionary    =/usr/share/dict/words " dictionary completion mode words
 set directory     =~/.vim/swap/          " swap directory location
 set errorfile     =.errors.txt           " set error file name
+set errorformat   =%f:%l:%c              " set errorformat for nvim-remote-quickfix
 set history       =10000                 " lines of history to remember
 set laststatus    =2                     " always show statusline
 set makeprg       =just                  " use just as the makeprg
