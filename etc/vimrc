@@ -314,7 +314,6 @@ let g:ale_rust_cargo_check_all_targets = 1 " run cargo check with all targets
 let g:ale_set_highlights               = 0 " don't set highlights for lints
 let g:ale_set_loclist                  = 1 " set loclist for lints
 let g:ale_set_signs                    = 1 " set signs for lints
-let g:ale_rust_rustfmt_options         = "+nightly"
 
 " ale fixers
 let g:ale_fixers = {
