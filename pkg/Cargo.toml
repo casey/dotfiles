@@ -2,7 +2,7 @@
 members = [
   "alfred-files",
   "music",
-  "nvim-remote-open",
+  "nvim-remote-quickfix",
   "overviews",
   "project-root",
   "shell",

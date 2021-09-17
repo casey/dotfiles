@@ -32,7 +32,7 @@ crates:
 	cargo install remote
 	cargo install ripgrep
 	cargo install src
-	cargo install --path pkg/nvim-remote-open
+	cargo install --path pkg/nvim-remote-quickfix
 	cargo install --path pkg/shell
 
 formulae:
