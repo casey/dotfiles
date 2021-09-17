@@ -13,23 +13,13 @@ fn main() {
 }
 
 fn run() -> Result<(), String> {
-  let mut cmd = String::new();
+  let mut cmd = String::from("cgetexpr [");
 
-  for arg in env::args().skip(1).rev() {
-    let components = arg.split(':').collect::<Vec<&str>>();
-
-    if components.len() != 3 {
-      return Err(format!(
-        "Arguments must be in the form `FILE:LINE:COLUMN`: `{}`",
-        arg
-      ));
-    }
-
-    cmd.push_str(&format!(
-      "<esc>:edit {}<cr>{}G{}|",
-      components[0], components[1], components[2]
-    ));
+  for location in env::args().skip(1).rev().collect::<Vec<String>>() {
+    cmd.push_str(&format!("'{}', ", location));
   }
+
+  cmd.push(']');
 
   let tmpdir = env::var("TMPDIR")
     .map_err(|error| format!("Failed to get `TMPDIR` environment variable: {}", error))?;
@@ -47,7 +37,7 @@ fn run() -> Result<(), String> {
     .arg("--nostart")
     .arg("--servername")
     .arg(listen_path)
-    .arg("--remote-send")
+    .arg("-c")
     .arg(cmd)
     .exec();
 
