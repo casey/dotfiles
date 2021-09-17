@@ -51,20 +51,8 @@ function! ServerStart()
 endfunction
 
 function! Quickfix(previous)
-  if !filereadable('.errors.txt')
-    echo 'Error file not found.'
-    return
-  endif
-
-  if !exists("s:errorfile_hash")
-    let s:errorfile_hash = ""
-  endif
-
-  let l:errorfile_hash = system('cat .errors.txt | openssl dgst -sha256')
-
-  if l:errorfile_hash != s:errorfile_hash
-    execute 'cfile'
-    let s:errorfile_hash = l:errorfile_hash
+  if len(getqflist()) == 0
+    echo "Quickfix list empty."
     return
   endif
 
