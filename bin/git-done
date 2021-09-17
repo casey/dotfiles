@@ -1,10 +1,8 @@
 #!/usr/bin/env bash
 
-set -o errexit
-set -o pipefail
+set -euo pipefail
 
-git checkout $2
-git pull $1 master
+BRANCH=`git rev-parse --abbrev-ref HEAD`
+
 git checkout master
-git pull $1 master
-git branch -d $2
+git branch --delete $BRANCH
