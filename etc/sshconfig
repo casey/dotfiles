@@ -1,9 +1,12 @@
 AddKeysToAgent yes
 
-Host bitbucket.org
-  ControlMaster no
-
 Host *
   ControlMaster auto
   ControlPath ~/.ssh/connections/%r@%h:%p.socket
   ControlPersist 5m
+
+Host bitbucket.org
+  ControlMaster no
+
+Host z.rodarmor.com
+  ForwardAgent yes

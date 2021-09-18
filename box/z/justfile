@@ -1,0 +1,11 @@
+default:
+  just --list
+
+provision:
+  scp configuration.nix root@z.rodarmor.com:
+  exit
+  ssh root@z.rodarmor.com bash -s < provision
+
+rebuild:
+  scp configuration.nix root@z.rodarmor.com:/etc/nixos/
+  ssh root@z.rodarmor.com nixos-rebuild switch --upgrade
