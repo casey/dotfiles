@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+for host in "$@"; do
+  ssh-keygen -R $host
+done
+
+rm -f ~/.ssh/known_hosts.old
