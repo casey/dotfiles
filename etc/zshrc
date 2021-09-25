@@ -68,6 +68,7 @@ unset MAILCHECK # don't check for mail
 
 export BLOCKSIZE=K                     # show blocks as kilobytes
 export CARGO_OPEN=nvim-remote-quickfix # make cargo-limit populate nvim quickfix list
+export CARGO_OPEN_WARN=true            # make cargo-limit populate quickfix list with warnings
 export CLICOLOR=1                      # use color
 export EDITOR=vim                      # vim as editor
 export EDMV_EDITOR=vim                 # vim as editor in edmv
