@@ -394,8 +394,8 @@ nmap <c-l> <plug>AirlineSelectNextTab
 " non-recursive mappings
 cnoremap <c-k> <c-\>eKillCmdline()<cr>|                " kill to end of line
 inoremap <c-s> <c-g>u<Esc>[s1z=`]a<c-g>u|              " fix last spelling error
-nnoremap + :call Quickfix(0)<cr>|                      " go to next error
-nnoremap _ :call Quickfix(1)<cr>|                      " go to previous error
+nnoremap + :call QuickfixNext(0)<cr>|                  " go to next error
+nnoremap _ :call QuickfixNext(1)<cr>|                  " go to previous error
 nnoremap <c-b> <c-o>|                                  " jump back
 nnoremap <c-f> <c-i>|                                  " jump forward
 nnoremap <c-k> :AllLines<cr>|                          " search all lines in all files
@@ -442,6 +442,7 @@ nnoremap <leader>pu :PlugUpdate<cr>|                   " plug update
 nnoremap <leader>py :PyEval<cr>|                       " evaluate current line with python3
 nnoremap <leader>qe :cq<cr>|                           " quit with error code
 nnoremap <leader>qq :q<cr>|                            " quit
+nnoremap <leader>qc :cclose<cr>|                       " close quickfix list
 nnoremap <leader>ra :!cargo add <c-r><c-w><cr>|        " add crate name under cursor
 nnoremap <leader>rb :Quickrun<cr>|                     " run buffer
 nnoremap <leader>rg :Grepper<cr>|                      " recursive grep

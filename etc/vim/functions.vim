@@ -50,29 +50,42 @@ function! ServerStart()
   call serverstart(g:server_pipe_path)
 endfunction
 
-function! Quickfix(previous)
+function! QuickfixIsOpen()
+  for n in range(1, winnr('$'))
+    if getwinvar(n, '&syntax') == 'qf'
+      return 1
+    endif
+  endfor
+
+  return 0
+endfunction
+
+
+function! QuickfixNext(previous)
   if len(getqflist()) == 0
     echo "Quickfix list empty."
     return
   endif
 
-  let l:quickfix_window_is_open = 0
-
-  for n in range(1, winnr('$'))
-    if getwinvar(n, '&syntax') == 'qf'
-      let l:quickfix_window_is_open = 1
-    endif
-  endfor
-
-  if !l:quickfix_window_is_open
-    execute "normal \<plug>(qf_qf_toggle_stay)"
-    execute 'cc 1'
-  else
+  if QuickfixIsOpen()
     if a:previous
       execute "normal \<plug>(qf_qf_previous)"
     else
       execute "normal \<plug>(qf_qf_next)"
     endif
+  else
+    execute "normal \<plug>(qf_qf_toggle_stay)"
+    execute 'cc 1'
+  endif
+endfunction
+
+function! QuickfixPopulate(errors)
+  let l:quickfix_is_open = QuickfixIsOpen()
+
+  cgetexpr a:errors
+
+  if !l:quickfix_is_open
+    cclose
   endif
 endfunction
 
