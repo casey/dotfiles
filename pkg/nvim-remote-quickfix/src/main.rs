@@ -13,13 +13,13 @@ fn main() {
 }
 
 fn run() -> Result<(), String> {
-    let mut cmd = String::from("cgetexpr [");
+    let mut errors = String::from("[");
 
     for location in env::args().skip(1).collect::<Vec<String>>() {
-        cmd.push_str(&format!("'{}', ", location));
+        errors.push_str(&format!("'{}', ", location));
     }
 
-    cmd.push_str("] | cclose");
+    errors.push_str("]");
 
     let tmpdir = env::var("TMPDIR")
         .map_err(|error| format!("Failed to get `TMPDIR` environment variable: {}", error))?;
@@ -38,7 +38,7 @@ fn run() -> Result<(), String> {
         .arg("--servername")
         .arg(listen_path)
         .arg("-c")
-        .arg(cmd)
+        .arg(format!("call QuickfixPopulate({})", errors))
         .exec();
 
     Err(format!("Failed to exec nvr: {}", error))

@@ -906,7 +906,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "nvim-remote-open"
+name = "nvim-remote-quickfix"
 version = "0.0.0"
 dependencies = [
  "project-root",
