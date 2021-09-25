@@ -5,4 +5,4 @@ set -euo pipefail
 BRANCH=`git rev-parse --abbrev-ref HEAD`
 
 git checkout master
-git branch --delete $BRANCH
+git branch --delete --force $BRANCH
