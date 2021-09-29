@@ -1,10 +1,19 @@
+set positional-arguments
+
 default:
   just --list
 
 provision:
+  echo "Z is already provisioned…"
+  exit 1
   scp configuration.nix root@z.rodarmor.com:
-  exit
   ssh root@z.rodarmor.com bash -s < provision
+
+log unit:
+  ssh z.rodarmor.com journalctl -fu {{ unit }}
+
+lncli +command:
+  ssh z.rodarmor.com lncli "$@"
 
 rebuild:
   scp configuration.nix root@z.rodarmor.com:/etc/nixos/

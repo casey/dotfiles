@@ -10,15 +10,6 @@ let
   ];
 in
 {config, pkgs, ...}: {
-  imports = [
-    ./hardware-configuration.nix
-    "${nix-bitcoin}/modules/modules.nix"
-  ];
-
-  nixpkgs.config.allowUnfree = true;
-
-  system.stateVersion = "21.05";
-
   boot = {
     cleanTmpDir = true;
     loader = {
@@ -30,79 +21,11 @@ in
         enable = true;
         efiSupport = true;
         mirroredBoots = [
-          { devices = ["nodev"]; path = "/boot/esp0"; }
-          { devices = ["nodev"]; path = "/boot/esp1"; }
+          {devices = ["nodev"]; path = "/boot/esp0";}
+          {devices = ["nodev"]; path = "/boot/esp1";}
         ];
       };
       systemd-boot.enable = false;
-    };
-  };
-
-  networking = {
-    defaultGateway = "51.255.87.254";
-    firewall = {
-      allowedTCPPorts = [80 443];
-    };
-    hostName = "z";
-    interfaces.eno1.ipv4.addresses = [{address = "51.255.87.91"; prefixLength = 24;}];
-    nameservers = [ "1.1.1.1" "1.0.0.0" "2606:4700:4700::1111" "2606:4700:4700::1001" ];
-    useDHCP = false;
-  };
-
-  nix-bitcoin.generateSecrets = true;
-
-  programs = {
-    mosh.enable = true;
-    zsh.enable = true;
-  };
-
-  security = {
-    acme = {
-      acceptTerms = true;
-      email = "casey@rodarmor.com";
-    };
-    sudo = {
-      enable = true;
-      execWheelOnly = true;
-      wheelNeedsPassword = false;
-    };
-  };
-
-  users = {
-    defaultUserShell = pkgs.zsh;
-
-    users = {
-      root = {
-        initialHashedPassword = "";
-        openssh.authorizedKeys.keys = ssh-keys;
-      };
-
-      rodarmor = {
-        extraGroups = ["wheel"];
-        isNormalUser = true;
-        openssh.authorizedKeys.keys = ssh-keys;
-        uid = 1000;
-      };
-    };
-  };
-
-  nix-bitcoin.operator = {
-    enable = true;
-    name = "rodarmor";
-  };
-
-  services = {
-    bitcoind = {
-      enable = true;
-    };
-
-    lnd = {
-      enable = true;
-    };
-
-    openssh = {
-      enable = true;
-      permitRootLogin = "prohibit-password";
     };
   };
 
@@ -117,10 +40,85 @@ in
     gnupg
     just
     neovim
+    pinentry-curses
     python39Full
     ripgrep
     rustup
     tmux
-    pinentry-curses
   ];
+
+  imports = [
+    ./hardware-configuration.nix
+    "${nix-bitcoin}/modules/modules.nix"
+  ];
+
+  networking = {
+    defaultGateway = "51.255.87.254";
+    hostName = "z";
+    interfaces.eno1.ipv4.addresses = [{address = "51.255.87.91"; prefixLength = 24;}];
+    nameservers = ["1.1.1.1" "1.0.0.0" "2606:4700:4700::1111" "2606:4700:4700::1001"];
+    useDHCP = false;
+  };
+
+  nix-bitcoin = {
+    generateSecrets = true;
+    operator = {
+      enable = true;
+      name = "rodarmor";
+    };
+  };
+
+  nixpkgs.config.allowUnfree = true;
+
+  programs = {
+    mosh.enable = true;
+    zsh.enable = true;
+  };
+
+  security = {
+    sudo = {
+      enable = true;
+      execWheelOnly = true;
+      wheelNeedsPassword = false;
+    };
+  };
+
+  services = {
+    bitcoind = {
+      enable = true;
+    };
+
+    lnd = {
+      enable = true;
+      restOnionService = {
+        enable = true;
+      };
+    };
+
+    openssh = {
+      enable = true;
+      passwordAuthentication = false;
+      permitRootLogin = "prohibit-password";
+    };
+  };
+
+  system.stateVersion = "21.05";
+
+  users = {
+    defaultUserShell = pkgs.zsh;
+
+    users = {
+      rodarmor = {
+        extraGroups = ["wheel"];
+        isNormalUser = true;
+        openssh.authorizedKeys.keys = ssh-keys;
+        uid = 1000;
+      };
+
+      root = {
+        initialHashedPassword = "";
+        openssh.authorizedKeys.keys = ssh-keys;
+      };
+    };
+  };
 }
