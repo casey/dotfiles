@@ -222,6 +222,12 @@ else
   nnoremap <silent> l :TmuxNavigateRight<cr>
 endif
 
+" turn on line numbers if pairing
+if $HOST == 'x.local'
+  call ToggleLineNumbers()
+  call ToggleRelativeNumbers()
+endif
+
 " use the unnamedplus clipboard if supported
 if has('unnamedplus')
   set clipboard=unnamedplus

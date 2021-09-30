@@ -118,7 +118,7 @@ function! ToggleLineNumbers()
 endfun
 
 function! ToggleRelativeNumbers()
-  BufDo set relativenumber! " toggle relative line numbers
+  bufdo set relativenumber! " toggle relative line numbers
 
   if !&relativenumber
     let g:relative_numbers_off = 1
