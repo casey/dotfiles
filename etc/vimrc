@@ -214,8 +214,9 @@ endif
 
 " turn on line numbers if pairing
 if $HOST == 'x.local'
-  call ToggleLineNumbers()
-  call ToggleRelativeNumbers()
+  set number
+  set norelativenumber
+  let g:relative_numbers_off = 1
 endif
 
 " use the unnamedplus clipboard if supported
