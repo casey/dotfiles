@@ -555,7 +555,7 @@ augroup vimrc
   " don't highlight trailing whitespace in python files
   autocmd FileType python syn clear pythonSpaceError
 
-  " don't display line numbers in man pages
+  " call custom function on VimEnter
   autocmd VimEnter * call VimEnter()
 
   " turn off misbehaving asciidoc plugin
