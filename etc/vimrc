@@ -17,6 +17,7 @@ call plug#begin()
 Plug 'AndrewRadev/splitjoin.vim'          " split/join single/multi line constructs
 Plug 'airblade/vim-gitgutter'             " show git hunks in gutter
 Plug 'airblade/vim-rooter'                " automatic cd to project root
+Plug 'alopatindev/cargo-limit'            " cargo-limit integration
 Plug 'casey/vim-airline-themes'           " color themes for airline
 Plug 'christoomey/vim-tmux-navigator'     " navigate between vim and tmux splits
 Plug 'coderifous/textobj-word-column.vim' " column related text objects

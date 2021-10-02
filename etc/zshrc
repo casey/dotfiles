@@ -66,23 +66,22 @@ done
 
 unset MAILCHECK # don't check for mail
 
-export BLOCKSIZE=K                     # show blocks as kilobytes
-export CARGO_OPEN=nvim-remote-quickfix # make cargo-limit populate nvim quickfix list
-export CARGO_OPEN_WARN=true            # make cargo-limit populate quickfix list with warnings
-export CLICOLOR=1                      # use color
-export EDITOR=vim                      # vim as editor
-export EDMV_EDITOR=vim                 # vim as editor in edmv
-export HISTFILE=~/.history             # location for the history file
-export HISTSIZE=5500000                # save lots of history in memory
-export HOMEBREW_NO_AUTO_UPDATE=1       # don't automatically update packages
-export HOST=`hostname`                 # set HOST variable
-export KEYTIMEOUT=1                    # don't wait for multibyte sequences
-export LANG=en_US.UTF-8                # use the english utf-8 locale
-export LESS=-ifRMx2                    # default options for less
-export LS_OPTIONS='--color=auto'       # make ls use color
-export PAGER=less                      # less as pager
-export SAVEHIST=5000000                # save lots of history to disk
-export VISUAL=vim                      # vim as visual editor
+export BLOCKSIZE=K # show blocks as kilobytes
+export CARGO_OPEN_WARN=true # make cargo-limit populate quickfix list with warnings
+export CLICOLOR=1 # use color
+export EDITOR=vim # vim as editor
+export EDMV_EDITOR=vim # vim as editor in edmv
+export HISTFILE=~/.history # location for the history file
+export HISTSIZE=5500000 # save lots of history in memory
+export HOMEBREW_NO_AUTO_UPDATE=1 # don't automatically update packages
+export HOST=`hostname`# set HOST variable
+export KEYTIMEOUT=1 # don't wait for multibyte sequences
+export LANG=en_US.UTF-8 # use the english utf-8 locale
+export LESS=-ifRMx2 # default options for less
+export LS_OPTIONS='--color=auto' # make ls use color
+export PAGER=less # less as pager
+export SAVEHIST=5000000 # save lots of history to disk
+export VISUAL=vim # vim as visual editor
 
 # tell ripgrep to use a config file
 export RIPGREP_CONFIG_PATH=~/.ripgreprc

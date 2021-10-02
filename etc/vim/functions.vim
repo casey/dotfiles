@@ -77,6 +77,13 @@ function! QuickfixPopulate(errors)
   endif
 endfunction
 
+function! g:CargoLimitOpenExperimental(result)
+  cgetexpr []
+  for file in a:result['files']
+    caddexpr file['path'] . ':' . file['line'] . ':' . file['column']
+  endfor
+endfunction
+
 " toggle syntax highlighting
 function! ToggleColor()
   if exists('g:syntax_on')
