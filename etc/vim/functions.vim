@@ -49,7 +49,6 @@ function! QuickfixIsOpen()
   return 0
 endfunction
 
-
 function! QuickfixNext(previous)
   if len(getqflist()) == 0
     echo "Quickfix list empty."
