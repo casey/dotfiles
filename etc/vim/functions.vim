@@ -39,17 +39,6 @@ function! Date()
   return a . b
 endfunction
 
-function! ServerStart()
-  let escaped_path = substitute(trim(getcwd(), "/") , "/", "%", "g")
-  let g:server_pipe_path = $TMPDIR . "nvim-" . escaped_path
-
-  if filereadable(g:server_pipe_path)
-    return
-  endif
-
-  call serverstart(g:server_pipe_path)
-endfunction
-
 function! QuickfixIsOpen()
   for n in range(1, winnr('$'))
     if getwinvar(n, '&syntax') == 'qf'
