@@ -26,7 +26,6 @@ Plug 'easymotion/vim-easymotion'          " jump to character
 Plug 'editorconfig/editorconfig-vim'      " respect .editorconfig
 Plug 'emonkak/vim-operator-sort'          " sort operator
 Plug 'fidian/hexmode'                     " hex mode editing
-Plug 'francoiscabrol/ranger.vim'          " view directories with ranger
 Plug 'glts/vim-magnum'                    " bignums
 Plug 'glts/vim-radical'                   " convert numbers between bases
 Plug 'godlygeek/tabular'                  " align lines according to patterns
@@ -93,9 +92,6 @@ Plug 'zchee/vim-flatbuffers'    " flatbuffers
 
 " switch back to rust-lang/rust.vim when PR 445
 Plug 'casey/rust.vim', { 'branch': 'patch-1' } " rust
-
-" dependencies
-Plug 'rbgrouleff/bclose.vim' " required for ranger.vim
 
 " fzf binary and runtime path files
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
@@ -254,8 +250,6 @@ let g:netrw_nogx                 = 1         " disable netrw's gx mapping
 let g:pastedtext_select_key      = 'gl'      " use gl for last pasted text mappings
 let g:qf_bufname_or_text         = 2         " filter only on quickfix text
 let g:rainbow_active             = 1         " enable rainbow delimiters
-let g:ranger_map_keys            = 0         " don't define any keybindings
-let g:ranger_replace_netrw       = 1         " open directories with ranger
 let g:rust_recommended_style     = 0         " use 2 space instead of 4 space tabs
 let g:rustfmt_autosave           = 0         " run rustfmt on save
 let g:solarized_contrast         = 'high'    " use high contrast solarized colors
@@ -439,7 +433,6 @@ nnoremap <leader>id "=Date()<cr>p|                     " insert date
 nnoremap <leader>io o<esc>|                            " insert line below cursor
 nnoremap <leader>jj :!just<cr>|                        " run just
 nnoremap <leader>ls :source ~/.vim/session<cr>|        " load session
-nnoremap <leader>od :RangerCurrentDirectory<cr>|       " open current directory
 nnoremap <leader>oj o<esc>|                            " insert line below cursor
 nnoremap <leader>ok O<esc>|                            " insert line above cursor
 nnoremap <leader>op :silent !ope %<cr>|                " open current file
