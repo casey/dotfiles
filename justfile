@@ -7,19 +7,6 @@ rustup:
 homebrew:
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-rust:
-  rustup install nightly
-  rustup component add rustfmt
-  rustup component add rls
-  rustup component add rust-analysis
-  rustup component add rust-src
-
-coc:
-  echo ':CocInstall coc-rust-analyzer'
-  echo ':CocInstall coc-json'
-  echo ':CocInstall coc-dictionary'
-  echo ':CocInstall coc-emoji'
-
 crates:
   cargo install --force --git https://github.com/alopatindev/cargo-limit
   cargo install --path pkg/shell
