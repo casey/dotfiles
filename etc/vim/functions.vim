@@ -67,21 +67,23 @@ function! QuickfixNext(previous)
   endif
 endfunction
 
-function! QuickfixPopulate(errors)
+function! g:CargoLimitOpen(result)
+  let l:winnr = winnr()
+
   let l:quickfix_is_open = QuickfixIsOpen()
 
-  cgetexpr a:errors
+  cgetexpr []
+  for file in a:result['files']
+    caddexpr file['path'].':'.file['line'].':'.file['column'].':'.file['message']
+  endfor
 
   if !l:quickfix_is_open
     cclose
   endif
-endfunction
 
-function! g:CargoLimitOpenExperimental(result)
-  cgetexpr []
-  for file in a:result['files']
-    caddexpr file['path'] . ':' . file['line'] . ':' . file['column']
-  endfor
+  if l:winnr !=# winnr()
+    wincmd p
+  endif
 endfunction
 
 " toggle syntax highlighting

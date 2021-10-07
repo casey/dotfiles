@@ -144,7 +144,7 @@ set completefunc  =emoji#complete        " auto complete emoji
 set dictionary    =/usr/share/dict/words " dictionary completion mode words
 set directory     =~/.vim/swap//         " swap directory location
 set errorfile     =.errors.txt           " set error file name
-set errorformat   =%f:%l:%c              " set errorformat for nvim-remote-quickfix
+set errorformat   =%f:%l:%c:%m           " set errorformat
 set history       =10000                 " lines of history to remember
 set laststatus    =2                     " always show statusline
 set makeprg       =just                  " use just as the makeprg
@@ -279,6 +279,9 @@ let g:airline_powerline_fonts                      = 1   " fixes missing whitesp
 let g:airline_right_sep                            = ''  " turn off right separator
 let g:airline_skip_empty_sections                  = 1   " hide empty sections
 
+" display quickfix message count in error section
+let g:airline_section_error = airline#section#create(['%{len(getqflist())}'])
+
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
@@ -346,6 +349,7 @@ cabbrev <expr> %% expand('%:p:h')
 " recursive mappings
 map  #  <plug>(incsearch-nohl-#)|               " incsearch: word under cursor backward
 map  *  <plug>(incsearch-nohl-*)|               " incsearch: word under cursor forward
+map  -  <plug>(qf_qf_toggle_stay)|              " toggle quickfix window
 map  /  <plug>(incsearch-forward)|              " incsearch: search forward
 map  ?  <plug>(incsearch-backward)|             " incsearch: search backward
 map  N  <plug>(incsearch-nohl-N)<Plug>Pulse|    " incsearch: repeat last search backward
@@ -356,9 +360,6 @@ map  n  <plug>(incsearch-nohl-n)<Plug>Pulse|    " incsearch: repeat last search 
 map  s  <plug>(easymotion-s)|                   " easymotion
 nmap K  <plug>(Man)|                            " look up man page for word under cursor
 vmap gx <plug>(openbrowser-smart-search)|       " open url under cursor in browser
-
-" quickfix mappings
-map <leader>cc <plug>(qf_qf_toggle_stay)
 
 " repeat last motion
 nmap <leader>. <plug>(easymotion-repeat)
