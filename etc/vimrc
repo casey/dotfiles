@@ -135,7 +135,6 @@ set splitright     " open vertical splits to the right of current buffer
 set notildeop      " make `~` toggle case of single character
 set title          " set a window title
 set ttyfast        " make updates smoother but use more characters
-set undofile       " save undo history
 set wildmenu       " show completion menu
 
 set background    =dark                  " use a dark background
