@@ -82,7 +82,6 @@ Plug 'Glench/Vim-Jinja2-Syntax' " jinja2
 Plug 'LnL7/vim-nix'             " nix
 Plug 'NoahTheDuke/vim-just'     " just
 Plug 'casey/vim-fidl'           " fidl
-Plug 'cespare/vim-toml'         " toml
 Plug 'dag/vim-fish'             " fish shell
 Plug 'pangloss/vim-javascript'  " javascript
 Plug 'rhysd/vim-wasm'           " wasm
@@ -90,6 +89,9 @@ Plug 'tikhomirov/vim-glsl'      " glsl
 Plug 'tomlion/vim-solidity'     " solidity
 Plug 'urbit/hoon.vim'           " hoon
 Plug 'zchee/vim-flatbuffers'    " flatbuffers
+
+" toml syntax
+Plug 'cespare/vim-toml', {'branch': 'main'}
 
 " switch back to rust-lang/rust.vim when PR 445
 Plug 'casey/rust.vim', { 'branch': 'patch-1' } " rust
