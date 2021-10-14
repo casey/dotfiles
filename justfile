@@ -42,7 +42,7 @@ formulae:
   brew cask install quicksilver
   # fonts
   brew tap homebrew/cask-fonts
-  brew cask install font-dejavu-sans-mono-for-powerline
+  brew install font-dejavu-sans-mono-for-powerline
   # yabai and skhd
   brew tap koekeishiya/formulae
   brew install yabai
