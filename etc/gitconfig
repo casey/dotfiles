@@ -63,7 +63,6 @@ cmd = open -W -a Meld --args --auto-merge \"$PWD/$LOCAL\" \"$PWD/$BASE\" \"$PWD/
 trustExitCode = true
 
 [commit]
-gpgsign = 1
 verbose = true
 
 [gpg]
