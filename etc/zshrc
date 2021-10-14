@@ -49,6 +49,8 @@ path: ~/opt/npm/bin                   # npm binaries
 path: /usr/local/bin                  # homebrew binaries
 path: /usr/local/sbin                 # admin homebrew binaries
 path: /usr/local/opt/bin              # keg-only homebrew binaries
+path: /opt/homebrew/bin               # homebrew arm binaries
+path: /opt/homebrew/sbin              # admin homebrew arm binaries
 path: /opt/local/bin                  # macports
 path: /usr/bin                        # binaries
 path: /usr/sbin                       # admin binaries
