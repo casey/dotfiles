@@ -74,7 +74,6 @@ export EDMV_EDITOR=vim # vim as editor in edmv
 export HISTFILE=~/.history # location for the history file
 export HISTSIZE=5500000 # save lots of history in memory
 export HOMEBREW_NO_AUTO_UPDATE=1 # don't automatically update packages
-export HOST=`hostname` # set HOST variable
 export KEYTIMEOUT=1 # don't wait for multibyte sequences
 export LANG=en_US.UTF-8 # use the english utf-8 locale
 export LESS=-ifRMx2 # default options for less
@@ -82,6 +81,10 @@ export LS_OPTIONS='--color=auto' # make ls use color
 export PAGER=less # less as pager
 export SAVEHIST=5000000 # save lots of history to disk
 export VISUAL=vim # vim as visual editor
+
+# set HOST variable
+HOSTNAME=`hostname`
+export HOST=${HOSTNAME%.local}
 
 # tell ripgrep to use a config file
 export RIPGREP_CONFIG_PATH=~/.ripgreprc

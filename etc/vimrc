@@ -214,8 +214,8 @@ else
   nnoremap <silent> l :TmuxNavigateRight<cr>
 endif
 
-" turn on line numbers if pairing
-if $HOST == 'x.local'
+" turn on line numbers on pairing machine
+if $HOST == 'x'
   set number
   set norelativenumber
   let g:relative_numbers_off = 1
