@@ -1,3 +1,16 @@
 #!/usr/bin/env bash
 
-exec rsync -avz --progress magellan.whatbox.ca:files/ ~/bulk/files
+set -euo pipefail
+
+exec rsync \
+  --compress \
+  --links \
+  --partial \
+  --perms \
+  --progress \
+  --recursive \
+  --times \
+  --verbose \
+  "$@" \
+  magellan.whatbox.ca:files/ \
+  ~/bulk/files/

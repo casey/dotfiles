@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-set -euo pipefail
-
-echo "Syncing…"
-rsync -avz --progress magellan.whatbox.ca:files/ ~/dat/new
