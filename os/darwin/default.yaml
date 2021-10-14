@@ -4,6 +4,6 @@
     - mkdir -p ~/Library/Application\ Support/Code/User
 
 - link:
-    ~/.config/alacritty/alacritty.yml: alacritty.yml
+    ~/.config/alacritty/os.yaml: alacritty.yaml
     ~/Library/Music/Scripts: ../../music
     ~/Library/Application Support/Code/User/settings.json: ../../etc/vscode.json

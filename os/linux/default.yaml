@@ -1,4 +1,4 @@
 - shell:
     - mkdir -p ~/.config/alacritty
 - link:
-    ~/.config/alacritty/alacritty.yml: alacritty.yml
+    ~/.config/alacritty/os.yaml: alacritty.yaml
