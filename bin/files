@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 
-set -euo pipefail
+set -euxo pipefail
 
-exec rsync \
+rsync \
   --compress \
+  --delete \
   --links \
-  --partial \
+  --partial-dir ~/tmp/files/ \
   --perms \
   --progress \
   --recursive \
@@ -14,3 +15,5 @@ exec rsync \
   "$@" \
   magellan.whatbox.ca:files/ \
   ~/bulk/files/
+
+rm -rf ~/tmp/files
