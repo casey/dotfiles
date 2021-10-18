@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+remaining=$1
+
+while [[ $remaining -gt 0 ]]; do
+   echo -ne "$remaining\033[0K\r"
+   sleep 1
+   : $((remaining--))
+done
