@@ -45,6 +45,8 @@
 
 - link:
     ~/.colordiffrc: etc/colordiffrc
+    ~/.config/alacritty/alacritty.yaml: etc/alacritty.yaml
+    ~/.config/alacritty/alacritty.yml: etc/alacritty.yml
     ~/.config/bpython: etc/bpython
     ~/.config/feh: etc/feh
     ~/.config/fish/completions: etc/fish-completions
@@ -52,8 +54,6 @@
     ~/.config/fish/functions: etc/fish-functions
     ~/.config/git/config: etc/gitconfig
     ~/.config/gsimplecal/config: etc/gsimplecal
-    ~/.config/alacritty/alacritty.yml: etc/alacritty.yml
-    ~/.config/alacritty/alacritty.yaml: etc/alacritty.yaml
     ~/.config/i3status/config: etc/i3status.config
     ~/.config/nvim/init.vim: etc/nvim.vim
     ~/.config/polybar/config: etc/polybar
@@ -90,6 +90,7 @@
     ~/.ssh/config: etc/sshconfig
     ~/.tigrc: etc/tigrc
     ~/.tmux.conf: etc/tmux.conf
+    ~/.user.justfile: etc/user.justfile
     ~/.vim.py: etc/vim.py
     ~/.vim: etc/vim
     ~/.vimrc: etc/vimrc

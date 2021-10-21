@@ -173,6 +173,8 @@ bind: '^[[B' history-substring-search-down
 zle -N zle-line-init prompt-reset     # redraw prompt on line editor start
 zle -N zle-keymap-select prompt-reset # redraw prompt when keymap changes
 
+## add aliases for all recipes in ~/.user.justfile
+create-user-justfile-recipe-aliases
 
 ## config files
 
@@ -181,11 +183,11 @@ if [[ ! -f ~/.base16_theme ]]; then
   base16_seti
 fi
 
-source: ~/.base16_theme                 # load base16 theme
-source: ~/.extrarc                      # extras
-source: ~/.fzf.zsh                      # fzf bindings
-source: ~/.zsh/aliases.zsh              # aliases
-source: ~/.zsh/clipboard.zsh            # set up system keyboard integration
-source: ~/.zsh/prompt.zsh               # set up prompt
+source: ~/.base16_theme      # load base16 theme
+source: ~/.extrarc           # extras
+source: ~/.fzf.zsh           # fzf bindings
+source: ~/.zsh/aliases.zsh   # aliases
+source: ~/.zsh/clipboard.zsh # set up system keyboard integration
+source: ~/.zsh/prompt.zsh    # set up prompt
 
 source: ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
