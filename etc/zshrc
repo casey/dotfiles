@@ -175,7 +175,9 @@ zle -N zle-line-init prompt-reset     # redraw prompt on line editor start
 zle -N zle-keymap-select prompt-reset # redraw prompt when keymap changes
 
 ## add aliases for all recipes in ~/.user.justfile
-create-user-justfile-recipe-aliases
+for recipe in `just --justfile ~/.user.justfile --summary`; do
+  alias $recipe="just --justfile ~/.user.justfile --working-directory . $recipe"
+done
 
 ## config files
 

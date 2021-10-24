@@ -1,3 +1,0 @@
-for recipe in `just --justfile ~/.user.justfile --summary`; do
-  alias $recipe="just --justfile ~/.user.justfile --working-directory . $recipe"
-done
