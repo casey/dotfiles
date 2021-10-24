@@ -42,5 +42,11 @@
     "vim.easymotion": true,
     "vim.leader": "<space>",
     "python.pythonPath": "/usr/local/bin/python3",
-    "editor.inlineSuggest.enabled": true
+    "editor.inlineSuggest.enabled": true,
+    "github.copilot.enable": {
+        "*": true,
+        "yaml": false,
+        "plaintext": true,
+        "markdown": false
+    }
 }
