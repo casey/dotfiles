@@ -1,8 +1,8 @@
-ghpl:
+ghprli:
   gh pr list
 
-ghpcr:
+ghprcr:
   gh pr create --web
 
-ghpco n:
+ghprco n:
   gh pr checkout {{ n }}
