@@ -1,4 +1,4 @@
-ghprli:
+ghprls:
   gh pr list
 
 ghprcr:
