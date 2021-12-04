@@ -1,6 +1,3 @@
 shell:
   program: /opt/homebrew/bin/zsh
   args:    ['-i', '--login', '-c', 'shell']
-
-font:
-  size: 14.0
