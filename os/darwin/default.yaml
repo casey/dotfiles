@@ -1,9 +1,11 @@
 - shell:
-    - mkdir -p ~/Library/Music
     - mkdir -p ~/.config/alacritty
+    - mkdir -p ~/Library/Application\ Support/Bitcoin
     - mkdir -p ~/Library/Application\ Support/Code/User
+    - mkdir -p ~/Library/Music
 
 - link:
     ~/.config/alacritty/os.yaml: alacritty.yaml
-    ~/Library/Music/Scripts: ../../music
+    ~/Library/Application Support/Bitcoin/bitcoin.conf: ../../etc/bitcoin.conf
     ~/Library/Application Support/Code/User/settings.json: ../../etc/vscode.json
+    ~/Library/Music/Scripts: ../../music
