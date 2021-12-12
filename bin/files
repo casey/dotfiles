@@ -2,6 +2,8 @@
 
 set -euxo pipefail
 
+mkdir -p ~/bulk/files
+
 rsync \
   --compress \
   --delete \
