@@ -1,2 +1,4 @@
+! Title: Focus
+! Expires: 7 days
 ||facebook.com
 ||twitter.com
