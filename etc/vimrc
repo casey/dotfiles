@@ -44,6 +44,7 @@ Plug 'mattn/webapi-vim'                   " web functionality
 Plug 'mbbill/undotree'                    " visualize undo history as tree
 Plug 'mg979/vim-visual-multi'             " multiple cursors
 Plug 'mhinz/vim-grepper'                  " win at grep
+Plug 'neovim/nvim-lspconfig'              " nvim language server client configurations
 Plug 'romainl/vim-qf'                     " quickfix improvements
 Plug 'saaguero/vim-textobj-pastedtext'    " text object for last pasted text
 Plug 'tmux-plugins/vim-tmux'              " tmux configuration
@@ -191,8 +192,8 @@ set viminfo +=s10  " maximum number of KB to save from a register
 
 " vi flavor specific configuration
 if has('nvim')
-  " load lua functions
-  lua require('functions')
+  " load lua configuration
+  lua require('init')
 
   set viminfo +=n~/.config/nvim/viminfo " set viminfo file name for neovim
   set undodir =~/.config/nvim/undo " backup directory location
@@ -202,6 +203,9 @@ if has('nvim')
   nnoremap <silent> <m-k> :TmuxNavigateUp<cr>
   nnoremap <silent> <m-j> :TmuxNavigateDown<cr>
   nnoremap <silent> <m-l> :TmuxNavigateRight<cr>
+
+  " lsp bindings
+  nnoremap <silent> <m-r> <cmd>lua vim.lsp.buf.references()<CR>
 else
   " settings
   set viminfo +=n~/.vim/viminfo " set viminfo file name
@@ -280,8 +284,13 @@ let g:airline_powerline_fonts                      = 1   " fixes missing whitesp
 let g:airline_right_sep                            = ''  " turn off right separator
 let g:airline_skip_empty_sections                  = 1   " hide empty sections
 
+call airline#parts#define_function('lsp-server-status', 'LspServerStatus')
+
 " display quickfix message count in error section
 let g:airline_section_error = airline#section#create(['%{len(getqflist())}'])
+
+" display lsp server status
+let g:airline_section_x = airline#section#create(['filetype', 'lsp-server-status'])
 
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
@@ -340,10 +349,8 @@ let &t_SI.="\e[5 q" " cursor is blinking bar in insert mode
 let &t_SR.="\e[4 q" " cursor is solid underscore in replace mode
 let &t_EI.="\e[1 q" " cursor is blinking block in normal mode
 
-
 "" abbreviations
 cabbrev <expr> %% expand('%:p:h')
-
 
 "" mappings
 
@@ -486,7 +493,7 @@ nnoremap <silent> K :call ShowDocumentation()<CR>
 nnoremap <leader>ea :e ~/.zsh/aliases.zsh<cr>
 nnoremap <leader>ef :e ~/.vim/functions.vim<cr>
 nnoremap <leader>ej :e ~/.user.justfile<cr>
-nnoremap <leader>el :e ~/.vim/lua/functions.lua<cr>
+nnoremap <leader>el :e ~/.vim/lua/init.lua<cr>
 nnoremap <leader>em :e ~/.mutt/muttrc<cr>
 nnoremap <leader>en :e notes.md<cr>
 nnoremap <leader>es :e ~/.zshrc<cr>
@@ -577,12 +584,6 @@ augroup vimrc
   " highlight suggested commit description length
   autocmd FileType gitcommit set colorcolumn+=73
 
-  " highlight symbol under cursor
-  " autocmd CursorHold * silent call CocActionAsync('highlight')
-
-  " update signature help on jump placeholder
-  " autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-
   " close preview window when completion done
   autocmd CompleteDone * if pumvisible() == 0 | pclose | endif
 
@@ -590,3 +591,8 @@ augroup vimrc
   " (should be unnecessary when https://github.com/vim/vim/issues/6587 is fixed)
   autocmd Syntax vim syn match vimUsrCmd '^\s*\zs\u\%(\w*\)\@>(\@!'
 augroup end
+
+" load additional lua configuration for neovim
+if has('nvim')
+  lua require('init')
+end

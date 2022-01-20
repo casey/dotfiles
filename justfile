@@ -21,7 +21,7 @@ crates:
   cargo install nvim-send
   cargo install remote
   cargo install ripgrep
-  cargo install src
+  cargo install rust-analyzer
 
 formulae:
   # packages

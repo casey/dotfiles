@@ -295,3 +295,13 @@ function! ToggleZoom()
         set signcolumn=yes
     endif
 endfunction
+
+function LspServerStatus()
+  if &filetype == 'rust'
+    if luaeval('vim.lsp.buf.server_ready()')
+      return ''
+    else
+      return '…'
+    endif
+  end
+endfunction
