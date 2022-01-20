@@ -74,6 +74,7 @@ alias: gss 'git status --short'
 alias: gst 'git info'
 alias: gsu 'git submodule update --init --recursive'
 alias: gsw 'git switch'
+alias: gtw 'git commit -m tweak'
 
 # Ⅳ
 alias: Kill 'kill -9'
