@@ -7,4 +7,5 @@
 ||reddit.com
 ||superhuman.com
 ||twitter.com
+||whatsapp.com
 ||ycombinator.com
