@@ -87,3 +87,6 @@ cookiefile = ~/.gitcookies
 
 [fetch]
 prune = true
+
+[rebase]
+autoStash = true
