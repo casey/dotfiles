@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+if [[ ! -t 1 ]]; then
+  exec alacritty --command zsh -lic notes
+fi
+
+FILE=`(cd ~/src/notes && fzf)`
+
+if [[ -z $FILE ]]; then
+  exit 0
+fi
+
+exec vim ~/src/notes/"$FILE"
