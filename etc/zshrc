@@ -70,7 +70,7 @@ done
 unset MAILCHECK # don't check for mail
 
 export BLOCKSIZE=K # show blocks as kilobytes
-export CARGO_ASC=false # show errors in ascending order
+export CARGO_ASC=false # show errors in descending order
 export CARGO_MSG_LIMIT=0 # show one message at a time
 export CARGO_OPEN_WARN=true # populate quickfix list with warnings
 export CLICOLOR=1 # use color
