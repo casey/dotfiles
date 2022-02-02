@@ -333,3 +333,6 @@ SHA
 CC0
 satoshis
 satoshi
+UTXO
+satpoint
+unspendable
