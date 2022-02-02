@@ -18,7 +18,6 @@ alias: es 'vim ~/.zshrc'
 alias: et 'vim ~/.config/alacritty/alacritty.yml'
 alias: ej 'vim ~/.user.justfile'
 alias: ev 'vim ~/.vimrc'
-alias: gd 'cd "$(tail -n1 ~/.savedir)"'
 alias: kb 'keybase'
 alias: kc 'keybase-chat'
 alias: la 'exa --across --all'
@@ -33,10 +32,8 @@ alias: tb 'nc termbin.com 9999'
 alias: tp 'term --command ssh pair@pair.rodarmor.com'
 alias: zf 'zsh-edit-function'
 
-# Ⅲ: misc
-alias: how 'howdoi -a'
-alias: psg 'ps aux | grep'
-alias: rwd 'cd `pwd -P`'
+# Ⅱ: git
+alias: gc 'git commit'
 
 # Ⅲ: git
 alias: gaa 'git commit --amend --all'
@@ -50,7 +47,7 @@ alias: gbr 'git branch --verbose'
 alias: gca 'git commit --all'
 alias: gcb 'git checkout -b'
 alias: gcf 'git config --local --unset rodarmor.slow true'
-alias: gcm 'git commit'
+alias: gcm 'git commit --message'
 alias: gco 'git checkout'
 alias: gcp 'git commit --patch'
 alias: gcs 'git config --local --add rodarmor.slow true'
@@ -75,6 +72,11 @@ alias: gst 'git info'
 alias: gsu 'git submodule update --init --recursive'
 alias: gsw 'git switch'
 alias: gtw 'git commit -m tweak'
+
+# Ⅲ: misc
+alias: how 'howdoi -a'
+alias: psg 'ps aux | grep'
+alias: rwd 'cd `pwd -P`'
 
 # Ⅳ
 alias: Kill 'kill -9'
