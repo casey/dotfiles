@@ -205,7 +205,12 @@ if has('nvim')
   nnoremap <silent> <m-l> :TmuxNavigateRight<cr>
 
   " lsp bindings
-  nnoremap <silent> <m-r> <cmd>lua vim.lsp.buf.references()<CR>
+  nnoremap <silent> <m-d> <cmd>lua vim.lsp.buf.definition()<cr>
+  nnoremap <silent> <m-n> <cmd>lua vim.diagnostic.goto_next()<cr>
+  nnoremap <silent> <m-p> <cmd>lua vim.diagnostic.goto_prev()<cr>
+  nnoremap <silent> <m-r> <cmd>lua vim.lsp.buf.references()<cr>
+  nnoremap <silent> <m-t> <cmd>lua vim.lsp.buf.hover()<cr>
+  nnoremap <silent> <m-R> <cmd>lua vim.lsp.buf.rename()<cr>
 else
   " settings
   set viminfo +=n~/.vim/viminfo " set viminfo file name
