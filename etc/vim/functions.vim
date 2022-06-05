@@ -303,5 +303,7 @@ function LspServerStatus()
     else
       return '…'
     endif
+  else
+    return ''
   end
 endfunction

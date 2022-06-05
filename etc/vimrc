@@ -336,6 +336,7 @@ let g:ale_set_signs                    = 1 " set signs for lints
 " ale fixers
 let g:ale_fixers = {
 \ '*':    ['remove_trailing_lines', 'trim_whitespace'],
+\ 'mail': ['remove_trailing_lines'],
 \ 'rust': ['rustfmt'],
 \}
 
@@ -503,7 +504,7 @@ nnoremap <leader>ef :e ~/.vim/functions.vim<cr>
 nnoremap <leader>ej :e ~/.user.justfile<cr>
 nnoremap <leader>el :e ~/.vim/lua/init.lua<cr>
 nnoremap <leader>em :e ~/.mutt/muttrc<cr>
-nnoremap <leader>en :e notes.md<cr>
+nnoremap <leader>en :e ~/src/notes/scratch.md<cr>
 nnoremap <leader>es :e ~/.zshrc<cr>
 nnoremap <leader>et :e ~/.config/alacritty/alacritty.yml<cr>
 nnoremap <leader>ev :e ~/.vimrc<cr>
