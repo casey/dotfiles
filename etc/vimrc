@@ -455,7 +455,7 @@ nnoremap <leader>pu :PlugUpdate<cr>|                   " plug update
 nnoremap <leader>py :PyEval<cr>|                       " evaluate current line with python3
 nnoremap <leader>qe :cq<cr>|                           " quit with error code
 nnoremap <leader>qq :q<cr>|                            " quit
-nnoremap <leader>qc :cclose<cr>|                       " close quickfix list
+nnoremap <leader>qc :call setqflist([])<cr>|           " clear quickfix list
 nnoremap <leader>ra :!cargo add <c-r><c-w><cr>|        " add crate name under cursor
 nnoremap <leader>rb :Quickrun<cr>|                     " run buffer
 nnoremap <leader>rg :Grepper<cr>|                      " recursive grep
