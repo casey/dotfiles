@@ -264,7 +264,7 @@ function! ShowDocumentation()
 endfunction
 
 function! OpenWiktionary()
-  call system('xdg-open "https://en.wiktionary.org/wiki/'.Selection().'"')
+  call system('open "https://en.wiktionary.org/wiki/'.Selection().'"')
 endfunction
 
 function! DetectCargoScript()
