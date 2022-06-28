@@ -94,6 +94,9 @@ Plug 'zchee/vim-flatbuffers'    " flatbuffers
 " toml syntax
 Plug 'cespare/vim-toml', {'branch': 'main'}
 
+" open lazygit in editor
+Plug 'kdheepak/lazygit.nvim', {'branch': 'main'}
+
 " switch back to rust-lang/rust.vim when PR 445
 Plug 'casey/rust.vim', { 'branch': 'patch-1' } " rust
 
@@ -364,19 +367,20 @@ cabbrev <expr> %% expand('%:p:h')
 "" mappings
 
 " recursive mappings
-map  #  <plug>(incsearch-nohl-#)|               " incsearch: word under cursor backward
-map  *  <plug>(incsearch-nohl-*)|               " incsearch: word under cursor forward
-map  -  <plug>(qf_qf_toggle_stay)|              " toggle quickfix window
-map  /  <plug>(incsearch-forward)|              " incsearch: search forward
-map  ?  <plug>(incsearch-backward)|             " incsearch: search backward
-map  N  <plug>(incsearch-nohl-N)<Plug>Pulse|    " incsearch: repeat last search backward
-map  g# <plug>(incsearch-nohl-g#)<Plug>Pulse|   " incsearch: word under cursor backward non-words
-map  g* <plug>(incsearch-nohl-g*)<Plug>Pulse|   " incsearch: word under cursor forward non-words
-map  g/ <plug>(incsearch-stay)<Plug>Pulse|      " incsearch: forward without moving cursor
-map  n  <plug>(incsearch-nohl-n)<Plug>Pulse|    " incsearch: repeat last search forward
-map  s  <plug>(easymotion-s)|                   " easymotion
-nmap K  <plug>(Man)|                            " look up man page for word under cursor
-vmap gx <plug>(openbrowser-smart-search)|       " open url under cursor in browser
+map  #  <plug>(incsearch-nohl-#)|             " incsearch: word under cursor backward
+map  *  <plug>(incsearch-nohl-*)|             " incsearch: word under cursor forward
+map  -  <plug>(qf_qf_toggle_stay)|            " toggle quickfix window
+map  /  <plug>(incsearch-forward)|            " incsearch: search forward
+map  ?  <plug>(incsearch-backward)|           " incsearch: search backward
+map  N  <plug>(incsearch-nohl-N)<Plug>Pulse|  " incsearch: repeat last search backward
+map  g# <plug>(incsearch-nohl-g#)<Plug>Pulse| " incsearch: word under cursor backward non-words
+map  g* <plug>(incsearch-nohl-g*)<Plug>Pulse| " incsearch: word under cursor forward non-words
+map  g/ <plug>(incsearch-stay)<Plug>Pulse|    " incsearch: forward without moving cursor
+map  n  <plug>(incsearch-nohl-n)<Plug>Pulse|  " incsearch: repeat last search forward
+map  s  <plug>(easymotion-s)|                 " easymotion
+nmap K  <plug>(Man)|                          " look up man page for word under cursor
+nmap gx <plug>(openbrowser-smart-search)|     " open URL under cursor
+vmap gx <plug>(openbrowser-smart-search)|     " open URL under cursor
 
 " repeat last motion
 nmap <leader>. <plug>(easymotion-repeat)
@@ -409,7 +413,6 @@ nmap <c-l> <plug>AirlineSelectNextTab
 cnoremap <c-k> <c-\>eKillCmdline()<cr>|                " kill to end of line
 inoremap <c-s> <c-g>u<Esc>[s1z=`]a<c-g>u|              " fix last spelling error
 nnoremap + :call QuickfixNext(0)<cr>|                  " go to next error
-nnoremap _ :call QuickfixNext(1)<cr>|                  " go to previous error
 nnoremap <c-b> <c-o>|                                  " jump back
 nnoremap <c-f> <c-i>|                                  " jump forward
 nnoremap <c-k> :AllLines<cr>|                          " search all lines in all files
@@ -438,6 +441,7 @@ nnoremap <leader>ft :retab<cr>|                        " fix tabs
 nnoremap <leader>fw ::%s/\s\+$//e<cr>|                 " fix whitespace
 nnoremap <leader>gc :!git commit -v<cr><cr>|           " git commit
 nnoremap <leader>gd :!git diff<cr><cr>|                " git diff
+nnoremap <leader>gg :LazyGit<cr>|                      " open lazygit
 nnoremap <leader>gm :!git commit -av<cr><cr>|          " git mash
 nnoremap <leader>gs :!git status<cr>|                  " git status
 nnoremap <leader>hd :Capture digraphs<cr>|             " display digraphs
@@ -453,9 +457,9 @@ nnoremap <leader>op :silent !ope %<cr>|                " open current file
 nnoremap <leader>pc :pwd<cr>|                          " print cwd
 nnoremap <leader>pu :PlugUpdate<cr>|                   " plug update
 nnoremap <leader>py :PyEval<cr>|                       " evaluate current line with python3
+nnoremap <leader>qc :call setqflist([])<cr>|           " clear quickfix list
 nnoremap <leader>qe :cq<cr>|                           " quit with error code
 nnoremap <leader>qq :q<cr>|                            " quit
-nnoremap <leader>qc :call setqflist([])<cr>|           " clear quickfix list
 nnoremap <leader>ra :!cargo add <c-r><c-w><cr>|        " add crate name under cursor
 nnoremap <leader>rb :Quickrun<cr>|                     " run buffer
 nnoremap <leader>rg :Grepper<cr>|                      " recursive grep
@@ -487,6 +491,7 @@ nnoremap <leader>wa :wa<cr>|                           " write all buffers
 nnoremap <leader>wo <c-w>o|                            " close all windows but current
 nnoremap <leader>zz :wqa<cr>|                          " save all files and exit
 nnoremap Y y$|                                         " yank to end of line
+nnoremap _ :call QuickfixNext(1)<cr>|                  " go to previous error
 nnoremap j gj|                                         " go down one screen line
 nnoremap k gk|                                         " go up one screen line
 vnoremap <leader>s  :sort<cr>|                         " sort lines
