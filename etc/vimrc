@@ -100,6 +100,9 @@ Plug 'kdheepak/lazygit.nvim', {'branch': 'main'}
 " switch back to rust-lang/rust.vim when PR 445
 Plug 'casey/rust.vim', { 'branch': 'patch-1' } " rust
 
+" tree sitter
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
 " fzf binary and runtime path files
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 

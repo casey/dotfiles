@@ -11,3 +11,21 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     underline = false,
   }
 )
+
+require('nvim-treesitter.configs').setup({
+  ensure_installed = { "rust" },
+
+  highlight = {
+    enable = true,
+  },
+
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      init_selection = "<cr>",
+      node_incremental = "<cr>",
+      scope_incremental = "<tab>",
+      node_decremental = "<bs>",
+    },
+  },
+})
