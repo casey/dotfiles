@@ -47,6 +47,7 @@ Plug 'mhinz/vim-grepper'                  " win at grep
 Plug 'neovim/nvim-lspconfig'              " nvim language server client configurations
 Plug 'romainl/vim-qf'                     " quickfix improvements
 Plug 'saaguero/vim-textobj-pastedtext'    " text object for last pasted text
+Plug 'svermeulen/vim-cutlass'             " prevent delete operations from yanking
 Plug 'tmux-plugins/vim-tmux'              " tmux configuration
 Plug 'tmux-plugins/vim-tmux-focus-events' " recognize tmux focus events
 Plug 'tommcdo/vim-exchange'               " exchange operator
@@ -493,15 +494,19 @@ nnoremap <leader>tz :call ToggleZoom()<cr>|            " toggle zoom
 nnoremap <leader>wa :wa<cr>|                           " write all buffers
 nnoremap <leader>wo <c-w>o|                            " close all windows but current
 nnoremap <leader>zz :wqa<cr>|                          " save all files and exit
+nnoremap X D|                                          " cut until end of line
 nnoremap Y y$|                                         " yank to end of line
 nnoremap _ :call QuickfixNext(1)<cr>|                  " go to previous error
 nnoremap j gj|                                         " go down one screen line
 nnoremap k gk|                                         " go up one screen line
+nnoremap x d|                                          " cut operation
+nnoremap xx dd|                                        " cut line
 vnoremap <leader>s  :sort<cr>|                         " sort lines
 vnoremap <leader>t: :Tabularize :<cr>                  " align on :
 vnoremap <leader>t= :Tabularize =<cr>                  " align on =
 vnoremap j gj|                                         " go to next screen line
 vnoremap k gk|                                         " go to previous screen line
+xnoremap x d|                                          " cut operation
 
 " show documentation in preview window.
 nnoremap <silent> K :call ShowDocumentation()<CR>
