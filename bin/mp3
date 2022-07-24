@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+set -euxo pipefail
+
+for file in "$@"; do
+  ffmpeg -i "$file" \
+    -codec:a libmp3lame \
+    -q:a 0 \
+    -map_metadata \
+    -id3v2_version 3 \
+    -write_id3v1 1 \
+    "$file.mp3"
+done
