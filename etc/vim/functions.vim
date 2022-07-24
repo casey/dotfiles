@@ -33,10 +33,7 @@ endfunction
 
 " current date as string
 function! Date()
-  let s = strftime('%FT%T%z')
-  let a = s[:len(s)-3]
-  let b = s[len(s)-2:]
-  return a . b
+  return trim(system('date -u +"%Y-%m-%dT%H:%M:%SZ"'))
 endfunction
 
 function! QuickfixIsOpen()
