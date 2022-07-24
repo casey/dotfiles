@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+if [[ $# -eq 0 ]]; then
+  exec cargo watch --exec ltest
+else
+  exec cargo watch --exec "ltest $*"
+fi
