@@ -64,7 +64,6 @@ Plug 'vim-airline/vim-airline'            " pretty and lightweight status and ta
 Plug 'vim-scripts/AnsiEsc.vim'            " draw ansi escape sequences as colors
 Plug 'vim-scripts/Rename'                 " rename the current file
 Plug 'vim-utils/vim-man'                  " improved man page viewing
-Plug 'vimwiki/vimwiki'                    " vim-based personal wiki
 Plug 'wellle/targets.vim'                 " additional text objects
 Plug 'xolox/vim-misc'                     " misc funcionality for other plugins
 
@@ -84,6 +83,7 @@ Plug 'NoahTheDuke/vim-just'     " just
 Plug 'casey/vim-fidl'           " fidl
 Plug 'dag/vim-fish'             " fish shell
 Plug 'pangloss/vim-javascript'  " javascript
+Plug 'preservim/vim-markdown'   " markdown
 Plug 'rhysd/vim-wasm'           " wasm
 Plug 'tikhomirov/vim-glsl'      " glsl
 Plug 'tomlion/vim-solidity'     " solidity
@@ -246,53 +246,53 @@ call Stops(2)
 
 "" lettings
 
-let c_no_curly_error = 1           " {} inside [] or () is not an error
-let mapleader        = "\<space>"  " space is my leader
-
-let g:NERDTreeMinimalUI          = 1         " hide nerdtree help shortcut
-let g:NERDTreeWinSize            = 20        " make nerdtree 20 columns wide
-let g:gist_post_private          = 1         " make gists private by default
-let g:gitgutter_enabled          = 0         " enable gitgutter by default
-let g:hexmode_patterns           = '*.wasm'  " open wasm files in hexmode
-let g:incsearch#auto_nohlsearch  = 1         " turn off hlsearch
-let g:investigate_use_dash       = 1         " make investigate use dash on macos
-let g:netrw_fastbrowse           = 0         " don't retain closed netrw buffers
-let g:netrw_nogx                 = 1         " disable netrw's gx mapping
-let g:pastedtext_select_key      = 'gl'      " use gl for last pasted text mappings
-let g:qf_bufname_or_text         = 2         " filter only on quickfix text
-let g:rainbow_active             = 1         " enable rainbow delimiters
-let g:rust_recommended_style     = 0         " use 2 space instead of 4 space tabs
-let g:rustfmt_autosave           = 0         " run rustfmt on save
-let g:solarized_contrast         = 'high'    " use high contrast solarized colors
-let g:solarized_visibility       = 'high'    " use high contrast colors for 'list'
-let g:surround_indent            = 1         " indent with '=' after surrounding
-let g:tmux_navigator_no_mappings = 1         " disable default tmux navigator mappings
-let g:undotree_WindowLayout      = 2         " put undotree on left with full width diff
-let g:vim_search_pulse_mode      = 'pattern' " pulse pattern not line
-let g:vimwiki_conceallevel       = 0         " disable syntax concealing
-
-let g:airline#extensions#ale#enabled               = 1   " enable ale extension
-let g:airline#extensions#tabline#buffer_idx_mode   = 1   " show buffer indices
-let g:airline#extensions#tabline#buffer_min_count  = 2   " no tabline for less than 2 buffers
-let g:airline#extensions#tabline#buffer_nr_show    = 0   " don't show buffer numbers
-let g:airline#extensions#tabline#buffers_label     = ''  " hide buffers label
-let g:airline#extensions#tabline#enabled           = 1   " enable the tabline
-let g:airline#extensions#tabline#formatter         = 'f' " use custom formatter
-let g:airline#extensions#tabline#left_alt_sep      = ''  " hide left alt separator
-let g:airline#extensions#tabline#left_sep          = ''  " hide left separator
-let g:airline#extensions#tabline#right_alt_sep     = ''  " hide right alt separator
-let g:airline#extensions#tabline#right_sep         = ''  " hide right separator
-let g:airline#extensions#tabline#show_buffers      = 1   " show buffers when no tabs are open
-let g:airline#extensions#tabline#show_close_button = 0   " don't show close button
-let g:airline#extensions#tabline#show_splits       = 0   " don't show tab name on right
-let g:airline#extensions#tabline#show_tab_nr       = 0   " don't show tab number
-let g:airline#extensions#tabline#show_tab_type     = 0   " don't show tab type
-let g:airline#extensions#whitespace#enabled        = 0   " turn off whitespace checker
-let g:airline_detect_modified                      = 1   " highlight modified buffers
-let g:airline_left_sep                             = ''  " turn off left separator
-let g:airline_powerline_fonts                      = 1   " fixes missing whitespace in tabline
-let g:airline_right_sep                            = ''  " turn off right separator
-let g:airline_skip_empty_sections                  = 1   " hide empty sections
+let c_no_curly_error = 1 " {} inside [] or () is not an error
+let g:NERDTreeMinimalUI = 1 " hide nerdtree help shortcut
+let g:NERDTreeWinSize = 20 " make nerdtree 20 columns wide
+let g:airline#extensions#ale#enabled = 1 " enable ale extension
+let g:airline#extensions#tabline#buffer_idx_mode = 1 " show buffer indices
+let g:airline#extensions#tabline#buffer_min_count = 2 " no tabline for less than 2 buffers
+let g:airline#extensions#tabline#buffer_nr_show = 0 " don't show buffer numbers
+let g:airline#extensions#tabline#buffers_label = '' " hide buffers label
+let g:airline#extensions#tabline#enabled = 1 " enable the tabline
+let g:airline#extensions#tabline#formatter = 'f' " use custom formatter
+let g:airline#extensions#tabline#left_alt_sep = '' " hide left alt separator
+let g:airline#extensions#tabline#left_sep = '' " hide left separator
+let g:airline#extensions#tabline#right_alt_sep = '' " hide right alt separator
+let g:airline#extensions#tabline#right_sep = '' " hide right separator
+let g:airline#extensions#tabline#show_buffers = 1 " show buffers when no tabs are open
+let g:airline#extensions#tabline#show_close_button = 0 " don't show close button
+let g:airline#extensions#tabline#show_splits = 0 " don't show tab name on right
+let g:airline#extensions#tabline#show_tab_nr = 0 " don't show tab number
+let g:airline#extensions#tabline#show_tab_type = 0 " don't show tab type
+let g:airline#extensions#whitespace#enabled = 0 " turn off whitespace checker
+let g:airline_detect_modified = 1 " highlight modified buffers
+let g:airline_left_sep = '' " turn off left separator
+let g:airline_powerline_fonts = 1 " fixes missing whitespace in tabline
+let g:airline_right_sep = '' " turn off right separator
+let g:airline_skip_empty_sections = 1 " hide empty sections
+let g:gist_post_private = 1 " make gists private by default
+let g:gitgutter_enabled = 0 " enable gitgutter by default
+let g:hexmode_patterns = '*.wasm' " open wasm files in hexmode
+let g:incsearch#auto_nohlsearch = 1 " turn off hlsearch
+let g:investigate_use_dash = 1 " make investigate use dash on macos
+let g:netrw_fastbrowse = 0 " don't retain closed netrw buffers
+let g:netrw_nogx = 1 " disable netrw's gx mapping
+let g:pastedtext_select_key = 'gl' " use gl for last pasted text mappings
+let g:qf_bufname_or_text = 2 " filter only on quickfix text
+let g:rainbow_active = 1 " enable rainbow delimiters
+let g:rust_recommended_style = 0 " use 2 space instead of 4 space tabs
+let g:rustfmt_autosave = 0 " run rustfmt on save
+let g:solarized_contrast = 'high' " use high contrast solarized colors
+let g:solarized_visibility = 'high' " use high contrast colors for 'list'
+let g:surround_indent = 1 " indent with '=' after surrounding
+let g:tmux_navigator_no_mappings = 1 " disable default tmux navigator mappings
+let g:undotree_WindowLayout = 2 " put undotree on left with full width diff
+let g:vim_markdown_auto_insert_bullets = 0 " don't insert list bullets
+let g:vim_markdown_folding_disabled = 1 " disable folding in markdown
+let g:vim_markdown_new_list_item_indent = 2 " make indent smaller
+let g:vim_search_pulse_mode = 'pattern' " pulse pattern not line
+let mapleader = "\<space>" " space is my leader
 
 call airline#parts#define_function('lsp-server-status', 'LspServerStatus')
 
@@ -347,13 +347,6 @@ let g:ale_fixers = {
 
 " ale fixers
 let g:ale_linters = { 'rust': ['rls'], 'fish': [] }
-
-" vim wiki config
-let g:vimwiki_list = [{
-\ 'path': '~/src/txt/',
-\ 'syntax': 'markdown',
-\ 'ext': 'md',
-\}]
 
 " disable rainbow delimiters in justfiles
 let g:rainbow_conf = {'separately': {'just': 0}}
