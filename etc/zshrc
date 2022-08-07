@@ -8,11 +8,7 @@ unalias -m '*'
 source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 
-
 ## autoloading
-
-# add local functions directory to fpath
-fpath=(~/.zsh/functions $fpath)
 
 autoload colors             # color array builder
 autoload run-help           # help function
@@ -24,7 +20,7 @@ autoload ~/.zsh/functions/* # autoload all functions in local functions director
 ## completions
 
 # add local completions directory to fpath
-fpath=(~/.zsh/completions $fpath)
+fpath=(~/.zsh/completions /opt/homebrew/share/zsh/site-functions $fpath)
 
 zstyle ':completion:*:descriptions' format "%U%B%d%b%u"
 zstyle ':completion:*:messages' format "%F{blue}%d%f"
