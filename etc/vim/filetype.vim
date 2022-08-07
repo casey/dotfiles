@@ -16,6 +16,7 @@ augroup filetypedetect
   autocmd BufNewFile,BufRead *.mail setf mail
   autocmd BufNewFile,BufRead *.mm,*.m++ setf objcpp
   autocmd BufNewFile,BufRead *.s++ setf cpp
+  autocmd BufNewFile,BufRead *.service setf systemd
   autocmd BufNewFile,BufRead *.ts setf typescript
   autocmd BufNewFile,BufRead *.yaml,*.yml setf yaml
   autocmd BufNewFile,BufRead BUCK setf python
