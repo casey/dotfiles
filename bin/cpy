@@ -1,16 +1,12 @@
 #!/usr/bin/env bash
 
-can() {
-  command -v $1 > /dev/null
-  return $?
-}
-
-if can xclip; then
-  xclip -selection clipboard
-elif can pbcopy; then
+if command -v pbcopy > /dev/null; then
   pbcopy
-elif can copy.exe; then
-  echo COPYEXE
+elif command -v xclip > /dev/null; then
+  xclip -selection clipboard
+elif command -v copy.exe > /dev/null; then
+  echo "copy.exe found but is not supported"
+  exit 1
 else
   echo "No copier found!"
   exit 1
