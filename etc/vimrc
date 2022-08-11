@@ -340,7 +340,8 @@ let g:ale_set_signs                    = 1 " set signs for lints
 
 " ale fixers
 let g:ale_fixers = {
-\ '*':    ['remove_trailing_lines', 'trim_whitespace'],
+\ '*': ['remove_trailing_lines', 'trim_whitespace'],
+\ 'markdown': ['remove_trailing_lines'],
 \ 'mail': ['remove_trailing_lines'],
 \ 'rust': ['rustfmt'],
 \}
