@@ -4,44 +4,42 @@
   - ~/.config
   - ~/.ssh
 
-- shell:
-  - mkdir -p ~/.cache/mutt/headers
-  - mkdir -p ~/.cache/mutt/messages
-  - mkdir -p ~/.cache/mutt/messages
-  - mkdir -p ~/.cargo
-  - mkdir -p ~/.config/alacritty
-  - mkdir -p ~/.config/fish
-  - mkdir -p ~/.config/git
-  - mkdir -p ~/.config/gsimplecal
-  - mkdir -p ~/.config/i3status
-  - mkdir -p ~/.config/menus
-  - mkdir -p ~/.config/neofetch
-  - mkdir -p ~/.config/nixpkgs/overlays
-  - mkdir -p ~/.config/nvim
-  - mkdir -p ~/.config/polybar
-  - mkdir -p ~/.config/src
-  - mkdir -p ~/.config/sway
-  - mkdir -p ~/.config/swaylock
-  - mkdir -p ~/.config/swaynag
-  - mkdir -p ~/.config/taffybar
-  - mkdir -p ~/.config/xmobar
-  - mkdir -p ~/.config/xonsh
-  - mkdir -p ~/.elinks
-  - mkdir -p ~/.gnupg
-  - mkdir -p ~/.local/share
-  - mkdir -p ~/.mutt
-  - mkdir -p ~/.nixpkgs
-  - mkdir -p ~/.rusty-tags
-  - mkdir -p ~/.ssh/connections
-  - mkdir -p ~/.terminfo
-  - mkdir -p ~/.tmux/plugins
-  - mkdir -p ~/.xmonad
-  - mkdir -p ~/opt
-  - mkdir -p ~/opt/npm
-  - mkdir -p ~/src
-  - mkdir -p ~/tmp
-  - rm -f ~/.config/mimeapps.list
-  - rm -f ~/.xscreensaver
+- create:
+  - ~/.cache/mutt/headers
+  - ~/.cache/mutt/messages
+  - ~/.cache/mutt/messages
+  - ~/.cargo
+  - ~/.config/alacritty
+  - ~/.config/fish
+  - ~/.config/git
+  - ~/.config/gsimplecal
+  - ~/.config/i3status
+  - ~/.config/menus
+  - ~/.config/neofetch
+  - ~/.config/nixpkgs/overlays
+  - ~/.config/nvim
+  - ~/.config/polybar
+  - ~/.config/src
+  - ~/.config/sway
+  - ~/.config/swaylock
+  - ~/.config/swaynag
+  - ~/.config/taffybar
+  - ~/.config/xmobar
+  - ~/.config/xonsh
+  - ~/.elinks
+  - ~/.gnupg
+  - ~/.local/share
+  - ~/.mutt
+  - ~/.nixpkgs
+  - ~/.rusty-tags
+  - ~/.ssh/connections
+  - ~/.terminfo
+  - ~/.tmux/plugins
+  - ~/.xmonad
+  - ~/opt
+  - ~/opt/npm
+  - ~/src
+  - ~/tmp
 
 - link:
     ~/.colordiffrc: etc/colordiffrc
