@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -euo pipefail
+
 if command -v pbcopy > /dev/null; then
   pbcopy
 elif command -v xclip > /dev/null; then
