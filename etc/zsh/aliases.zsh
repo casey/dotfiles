@@ -34,6 +34,7 @@ alias: tp 'term --command ssh pair@pair.rodarmor.com'
 alias: zf 'zsh-edit-function'
 
 # Ⅲ
+alias: cwt 'cargo watch --clear --shell "cargo ltest --color always --bin ord -- --color always 2>&1 | less -r"'
 alias: how 'howdoi -a'
 alias: psg 'ps aux | grep'
 alias: rwd 'cd `pwd -P`'
