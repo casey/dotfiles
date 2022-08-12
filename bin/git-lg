@@ -10,10 +10,10 @@ AUTH='%C(bold blue)<%an>%Creset'
 
 FORMAT="$HASH $REFS $SUBJ $TIME $AUTH"
 
-git                         \
-  log                       \
-  --color                   \
-  --graph                   \
-  --abbrev-commit           \
+exec git \
+  log \
+  --color \
+  --graph \
+  --abbrev-commit \
   "--pretty=tformat:$FORMAT" \
   "$@"
