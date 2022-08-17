@@ -289,6 +289,7 @@ let g:vim_markdown_auto_insert_bullets = 0 " don't insert list bullets
 let g:vim_markdown_folding_disabled = 1 " disable folding in markdown
 let g:vim_markdown_new_list_item_indent = 2 " make indent smaller
 let g:vim_search_pulse_mode = 'pattern' " pulse pattern not line
+let g:eunuch_no_maps = 1 " disable auto-shebang
 let mapleader = "\<space>" " space is my leader
 
 call airline#parts#define_function('lsp-server-status', 'LspServerStatus')
