@@ -507,7 +507,7 @@ nnoremap <leader>el :e ~/.vim/lua/init.lua<cr>
 nnoremap <leader>em :e ~/.mutt/muttrc<cr>
 nnoremap <leader>en :e ~/src/notes/scratch.md<cr>
 nnoremap <leader>es :e ~/.zshrc<cr>
-nnoremap <leader>et :e ~/.config/alacritty/alacritty.yml<cr>
+nnoremap <leader>et :e ~/.tmux.conf<cr>
 nnoremap <leader>ev :e ~/.vimrc<cr>
 
 "" aliases
