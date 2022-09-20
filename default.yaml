@@ -86,6 +86,7 @@
     ~/.skhdrc: etc/skhdrc
     ~/.spacemacs: etc/spacemacs
     ~/.ssh/config: etc/sshconfig
+    ~/.terminfo/61: /Applications/Alacritty.app/Contents/Resources/61
     ~/.tigrc: etc/tigrc
     ~/.tmux.conf: etc/tmux.conf
     ~/.user.justfile: etc/user.justfile
