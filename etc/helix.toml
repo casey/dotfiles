@@ -1,0 +1,10 @@
+[keys.normal]
+"{" = "goto_prev_paragraph"
+"}" = "goto_next_paragraph"
+
+[keys.select]
+"{" = "goto_prev_paragraph"
+"}" = "goto_next_paragraph"
+
+[keys.insert]
+C-j = "normal_mode"
