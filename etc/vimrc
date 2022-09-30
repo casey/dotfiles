@@ -598,6 +598,9 @@ augroup vimrc
   " close preview window when completion done
   autocmd CompleteDone * if pumvisible() == 0 | pclose | endif
 
+  " disable indentation in HTML files
+  autocmd FileType html,jinja.html setlocal noautoindent | setlocal nobreakindent | setlocal nosmartindent | setlocal indentexpr=
+
   " fix vim script user command syntax highlighting
   " (should be unnecessary when https://github.com/vim/vim/issues/6587 is fixed)
   autocmd Syntax vim syn match vimUsrCmd '^\s*\zs\u\%(\w*\)\@>(\@!'
