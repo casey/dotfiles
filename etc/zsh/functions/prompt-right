@@ -4,9 +4,7 @@ echo -n %~
 
 if is-git-repository; then
   if ! git config rodarmor.slow > /dev/null; then
-    if is-git-untracked-files; then
-      echo -n $PROMPT_RED
-    elif is-git-worktree-dirty; then
+    if is-git-worktree-dirty; then
       echo -n $PROMPT_RED
     elif is-git-staged-changes; then
       echo -n $PROMPT_GREEN
@@ -30,6 +28,10 @@ if is-git-repository; then
 
   else
     echo -n DETACHED
+  fi
+
+  if is-git-untracked-files; then
+    echo -n '*'
   fi
 
   echo -n ⟧
