@@ -1,7 +1,0 @@
-AddKeysToAgent yes
-ControlMaster auto
-ControlPath ~/.ssh/connections/%r@%h:%p.socket
-ControlPersist 5m
-
-Host bitbucket.org
-ControlMaster no

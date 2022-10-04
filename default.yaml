@@ -2,7 +2,6 @@
   - '~'
   - ~/.cargo
   - ~/.config
-  - ~/.ssh
 
 - create:
   - ~/.cache/mutt/headers
@@ -33,7 +32,6 @@
   - ~/.mutt
   - ~/.nixpkgs
   - ~/.rusty-tags
-  - ~/.ssh/connections
   - ~/.terminfo
   - ~/.tmux/plugins
   - ~/.xmonad
@@ -87,7 +85,6 @@
     ~/.sh.py: etc/sh.py
     ~/.skhdrc: etc/skhdrc
     ~/.spacemacs: etc/spacemacs
-    ~/.ssh/config: etc/sshconfig
     ~/.terminfo/61: /Applications/Alacritty.app/Contents/Resources/61
     ~/.tigrc: etc/tigrc
     ~/.tmux.conf: etc/tmux.conf
@@ -125,6 +122,4 @@
       ./submodules/dotbot/bin/dotbot -c $HOST_CONFIG
     fi
   - chmod 700 ~/.vim
-  - chmod 700 ~/.ssh
   - chmod 700 ~/.gnupg
-  - chmod 600 ~/.ssh/config
