@@ -253,7 +253,6 @@ let g:airline#extensions#tabline#buffer_min_count = 2 " no tabline for less than
 let g:airline#extensions#tabline#buffer_nr_show = 0 " don't show buffer numbers
 let g:airline#extensions#tabline#buffers_label = '' " hide buffers label
 let g:airline#extensions#tabline#enabled = 1 " enable the tabline
-let g:airline#extensions#tabline#formatter = 'f' " use custom formatter
 let g:airline#extensions#tabline#left_alt_sep = '' " hide left alt separator
 let g:airline#extensions#tabline#left_sep = '' " hide left separator
 let g:airline#extensions#tabline#right_alt_sep = '' " hide right alt separator

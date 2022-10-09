@@ -12,25 +12,6 @@ function! BufDo(command)
   execute 'buffer ' . current
 endfunction
 
-" format a buffer name for the tabline
-function! FormatBufferForTabLine(bufnr, buffers)
-  if getbufvar(a:bufnr, '&mod')
-    let l:mod = '+'
-  else
-    let l:mod = ' '
-  endif
-
-  let full = fnamemodify(bufname(a:bufnr), ':.')
-  let file = fnamemodify(l:full, ':t')
-  if l:file == 'mod.rs' || l:file == 'up.sql' || l:file == 'down.sql'
-    let dir = fnamemodify(l:full, ':h')
-    if l:dir != '.'
-      return fnamemodify(l:dir, ':t') . '/' . l:file . l:mod
-    endif
-  endif
-  return l:file . l:mod
-endfunction
-
 " current date as string
 function! Date()
   return trim(system('date -u +"%Y-%m-%dT%H:%M:%SZ"'))
