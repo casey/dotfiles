@@ -19,6 +19,7 @@ Plug 'airblade/vim-gitgutter'             " show git hunks in gutter
 Plug 'airblade/vim-rooter'                " automatic cd to project root
 Plug 'alopatindev/cargo-limit'            " cargo-limit integration
 Plug 'casey/vim-airline-themes'           " color themes for airline
+Plug 'chriskempson/base16-vim'            " base16 color schemes
 Plug 'christoomey/vim-tmux-navigator'     " navigate between vim and tmux splits
 Plug 'coderifous/textobj-word-column.vim' " column related text objects
 Plug 'dense-analysis/ale'                 " async lint 'n' fix engine
@@ -66,7 +67,6 @@ Plug 'vim-scripts/Rename'                 " rename the current file
 Plug 'vim-utils/vim-man'                  " improved man page viewing
 Plug 'wellle/targets.vim'                 " additional text objects
 Plug 'xolox/vim-misc'                     " misc funcionality for other plugins
-Plug 'chriskempson/base16-vim'            " base16 color schemes
 
 " conditionally loaded plugins
 Plug 'mattn/gist-vim',      {'on': 'Gist'          } " create gists
