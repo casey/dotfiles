@@ -80,7 +80,7 @@ Plug 'tyru/capture.vim',    {'on': 'Capture'       } " capture command output in
 Plug 'Glench/Vim-Jinja2-Syntax' " jinja2
 Plug 'LnL7/vim-nix'             " nix
 Plug 'NoahTheDuke/vim-just'     " just
-Plug 'casey/vim-fidl'           " fidl
+Plug 'rust-lang/rust.vim'       " rust
 Plug 'dag/vim-fish'             " fish shell
 Plug 'pangloss/vim-javascript'  " javascript
 Plug 'preservim/vim-markdown'   " markdown
@@ -96,8 +96,6 @@ Plug 'cespare/vim-toml', {'branch': 'main'}
 " open lazygit in editor
 Plug 'kdheepak/lazygit.nvim', {'branch': 'main'}
 
-" switch back to rust-lang/rust.vim when PR 445 lands
-Plug 'casey/rust.vim', { 'branch': 'patch-1' } " rust
 
 " tree sitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
