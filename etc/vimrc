@@ -67,6 +67,10 @@ Plug 'vim-utils/vim-man'                  " improved man page viewing
 Plug 'wellle/targets.vim'                 " additional text objects
 Plug 'xolox/vim-misc'                     " misc funcionality for other plugins
 
+" fuzzy finder
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' }
+
 " conditionally loaded plugins
 Plug 'mattn/gist-vim',      {'on': 'Gist'          } " create gists
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'} " nerd tree file drawer
@@ -408,8 +412,9 @@ inoremap <c-s> <c-g>u<Esc>[s1z=`]a<c-g>u|              " fix last spelling error
 nnoremap + :call QuickfixNext(0)<cr>|                  " go to next error
 nnoremap <c-b> <c-o>|                                  " jump back
 nnoremap <c-f> <c-i>|                                  " jump forward
-nnoremap <c-k> :AllLines<cr>|                          " search all lines in all files
-nnoremap <c-p> :Files<cr>|                             " search files
+nnoremap <c-k> :AllLines<cr>|                          " search lines
+nnoremap <c-n> :Telescope lsp_dynamic_workspace_symbols<cr>|   " search symbols
+nnoremap <c-p> :Telescope find_files<cr>|              " search files
 nnoremap <c-q> :call Leave()<cr>|                      " close window, close buffer or quit
 nnoremap <c-s> :call CorrectSpellingError()<cr>|       " correct spelling error or search symbols
 nnoremap <leader> <nop>|                               " reserve for three-key mappings
