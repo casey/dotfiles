@@ -43,7 +43,6 @@ Plug 'kana/vim-textobj-user'              " user defined text objects
 Plug 'luochen1990/rainbow'                " rainbow delimiters
 Plug 'mattn/webapi-vim'                   " web functionality
 Plug 'mbbill/undotree'                    " visualize undo history as tree
-Plug 'mg979/vim-visual-multi'             " multiple cursors
 Plug 'mhinz/vim-grepper'                  " win at grep
 Plug 'neovim/nvim-lspconfig'              " nvim language server client configurations
 Plug 'romainl/vim-qf'                     " quickfix improvements
