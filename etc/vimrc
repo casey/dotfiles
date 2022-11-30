@@ -340,7 +340,6 @@ let g:ale_set_signs                    = 1 " set signs for lints
 " ale fixers
 let g:ale_fixers = {
 \ '*': ['remove_trailing_lines', 'trim_whitespace'],
-\ 'markdown': ['remove_trailing_lines'],
 \ 'mail': ['remove_trailing_lines'],
 \ 'rust': ['rustfmt'],
 \}
@@ -577,6 +576,9 @@ augroup vimrc
 
   " don't highlight trailing whitespace in python files
   autocmd FileType python syn clear pythonSpaceError
+
+  " don't highlight trailing whitespace in markdown files
+  autocmd FileType markdown syn clear mkdLineBreak
 
   " call custom function on VimEnter
   autocmd VimEnter * call VimEnter()
