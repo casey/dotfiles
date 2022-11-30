@@ -90,3 +90,6 @@ prune = true
 
 [rebase]
 autoStash = true
+
+[advice]
+skippedCherryPicks = false
