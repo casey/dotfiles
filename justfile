@@ -27,6 +27,7 @@ formulae:
   # packages
   brew install cmake
   brew install fish
+  brew install gh
   brew install gpg
   brew install macvim
   brew install pinentry-mac
