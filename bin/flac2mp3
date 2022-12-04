@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -euxo pipefail
+
+cd "$1"
+
+fd -t f -e flac -x ffmpeg -i "{}" -qscale:a 0 "{.}.mp3"
