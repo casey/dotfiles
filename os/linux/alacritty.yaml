@@ -13,7 +13,6 @@ window:
 
 font:
   size:             9.0
-  use_thin_strokes: false
 
 visual_bell:
   animation: EaseOutExpo
