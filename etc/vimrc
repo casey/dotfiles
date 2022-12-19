@@ -96,7 +96,6 @@ Plug 'cespare/vim-toml', {'branch': 'main'}
 " open lazygit in editor
 Plug 'kdheepak/lazygit.nvim', {'branch': 'main'}
 
-
 " tree sitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
