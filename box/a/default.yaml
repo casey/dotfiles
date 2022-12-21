@@ -1,2 +1,4 @@
 - link:
     ~/.config/alacritty/box.yaml: alacritty.yaml
+    ~/Library/LaunchAgents/com.rodarmor.bitcoin-signet.plist: com.rodarmor.bitcoin-signet.plist
+    ~/Library/LaunchAgents/com.rodarmor.bitcoin-regtest.plist: com.rodarmor.bitcoin-regtest.plist
