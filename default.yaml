@@ -32,7 +32,6 @@
   - ~/.mutt
   - ~/.nixpkgs
   - ~/.rusty-tags
-  - ~/.terminfo
   - ~/.tmux/plugins
   - ~/.xmonad
   - ~/opt
@@ -85,7 +84,6 @@
     ~/.sh.py: etc/sh.py
     ~/.skhdrc: etc/skhdrc
     ~/.spacemacs: etc/spacemacs
-    ~/.terminfo/61: /Applications/Alacritty.app/Contents/Resources/61
     ~/.tigrc: etc/tigrc
     ~/.tmux.conf: etc/tmux.conf
     ~/.user.justfile: etc/user.justfile
