@@ -4,4 +4,4 @@ set -euxo pipefail
 
 git submodule foreach --recursive git clean -xfd
 git submodule foreach --recursive git reset --hard
-git submodule update --init --recursive
+git submodule update --init --recursive --jobs 4  --remote --merge
