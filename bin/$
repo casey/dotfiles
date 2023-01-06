@@ -1,3 +1,22 @@
-#!/bin/bash
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Reset output
+resetOutput() {
+  echo -en "\x1b[0m\n"
+}
+
+# Check weather the command is exists or not.
+command_exists() {
+  command -v "$@" >/dev/null 2>&1
+}
+
+command_exists "$1" || {
+  printf 'Command not found : %s\n' "$1" >&2
+  printf 'Help : https://command-not-found.com/%s \n' "$1" >&2
+  exit 1
+}
+
+resetOutput
 
 exec "$@"
