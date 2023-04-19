@@ -9,7 +9,7 @@ b:() {
 }
 
 c:() {
-  if [[ ! -e ~/.cargo/bin/$1 ]]; then
+  if [[ ! -e ~/.cargo/bin/$2 ]]; then
     cargo install $1
   fi
 }
@@ -25,6 +25,7 @@ fi
 b: 1password /Applications/1Password.app
 b: alacritty /Applications/Alacritty.app
 b: bitcoin /opt/homebrew/bin/bitcoind
+b: delta /opt/homebrew/bin/delta
 b: discord /Applications/Discord.app
 b: dropbox /Applications/Dropbox.app
 b: exa /opt/homebrew/bin/exa
@@ -67,7 +68,7 @@ if [[ ! -e ~/.cargo/bin/cargo ]]; then
   rustup-init
 fi
 
-c: cargo-limit
+c: cargo-limit cargo-lcheck
 
 if [[ ! -e ~/.cargo/bin/shell ]]; then
   cargo install --path pkg/shell

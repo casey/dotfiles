@@ -4,6 +4,7 @@
 /etc/vim/plugged
 /etc/vim/session
 /etc/vim/spell/*.add.spl
+/etc/vim/swap
 /etc/vim/undo
 /etc/vim/view
 /etc/vim/viminfo
