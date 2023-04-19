@@ -184,8 +184,6 @@ set formatoptions -=a " disable automatic formatting of paragraphs
 set formatoptions -=c " don't auto-wrap comments at textwidth
 set formatoptions -=l " format long lines when inserting
 
-set printoptions  +=header:0 " don't add a header to hardcopies
-
 set viminfo ='100  " previously edited files
 set viminfo +=/10  " search pattern items
 set viminfo +=f1   " save file marks

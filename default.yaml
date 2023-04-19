@@ -33,6 +33,7 @@
   - ~/.nixpkgs
   - ~/.rusty-tags
   - ~/.tmux/plugins
+  - ~/.vim/autoload
   - ~/.xmonad
   - ~/opt
   - ~/opt/npm
@@ -86,8 +87,10 @@
     ~/.spacemacs: etc/spacemacs
     ~/.tigrc: etc/tigrc
     ~/.tmux.conf: etc/tmux.conf
+    ~/.tmux/plugins/tpm: submodules/tpm
     ~/.user.justfile: etc/user.justfile
     ~/.vim.py: etc/vim.py
+    ~/.vim/autoload/plug.vim: submodules/vim-plug/plug.vim
     ~/.vim: etc/vim
     ~/.vimrc: etc/vimrc
     ~/.wallpaper: wallpaper/moebius-conversation.png
@@ -103,10 +106,6 @@
     ~/.zshrc: etc/zshrc
     ~/app: app
     ~/bin: bin
-
-- link:
-    ~/.tmux/plugins/tpm:      submodules/tpm
-    ~/.vim/autoload/plug.vim: submodules/vim-plug/plug.vim
 
 - shell:
   - |
