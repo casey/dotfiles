@@ -104,7 +104,6 @@
     ~/.zlogout: etc/zlogout
     ~/.zsh: etc/zsh
     ~/.zshrc: etc/zshrc
-    ~/app: app
     ~/bin: bin
 
 - shell:

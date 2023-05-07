@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-set -euxo pipefail
-
-exec google-chrome-stable --force-dark-mode "$@"
