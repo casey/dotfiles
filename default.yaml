@@ -35,8 +35,6 @@
   - ~/.tmux/plugins
   - ~/.vim/autoload
   - ~/.xmonad
-  - ~/opt
-  - ~/opt/npm
   - ~/src
   - ~/tmp
 
