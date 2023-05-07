@@ -39,6 +39,7 @@
   - ~/tmp
 
 - link:
+    ~/.bitcoin: '~/Library/Application Support/Bitcoin/'
     ~/.colordiffrc: etc/colordiffrc
     ~/.config/alacritty/alacritty.yaml: etc/alacritty.yaml
     ~/.config/alacritty/alacritty.yml: etc/alacritty.yml
