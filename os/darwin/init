@@ -2,6 +2,8 @@
 
 set -euxo pipefail
 
+NAME=$1
+
 b:() {
   if [[ ! -e $2 ]]; then
     brew install $1
@@ -14,9 +16,9 @@ c:() {
   fi
 }
 
-sudo scutil --set ComputerName durandal
-sudo scutil --set LocalHostName durandal
-sudo scutil --set HostName durandal
+sudo scutil --set ComputerName $NAME
+sudo scutil --set LocalHostName $NAME
+sudo scutil --set HostName $NAME
 
 if [[ ! -e /opt/homebrew/bin/brew ]]; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -25,11 +27,11 @@ fi
 b: 1password /Applications/1Password.app
 b: alacritty /Applications/Alacritty.app
 b: bitcoin /opt/homebrew/bin/bitcoind
-b: delta /opt/homebrew/bin/delta
 b: discord /Applications/Discord.app
 b: dropbox /Applications/Dropbox.app
 b: exa /opt/homebrew/bin/exa
 b: git /opt/homebrew/bin/git
+b: git-delta /opt/homebrew/bin/delta
 b: google-chrome '/Applications/Google Chrome.app'
 b: just /opt/homebrew/bin/just
 b: neovim /opt/homebrew/bin/nvim

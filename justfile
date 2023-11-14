@@ -1,8 +1,8 @@
 bootstrap:
   ./bootstrap
 
-init box:
-  ./box/{{box}}/init
+init os name:
+  ./os/{{os}}/init {{name}}
 
 rustup:
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
