@@ -1,3 +1,0 @@
-shell:
-  program: /opt/homebrew/bin/zsh
-  args:    ['-i', '--login', '-c', 'shell']

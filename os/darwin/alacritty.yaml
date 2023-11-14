@@ -1,7 +1,7 @@
 draw_bold_text_with_bright_colors: true
 
 shell:
-  program: /usr/local/bin/zsh
+  program: /opt/homebrew/bin/zsh
   args:    ['-i', '--login', '-c', 'shell']
 
 window:

@@ -33,7 +33,6 @@
   - ~/.nixpkgs
   - ~/.rusty-tags
   - ~/.tmux/plugins
-  - ~/.vim/autoload
   - ~/.xmonad
   - ~/src
   - ~/tmp
