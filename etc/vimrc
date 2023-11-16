@@ -326,7 +326,7 @@ let g:rooter_silent_chdir                           = 1         " not message wh
 
 let g:rooter_patterns = ['.git', '.git/'] " stop patterns
 
-let g:ale_completion_enabled           = 0 " enable completion
+let g:ale_completion_enabled           = 0 " disable completion
 let g:ale_fix_on_save                  = 1 " fix on save
 let g:ale_lint_on_enter                = 0 " lint when entering a new file
 let g:ale_lint_on_filetype_changed     = 0 " don't lint on filetype changed
