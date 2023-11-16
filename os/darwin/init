@@ -30,6 +30,7 @@ b: bitcoin /opt/homebrew/bin/bitcoind
 b: discord /Applications/Discord.app
 b: dropbox /Applications/Dropbox.app
 b: exa /opt/homebrew/bin/exa
+b: gh /opt/homebrew/bin/gh
 b: git /opt/homebrew/bin/git
 b: git-delta /opt/homebrew/bin/delta
 b: google-chrome '/Applications/Google Chrome.app'
