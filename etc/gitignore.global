@@ -1,5 +1,4 @@
 *.pyc
 *~
 .DS_Store
-.errors.txt
-.rusty-tags.vi
+notes.md
