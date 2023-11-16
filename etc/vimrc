@@ -15,7 +15,6 @@ call plug#begin()
 " general purpose plugins
 
 Plug 'AndrewRadev/splitjoin.vim'          " split/join single/multi line constructs
-Plug 'airblade/vim-gitgutter'             " show git hunks in gutter
 Plug 'airblade/vim-rooter'                " automatic cd to project root
 Plug 'alopatindev/cargo-limit'            " cargo-limit integration
 Plug 'casey/vim-airline-themes'           " color themes for airline
@@ -79,7 +78,6 @@ Plug 'tyru/capture.vim',    {'on': 'Capture'       } " capture command output in
 " language specific plugins
 Plug 'Glench/Vim-Jinja2-Syntax' " jinja2
 Plug 'LnL7/vim-nix'             " nix
-Plug 'NoahTheDuke/vim-just'     " just
 Plug 'rust-lang/rust.vim'       " rust
 Plug 'dag/vim-fish'             " fish shell
 Plug 'pangloss/vim-javascript'  " javascript
@@ -90,6 +88,9 @@ Plug 'tomlion/vim-solidity'     " solidity
 Plug 'urbit/hoon.vim'           " hoon
 Plug 'zchee/vim-flatbuffers'    " flatbuffers
 
+"  just support
+Plug 'NoahTheDuke/vim-just', {'branch': 'main'}
+
 " toml syntax
 Plug 'cespare/vim-toml', {'branch': 'main'}
 
@@ -98,6 +99,9 @@ Plug 'kdheepak/lazygit.nvim', {'branch': 'main'}
 
 " tree sitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+" show git hunks in gutter
+Plug 'airblade/vim-gitgutter', {'branch': 'main'}
 
 " fzf binary and runtime path files
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
