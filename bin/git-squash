@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+set -euxo pipefail
+
+branch=`git rev-parse --abbrev-ref HEAD`
+base=$1
+
+git fetch --all
+git switch --create squash $base
+git merge --squash $branch
+git commit
+git switch $branch
+git reset --hard squash
+git branch --delete --force squash
