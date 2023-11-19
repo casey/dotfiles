@@ -19,3 +19,5 @@ rsync \
   ~/bulk/files/
 
 rm -rf ~/tmp/files
+
+ssh rodarmor@magellan.whatbox.ca 'rm -f files/*.meta'
