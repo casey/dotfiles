@@ -8,17 +8,9 @@ window:
   dimensions:
     columns: 199
     lines:   59
-  # intermodal full-sized demo
-  # dimensions:
-  #   columns: 73
-  #   lines:   34
-  # intermodal readme demo
-  # dimensions:
-  #   columns: 73
-  #   lines:   18
   padding:
-    x: 2
-    y: 2
+    x: 0
+    y: 1
   dynamic_padding: true
   decorations: buttonless
 
