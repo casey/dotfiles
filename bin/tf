@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -euxo pipefail
+
+lftp -f '
+open whatbox
+mirror --continue --delete --verbose files /Users/rodarmor/bulk/files
+bye
+'
+
+ssh rodarmor@magellan.whatbox.ca 'rm -f files/*.meta'

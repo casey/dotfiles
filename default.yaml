@@ -71,6 +71,7 @@
     ~/.gnupg/gpg.conf: etc/gpg.conf
     ~/.hushlogin: etc/hushlogin
     ~/.inputrc: etc/inputrc
+    ~/.lftprc: etc/lftprc
     ~/.lldbinit: etc/lldbinit
     ~/.mutt/muttrc: etc/muttrc
     ~/.nethackrc: etc/nethackrc
