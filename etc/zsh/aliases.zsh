@@ -101,10 +101,11 @@ alias: gss 'git status --short'
 alias: gst 'git info'
 alias: gsu 'git submodule update --init --recursive'
 alias: gsw 'git switch'
-alias: gtw 'git commit -m tweak'
+alias: gtw 'git commit -m Tweak'
 
 alias: ghprco 'gh pr checkout'
 alias: ghprcr 'gh pr create --web'
 alias: ghprls 'gh pr list'
+alias: ghrecl 'gh repo clone'
 
 alias: gaptwps 'gap && gtw && gps'
