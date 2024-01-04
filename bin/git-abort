@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+abort() {
+  if git rev-parse --verify $1 > /dev/null 2> /dev/null; then
+    git $2 --abort
+  fi
+}
+
+abort CHERRY_PICK_HEAD cherry-pick
+
+abort MERGE_HEAD merge
+
+abort REBASE_HEAD rebase
+
+abort REVERT_HEAD revert
