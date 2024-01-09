@@ -1,4 +1,0 @@
-import:
-  - ~/.config/alacritty/alacritty.yaml
-  - ~/.config/alacritty/os.yaml
-  - ~/.config/alacritty/box.yaml
