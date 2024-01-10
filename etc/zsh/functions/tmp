@@ -1,2 +1,2 @@
-mkdir ~/tmp/$1
+mkdir -p ~/tmp/$1
 pushd ~/tmp/$1
