@@ -1,0 +1,23 @@
+#!/usr/bin/env python3
+
+import sys
+
+double_double = 670
+cheeseburger = 480
+hamburger = 390
+hamburger_no_spread = 310
+hamburger_protein_style = 240
+fries = 370
+ketchup = 10
+shake = 580
+
+cheese = cheeseburger - hamburger
+patty = double_double - cheeseburger - cheese
+spread = hamburger - hamburger_no_spread
+bun = hamburger - hamburger_protein_style
+base = hamburger - patty - bun - spread
+
+expression = ' '.join(sys.argv[1:])
+
+if expression:
+  print(eval(expression))
