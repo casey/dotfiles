@@ -28,12 +28,7 @@ crates:
 
 formulae:
   # packages
-  brew install cmake
-  brew install fish
   brew install gh
-  brew install gpg
-  brew install macvim
-  brew install pinentry-mac
   brew install python
   brew install reattach-to-user-namespace
   brew install tig
@@ -47,14 +42,13 @@ formulae:
   # fonts
   brew tap homebrew/cask-fonts
   brew install font-dejavu-sans-mono-for-powerline
-  # yabai and skhd
-  brew tap koekeishiya/formulae
-  brew install yabai
-  brew install skhd
 
 services:
-  brew services start koekeishiya/formulae/yabai
-  brew services start koekeishiya/formulae/skhd
+  brew services start bitcoin
+  launchctl load ~/Library/LaunchAgents/com.rodarmor.bitcoin-regtest.plist
+  launchctl load ~/Library/LaunchAgents/com.rodarmor.bitcoin-signet.plist
+  launchctl load ~/Library/LaunchAgents/com.rodarmor.bitcoin-testnet.plist
+  launchctl load ~/Library/LaunchAgents/com.rodarmor.ping.plist
 
 hunter:
   brew install gstreamer
