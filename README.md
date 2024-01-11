@@ -1,4 +1,5 @@
-# casey/dotfiles
+casey/dotfiles
+==============
 
 Dotfiles, scripts, and other bits and pieces.
 
@@ -11,14 +12,16 @@ tasty little snacks of configuration.
 
 I use [dotbot](https://github.com/anishathalye/dotbot) to manage everything.
 
-## Dramatis Perſonæ
+dramatis perſonæ
+----------------
 
 - [`justfile`](justfile) Initialization helpers
 - [`default.yaml`](default.yaml) Dotbot configuration
 - [`bin`](bin) Scripts
-- [`app`](app) Launcher entries
-- [`etc`](etc) Configuration files
-    - [`etc/zshrc`](etc/zshrc) Shell configuration
-    - [`etc/prompt.zsh`](etc/prompt.zsh) Shell prompt
-    - [`etc/vimrc`](etc/vimrc) Editor configuration
+- [`os`](os) OS-specific configuration
 - [`pkg`](pkg) Programs
+- [`etc`](etc) Configuration files
+  - [`etc/zshrc`](etc/zshrc) Shell configuration
+  - [`etc/prompt.zsh`](etc/prompt.zsh) Shell prompt
+  - [`etc/vimrc`](etc/vimrc) Editor configuration
+  - [`etc/tmux.conf`](etc/tmux.conf) Tmux configuration
