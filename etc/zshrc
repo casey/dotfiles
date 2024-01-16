@@ -9,10 +9,10 @@ source ~/.zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.
 
 ## autoloading
 
-autoload colors             # color array builder
-autoload run-help           # help function
-autoload zcalc              # calculator
-autoload zsh/terminfo       # interface to terminfo database
+autoload colors # color array builder
+autoload run-help # help function
+autoload zcalc # calculator
+autoload zsh/terminfo # interface to terminfo database
 autoload ~/.zsh/functions/* # autoload all functions in local functions directory
 
 
@@ -98,36 +98,35 @@ export FZF_CTRL_T_COMMAND="fd --hidden --exclude '.git' --exclude '.git/*'"
 ## local variables
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=black,bold" # make autosuggestions grey
-ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20              # don't autosuggest when buffer is large
-ZLE_REMOVE_SUFFIX_CHARS=''                      # don't remove spaces after completion
+ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20 # don't autosuggest when buffer is large
+ZLE_REMOVE_SUFFIX_CHARS='' # don't remove spaces after completion
 
 ## options
 
-unsetopt beep    # never beep
+unsetopt beep # never beep
 unsetopt correct # don't correct command spelling
 
-setopt auto_pushd             # cd also invokes pushd
-setopt auto_remove_slash      # automatically remove slash from completions
-setopt brace_ccl              # expand expressions in braces
+setopt auto_remove_slash # automatically remove slash from completions
+setopt brace_ccl # expand expressions in braces
 setopt hist_expire_dups_first # expire duplicate events first
-setopt hist_find_no_dups      # ignore duplicates in find
-setopt hist_ignore_dups       # dont save duplicate entries in history
-setopt hist_ignore_space      # do not save history entries that start with a space
-setopt hist_no_functions      # do not save function definitions in history
-setopt inc_append_history     # save commands in history immediately
-setopt interactive_comments   # allow comments in interactive shells
-setopt multios                # allow redirection to multiple files
-setopt prompt_subst           # expand the prompt string
-setopt rc_quotes              # allow '' to represent a quote in single quoted strings
-setopt share_history          # share history between shells
+setopt hist_find_no_dups # ignore duplicates in find
+setopt hist_ignore_dups # dont save duplicate entries in history
+setopt hist_ignore_space # do not save history entries that start with a space
+setopt hist_no_functions # do not save function definitions in history
+setopt inc_append_history # save commands in history immediately
+setopt interactive_comments # allow comments in interactive shells
+setopt multios # allow redirection to multiple files
+setopt prompt_subst # expand the prompt string
+setopt rc_quotes # allow '' to represent a quote in single quoted strings
+setopt share_history # share history between shells
 
 ## tty
 
-stty -ixoff      # disable sending start/stop characters
-stty -ixon       # disable start/stop output control
+stty -ixoff # disable sending start/stop characters
+stty -ixon # disable start/stop output control
 stty start undef # unmap c-q
-stty stop undef  # unmap c-s
-tabs -2          # use two space tabs
+stty stop undef # unmap c-s
+tabs -2 # use two space tabs
 
 ## ulimit
 
@@ -139,37 +138,37 @@ ulimit -n 1024 # increase maximum number of open files
 bindkey -v
 
 # add custom bindings
-bind: ' '    magic-space
-bind: '\eK'  kill-line-to-system-clipboard
-bind: '\eY'  yank-from-system-clipboard
+bind: ' ' magic-space
+bind: '\eK' kill-line-to-system-clipboard
+bind: '\eY' yank-from-system-clipboard
 bind: '\e^?' backward-kill-word
-bind: '\eb'  backward-word
-bind: '\ef'  forward-word
-bind: '\ek'  kill-line-to-system-clipboard
-bind: '\ey'  yank-from-system-clipboard
-bind: '^?'   backward-delete-char
-bind: '^A'   beginning-of-line
-bind: '^B'   backward-char
-bind: '^E'   end-of-line
-bind: '^F'   forward-char
-bind: '^G'   fzf-cd-widget
-bind: '^H'   backward-delete-char
-bind: '^J'   vi-cmd-mode
-bind: '^K'   kill-line-to-x-selection
-bind: '^N'   down-history
-bind: '^P'   up-history
-bind: '^R'   history-incremental-search-backward
-bind: '^S'   history-incremental-search-forward
-bind: '^T'   fzf-file-widget
-bind: '^U'   kill-whole-line
-bind: '^W'   backward-kill-word
-bind: '^X'   fzf-history-widget
-bind: '^Y'   yank-from-x-selection
-bind: '^Z'   fzf-file-widget
+bind: '\eb' backward-word
+bind: '\ef' forward-word
+bind: '\ek' kill-line-to-system-clipboard
+bind: '\ey' yank-from-system-clipboard
+bind: '^?' backward-delete-char
+bind: '^A' beginning-of-line
+bind: '^B' backward-char
+bind: '^E' end-of-line
+bind: '^F' forward-char
+bind: '^G' fzf-cd-widget
+bind: '^H' backward-delete-char
+bind: '^J' vi-cmd-mode
+bind: '^K' kill-line-to-x-selection
+bind: '^N' down-history
+bind: '^P' up-history
+bind: '^R' history-incremental-search-backward
+bind: '^S' history-incremental-search-forward
+bind: '^T' fzf-file-widget
+bind: '^U' kill-whole-line
+bind: '^W' backward-kill-word
+bind: '^X' fzf-history-widget
+bind: '^Y' yank-from-x-selection
+bind: '^Z' fzf-file-widget
 bind: '^[[A' history-substring-search-up
 bind: '^[[B' history-substring-search-down
 
-zle -N zle-line-init prompt-reset     # redraw prompt on line editor start
+zle -N zle-line-init prompt-reset # redraw prompt on line editor start
 zle -N zle-keymap-select prompt-reset # redraw prompt when keymap changes
 
 ## add aliases for all recipes in ~/.user.justfile
@@ -184,11 +183,11 @@ if [[ ! -f ~/.base16_theme ]]; then
   base16_seti
 fi
 
-source: ~/.base16_theme      # load base16 theme
-source: ~/.extrarc           # extras
-source: ~/.fzf.zsh           # fzf bindings
-source: ~/.zsh/aliases.zsh   # aliases
+source: ~/.base16_theme # load base16 theme
+source: ~/.extrarc # extras
+source: ~/.fzf.zsh # fzf bindings
+source: ~/.zsh/aliases.zsh # aliases
 source: ~/.zsh/clipboard.zsh # set up system keyboard integration
-source: ~/.zsh/prompt.zsh    # set up prompt
+source: ~/.zsh/prompt.zsh # set up prompt
 
 source: ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
