@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -euxo pipefail
+
+while read line; do
+  yt-dlp "$line"
+done
