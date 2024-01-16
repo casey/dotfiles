@@ -2,6 +2,12 @@ echo -n $PROMPT_BLUE
 
 echo -n %~
 
+dirs=$((`dirs -p | wc -l` - 1))
+
+if ((dirs > 0)); then
+  echo -n " ⸤$dirs⸥"
+fi
+
 if is-git-repository; then
   if ! git config rodarmor.slow > /dev/null; then
     if is-git-worktree-dirty; then
