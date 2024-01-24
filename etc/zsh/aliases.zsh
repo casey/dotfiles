@@ -18,8 +18,6 @@ alias: em 'vim ~/.mutt/muttrc'
 alias: es 'vim ~/.zshrc'
 alias: et 'vim ~/.tmux.conf'
 alias: ev 'vim ~/.vimrc'
-alias: kb 'keybase'
-alias: kc 'keybase-chat'
 alias: la 'exa --across --all'
 alias: lg 'lazygit'
 alias: ll 'exa --long --binary --group --git'
@@ -30,11 +28,9 @@ alias: p8 'ping 8.8.8.8'
 alias: pw 'curl https://rodarmor.com'
 alias: sl 'ls'
 alias: tb 'nc termbin.com 9999'
-alias: tp 'term --command ssh pair@pair.rodarmor.com'
 alias: zf 'zsh-edit-function'
 
 # Ⅲ
-alias: cwt 'cargo watch --clear --shell "cargo ltest --color always --bin ord -- --color always 2>&1 | less -r"'
 alias: how 'howdoi -a'
 alias: psg 'ps aux | grep'
 alias: rwd 'cd `pwd -P`'
@@ -47,8 +43,6 @@ alias: grep 'grep --color=auto'
 alias: help 'run-help'
 alias: mutt 'neomutt'
 alias: pare 'tr -s "[:blank:]" " " | cut -d " " -f'
-alias: port 'port -vuRc'
-alias: post 'cd ~/src/blog && just post'
 alias: sane 'stty sane'
 
 # Ⅴ
@@ -56,8 +50,7 @@ alias: egrep 'egrep --color=auto'
 alias: eject 'drutil tray eject'
 
 # Ⅸ
-alias: colortest '~/src/local/submodules/base16-shell/colortest'
-alias: post-file 'cd ~/src/blog && just file'
+alias: colortest '~/src/dotfiles/submodules/base16-shell/colortest'
 
 # git
 alias: gc 'git commit'
