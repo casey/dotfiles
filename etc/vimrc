@@ -76,17 +76,13 @@ Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'} " nerd tree file drawer
 Plug 'tyru/capture.vim',    {'on': 'Capture'       } " capture command output in a buffer
 
 " language specific plugins
-Plug 'Glench/Vim-Jinja2-Syntax' " jinja2
-Plug 'LnL7/vim-nix'             " nix
 Plug 'rust-lang/rust.vim'       " rust
-Plug 'dag/vim-fish'             " fish shell
 Plug 'pangloss/vim-javascript'  " javascript
 Plug 'preservim/vim-markdown'   " markdown
-Plug 'rhysd/vim-wasm'           " wasm
 Plug 'tikhomirov/vim-glsl'      " glsl
-Plug 'tomlion/vim-solidity'     " solidity
-Plug 'urbit/hoon.vim'           " hoon
-Plug 'zchee/vim-flatbuffers'    " flatbuffers
+
+" wgsl syntax
+Plug 'DingDean/wgsl.vim', {'branch': 'main'}
 
 "  just support
 Plug 'NoahTheDuke/vim-just', {'branch': 'main'}
