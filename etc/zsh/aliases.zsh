@@ -28,6 +28,7 @@ alias: p8 'ping 8.8.8.8'
 alias: pw 'curl https://rodarmor.com'
 alias: sl 'ls'
 alias: tb 'nc termbin.com 9999'
+alias: tp 'tail -f ~/.ping'
 alias: zf 'zsh-edit-function'
 
 # Ⅲ
@@ -44,6 +45,7 @@ alias: help 'run-help'
 alias: mutt 'neomutt'
 alias: pare 'tr -s "[:blank:]" " " | cut -d " " -f'
 alias: sane 'stty sane'
+alias: tree 'erd'
 
 # Ⅴ
 alias: egrep 'egrep --color=auto'
