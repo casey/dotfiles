@@ -605,6 +605,12 @@ augroup vimrc
   " fix vim script user command syntax highlighting
   " (should be unnecessary when https://github.com/vim/vim/issues/6587 is fixed)
   autocmd Syntax vim syn match vimUsrCmd '^\s*\zs\u\%(\w*\)\@>(\@!'
+
+  " close terminal when shell exits
+  autocmd TermClose * execute 'bd!'
+
+  " enter insert mode in terminal
+  autocmd TermOpen * startinsert
 augroup end
 
 " load additional lua configuration for neovim
