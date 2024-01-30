@@ -4,12 +4,6 @@ set -euxo pipefail
 
 NAME=$1
 
-b:() {
-  if [[ ! -e $2 ]]; then
-    brew install $1
-  fi
-}
-
 c:() {
   if [[ ! -e ~/.cargo/bin/$2 ]]; then
     cargo install $1
@@ -24,44 +18,17 @@ if [[ ! -e /opt/homebrew/bin/brew ]]; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
-b: 1password /Applications/1Password.app
-b: alacritty /Applications/Alacritty.app
-b: bitcoin /opt/homebrew/bin/bitcoind
-b: exa /opt/homebrew/bin/exa
-b: git /opt/homebrew/bin/git
-b: git-delta /opt/homebrew/bin/delta
-b: google-chrome '/Applications/Google Chrome.app'
-b: just /opt/homebrew/bin/just
-b: neovim /opt/homebrew/bin/nvim
-b: rectangle /Applications/Rectangle.app
-b: ripgrep /opt/homebrew/bin/rg
-b: rustup-init /opt/homebrew/bin/rustup-init
-b: tmux /opt/homebrew/bin/tmux
-b: zsh /opt/homebrew/bin/zsh
-
 if [[ ! -e ~/.ssh/id_ed25519.pub ]]; then
   ssh-keygen -t ed25519 -C $USER@`hostname`
   cat ~/.ssh/id_ed25519.pub | pbcopy
-  echo ~/.ssh/id_ed25519.pub copied to clipboard
-  echo Add new SSH key to GitHub
-  exit 1
 fi
 
-if [[ ! -e ~/src/dotfiles ]]; then
-  git clone git@github.com:casey/dotfiles.git ~/src/dotfiles
-fi
-
-cd ~/src/dotfiles
+brew bundle install --no-lock --file os/darwin/Brewfile
 
 just bootstrap
 
 if [[ ! -e ~/.vim/plugged ]]; then
   vim +PlugInstall
-fi
-
-if [[ ! -e '/Users/rodarmor/Library/Fonts/DejaVu Sans Mono for Powerline.ttf' ]]; then
-  brew tap homebrew/cask-fonts
-  brew install font-dejavu-sans-mono-for-powerline
 fi
 
 if [[ ! -e ~/.cargo/bin/cargo ]]; then
