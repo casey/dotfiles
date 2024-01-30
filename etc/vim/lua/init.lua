@@ -21,7 +21,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 )
 
 require('nvim-treesitter.configs').setup({
-  ensure_installed = { "rust" },
+  ensure_installed = { "lua", "rust", "vim", "vimdoc" },
 
   highlight = {
     enable = true,
