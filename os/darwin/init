@@ -35,6 +35,8 @@ if [[ ! -e ~/.cargo/bin/cargo ]]; then
   rustup-init
 fi
 
+rustup component add rust-analyzer
+
 c: cargo-limit cargo-lcheck
 c: nvim-send nvim-send
 
