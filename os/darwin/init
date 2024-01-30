@@ -36,6 +36,7 @@ if [[ ! -e ~/.cargo/bin/cargo ]]; then
 fi
 
 c: cargo-limit cargo-lcheck
+c: nvim-send nvim-send
 
 if [[ ! -e ~/.cargo/bin/shell ]]; then
   cargo install --path pkg/shell
