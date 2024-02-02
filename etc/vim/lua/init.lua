@@ -25,7 +25,7 @@ require('nvim-treesitter.configs').setup({
 
   highlight = {
     enable = true,
-    disable = { "javascript" },
+    disable = { "vim", "vimdoc" }
   },
 
   incremental_selection = {
