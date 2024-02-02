@@ -407,7 +407,7 @@ nnoremap + :call QuickfixNext(0)<cr>|                  " go to next error
 nnoremap <c-b> <c-o>|                                  " jump back
 nnoremap <c-f> <c-i>|                                  " jump forward
 nnoremap <c-k> :AllLines<cr>|                          " search lines
-nnoremap <c-n> :Telescope lsp_dynamic_workspace_symbols<cr>|   " search symbols
+nnoremap <c-n> :Telescope lsp_dynamic_workspace_symbols<cr>| " search symbols
 nnoremap <c-p> :Telescope find_files<cr>|              " search files
 nnoremap <c-q> :call Leave()<cr>|                      " close window, close buffer or quit
 nnoremap <c-s> :call CorrectSpellingError()<cr>|       " correct spelling error or search symbols
@@ -463,6 +463,7 @@ nnoremap <leader>sf :Files<cr>|                        " search files
 nnoremap <leader>sg :Commits<cr>|                      " search git
 nnoremap <leader>sh :History:<cr>|                     " search command history
 nnoremap <leader>sl :Lines<cr>|                        " lines in current buffer
+nnoremap <leader>ss :call SynStack()<cr>|              " show highlight group names
 nnoremap <leader>st :Tags<cr>|                         " search ctags
 nnoremap <leader>sv :source $MYVIMRC<cr>:nohl<cr>|     " source ~/.vimrc
 nnoremap <leader>ta :call ToggleALE()<cr>|             " toggle ale
