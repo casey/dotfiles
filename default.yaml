@@ -40,6 +40,7 @@
 - link:
     ~/.bitcoin: '~/Library/Application Support/Bitcoin/'
     ~/.colordiffrc: etc/colordiffrc
+    ~/.commitments: etc/commitments
     ~/.config/bpython: etc/bpython
     ~/.config/feh: etc/feh
     ~/.config/fish/completions: etc/fish-completions

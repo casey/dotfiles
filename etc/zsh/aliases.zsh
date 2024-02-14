@@ -97,7 +97,7 @@ alias: gss 'git status --short'
 alias: gst 'git info'
 alias: gsu 'git submodule update --init --recursive'
 alias: gsw 'git switch'
-alias: gtw 'git commit -m Tweak'
+alias: gtw 'git commit -m `sort --random-sort ~/.commitments | head -n 1`'
 
 alias: ghprco 'gh pr checkout'
 alias: ghprcr 'gh pr create --web'
