@@ -45,7 +45,7 @@ alias: help 'run-help'
 alias: mutt 'neomutt'
 alias: pare 'tr -s "[:blank:]" " " | cut -d " " -f'
 alias: sane 'stty sane'
-alias: tree 'erd'
+alias: tree 'erd --layout inverted'
 
 # Ⅴ
 alias: egrep 'egrep --color=auto'
