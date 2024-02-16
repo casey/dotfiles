@@ -22,12 +22,10 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 
 require('nvim-treesitter.configs').setup({
   ensure_installed = { "lua", "rust", "vim", "vimdoc" },
-
   highlight = {
     enable = true,
     disable = { "vim", "vimdoc" }
   },
-
   incremental_selection = {
     enable = true,
     keymaps = {
@@ -39,7 +37,9 @@ require('nvim-treesitter.configs').setup({
   },
 })
 
-vim.api.nvim_create_augroup("cmdwin_treesitter", { clear = true })
+vim.api.nvim_create_augroup("cmdwin_treesitter", {
+  clear = true,
+})
 
 vim.api.nvim_create_autocmd("CmdwinEnter", {
   pattern = "*",
