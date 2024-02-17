@@ -57,3 +57,8 @@ require('rainbow-delimiters.setup').setup {
     'rainbowcol7',
   },
 }
+
+require('base16-colorscheme').with_config({
+    telescope = false,
+    telescope_borders = true,
+})
