@@ -31,6 +31,7 @@ Plug 'glts/vim-magnum'                    " bignums
 Plug 'glts/vim-radical'                   " convert numbers between bases
 Plug 'godlygeek/tabular'                  " align lines according to patterns
 Plug 'haya14busa/incsearch.vim'           " improved incremental search
+Plug 'hiphish/rainbow-delimiters.nvim'    " rainbow delimiters
 Plug 'inside/vim-search-pulse'            " pulse search pattern
 Plug 'jez/vim-superman'                   " use vim as a manpage pager
 Plug 'junegunn/fzf.vim'                   " fuzzy searching using fzf
@@ -39,7 +40,6 @@ Plug 'junegunn/vim-emoji'                 " emoji autocomplete
 Plug 'kana/vim-operator-user'             " allow user defined operators
 Plug 'kana/vim-textobj-entire'            " text object for the entire buffer
 Plug 'kana/vim-textobj-user'              " user defined text objects
-Plug 'luochen1990/rainbow'                " rainbow delimiters
 Plug 'mattn/webapi-vim'                   " web functionality
 Plug 'mbbill/undotree'                    " visualize undo history as tree
 Plug 'mhinz/vim-grepper'                  " win at grep
@@ -275,7 +275,6 @@ let g:netrw_fastbrowse = 0 " don't retain closed netrw buffers
 let g:netrw_nogx = 1 " disable netrw's gx mapping
 let g:pastedtext_select_key = 'gl' " use gl for last pasted text mappings
 let g:qf_bufname_or_text = 2 " filter only on quickfix text
-let g:rainbow_active = 1 " enable rainbow delimiters
 let g:rust_recommended_style = 0 " use 2 space instead of 4 space tabs
 let g:rustfmt_autosave = 0 " run rustfmt on save
 let g:solarized_contrast = 'high' " use high contrast solarized colors
@@ -343,9 +342,6 @@ let g:ale_fixers = {
 
 " ale fixers
 let g:ale_linters = { 'rust': ['rls'], 'fish': [] }
-
-" disable rainbow delimiters in justfiles
-let g:rainbow_conf = {'separately': {'just': 0}}
 
 " cursor styling
 let &t_SI.="\e[5 q" " cursor is blinking bar in insert mode
