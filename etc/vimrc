@@ -15,10 +15,10 @@ call plug#begin()
 " general purpose plugins
 
 Plug 'AndrewRadev/splitjoin.vim'          " split/join single/multi line constructs
+Plug 'RRethy/base16-nvim'                 " base16 color schemes
 Plug 'airblade/vim-rooter'                " automatic cd to project root
 Plug 'alopatindev/cargo-limit'            " cargo-limit integration
 Plug 'casey/vim-airline-themes'           " color themes for airline
-Plug 'chriskempson/base16-vim'            " base16 color schemes
 Plug 'christoomey/vim-tmux-navigator'     " navigate between vim and tmux splits
 Plug 'coderifous/textobj-word-column.vim' " column related text objects
 Plug 'dense-analysis/ale'                 " async lint 'n' fix engine
@@ -528,10 +528,8 @@ digraphs fv 10086| " vertical fleuron
 if &t_Co > 2 || has("gui_running")
   syntax on
   set t_Co=256
-  if $TERM_PROGRAM != "vscode" && filereadable(expand("~/.vimrc_background"))
-    let base16colorspace=256
-    source ~/.vimrc_background
-  endif
+  set termguicolors
+  colorscheme base16-seti
   hi NonText ctermfg=11
   hi SpellBad   cterm=underline
   hi SpellCap   cterm=italic
