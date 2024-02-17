@@ -527,16 +527,17 @@ if &t_Co > 2 || has("gui_running")
   set termguicolors
   colorscheme base16-seti
   hi NonText ctermfg=11
-  hi SpellBad   cterm=underline
-  hi SpellCap   cterm=italic
+  hi SpellBad cterm=underline
+  hi SpellCap cterm=italic
   hi SpellLocal cterm=italic
-  hi SpellRare  cterm=italic
+  hi SpellRare cterm=italic
   hi link EasyMotionIncSearch     Search
   hi link EasyMotionMoveHL        Search
   hi link EasyMotionShade         Comment
   hi link EasyMotionTarget        ErrorMsg
   hi link EasyMotionTarget2First  Search
   hi link EasyMotionTarget2Second Search
+  hi gitcommitSummary guifg=#55b5db
 endif
 
 
