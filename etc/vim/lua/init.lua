@@ -47,18 +47,3 @@ vim.api.nvim_create_autocmd("CmdwinEnter", {
   group = "cmdwin_treesitter",
   desc = "Disable treesitter's incremental selection in Command-line window",
 })
-
-require('rainbow-delimiters.setup').setup {
-  highlight = {
-    'rainbowcol6',
-    'rainbowcol3',
-    'rainbowcol2',
-    'rainbowcol5',
-    'rainbowcol7',
-  },
-}
-
-require('base16-colorscheme').with_config({
-    telescope = false,
-    telescope_borders = true,
-})
