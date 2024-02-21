@@ -1,0 +1,2 @@
+#!/bin/sh
+exec git ls-files --unmerged --format '%(path)' | sort -u
