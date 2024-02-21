@@ -67,10 +67,6 @@ gh-md-toc:
     > bin/gh-md-toc
   chmod +x bin/gh-md-toc
 
-shell-theme:
-  echo eval "$("./submodules/base16-shell/profile_helper.sh")"
-  echo base16_seti
-
 disable-power-chime:
   defaults write com.apple.PowerChime ChimeOnNoHardware -bool true
   killall PowerChime
