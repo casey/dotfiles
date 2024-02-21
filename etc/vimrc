@@ -337,13 +337,16 @@ map <leader>og <plug>(GrepperOperator)|    " grepper operator
 map <leader>or <plug>(quickrun-op)|        " run
 map <leader>os <plug>(operator-sort)|      " sort operator
 
-" bufferline navigation
+" buffers
 nnoremap <silent> <c-h> <cmd>BufferPrevious<cr>
+nnoremap <silent> <c-i> <cmd>BufferLast<cr>
 nnoremap <silent> <c-l> <cmd>BufferNext<cr>
+nnoremap <silent> <m-s> <cmd>BufferPickDelete<cr>
+nnoremap <silent> S <cmd>BufferPick<cr>
+
+" file tree
 nnoremap <silent> <c-c> <cmd>NvimTreeFindFileToggle<cr>
 nnoremap <silent> <c-n> <cmd>NvimTreeToggle<cr>
-nnoremap <silent> <c-y> <cmd>BufferPick<cr>
-nnoremap <silent> <c-z> <cmd>BufferLast<cr>
 
 " objects
 " free g?:        byzjk
