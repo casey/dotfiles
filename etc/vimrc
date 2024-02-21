@@ -342,8 +342,8 @@ map <leader>os <plug>(operator-sort)|      " sort operator
 
 " bufferline navigation
 nnoremap <silent> <c-h> <cmd>BufferPrevious<cr>
-nnoremap <silent> <c-i> <cmd>NvimTreeFindFile<cr>
 nnoremap <silent> <c-l> <cmd>BufferNext<cr>
+nnoremap <silent> <c-c> <cmd>NvimTreeFindFileToggle<cr>
 nnoremap <silent> <c-n> <cmd>NvimTreeToggle<cr>
 nnoremap <silent> <c-y> <cmd>BufferPick<cr>
 nnoremap <silent> <c-z> <cmd>BufferLast<cr>
