@@ -109,12 +109,10 @@ Plug 'lewis6991/gitsigns.nvim', { 'branch': 'main' }
 
 call plug#end()
 
-
 "" sources
 
 source ~/.vim/functions.vim
 " py3file ~/.vim.py
-
 
 "" settings
 
@@ -243,7 +241,6 @@ endif
 
 " use two space soft tabs
 call Stops(2)
-
 
 "" lettings
 
@@ -464,13 +461,11 @@ nnoremap <leader>ev :e ~/.vimrc<cr>
 call Alias('Tab',  'Tabularize')
 call Alias('Grep', 'Grepper'   )
 
-
 "" digraphs
 
 digraphs fH 9753|  " reversed horizontal fleuron
 digraphs fh 10087| " horizontal fleuron
 digraphs fv 10086| " vertical fleuron
-
 
 "" colors
 
@@ -493,7 +488,6 @@ if &t_Co > 2 || has("gui_running")
   hi gitcommitSummary guifg=#55b5db
 endif
 
-
 "" commands
 
 command! -narg=* PyEval python3 EvaluateCurrentLine(<f-args>)
@@ -505,7 +499,6 @@ command! -bang -nargs=* AllLines
   \   fzf#vim#with_preview({'options': ['--delimiter=:', '--nth=4..']}), <bang>0)
 
 command! -nargs=+ -complete=command BufDo call BufDo(<q-args>)
-
 
 "" autocommands
 
