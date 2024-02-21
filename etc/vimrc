@@ -358,6 +358,7 @@ nnoremap + :call QuickfixNext(0)<cr>|                  " go to next error
 nnoremap <c-b> <c-o>|                                  " jump back
 nnoremap <c-f> <c-i>|                                  " jump forward
 nnoremap <c-k> :AllLines<cr>|                          " search lines
+nnoremap <c-p> :Telescope find_files<cr>|              " search files
 nnoremap <c-q> :call Leave()<cr>|                      " close window, close buffer or quit
 nnoremap <c-s> :call CorrectSpellingError()<cr>|       " correct spelling error or search symbols
 nnoremap <leader> <nop>|                               " reserve for three-key mappings
