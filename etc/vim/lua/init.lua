@@ -1,4 +1,12 @@
-require('lspconfig').rust_analyzer.setup({
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+require'barbar'.setup {
+  auto_hide = 1,
+  animation = false,
+}
+
+require'lspconfig'.rust_analyzer.setup {
   settings = {
     ["rust-analyzer"] = {
       cargo = {
@@ -8,7 +16,7 @@ require('lspconfig').rust_analyzer.setup({
       },
     }
   }
-})
+}
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics,
@@ -20,7 +28,16 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   }
 )
 
-require('nvim-treesitter.configs').setup({
+require'lualine'.setup {
+  options = {
+    icons_enabled = false,
+  },
+}
+
+require'nvim-tree'.setup {
+}
+
+require'nvim-treesitter.configs'.setup {
   ensure_installed = { "lua", "rust", "vim", "vimdoc" },
   highlight = {
     enable = true,
@@ -35,7 +52,7 @@ require('nvim-treesitter.configs').setup({
       node_decremental = "<bs>",
     },
   },
-})
+}
 
 vim.api.nvim_create_augroup("cmdwin_treesitter", {
   clear = true,

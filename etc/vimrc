@@ -5,7 +5,6 @@ inoremap <c-j> <esc>
 nnoremap <c-j> <esc>
 vnoremap <c-j> <esc>
 
-
 "" plugins
 
 filetype plugin on " turn on filetype plugins
@@ -17,7 +16,6 @@ call plug#begin()
 Plug 'AndrewRadev/splitjoin.vim'          " split/join single/multi line constructs
 Plug 'airblade/vim-rooter'                " automatic cd to project root
 Plug 'alopatindev/cargo-limit'            " cargo-limit integration
-Plug 'casey/vim-airline-themes'           " color themes for airline
 Plug 'christoomey/vim-tmux-navigator'     " navigate between vim and tmux splits
 Plug 'coderifous/textobj-word-column.vim' " column related text objects
 Plug 'dense-analysis/ale'                 " async lint 'n' fix engine
@@ -43,7 +41,11 @@ Plug 'mattn/webapi-vim'                   " web functionality
 Plug 'mbbill/undotree'                    " visualize undo history as tree
 Plug 'mhinz/vim-grepper'                  " win at grep
 Plug 'neovim/nvim-lspconfig'              " nvim language server client configurations
+Plug 'nvim-lualine/lualine.nvim'          " status line
+Plug 'nvim-tree/nvim-tree.lua'            " file tree
+Plug 'nvim-tree/nvim-web-devicons'        " filetype icons
 Plug 'romainl/vim-qf'                     " quickfix improvements
+Plug 'romgrk/barbar.nvim'                 " bufferline
 Plug 'saaguero/vim-textobj-pastedtext'    " text object for last pasted text
 Plug 'tmux-plugins/vim-tmux'              " tmux configuration
 Plug 'tmux-plugins/vim-tmux-focus-events' " recognize tmux focus events
@@ -58,7 +60,6 @@ Plug 'tpope/vim-rsi'                      " readline bindings
 Plug 'tpope/vim-surround'                 " quoting and parenthesizing
 Plug 'tpope/vim-unimpaired'               " pairs of bracket mappings
 Plug 'tyru/open-browser.vim'              " open urls in browser
-Plug 'vim-airline/vim-airline'            " pretty and lightweight status and tab lines
 Plug 'vim-scripts/AnsiEsc.vim'            " draw ansi escape sequences as colors
 Plug 'vim-scripts/Rename'                 " rename the current file
 Plug 'vim-utils/vim-man'                  " improved man page viewing
@@ -70,9 +71,8 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' }
 
 " conditionally loaded plugins
-Plug 'mattn/gist-vim',      {'on': 'Gist'          } " create gists
-Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'} " nerd tree file drawer
-Plug 'tyru/capture.vim',    {'on': 'Capture'       } " capture command output in a buffer
+Plug 'mattn/gist-vim',   {'on': 'Gist'    } " create gists
+Plug 'tyru/capture.vim', {'on': 'Capture' } " capture command output in a buffer
 
 " language specific plugins
 Plug 'rust-lang/rust.vim'      " rust
@@ -103,6 +103,9 @@ Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 
 " tokyonight colorscheme
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+
+" git status icons
+Plug 'lewis6991/gitsigns.nvim', { 'branch': 'main' }
 
 call plug#end()
 
@@ -245,36 +248,11 @@ call Stops(2)
 "" lettings
 
 let c_no_curly_error = 1 " {} inside [] or () is not an error
-let g:NERDTreeMinimalUI = 1 " hide nerdtree help shortcut
-let g:NERDTreeWinSize = 20 " make nerdtree 20 columns wide
-let g:airline#extensions#ale#enabled = 1 " enable ale extension
-let g:airline#extensions#tabline#buffer_idx_mode = 1 " show buffer indices
-let g:airline#extensions#tabline#buffer_min_count = 2 " no tabline for less than 2 buffers
-let g:airline#extensions#tabline#buffer_nr_show = 0 " don't show buffer numbers
-let g:airline#extensions#tabline#buffers_label = '' " hide buffers label
-let g:airline#extensions#tabline#enabled = 1 " enable the tabline
-let g:airline#extensions#tabline#left_alt_sep = '' " hide left alt separator
-let g:airline#extensions#tabline#left_sep = '' " hide left separator
-let g:airline#extensions#tabline#right_alt_sep = '' " hide right alt separator
-let g:airline#extensions#tabline#right_sep = '' " hide right separator
-let g:airline#extensions#tabline#show_buffers = 1 " show buffers when no tabs are open
-let g:airline#extensions#tabline#show_close_button = 0 " don't show close button
-let g:airline#extensions#tabline#show_splits = 0 " don't show tab name on right
-let g:airline#extensions#tabline#show_tab_nr = 0 " don't show tab number
-let g:airline#extensions#tabline#show_tab_type = 0 " don't show tab type
-let g:airline#extensions#whitespace#enabled = 0 " turn off whitespace checker
-let g:airline_detect_modified = 1 " highlight modified buffers
-let g:airline_left_sep = '' " turn off left separator
-let g:airline_powerline_fonts = 1 " fixes missing whitespace in tabline
-let g:airline_right_sep = '' " turn off right separator
-let g:airline_skip_empty_sections = 1 " hide empty sections
 let g:gist_post_private = 1 " make gists private by default
 let g:gitgutter_enabled = 0 " enable gitgutter by default
 let g:hexmode_patterns = '*.wasm' " open wasm files in hexmode
 let g:incsearch#auto_nohlsearch = 1 " turn off hlsearch
 let g:investigate_use_dash = 1 " make investigate use dash on macos
-let g:netrw_fastbrowse = 0 " don't retain closed netrw buffers
-let g:netrw_nogx = 1 " disable netrw's gx mapping
 let g:pastedtext_select_key = 'gl' " use gl for last pasted text mappings
 let g:qf_bufname_or_text = 2 " filter only on quickfix text
 let g:rust_recommended_style = 0 " use 2 space instead of 4 space tabs
@@ -288,23 +266,6 @@ let g:vim_markdown_new_list_item_indent = 2 " make indent smaller
 let g:vim_search_pulse_mode = 'pattern' " pulse pattern not line
 let g:eunuch_no_maps = 1 " disable auto-shebang
 let mapleader = "\<space>" " space is my leader
-
-call airline#parts#define_function('lsp-server-status', 'LspServerStatus')
-
-" display quickfix message count in error section
-let g:airline_section_error = airline#section#create(['%{len(getqflist())}'])
-
-" display lsp server status
-let g:airline_section_x = airline#section#create(['filetype', 'lsp-server-status'])
-
-" hide warning messages
-let g:airline_section_warning = airline#section#create([])
-
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-
-let g:airline_symbols.dirty = '…'
 
 let g:EasyMotion_do_mapping = 0                             " disable default mappings
 let g:EasyMotion_keys       = 'ASDGHKLQWERTYUIOPZXCVBNMFJ;' " targets
@@ -379,32 +340,24 @@ map <leader>og <plug>(GrepperOperator)|    " grepper operator
 map <leader>or <plug>(quickrun-op)|        " run
 map <leader>os <plug>(operator-sort)|      " sort operator
 
-" airline navigation
-nmap <leader>1 <plug>AirlineSelectTab1
-nmap <leader>2 <plug>AirlineSelectTab2
-nmap <leader>3 <plug>AirlineSelectTab3
-nmap <leader>4 <plug>AirlineSelectTab4
-nmap <leader>5 <plug>AirlineSelectTab5
-nmap <leader>6 <plug>AirlineSelectTab6
-nmap <leader>7 <plug>AirlineSelectTab7
-nmap <leader>8 <plug>AirlineSelectTab8
-nmap <leader>9 <plug>AirlineSelectTab9
-nmap <c-h> <plug>AirlineSelectPrevTab
-nmap <c-l> <plug>AirlineSelectNextTab
+" bufferline navigation
+nnoremap <silent> <c-h> <cmd>BufferPrevious<cr>
+nnoremap <silent> <c-i> <cmd>NvimTreeFindFile<cr>
+nnoremap <silent> <c-l> <cmd>BufferNext<cr>
+nnoremap <silent> <c-n> <cmd>NvimTreeToggle<cr>
+nnoremap <silent> <c-y> <cmd>BufferPick<cr>
+nnoremap <silent> <c-z> <cmd>BufferLast<cr>
 
 " objects
 " free g?:        byzjk
 " free a? and i?: dfghijkmoqruvxyz
 
 " non-recursive mappings
-cnoremap <c-k> <c-\>eKillCmdline()<cr>|                " kill to end of line
 inoremap <c-s> <c-g>u<Esc>[s1z=`]a<c-g>u|              " fix last spelling error
 nnoremap + :call QuickfixNext(0)<cr>|                  " go to next error
 nnoremap <c-b> <c-o>|                                  " jump back
 nnoremap <c-f> <c-i>|                                  " jump forward
 nnoremap <c-k> :AllLines<cr>|                          " search lines
-nnoremap <c-n> :Telescope lsp_dynamic_workspace_symbols<cr>| " search symbols
-nnoremap <c-p> :Telescope find_files<cr>|              " search files
 nnoremap <c-q> :call Leave()<cr>|                      " close window, close buffer or quit
 nnoremap <c-s> :call CorrectSpellingError()<cr>|       " correct spelling error or search symbols
 nnoremap <leader> <nop>|                               " reserve for three-key mappings
@@ -473,7 +426,6 @@ nnoremap <leader>tn :call ToggleLineNumbers()<cr>|     " toggle line numbers
 nnoremap <leader>tp :Goyo<cr>|                         " toggle prose mode
 nnoremap <leader>tr :call ToggleRelativeNumbers()<cr>| " toggle line numbers
 nnoremap <leader>ts :setlocal spell!<cr>|              " toggle spelling
-nnoremap <leader>tt :NERDTreeToggle<cr>|               " toggle nerdtree
 nnoremap <leader>tu :UndotreeToggle<cr>|               " toggle undotree
 nnoremap <leader>tw :call ToggleWhitespace()<cr>|      " toggle whitespace
 nnoremap <leader>tz :call ToggleZoom()<cr>|            " toggle zoom
@@ -582,9 +534,6 @@ augroup vimrc
 
   " use local and stdlib rusty-tags.vi as rust source tags file
   autocmd BufRead *.rs setlocal tags=./.rusty-tags.vi;/,$RUST_SRC_PATH/.rusty-tags.vi
-
-  " allow netrw windows to be closed
-  autocmd FileType netrw setlocal bufhidden=delete
 
   " highlight suggested commit title length
   autocmd FileType gitcommit set colorcolumn=51

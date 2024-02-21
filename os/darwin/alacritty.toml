@@ -44,21 +44,21 @@ color = '#db4b4b'
 [font]
 size = 12.0
 
-[font.bold]
-family = "DejaVu Sans Mono for Powerline"
-style = "Bold"
-
 [font.glyph_offset]
 x = 0
 y = 0
 
+[font.bold]
+family = "DejaVuSansM Nerd Font"
+style = "Bold"
+
 [font.italic]
-family = "DejaVu Sans Mono for Powerline"
+family = "DejaVuSansM Nerd Font"
 style = "Oblique"
 
 [font.normal]
-family = "DejaVu Sans Mono for Powerline"
-style = "Book"
+family = "DejaVuSansM Nerd Font"
+style = "Regular"
 
 [font.offset]
 x = 0

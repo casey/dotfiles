@@ -35,13 +35,13 @@ formulae:
   brew install tmux
   brew install zsh
   # casks
-  brew cask install vlc
-  brew cask install alacritty
-  brew cask install google-chrome
-  brew cask install quicksilver
+  brew install iina
+  brew install alacritty
+  brew install google-chrome
+  brew install quicksilver
   # fonts
   brew tap homebrew/cask-fonts
-  brew install font-dejavu-sans-mono-for-powerline
+  brew install font-dejavu-sans-mono-nerd-font
 
 services:
   brew services start bitcoin
