@@ -196,6 +196,27 @@ set viminfo +=f1   " save file marks
 set viminfo +=h    " disable hlsearch
 set viminfo +=s10  " maximum number of KB to save from a register
 
+"" colors
+
+if &t_Co > 2 || has("gui_running")
+  syntax on
+  set t_Co=256
+  set termguicolors
+  colorscheme tokyonight-night
+  hi NonText ctermfg=11
+  hi SpellBad cterm=underline
+  hi SpellCap cterm=italic
+  hi SpellLocal cterm=italic
+  hi SpellRare cterm=italic
+  hi link EasyMotionIncSearch     Search
+  hi link EasyMotionMoveHL        Search
+  hi link EasyMotionShade         Comment
+  hi link EasyMotionTarget        ErrorMsg
+  hi link EasyMotionTarget2First  Search
+  hi link EasyMotionTarget2Second Search
+  hi gitcommitSummary guifg=#55b5db
+endif
+
 " vi flavor specific configuration
 if has('nvim')
   " load lua configuration
@@ -472,27 +493,6 @@ call Alias('Grep', 'Grepper'   )
 digraphs fH 9753|  " reversed horizontal fleuron
 digraphs fh 10087| " horizontal fleuron
 digraphs fv 10086| " vertical fleuron
-
-"" colors
-
-if &t_Co > 2 || has("gui_running")
-  syntax on
-  set t_Co=256
-  set termguicolors
-  colorscheme tokyonight-night
-  hi NonText ctermfg=11
-  hi SpellBad cterm=underline
-  hi SpellCap cterm=italic
-  hi SpellLocal cterm=italic
-  hi SpellRare cterm=italic
-  hi link EasyMotionIncSearch     Search
-  hi link EasyMotionMoveHL        Search
-  hi link EasyMotionShade         Comment
-  hi link EasyMotionTarget        ErrorMsg
-  hi link EasyMotionTarget2First  Search
-  hi link EasyMotionTarget2Second Search
-  hi gitcommitSummary guifg=#55b5db
-endif
 
 "" commands
 

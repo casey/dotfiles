@@ -37,6 +37,8 @@ local quickfix = function()
   end
 end
 
+local colors = require("tokyonight.colors").setup()
+
 require'lualine'.setup {
   options = {
     icons_enabled = false,
@@ -46,8 +48,8 @@ require'lualine'.setup {
       'branch',
       'diff',
       require('lsp-progress').progress,
+      { quickfix, color = { fg = colors.red1 } },
       'diagnostics',
-      { quickfix, color = { fg = "coral" } },
     },
   },
 }
