@@ -47,7 +47,7 @@ require'lualine'.setup {
       'diff',
       require('lsp-progress').progress,
       'diagnostics',
-      { quickfix, color = { fg = "orange" } },
+      { quickfix, color = { fg = "coral" } },
     },
   },
 }
