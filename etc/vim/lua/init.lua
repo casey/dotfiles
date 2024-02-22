@@ -14,6 +14,9 @@ require'lspconfig'.rust_analyzer.setup {
           enable = false,
         },
       },
+      checkOnSave = {
+        enable = false,
+      },
     }
   }
 }
@@ -39,6 +42,8 @@ end
 
 local colors = require("tokyonight.colors").setup()
 
+require'trouble'.setup()
+
 require'lualine'.setup {
   options = {
     icons_enabled = false,
@@ -46,7 +51,6 @@ require'lualine'.setup {
   sections = {
     lualine_b = {
       'branch',
-      'diff',
       require('lsp-progress').progress,
       { quickfix, color = { fg = colors.red1 } },
       'diagnostics',

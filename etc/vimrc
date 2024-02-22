@@ -110,6 +110,9 @@ Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 " git status icons
 Plug 'lewis6991/gitsigns.nvim', { 'branch': 'main' }
 
+" diagnostics list
+Plug 'folke/trouble.nvim', { 'branch': 'main' }
+
 call plug#end()
 
 "" sources
@@ -215,40 +218,6 @@ if &t_Co > 2 || has("gui_running")
   hi link EasyMotionTarget2First  Search
   hi link EasyMotionTarget2Second Search
   hi gitcommitSummary guifg=#55b5db
-endif
-
-" vi flavor specific configuration
-if has('nvim')
-  " load lua configuration
-  lua require('init')
-
-  set viminfo +=n~/.config/nvim/viminfo " set viminfo file name for neovim
-  set undodir =~/.config/nvim/undo " backup directory location
-
-  " tmux navigator bindings
-  nnoremap <silent> <m-h> :TmuxNavigateLeft<cr>
-  nnoremap <silent> <m-k> :TmuxNavigateUp<cr>
-  nnoremap <silent> <m-j> :TmuxNavigateDown<cr>
-  nnoremap <silent> <m-l> :TmuxNavigateRight<cr>
-
-  " lsp bindings
-  nnoremap <silent> <m-a> <cmd>lua require('lspconfig').rust_analyzer.setup({})<cr>
-  nnoremap <silent> <m-d> <cmd>lua vim.lsp.buf.definition()<cr>
-  nnoremap <silent> <m-n> <cmd>lua vim.diagnostic.goto_next()<cr>
-  nnoremap <silent> <m-p> <cmd>lua vim.diagnostic.goto_prev()<cr>
-  nnoremap <silent> <m-r> <cmd>lua vim.lsp.buf.references()<cr>
-  nnoremap <silent> <m-t> <cmd>lua vim.lsp.buf.hover()<cr>
-  nnoremap <silent> <m-R> <cmd>lua vim.lsp.buf.rename()<cr>
-else
-  " settings
-  set viminfo +=n~/.vim/viminfo " set viminfo file name
-  set undodir =~/.vim/undo " backup directory location
-
-  " tmux navigator bindings
-  nnoremap <silent> h :TmuxNavigateLeft<cr>
-  nnoremap <silent> k :TmuxNavigateUp<cr>
-  nnoremap <silent> j :TmuxNavigateDown<cr>
-  nnoremap <silent> l :TmuxNavigateRight<cr>
 endif
 
 " turn on line numbers on pairing machine
@@ -557,3 +526,41 @@ augroup vimrc
   " enter insert mode in terminal
   autocmd TermOpen * startinsert
 augroup end
+
+" vi flavor specific configuration
+if has('nvim')
+  " set viminfo file name for neovim
+  set viminfo +=n~/.config/nvim/viminfo
+
+  " backup directory location
+  set undodir =~/.config/nvim/undo
+
+  " tmux navigator bindings
+  nnoremap <silent> <m-h> :TmuxNavigateLeft<cr>
+  nnoremap <silent> <m-k> :TmuxNavigateUp<cr>
+  nnoremap <silent> <m-j> :TmuxNavigateDown<cr>
+  nnoremap <silent> <m-l> :TmuxNavigateRight<cr>
+
+  " lsp bindings
+  nnoremap <silent> <m-a> <cmd>lua require('lspconfig').rust_analyzer.setup({})<cr>
+  nnoremap <silent> <m-d> <cmd>lua vim.lsp.buf.definition()<cr>
+  nnoremap <silent> <m-n> <cmd>lua vim.diagnostic.goto_next()<cr>
+  nnoremap <silent> <m-p> <cmd>lua vim.diagnostic.goto_prev()<cr>
+  nnoremap <silent> <m-r> <cmd>lua vim.lsp.buf.references()<cr>
+  nnoremap <silent> <m-t> <cmd>lua vim.lsp.buf.hover()<cr>
+  nnoremap <silent> <m-R> <cmd>lua vim.lsp.buf.rename()<cr>
+  nnoremap <silent> <c-F> <cmd>lua vim.diagnostic.open_float()<cr>
+
+  " load lua configuration
+  lua require('init')
+else
+  " settings
+  set viminfo +=n~/.vim/viminfo " set viminfo file name
+  set undodir =~/.vim/undo " backup directory location
+
+  " tmux navigator bindings
+  nnoremap <silent> h :TmuxNavigateLeft<cr>
+  nnoremap <silent> k :TmuxNavigateUp<cr>
+  nnoremap <silent> j :TmuxNavigateDown<cr>
+  nnoremap <silent> l :TmuxNavigateRight<cr>
+endif
