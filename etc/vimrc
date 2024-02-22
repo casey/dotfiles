@@ -98,6 +98,9 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " show git hunks in gutter
 Plug 'airblade/vim-gitgutter', {'branch': 'main'}
 
+" lsp progress
+Plug 'linrongbin16/lsp-progress.nvim', {'branch': 'main'}
+
 " fzf binary and runtime path files
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 

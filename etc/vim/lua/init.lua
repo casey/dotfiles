@@ -28,14 +28,39 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   }
 )
 
+local quickfix = function()
+  local len = vim.api.nvim_eval('len(getqflist())')
+  if len > 0 then
+    return len
+  else
+    return ''
+  end
+end
+
 require'lualine'.setup {
   options = {
     icons_enabled = false,
   },
+  sections = {
+    lualine_b = {
+      'branch',
+      'diff',
+      require('lsp-progress').progress,
+      'diagnostics',
+      { quickfix, color = { fg = "orange" } },
+    },
+  },
 }
 
-require'nvim-tree'.setup {
+require'lsp-progress'.setup {
+  client_format = function(client_name, spinner, series_messages)
+    if #series_messages > 0 then
+      return spinner
+    end
+  end,
 }
+
+require'nvim-tree'.setup()
 
 require'nvim-treesitter.configs'.setup {
   ensure_installed = { "lua", "rust", "vim", "vimdoc" },
