@@ -4,9 +4,7 @@
     - mkdir -p ~/Library/Music
 
 - link:
-    ~/.bitcoin: ~/Library/Application Support/Bitcoin
     ~/.config/alacritty/alacritty.toml: alacritty.toml
-    ~/.ord: ~/Library/Application Support/ord
     ~/Library/Application Support/Bitcoin/bitcoin.conf: ../../etc/bitcoin.conf
     ~/Library/Application Support/Code/User/settings.json: ../../etc/vscode.json
     ~/Library/LaunchAgents/com.rodarmor.bitcoin-regtest.plist: com.rodarmor.bitcoin-regtest.plist

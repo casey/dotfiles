@@ -38,7 +38,7 @@
   - ~/tmp
 
 - link:
-    ~/.bitcoin: '~/Library/Application Support/Bitcoin/'
+    ~/.bitcoin: ~/Library/Application Support/Bitcoin
     ~/.colordiffrc: etc/colordiffrc
     ~/.commitments: etc/commitments
     ~/.config/bpython: etc/bpython
@@ -75,6 +75,7 @@
     ~/.mutt/muttrc: etc/muttrc
     ~/.nethackrc: etc/nethackrc
     ~/.nixpkgs/config.nix: etc/nixpkgs.nix
+    ~/.ord: ~/Library/Application Support/ord
     ~/.plan: etc/plan
     ~/.project-root.yaml: etc/project-root.yaml
     ~/.project: etc/project
