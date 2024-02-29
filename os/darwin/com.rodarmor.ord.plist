@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.rodarmor.ord</string>
+  <key>LimitLoadToSessionType</key>
+  <array>
+    <string>Aqua</string>
+    <string>Background</string>
+    <string>LoginWindow</string>
+    <string>StandardIO</string>
+    <string>System</string>
+  </array>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/Users/rodarmor/.cargo/bin/ord</string>
+    <string>--index-sats</string>
+    <string>server</string>
+    <string>--http-port</string>
+    <string>9000</string>
+  </array>
+  <key>RunAtLoad</key>
+  <true/>
+</dict>
+</plist>
