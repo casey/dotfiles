@@ -104,14 +104,14 @@ Plug 'linrongbin16/lsp-progress.nvim', {'branch': 'main'}
 " fzf binary and runtime path files
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 
-" tokyonight colorscheme
-Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
-
 " git status icons
 Plug 'lewis6991/gitsigns.nvim', { 'branch': 'main' }
 
 " diagnostics list
 Plug 'folke/trouble.nvim', { 'branch': 'main' }
+
+" onedark colorscheme
+Plug 'olimorris/onedarkpro.nvim', {'branch': 'main'}
 
 call plug#end()
 
@@ -205,7 +205,6 @@ if &t_Co > 2 || has("gui_running")
   syntax on
   set t_Co=256
   set termguicolors
-  colorscheme tokyonight-night
   hi NonText ctermfg=11
   hi SpellBad cterm=underline
   hi SpellCap cterm=italic

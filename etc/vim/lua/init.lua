@@ -40,19 +40,41 @@ local quickfix = function()
   end
 end
 
-local colors = require("tokyonight.colors").setup()
-
 require'trouble'.setup()
+
+require'onedarkpro'.setup {
+  highlights = {
+    EndOfBuffer = { fg = { onedark_dark = "${blue}" } }
+  }
+}
+
+vim.cmd('colorscheme onedark_dark')
+
+local colors = require'onedarkpro.helpers'.get_colors('onedark_dark')
+
+local lualine_theme = require'lualine.themes.onedark_dark'
+
+lualine_theme.insert.c = lualine_theme.normal.c
+lualine_theme.normal.c = nil
+
+local insert = lualine_theme.insert
+local normal = lualine_theme.normal
+local visual = lualine_theme.visual
+
+lualine_theme.insert = visual
+lualine_theme.normal = insert
+lualine_theme.visual = normal
 
 require'lualine'.setup {
   options = {
     icons_enabled = false,
+    theme = lualine_theme,
   },
   sections = {
     lualine_b = {
       'branch',
       require('lsp-progress').progress,
-      { quickfix, color = { fg = colors.red1 } },
+      { quickfix, color = { fg = colors.red } },
       'diagnostics',
     },
   },
