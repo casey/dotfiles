@@ -44,8 +44,11 @@ require'trouble'.setup()
 
 require'onedarkpro'.setup {
   highlights = {
-    EndOfBuffer = { fg = { onedark_dark = "${blue}" } }
-  }
+    BufferCurrent = { fg = { onedark_dark = "${blue}" } },
+    BufferCurrentMod = { fg = { onedark_dark = "${yellow}" } },
+    BufferCurrentSign = { fg = { onedark_dark = "${bg}" } },
+    EndOfBuffer = { fg = { onedark_dark = "${blue}" } },
+  },
 }
 
 vim.cmd('colorscheme onedark_dark')
