@@ -9,9 +9,9 @@ draw_bold_text_with_bright_colors = true
 background = '#1a1b26'
 foreground = '#c0caf5'
 
-#[colors.cursor]
-#cursor = '#c0caf5'
-#text = '#1a1b26'
+[colors.cursor]
+cursor = '#c0caf5'
+text = '#1a1b26'
 
 [colors.normal]
 black = '#15161e'
