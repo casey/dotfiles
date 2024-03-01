@@ -352,7 +352,6 @@ nnoremap <c-b> <c-o>|                                  " jump back
 nnoremap <c-f> <c-i>|                                  " jump forward
 nnoremap <c-k> :AllLines<cr>|                          " search lines
 nnoremap <c-p> :Telescope find_files<cr>|              " search files
-nnoremap <c-q> :call Leave()<cr>|                      " close window, close buffer or quit
 nnoremap <c-s> :call CorrectSpellingError()<cr>|       " correct spelling error or search symbols
 nnoremap <leader> <nop>|                               " reserve for three-key mappings
 nnoremap <leader>" :vsplit<cr>|                        " vertical split
@@ -426,6 +425,7 @@ nnoremap <leader>tz :call ToggleZoom()<cr>|            " toggle zoom
 nnoremap <leader>wa :wa<cr>|                           " write all buffers
 nnoremap <leader>wo <c-w>o|                            " close all windows but current
 nnoremap <leader>zz :wqa<cr>|                          " save all files and exit
+nnoremap <silent> <c-q> :call Leave()<cr>|             " close window, close buffer or quit
 nnoremap X D|                                          " cut until end of line
 nnoremap Y y$|                                         " yank to end of line
 nnoremap _ :call QuickfixNext(1)<cr>|                  " go to previous error
