@@ -113,6 +113,9 @@ Plug 'folke/trouble.nvim', { 'branch': 'main' }
 " onedark colorscheme
 Plug 'olimorris/onedarkpro.nvim', {'branch': 'main'}
 
+" delay diagnostics when in insert mode
+Plug 'https://gitlab.com/yorickpeterse/nvim-dd.git', {'branch': 'main'}
+
 call plug#end()
 
 "" sources
@@ -307,7 +310,6 @@ cabbrev <expr> %% expand('%:p:h')
 " recursive mappings
 map  #  <plug>(incsearch-nohl-#)|             " incsearch: word under cursor backward
 map  *  <plug>(incsearch-nohl-*)|             " incsearch: word under cursor forward
-map  -  <plug>(qf_qf_toggle_stay)|            " toggle quickfix window
 map  /  <plug>(incsearch-forward)|            " incsearch: search forward
 map  ?  <plug>(incsearch-backward)|           " incsearch: search backward
 map  N  <plug>(incsearch-nohl-N)<Plug>Pulse|  " incsearch: repeat last search backward
@@ -347,7 +349,6 @@ nnoremap <silent> <c-n> <cmd>NvimTreeToggle<cr>
 
 " non-recursive mappings
 inoremap <c-s> <c-g>u<Esc>[s1z=`]a<c-g>u|              " fix last spelling error
-nnoremap + :call QuickfixNext(0)<cr>|                  " go to next error
 nnoremap <c-b> <c-o>|                                  " jump back
 nnoremap <c-f> <c-i>|                                  " jump forward
 nnoremap <c-k> :AllLines<cr>|                          " search lines
@@ -391,7 +392,6 @@ nnoremap <leader>op :silent !ope %<cr>|                " open current file
 nnoremap <leader>pc :pwd<cr>|                          " print cwd
 nnoremap <leader>pu :PlugUpdate<cr>|                   " plug update
 nnoremap <leader>py :PyEval<cr>|                       " evaluate current line with python3
-nnoremap <leader>qc :call setqflist([])<cr>|           " clear quickfix list
 nnoremap <leader>qe :cq<cr>|                           " quit with error code
 nnoremap <leader>qq :q<cr>|                            " quit
 nnoremap <leader>ra :!cargo add <c-r><c-w><cr>|        " add crate name under cursor
@@ -428,7 +428,6 @@ nnoremap <leader>zz :wqa<cr>|                          " save all files and exit
 nnoremap <silent> <c-q> :call Leave()<cr>|             " close window, close buffer or quit
 nnoremap X D|                                          " cut until end of line
 nnoremap Y y$|                                         " yank to end of line
-nnoremap _ :call QuickfixNext(1)<cr>|                  " go to previous error
 nnoremap j gj|                                         " go down one screen line
 nnoremap k gk|                                         " go up one screen line
 vnoremap <leader>s  :sort<cr>|                         " sort lines

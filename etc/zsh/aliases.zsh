@@ -30,6 +30,7 @@ alias: pw 'curl https://rodarmor.com'
 alias: sl 'ls'
 alias: tb 'nc termbin.com 9999'
 alias: tp 'tail -f ~/.ping'
+alias: vi 'vim'
 alias: zf 'zsh-edit-function'
 
 # Ⅲ
@@ -51,9 +52,6 @@ alias: tree 'erd --layout inverted'
 # Ⅴ
 alias: egrep 'egrep --color=auto'
 alias: eject 'drutil tray eject'
-
-# Ⅸ
-alias: colortest '~/src/dotfiles/submodules/base16-shell/colortest'
 
 # git
 alias: gc 'git commit'

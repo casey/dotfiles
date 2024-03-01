@@ -21,6 +21,53 @@ require'lspconfig'.rust_analyzer.setup {
   }
 }
 
+local trouble = require'trouble'
+
+trouble.setup {
+  auto_close = true,
+  height = 8,
+  multiline = true,
+  severity = vim.diagnostic.severity.ERROR,
+}
+
+vim.keymap.set('n', '-',
+  function()
+    if #vim.diagnostic.get() == 0 then
+      return
+    end
+
+    trouble.toggle()
+  end
+)
+
+vim.keymap.set('n', '+',
+  function()
+    if #vim.diagnostic.get() == 0 then
+      return
+    end
+
+    if not trouble.is_open() then
+      trouble.open()
+    else
+      trouble.next({skip_groups = true, jump = true});
+    end
+  end
+)
+
+vim.keymap.set('n', '_',
+  function()
+    if #vim.diagnostic.get() == 0 then
+      return
+    end
+
+    if not trouble.is_open() then
+      trouble.open()
+    else
+      trouble.previous({skip_groups = true, jump = true});
+    end
+  end
+)
+
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics,
   {
@@ -31,6 +78,10 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   }
 )
 
+require('dd').setup({
+  timeout = 1000 * 60 * 10,
+})
+
 local quickfix = function()
   local len = vim.api.nvim_eval('len(getqflist())')
   if len > 0 then
@@ -39,8 +90,6 @@ local quickfix = function()
     return ''
   end
 end
-
-require'trouble'.setup()
 
 require'onedarkpro'.setup {
   highlights = {
@@ -78,7 +127,7 @@ require'lualine'.setup {
       'branch',
       require('lsp-progress').progress,
       { quickfix, color = { fg = colors.red } },
-      'diagnostics',
+      { 'diagnostics', sources = { 'nvim_workspace_diagnostic' } },
     },
   },
 }
