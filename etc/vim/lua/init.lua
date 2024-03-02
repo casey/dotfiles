@@ -11,10 +11,13 @@ require'lspconfig'.rust_analyzer.setup {
     ['rust-analyzer'] = {
       cargo = {
         buildScripts = {
-          enable = false,
+          enable = true,
         },
       },
       checkOnSave = {
+        enable = true,
+      },
+      diagnostics = {
         enable = false,
       },
     }
@@ -26,8 +29,9 @@ if vim.g.trouble ~= 0 then
 
   trouble.setup {
     auto_close = true,
+    auto_open = true,
     height = 8,
-    multiline = true,
+    multiline = false,
     severity = vim.diagnostic.severity.ERROR,
   }
 
