@@ -81,10 +81,6 @@ vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
   }
 )
 
--- require'dd'.setup({
---   timeout = 1000 * 60 * 10,
--- })
-
 local quickfix = function()
   local len = vim.api.nvim_eval('len(getqflist())')
   if len > 0 then
