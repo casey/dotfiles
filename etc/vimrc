@@ -253,6 +253,7 @@ let g:rust_recommended_style = 0 " use 2 space instead of 4 space tabs
 let g:rustfmt_autosave = 0 " run rustfmt on save
 let g:surround_indent = 1 " indent with '=' after surrounding
 let g:tmux_navigator_no_mappings = 1 " disable default tmux navigator mappings
+let g:trouble = 0 " enable trouble
 let g:undotree_WindowLayout = 2 " put undotree on left with full width diff
 let g:vim_markdown_auto_insert_bullets = 0 " don't insert list bullets
 let g:vim_markdown_folding_disabled = 1 " disable folding in markdown
@@ -526,6 +527,13 @@ augroup vimrc
   " enter insert mode in terminal
   autocmd TermOpen * startinsert
 augroup end
+
+if !g:trouble
+  map  -  <plug>(qf_qf_toggle_stay)| " toggle quickfix window
+  nnoremap + :call QuickfixNext(0)<cr>| " go to next error
+  nnoremap <leader>qc :call setqflist([])<cr>| " clear quickfix list
+  nnoremap _ :call QuickfixNext(1)<cr>| " go to previous error
+endif
 
 " vi flavor specific configuration
 if has('nvim')

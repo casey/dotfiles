@@ -21,52 +21,55 @@ require'lspconfig'.rust_analyzer.setup {
   }
 }
 
-local trouble = require'trouble'
+if vim.g.trouble ~= 0 then
+  local trouble = require'trouble'
 
-trouble.setup {
-  auto_close = true,
-  height = 8,
-  multiline = true,
-  severity = vim.diagnostic.severity.ERROR,
-}
+  trouble.setup {
+    auto_close = true,
+    height = 8,
+    multiline = true,
+    severity = vim.diagnostic.severity.ERROR,
+  }
 
-vim.keymap.set('n', '-',
-  function()
-    if #vim.diagnostic.get() == 0 then
-      return
+  vim.keymap.set('n', '-',
+    function()
+      if #vim.diagnostic.get() == 0 then
+        return
+      end
+
+      trouble.toggle()
     end
+  )
 
-    trouble.toggle()
-  end
-)
+  vim.keymap.set('n', '+',
+    function()
+      if #vim.diagnostic.get() == 0 then
+        return
+      end
 
-vim.keymap.set('n', '+',
-  function()
-    if #vim.diagnostic.get() == 0 then
-      return
+      if not trouble.is_open() then
+        trouble.open()
+      else
+        trouble.next({skip_groups = true, jump = true});
+      end
     end
+  )
 
-    if not trouble.is_open() then
-      trouble.open()
-    else
-      trouble.next({skip_groups = true, jump = true});
-    end
-  end
-)
+  vim.keymap.set('n', '_',
+    function()
+      if #vim.diagnostic.get() == 0 then
+        return
+      end
 
-vim.keymap.set('n', '_',
-  function()
-    if #vim.diagnostic.get() == 0 then
-      return
+      if not trouble.is_open() then
+        trouble.open()
+      else
+        trouble.previous({skip_groups = true, jump = true});
+      end
     end
+  )
+end
 
-    if not trouble.is_open() then
-      trouble.open()
-    else
-      trouble.previous({skip_groups = true, jump = true});
-    end
-  end
-)
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics,
