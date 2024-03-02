@@ -110,11 +110,11 @@ Plug 'lewis6991/gitsigns.nvim', { 'branch': 'main' }
 " diagnostics list
 Plug 'folke/trouble.nvim', { 'branch': 'main' }
 
-" onedark colorscheme
-Plug 'olimorris/onedarkpro.nvim', {'branch': 'main'}
-
 " delay diagnostics when in insert mode
 Plug 'https://gitlab.com/yorickpeterse/nvim-dd.git', {'branch': 'main'}
+
+" catppuccin colorscheme
+Plug 'catppuccin/nvim', { 'as': 'catppuccin', 'branch': 'main' }
 
 call plug#end()
 
@@ -528,7 +528,7 @@ augroup vimrc
   autocmd TermOpen * startinsert
 augroup end
 
-if !g:trouble
+if g:trouble == 0
   map  -  <plug>(qf_qf_toggle_stay)| " toggle quickfix window
   nnoremap + :call QuickfixNext(0)<cr>| " go to next error
   nnoremap <leader>qc :call setqflist([])<cr>| " clear quickfix list

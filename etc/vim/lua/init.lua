@@ -8,7 +8,7 @@ require'barbar'.setup {
 
 require'lspconfig'.rust_analyzer.setup {
   settings = {
-    ["rust-analyzer"] = {
+    ['rust-analyzer'] = {
       cargo = {
         buildScripts = {
           enable = false,
@@ -71,7 +71,7 @@ if vim.g.trouble ~= 0 then
 end
 
 
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics,
   {
     virtual_text = false,
@@ -81,9 +81,9 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   }
 )
 
-require('dd').setup({
-  timeout = 1000 * 60 * 10,
-})
+-- require'dd'.setup({
+--   timeout = 1000 * 60 * 10,
+-- })
 
 local quickfix = function()
   local len = vim.api.nvim_eval('len(getqflist())')
@@ -94,41 +94,26 @@ local quickfix = function()
   end
 end
 
-require'onedarkpro'.setup {
-  highlights = {
-    BufferCurrent = { fg = { onedark_dark = "${blue}" } },
-    BufferCurrentMod = { fg = { onedark_dark = "${yellow}" } },
-    BufferCurrentSign = { fg = { onedark_dark = "${bg}" } },
-    EndOfBuffer = { fg = { onedark_dark = "${blue}" } },
-  },
+require'catppuccin'.setup {
+  custom_highlights = function(colors)
+    return {
+      EndOfBuffer = { fg = colors.blue },
+    }
+  end
 }
 
-vim.cmd('colorscheme onedark_dark')
+vim.cmd.colorscheme 'catppuccin-mocha'
 
-local colors = require'onedarkpro.helpers'.get_colors('onedark_dark')
-
-local lualine_theme = require'lualine.themes.onedark_dark'
-
-lualine_theme.insert.c = lualine_theme.normal.c
-lualine_theme.normal.c = nil
-
-local insert = lualine_theme.insert
-local normal = lualine_theme.normal
-local visual = lualine_theme.visual
-
-lualine_theme.insert = visual
-lualine_theme.normal = insert
-lualine_theme.visual = normal
+local colors = require'catppuccin.palettes.mocha'
 
 require'lualine'.setup {
   options = {
     icons_enabled = false,
-    theme = lualine_theme,
   },
   sections = {
     lualine_b = {
       'branch',
-      require('lsp-progress').progress,
+      require'lsp-progress'.progress,
       { quickfix, color = { fg = colors.red } },
       { 'diagnostics', sources = { 'nvim_workspace_diagnostic' } },
     },
@@ -146,29 +131,29 @@ require'lsp-progress'.setup {
 require'nvim-tree'.setup()
 
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "lua", "rust", "vim", "vimdoc" },
+  ensure_installed = { 'lua', 'rust', 'vim', 'vimdoc' },
   highlight = {
     enable = true,
-    disable = { "vim", "vimdoc" }
+    disable = { 'vim', 'vimdoc' }
   },
   incremental_selection = {
     enable = true,
     keymaps = {
-      init_selection = "<cr>",
-      node_incremental = "<cr>",
-      scope_incremental = "<tab>",
-      node_decremental = "<bs>",
+      init_selection = '<cr>',
+      node_incremental = '<cr>',
+      scope_incremental = '<tab>',
+      node_decremental = '<bs>',
     },
   },
 }
 
-vim.api.nvim_create_augroup("cmdwin_treesitter", {
+vim.api.nvim_create_augroup('cmdwin_treesitter', {
   clear = true,
 })
 
-vim.api.nvim_create_autocmd("CmdwinEnter", {
-  pattern = "*",
-  command = "TSBufDisable incremental_selection",
-  group = "cmdwin_treesitter",
+vim.api.nvim_create_autocmd('CmdwinEnter', {
+  pattern = '*',
+  command = 'TSBufDisable incremental_selection',
+  group = 'cmdwin_treesitter',
   desc = "Disable treesitter's incremental selection in Command-line window",
 })
