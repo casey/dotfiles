@@ -6,22 +6,24 @@ require'barbar'.setup {
   animation = false,
 }
 
-require'lspconfig'.rust_analyzer.setup {
-  settings = {
-    ['rust-analyzer'] = {
-      cargo = {
-        buildScripts = {
+vim.g.rustaceanvim = {
+  server = {
+    default_settings = {
+      ['rust-analyzer'] = {
+        cargo = {
+          buildScripts = {
+            enable = true,
+          },
+        },
+        checkOnSave = {
           enable = true,
         },
+        diagnostics = {
+          enable = false,
+        },
       },
-      checkOnSave = {
-        enable = true,
-      },
-      diagnostics = {
-        enable = false,
-      },
-    }
-  }
+    },
+  },
 }
 
 if vim.g.trouble ~= 0 then

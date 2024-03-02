@@ -40,6 +40,7 @@ Plug 'kana/vim-textobj-user'              " user defined text objects
 Plug 'mattn/webapi-vim'                   " web functionality
 Plug 'mbbill/undotree'                    " visualize undo history as tree
 Plug 'mhinz/vim-grepper'                  " win at grep
+Plug 'mrcjkb/rustaceanvim'                " rust support
 Plug 'neovim/nvim-lspconfig'              " nvim language server client configurations
 Plug 'nvim-lualine/lualine.nvim'          " status line
 Plug 'nvim-tree/nvim-tree.lua'            " file tree
