@@ -16,6 +16,7 @@ call plug#begin()
 Plug 'AndrewRadev/splitjoin.vim'          " split/join single/multi line constructs
 Plug 'airblade/vim-rooter'                " automatic cd to project root
 Plug 'alopatindev/cargo-limit'            " cargo-limit integration
+Plug 'casey/reap.vim'                     " read, evaluate, annotate, and print python
 Plug 'christoomey/vim-tmux-navigator'     " navigate between vim and tmux splits
 Plug 'coderifous/textobj-word-column.vim' " column related text objects
 Plug 'dense-analysis/ale'                 " async lint 'n' fix engine
