@@ -99,6 +99,8 @@ end
 require'catppuccin'.setup {
   custom_highlights = function(colors)
     return {
+      BufferChanged = { fg = colors.yellow },
+      BufferCurrent = { fg = colors.blue },
       EndOfBuffer = { fg = colors.blue },
     }
   end
