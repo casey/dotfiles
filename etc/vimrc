@@ -33,7 +33,6 @@ Plug 'hiphish/rainbow-delimiters.nvim'    " rainbow delimiters
 Plug 'inside/vim-search-pulse'            " pulse search pattern
 Plug 'jez/vim-superman'                   " use vim as a manpage pager
 Plug 'junegunn/fzf.vim'                   " fuzzy searching using fzf
-Plug 'junegunn/goyo.vim'                  " prose mode
 Plug 'junegunn/vim-emoji'                 " emoji autocomplete
 Plug 'kana/vim-operator-user'             " allow user defined operators
 Plug 'kana/vim-textobj-entire'            " text object for the entire buffer
@@ -419,7 +418,6 @@ nnoremap <leader>th :Hexmode<cr>|                      " toggle hex mode
 nnoremap <leader>ti :call ToggleInterface()<cr>|       " toggle interface elements
 nnoremap <leader>tl :call ToggleLineWrap()<cr>|        " toggle line wrapping
 nnoremap <leader>tn :call ToggleLineNumbers()<cr>|     " toggle line numbers
-nnoremap <leader>tp :Goyo<cr>|                         " toggle prose mode
 nnoremap <leader>tr :call ToggleRelativeNumbers()<cr>| " toggle line numbers
 nnoremap <leader>ts :setlocal spell!<cr>|              " toggle spelling
 nnoremap <leader>tu :UndotreeToggle<cr>|               " toggle undotree
