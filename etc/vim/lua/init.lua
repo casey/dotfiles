@@ -4,6 +4,11 @@ vim.g.loaded_netrwPlugin = 1
 require'barbar'.setup {
   auto_hide = 1,
   animation = false,
+  icons = {
+    filetype = {
+      enabled = false,
+    },
+  },
 }
 
 vim.g.rustaceanvim = {
