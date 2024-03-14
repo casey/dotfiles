@@ -341,10 +341,6 @@ nnoremap <silent> <c-l> <cmd>BufferNext<cr>
 nnoremap <silent> <m-s> <cmd>BufferPickDelete<cr>
 nnoremap <silent> S <cmd>BufferPick<cr>
 
-" file tree
-nnoremap <silent> <c-c> <cmd>NvimTreeFindFileToggle<cr>
-nnoremap <silent> <c-n> <cmd>NvimTreeToggle<cr>
-
 " objects
 " free g?:        byzjk
 " free a? and i?: dfghijkmoqruvxyz
