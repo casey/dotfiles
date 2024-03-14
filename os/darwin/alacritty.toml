@@ -52,40 +52,16 @@ mods = "Control|Shift"
 enabled = true
 mods = "None"
 
- [[keyboard.bindings]]
- action = "ResetFontSize"
- key = "Key0"
- mods = "Command"
-
- [[keyboard.bindings]]
- action = "IncreaseFontSize"
- key = "Equals"
- mods = "Command"
-
- [[keyboard.bindings]]
- action = "DecreaseFontSize"
- key = "Minus"
- mods = "Command"
-
- [[keyboard.bindings]]
- action = "Paste"
- key = "V"
- mods = "Command"
-
- [[keyboard.bindings]]
- action = "Copy"
- key = "C"
- mods = "Command"
-
- [[keyboard.bindings]]
- action = "Quit"
- key = "Q"
- mods = "Command"
-
- [[keyboard.bindings]]
- action = "Quit"
- key = "W"
- mods = "Command"
+[keyboard]
+bindings = [
+  { mods = "Command", key = "C", action = "Copy" },
+  { mods = "Command", key = "Equals", action = "IncreaseFontSize" },
+  { mods = "Command", key = "Key0", action = "ResetFontSize" },
+  { mods = "Command", key = "Minus", action = "DecreaseFontSize" },
+  { mods = "Command", key = "Q", action = "Quit" },
+  { mods = "Command", key = "V", action = "Paste" },
+  { mods = "Command", key = "W", action = "Quit" },
+]
 
 [mouse]
 hide_when_typing = true
