@@ -64,11 +64,8 @@ bindings = [
 ]
 
 [mouse]
+bindings = [ { mouse = "Middle", action = "PasteSelection" } ]
 hide_when_typing = true
-
-[[mouse.bindings]]
-action = "PasteSelection"
-mouse = "Middle"
 
 [selection]
 semantic_escape_chars = ",│`|:\"' ()[]{}<>"
