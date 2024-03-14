@@ -35,19 +35,14 @@ if vim.g.trouble ~= 0 then
   local trouble = require'trouble'
 
   trouble.setup {
-    auto_close = true,
+    auto_close = false,
     auto_open = true,
     height = 8,
     multiline = false,
-    severity = vim.diagnostic.severity.ERROR,
   }
 
   vim.keymap.set('n', '-',
     function()
-      if #vim.diagnostic.get() == 0 then
-        return
-      end
-
       trouble.toggle()
     end
   )
@@ -124,7 +119,6 @@ require'lualine'.setup {
       'branch',
       require'lsp-progress'.progress,
       { quickfix, color = { fg = colors.red } },
-      { 'diagnostics', sources = { 'nvim_workspace_diagnostic' } },
     },
   },
 }
