@@ -150,6 +150,14 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 
+require'telescope'.setup {
+  pickers = {
+    find_files = {
+      disable_devicons = true,
+    },
+  },
+}
+
 vim.api.nvim_create_augroup('cmdwin_treesitter', {
   clear = true,
 })
