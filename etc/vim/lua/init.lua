@@ -151,8 +151,16 @@ require'nvim-treesitter.configs'.setup {
 }
 
 require'telescope'.setup {
+  defaults = {
+    layout_config = {
+      flex = {
+        flip_columns = 180,
+      },
+    },
+  },
   pickers = {
     find_files = {
+      layout_strategy = 'flex',
       disable_devicons = true,
     },
   },
