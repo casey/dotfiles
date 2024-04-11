@@ -548,6 +548,7 @@ if has('nvim')
   " lsp bindings
   nnoremap <silent> <m-a> <cmd>lua require('lspconfig').rust_analyzer.setup({})<cr>
   nnoremap <silent> <m-d> <cmd>lua vim.lsp.buf.definition()<cr>
+  nnoremap <silent> <m-j> <cmd>lua vim.lsp.buf.type_definition()<cr>
   nnoremap <silent> <m-n> <cmd>lua vim.diagnostic.goto_next()<cr>
   nnoremap <silent> <m-p> <cmd>lua vim.diagnostic.goto_prev()<cr>
   nnoremap <silent> <m-r> <cmd>lua vim.lsp.buf.references()<cr>
