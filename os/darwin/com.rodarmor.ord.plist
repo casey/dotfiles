@@ -14,8 +14,9 @@
   </array>
   <key>ProgramArguments</key>
   <array>
-    <string>/Users/rodarmor/.cargo/bin/ord</string>
+    <string>opt/homebrew/bin/ord</string>
     <string>--index-sats</string>
+    <string>--index-runes</string>
     <string>server</string>
     <string>--http-port</string>
     <string>8888</string>
