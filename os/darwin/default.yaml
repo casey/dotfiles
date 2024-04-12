@@ -1,7 +1,8 @@
-- shell:
-    - mkdir -p ~/.config/alacritty
-    - mkdir -p ~/Library/Application\ Support/Bitcoin
-    - mkdir -p ~/Library/Music
+- create:
+    - ~/.config/alacritty
+    - ~/Library/Application Support/Bitcoin
+    - ~/Library/Application Support/Code/User
+    - ~/Library/Music
 
 - link:
     ~/.config/alacritty/alacritty.toml: alacritty.toml
