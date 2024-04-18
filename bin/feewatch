@@ -7,7 +7,7 @@ target=$1
 height=`bitcoin-cli getblockcount`
 
 while true; do
-  if bitcoin-cli getblockstats $height > /dev/null 2> /dev/null; then
+  if [ `bitcoin-cli getblockcount` -eq $height ]; then
     fee_rate=`bitcoin-cli getblockstats $height | jq -r .avgfeerate`
 
     echo "Last average fee rate: $fee_rate sats/vB"
