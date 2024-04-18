@@ -1,0 +1,27 @@
+#!/bin/bash
+
+set -euo pipefail
+
+target=$1
+
+height=`bitcoin-cli getblockcount`
+
+while true; do
+  if bitcoin-cli getblockstats $height > /dev/null 2> /dev/null; then
+    fee_rate=`bitcoin-cli getblockstats $height | jq -r .avgfeerate`
+
+    echo "Last average fee rate: $fee_rate sats/vB"
+
+    if [ $fee_rate -lt $target ]; then
+      terminal-notifier \
+        -title \
+        `basename $0` \
+        -message \
+        "fee rate below target: $fee_rate sats/vB"
+    fi
+
+    (( height = height + 1 ))
+  fi
+
+  sleep 10
+done
