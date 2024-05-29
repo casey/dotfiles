@@ -14,7 +14,7 @@
   </array>
   <key>ProgramArguments</key>
   <array>
-    <string>opt/homebrew/bin/ord</string>
+    <string>/opt/homebrew/bin/ord</string>
     <string>--index-sats</string>
     <string>--index-runes</string>
     <string>server</string>
