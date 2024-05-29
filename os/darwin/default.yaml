@@ -13,5 +13,4 @@
     ~/Library/LaunchAgents/com.rodarmor.bitcoin-signet.plist: com.rodarmor.bitcoin-signet.plist
     ~/Library/LaunchAgents/com.rodarmor.bitcoin-testnet.plist: com.rodarmor.bitcoin-testnet.plist
     ~/Library/LaunchAgents/com.rodarmor.ord.plist: com.rodarmor.ord.plist
-    ~/Library/LaunchAgents/com.rodarmor.ping.plist: com.rodarmor.ping.plist
     ~/Library/Music/Scripts: ../../music

@@ -29,7 +29,6 @@ alias: p8 'ping 8.8.8.8'
 alias: pw 'curl https://rodarmor.com'
 alias: sl 'ls'
 alias: tb 'nc termbin.com 9999'
-alias: tp 'tail -f ~/.ping'
 alias: vi 'vim'
 alias: zf 'zsh-edit-function'
 

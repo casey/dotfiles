@@ -48,7 +48,6 @@ services:
   launchctl load ~/Library/LaunchAgents/com.rodarmor.bitcoin-regtest.plist
   launchctl load ~/Library/LaunchAgents/com.rodarmor.bitcoin-signet.plist
   launchctl load ~/Library/LaunchAgents/com.rodarmor.bitcoin-testnet.plist
-  launchctl load ~/Library/LaunchAgents/com.rodarmor.ping.plist
 
 hunter:
   brew install gstreamer
