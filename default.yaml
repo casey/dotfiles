@@ -75,6 +75,7 @@
     ~/.mutt/muttrc: etc/muttrc
     ~/.nethackrc: etc/nethackrc
     ~/.nixpkgs/config.nix: etc/nixpkgs.nix
+    ~/.npmrc: etc/npmrc
     ~/.ord: ~/Library/Application Support/ord
     ~/.plan: etc/plan
     ~/.project-root.yaml: etc/project-root.yaml
