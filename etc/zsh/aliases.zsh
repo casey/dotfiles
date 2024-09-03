@@ -101,6 +101,7 @@ alias: gtw 'git commit -m `sort --random-sort ~/.commitments | head -n 1`'
 alias: ghprco 'gh pr checkout'
 alias: ghprcr 'gh pr create --web'
 alias: ghprls 'gh pr list'
+alias: ghprvw 'gh pr view --web'
 alias: ghrecl 'gh repo clone'
 
 alias: gaptwps 'gap && gtw && gps'
