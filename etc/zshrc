@@ -157,6 +157,7 @@ bind: '^J' vi-cmd-mode
 bind: '^K' kill-line-to-x-selection
 bind: '^N' down-history
 bind: '^P' up-history
+bind: '^Q' exit-zsh
 bind: '^R' history-incremental-search-backward
 bind: '^S' history-incremental-search-forward
 bind: '^T' fzf-file-widget
@@ -168,8 +169,9 @@ bind: '^Z' fzf-file-widget
 bind: '^[[A' history-substring-search-up
 bind: '^[[B' history-substring-search-down
 
-zle -N zle-line-init prompt-reset # redraw prompt on line editor start
+zle -N exit-zsh # exit zsh
 zle -N zle-keymap-select prompt-reset # redraw prompt when keymap changes
+zle -N zle-line-init prompt-reset # redraw prompt on line editor start
 
 ## add aliases for all recipes in ~/.user.justfile
 for recipe in `just --justfile ~/.user.justfile --summary 2> /dev/null`; do
