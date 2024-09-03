@@ -423,12 +423,13 @@ nnoremap <leader>tz :call ToggleZoom()<cr>|            " toggle zoom
 nnoremap <leader>wa :wa<cr>|                           " write all buffers
 nnoremap <leader>wo <c-w>o|                            " close all windows but current
 nnoremap <leader>zz :wqa<cr>|                          " save all files and exit
+nnoremap <m-p> :FindRepoFiles<cr>|                     " search files in repo directory
 nnoremap <silent> <c-q> :call Leave()<cr>|             " close window, close buffer or quit
 nnoremap X D|                                          " cut until end of line
 nnoremap Y y$|                                         " yank to end of line
 nnoremap j gj|                                         " go down one screen line
 nnoremap k gk|                                         " go up one screen line
-vnoremap <leader>s  :sort<cr>|                         " sort lines
+vnoremap <leader>s :sort<cr>|                          " sort lines
 vnoremap <leader>t: :Tabularize :<cr>                  " align on :
 vnoremap <leader>t= :Tabularize =<cr>                  " align on =
 vnoremap j gj|                                         " go to next screen line
@@ -463,8 +464,6 @@ digraphs fv 10086| " vertical fleuron
 
 "" commands
 
-command! -narg=* PyEval python3 EvaluateCurrentLine(<f-args>)
-
 command! -bang -nargs=* AllLines
   \ call fzf#vim#grep(
   \   'rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>),
@@ -472,6 +471,13 @@ command! -bang -nargs=* AllLines
   \   fzf#vim#with_preview({'options': ['--delimiter=:', '--nth=4..']}), <bang>0)
 
 command! -nargs=+ -complete=command BufDo call BufDo(<q-args>)
+
+command! -narg=* PyEval python3 EvaluateCurrentLine(<f-args>)
+
+command! FindRepoFiles lua require('telescope.builtin').find_files({cwd = vim.fn.expand(vim.fn.system('git rev-parse --show-toplevel 2> /dev/null'):gsub('\n', ''))})
+
+nnoremap <leader>fg :TelescopeGitRoot<CR>
+
 
 "" autocommands
 
@@ -551,7 +557,7 @@ if has('nvim')
   nnoremap <silent> <m-d> <cmd>lua vim.lsp.buf.definition()<cr>
   nnoremap <silent> <m-i> <cmd>lua vim.lsp.buf.type_definition()<cr>
   nnoremap <silent> <m-n> <cmd>lua vim.diagnostic.goto_next()<cr>
-  nnoremap <silent> <m-p> <cmd>lua vim.diagnostic.goto_prev()<cr>
+  " nnoremap <silent> <m-p> <cmd>lua vim.diagnostic.goto_prev()<cr>
   nnoremap <silent> <m-r> <cmd>lua vim.lsp.buf.references()<cr>
   nnoremap <silent> <m-t> <cmd>lua vim.lsp.buf.hover()<cr>
   nnoremap <silent> <m-R> <cmd>lua vim.lsp.buf.rename()<cr>
