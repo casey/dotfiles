@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-exec exa --long --binary --group --git --all "$@"
