@@ -15,11 +15,12 @@
   <key>ProgramArguments</key>
   <array>
     <string>/opt/homebrew/bin/ord</string>
-    <string>--index-sats</string>
+    <string>--index-addresses</string>
     <string>--index-runes</string>
+    <string>--index-sats</string>
     <string>server</string>
     <string>--http-port</string>
-    <string>8888</string>
+    <string>9000</string>
   </array>
   <key>RunAtLoad</key>
   <true/>
