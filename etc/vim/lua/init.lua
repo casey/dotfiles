@@ -124,6 +124,9 @@ require'lualine'.setup {
   },
 }
 
+
+require'lspconfig'.clangd.setup { }
+
 require'lsp-progress'.setup {
   client_format = function(client_name, spinner, series_messages)
     if #series_messages > 0 then
