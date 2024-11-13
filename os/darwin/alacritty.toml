@@ -1,3 +1,4 @@
+[general]
 import = [
   "~/.config/alacritty/catppuccin-mocha.toml"
 ]
@@ -70,7 +71,7 @@ hide_when_typing = true
 [selection]
 semantic_escape_chars = ",│`|:\"' ()[]{}<>"
 
-[shell]
+[terminal.shell]
 args = ["-i", "--login", "-c", "shell"]
 program = "/opt/homebrew/bin/zsh"
 
