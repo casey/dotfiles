@@ -40,7 +40,6 @@ set -x RIPGREP_CONFIG_PATH "$HOME/.ripgreprc"
 set -x RUST_SRC_PATH (rustc --print sysroot)/lib/rustlib/src/rust/src/
 
 # aliases
-alias ls   exa
 alias diff colordiff
 alias grep 'grep --color=auto'
 alias rwd  'cd (pwd -P)'
