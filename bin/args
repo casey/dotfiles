@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -eu
+
+arguments=("$0" "$@")
+
+i=0
+for argument in "${arguments[@]}"; do
+  echo $i: "$argument"
+  ((i++))
+done
