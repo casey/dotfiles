@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-set -eu
-
 arguments=("$0" "$@")
 
 i=0
