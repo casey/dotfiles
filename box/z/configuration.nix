@@ -1,5 +1,14 @@
-{ config, pkgs, ... }: {
-  imports = [ ./hardware-configuration.nix ];
+let
+  nix-bitcoin = builtins.fetchTarball {
+    url = "https://github.com/fort-nix/nix-bitcoin/archive/v0.0.117.tar.gz";
+    sha256 = "sha256-JN/PFBOVqWKc76zSdOunYoG5Q0m8W4zfrEh3V4EOIuk=";
+  };
+in
+{ config, lib, pkgs, ... }: {
+  imports = [
+    ./hardware-configuration.nix
+    "${nix-bitcoin}/modules/modules.nix"
+  ];
 
   boot = {
     initrd.luks.devices = {
@@ -49,6 +58,14 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  nix-bitcoin = {
+    generateSecrets = true;
+    operator = {
+      enable = true;
+      name = "rodarmor";
+    };
+  };
+
   security = {
     sudo = {
       execWheelOnly = true;
@@ -68,14 +85,12 @@
     };
 
     bitcoind = {
-      mainnet = {
-        enable = true;
-	extraConfig = ''
-          blockfilterindex=1
-          coinstatsindex=1
-          txindex=1
-        '';
-      };
+      enable = true;
+      txindex = true;
+      extraConfig = ''
+        blockfilterindex=1
+        coinstatsindex=1
+      '';
     };
 
     openssh = {
@@ -92,7 +107,10 @@
     };
   };
 
-  system.stateVersion = "24.11";
+  system = {
+    extraDependencies = [ nix-bitcoin ];
+    stateVersion = "24.11";
+  };
 
   time.timeZone = "America/Los_Angeles";
 
