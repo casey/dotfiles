@@ -1,124 +1,99 @@
-let
-  nix-bitcoin = builtins.fetchTarball {
-    url = "https://github.com/fort-nix/nix-bitcoin/archive/v0.0.52.tar.gz";
-    sha256 = "sha256-eRA5HinTNtNBo1VGQmNmI8EwmjDCiZBUj5d36j39lNM=";
-  };
-  ssh-keys = [
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINnYzKwzFaNhQ6AtonmWMkKHXHxASdUJd815wyAOt6qw x"
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOnH2m99ZQvTjE0mNUoRmwSfQ5BUMaGrlVnwN/8NN5NW chromatic-abberation"
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPlE0aeKgtJO5hE2SOWPzCOk3ht1mKUPNXUyMK9B7zT4 durandal"
-  ];
-in
-{config, pkgs, ...}: {
+# hints:
+# - man configuration.nix
+# - nixos-help
+
+{ config, pkgs, ... }:
+
+{
+  imports = [ ./hardware-configuration.nix ];
+
   boot = {
-    cleanTmpDir = true;
     loader = {
-      efi = {
-        canTouchEfiVariables = true;
-        efiSysMountPoint = "/boot/efi";
-      };
-      grub = {
-        enable = true;
-        efiSupport = true;
-        mirroredBoots = [
-          {devices = ["nodev"]; path = "/boot/esp0";}
-          {devices = ["nodev"]; path = "/boot/esp1";}
-        ];
-      };
-      systemd-boot.enable = false;
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
     };
+    initrd.luks.devices."luks-7674a91c-ec25-4e98-9898-fa0e300909e4".device = "/dev/disk/by-uuid/7674a91c-ec25-4e98-9898-fa0e300909e4";
   };
-
-  environment.systemPackages = with pkgs; [
-    bat
-    delta
-    exa
-    fd
-    fzf
-    gcc
-    git
-    gnupg
-    just
-    neovim
-    pinentry-curses
-    python39Full
-    ripgrep
-    rustup
-    tmux
-  ];
-
-  imports = [
-    ./hardware-configuration.nix
-    "${nix-bitcoin}/modules/modules.nix"
-  ];
 
   networking = {
-    defaultGateway = "51.255.87.254";
     hostName = "z";
-    interfaces.eno1.ipv4.addresses = [{address = "51.255.87.91"; prefixLength = 24;}];
-    nameservers = ["1.1.1.1" "1.0.0.0" "2606:4700:4700::1111" "2606:4700:4700::1001"];
-    useDHCP = false;
+    networkmanager.enable = true;
   };
 
-  nix-bitcoin = {
-    generateSecrets = true;
-    operator = {
-      enable = true;
-      name = "rodarmor";
-    };
-  };
+  time.timeZone = "America/Los_Angeles";
 
-  nixpkgs.config.allowUnfree = true;
-
-  programs = {
-    mosh.enable = true;
-    zsh.enable = true;
-  };
-
-  security = {
-    sudo = {
-      enable = true;
-      execWheelOnly = true;
-      wheelNeedsPassword = false;
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
+    extraLocaleSettings = {
+      LC_ADDRESS = "en_US.UTF-8";
+      LC_IDENTIFICATION = "en_US.UTF-8";
+      LC_MEASUREMENT = "en_US.UTF-8";
+      LC_MONETARY = "en_US.UTF-8";
+      LC_NAME = "en_US.UTF-8";
+      LC_NUMERIC = "en_US.UTF-8";
+      LC_PAPER = "en_US.UTF-8";
+      LC_TELEPHONE = "en_US.UTF-8";
+      LC_TIME = "en_US.UTF-8";
     };
   };
 
   services = {
-    bitcoind = {
+    avahi = {
       enable = true;
+      nssmdns4 = true;
+      nssmdns6 = true;
+      publish = {
+        enable = true;
+        addresses = true;
+      };
     };
 
-    lnd = {
-      enable = true;
-      restOnionService = {
+    bitcoind = {
+      mainnet = {
         enable = true;
+	extraConfig = ''
+          blockfilterindex=1
+          coinstatsindex=1
+          txindex=1
+        '';
       };
     };
 
     openssh = {
       enable = true;
-      passwordAuthentication = false;
-      permitRootLogin = "prohibit-password";
+      settings = {
+        PasswordAuthentication = false;
+        PermitRootLogin = "no";
+      };
+    };
+
+    xserver.xkb = {
+      layout = "us";
+      variant = "";
     };
   };
 
-  system.stateVersion = "21.05";
-
-  users = {
-    defaultUserShell = pkgs.zsh;
-
-    users = {
-      rodarmor = {
-        extraGroups = ["wheel"];
-        isNormalUser = true;
-        openssh.authorizedKeys.keys = ssh-keys;
-        uid = 1000;
-      };
-
-      root = {
-        initialHashedPassword = "";
-        openssh.authorizedKeys.keys = ssh-keys;
-      };
-    };
+  users.users.rodarmor = {
+    extraGroups = [ "networkmanager" "wheel" ];
+    isNormalUser = true;
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFbSqH7DNg3/USFtrLG183EVmL7VH7v+92qMbRvlOpSy rodarmor@odin"
+    ];
+    packages = with pkgs; [];
+    uid = 1000;
   };
+
+  nixpkgs.config.allowUnfree = true;
+
+  environment = {
+    systemPackages = with pkgs; [
+      git
+      speedtest-cli
+      tmux
+      vim
+    ];
+    variables.EDITOR = "vim";
+  };
+
+  system.stateVersion = "24.11";
 }
