@@ -1,13 +1,6 @@
-let
-  nix-bitcoin = builtins.fetchTarball {
-    url = "https://github.com/fort-nix/nix-bitcoin/archive/v0.0.117.tar.gz";
-    sha256 = "sha256-JN/PFBOVqWKc76zSdOunYoG5Q0m8W4zfrEh3V4EOIuk=";
-  };
-in
 { config, lib, pkgs, ... }: {
   imports = [
     ./hardware-configuration.nix
-    "${nix-bitcoin}/modules/modules.nix"
   ];
 
   boot = {
@@ -25,10 +18,10 @@ in
 
   environment = {
     systemPackages = with pkgs; [
+      btop
       git
       just
       ripgrep
-      rustup
       speedtest-cli
       tmux
       vim
@@ -63,14 +56,6 @@ in
     "nix-command"
   ];
 
-  nix-bitcoin = {
-    generateSecrets = true;
-    operator = {
-      enable = true;
-      name = "rodarmor";
-    };
-  };
-
   security = {
     sudo = {
       execWheelOnly = true;
@@ -89,15 +74,6 @@ in
       };
     };
 
-    bitcoind = {
-      enable = true;
-      txindex = true;
-      extraConfig = ''
-        blockfilterindex=1
-        coinstatsindex=1
-      '';
-    };
-
     openssh = {
       enable = true;
       settings = {
@@ -113,7 +89,6 @@ in
   };
 
   system = {
-    extraDependencies = [ nix-bitcoin ];
     stateVersion = "24.11";
   };
 
