@@ -8,7 +8,7 @@ rsync \
   --compress \
   --delete \
   --links \
-  --partial-dir ~/tmp/files/ \
+  --partial \
   --perms \
   --progress \
   --recursive \
