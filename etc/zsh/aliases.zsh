@@ -52,6 +52,7 @@ alias: tree 'erd --layout inverted'
 # Ⅴ
 alias: egrep 'egrep --color=auto'
 alias: eject 'drutil tray eject'
+alias: magit 'emacs --eval "(magit-status)"'
 
 # git
 alias: gc 'git commit'
