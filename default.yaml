@@ -63,6 +63,7 @@
     ~/.config/xonsh/config.json: etc/xonsh.json
     ~/.dotfiles: .
     ~/.elinks/elinks.conf: etc/elinks.conf
+    ~/.emacs.d/init.el: etc/init.el
     ~/.fxfile: etc/fxfile
     ~/.gdbinit: etc/gdbinit
     ~/.gitignore.global: etc/gitignore.global
