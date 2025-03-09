@@ -6,6 +6,12 @@ images:
   arch: aarch64
   digest: sha256:d0237f183fb83cab4779e6f84099fea748ec3c8a14eec2be9392026da7ffd3d0
 memory: 16GiB
-mountInotify: true
 mountType: virtiofs
+provision:
+- mode: system
+  script: |
+    HOSTNAME=`hostname`
+    hostnamectl set-hostname ${HOSTNAME#lima-}
+user:
+  home: /home/{{.User}}
 vmType: vz
