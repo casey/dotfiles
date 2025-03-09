@@ -1,0 +1,11 @@
+arch: aarch64
+cpus: 4
+disk: 100GiB
+images:
+- location: "https://cloud-images.ubuntu.com/releases/24.10/release-20250129/ubuntu-24.10-server-cloudimg-arm64.img"
+  arch: aarch64
+  digest: sha256:d0237f183fb83cab4779e6f84099fea748ec3c8a14eec2be9392026da7ffd3d0
+memory: 16GiB
+mountInotify: true
+mountType: virtiofs
+vmType: vz
