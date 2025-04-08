@@ -108,6 +108,7 @@ require'catppuccin'.setup {
       BufferCurrent = { fg = colors.blue },
       BufferCurrentSign = { fg = colors.blue, bg = colors.grey },
       EndOfBuffer = { fg = colors.blue },
+      SignColumn = { bg = colors.mantle },
     }
   end
 }
