@@ -24,7 +24,7 @@ vim.g.rustaceanvim = {
           enable = true,
         },
         diagnostics = {
-          enable = false,
+          enable = true,
         },
       },
     },
@@ -35,11 +35,16 @@ if vim.g.trouble ~= 0 then
   local trouble = require'trouble'
 
   trouble.setup {
-    auto_close = false,
-    auto_open = true,
     height = 8,
     multiline = false,
   }
+
+  modes = {
+    diagnostics = {
+      auto_close = false,
+      auto_open = true,
+    },
+  },
 
   vim.keymap.set('n', '-',
     function()
