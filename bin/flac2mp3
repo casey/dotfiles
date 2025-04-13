@@ -1,7 +1,22 @@
 #!/usr/bin/env bash
 
-set -euxo pipefail
+set -euo pipefail
 
-cd "$1"
+dir="${1:-"$HOME/bulk/files"}"
+dir="${dir%/}"
 
-fd -t f -e flac -x ffmpeg -i "{}" -qscale:a 0 "{.}.mp3"
+mapfile -d '' files < <(find "$dir" -type f -iname '*.flac' -print0)
+
+IFS=$'\n' flacs=($(sort <<<"${files[*]}"))
+unset IFS
+
+for i in "${!flacs[@]}"; do
+  flac="${flacs[$i]}"
+
+  echo -n "[$((i+1))/${#flacs[@]}] ${flac##*/}... "
+
+  ffmpeg -hide_banner -loglevel error -y \
+    -i "$flac" -codec:a libmp3lame -qscale:a 0 "${flac%.flac}.mp3"
+
+  echo '✅'
+done
