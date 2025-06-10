@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+language="$1"
+input="$2"
+api_key=`op item get 'Open AI API Key' --field password --reveal`
+
+curl --request POST https://api.openai.com/v1/audio/transcriptions \
+  --header "Authorization: Bearer $api_key" \
+  --header 'Content-Type: multipart/form-data' \
+  --form file=@"$input" \
+  --form model=whisper-1 \
+  --form language=$language \
+  | jq -r .text
