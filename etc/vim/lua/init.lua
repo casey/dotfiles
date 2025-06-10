@@ -21,10 +21,10 @@ vim.g.rustaceanvim = {
           },
         },
         checkOnSave = {
-          enable = true,
+          enable = false,
         },
         diagnostics = {
-          enable = true,
+          enable = false,
         },
       },
     },
