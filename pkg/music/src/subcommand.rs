@@ -90,11 +90,11 @@ impl Subcommand {
         match extended_text.description.as_str() {
           "MUSICBRAINZ_ALBUMID" => {
             albumid = Some(extended_text.value.trim_matches('\0').to_owned());
-          },
+          }
           "MUSICBRAINZ_TRACKID" => {
             trackid = Some(extended_text.value.trim_matches('\0').to_owned());
-          },
-          _ => {},
+          }
+          _ => {}
         }
       }
 
@@ -125,7 +125,7 @@ impl Subcommand {
   #[throws]
   fn sync(library: &Library) {
     let status = Command::new("rsync")
-      .args(&["-avz", "--progress", "magellan.whatbox.ca:files/"])
+      .args(&["-avz", "--progress", "destiny.whatbox.ca:files/"])
       .arg(library.new_dir())
       .status()
       .with_context(|| anyhow!("Failed to invoke rsync"))?;
@@ -186,7 +186,7 @@ impl Subcommand {
         "mp3" => {
           clusterizer.insert(&path)?;
           mp3s += 1;
-        },
+        }
         _ => others += 1,
       };
     }

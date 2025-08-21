@@ -8,4 +8,4 @@ mirror --continue --delete --verbose files /Users/rodarmor/bulk/files
 bye
 '
 
-ssh rodarmor@magellan.whatbox.ca 'rm -f files/*.meta'
+ssh rodarmor@destiny.whatbox.ca 'rm -f files/*.meta'

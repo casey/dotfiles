@@ -15,11 +15,11 @@ rsync \
   --times \
   --verbose \
   "$@" \
-  magellan.whatbox.ca:files/ \
+  destiny.whatbox.ca:files/ \
   ~/bulk/files/
 
 rm -rf ~/tmp/files
 
 rmdir ~/bulk/files 2> /dev/null
 
-ssh rodarmor@magellan.whatbox.ca 'rm -f files/*.meta'
+ssh rodarmor@destiny.whatbox.ca 'rm -f files/*.meta'
