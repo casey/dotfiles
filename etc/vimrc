@@ -76,9 +76,9 @@ Plug 'mattn/gist-vim',   {'on': 'Gist'    } " create gists
 Plug 'tyru/capture.vim', {'on': 'Capture' } " capture command output in a buffer
 
 " language specific plugins
-Plug 'rust-lang/rust.vim'      " rust
 Plug 'pangloss/vim-javascript' " javascript
 Plug 'preservim/vim-markdown'  " markdown
+Plug 'rust-lang/rust.vim'      " rust
 Plug 'tikhomirov/vim-glsl'     " glsl
 
 " wgsl syntax
@@ -116,6 +116,9 @@ Plug 'https://gitlab.com/yorickpeterse/nvim-dd.git', {'branch': 'main'}
 
 " catppuccin colorscheme
 Plug 'catppuccin/nvim', { 'as': 'catppuccin', 'branch': 'main' }
+
+" lean
+Plug 'Julian/lean.nvim/', { 'branch': 'main' }
 
 call plug#end()
 
