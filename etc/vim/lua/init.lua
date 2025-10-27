@@ -130,8 +130,7 @@ require'lualine'.setup {
   },
 }
 
-
-require'lspconfig'.clangd.setup { }
+vim.lsp.config('clangd', { })
 
 require'lsp-progress'.setup {
   client_format = function(client_name, spinner, series_messages)
