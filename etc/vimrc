@@ -105,9 +105,6 @@ Plug 'linrongbin16/lsp-progress.nvim', {'branch': 'main'}
 " fzf binary and runtime path files
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 
-" git status icons
-Plug 'lewis6991/gitsigns.nvim', { 'branch': 'main' }
-
 " diagnostics list
 Plug 'folke/trouble.nvim', { 'branch': 'main' }
 
