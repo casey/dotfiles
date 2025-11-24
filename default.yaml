@@ -42,6 +42,7 @@
     ~/.colordiffrc: etc/colordiffrc
     ~/.commitments: etc/commitments
     ~/.config/bpython: etc/bpython
+    ~/.config/device.yaml: etc/device.yaml
     ~/.config/feh: etc/feh
     ~/.config/fish/completions: etc/fish-completions
     ~/.config/fish/config.fish: etc/config.fish
