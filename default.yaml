@@ -39,6 +39,7 @@
 
 - link:
     ~/.bitcoin: ~/Library/Application Support/Bitcoin
+    ~/.codex/AGENTS.md: etc/agents.md
     ~/.colordiffrc: etc/colordiffrc
     ~/.commitments: etc/commitments
     ~/.config/bpython: etc/bpython
