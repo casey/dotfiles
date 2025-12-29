@@ -1,6 +1,13 @@
 Development
 ===========
 
+Mannerisms
+----------
+
+Do not end responses with suggestions for next steps, such as running tests or
+adding additional features, unless those suggestions are interesting and
+non-obvious.
+
 Documentation
 -------------
 
