@@ -56,7 +56,6 @@ Plug 'tpope/vim-characterize'             " extensive character info
 Plug 'tpope/vim-commentary'               " comment and uncomment operations
 Plug 'tpope/vim-eunuch'                   " unix helpers
 Plug 'tpope/vim-fugitive'                 " git integration
-Plug 'tpope/vim-repeat'                   " repeat support for plugins
 Plug 'tpope/vim-rsi'                      " readline bindings
 Plug 'tpope/vim-surround'                 " quoting and parenthesizing
 Plug 'tpope/vim-unimpaired'               " pairs of bracket mappings
