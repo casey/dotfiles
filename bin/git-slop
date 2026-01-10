@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+export GIT_SSH_COMMAND=" ssh \
+  -i ~/.ssh/sloplem \
+  -o ControlMaster=no \
+  -o ControlPath=none \
+  -o IdentitiesOnly=yes"
+
+exec git "$@"
