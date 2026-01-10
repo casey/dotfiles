@@ -1,6 +1,6 @@
 *.pyc
 *~
 .DS_Store
-.jj
-notes.md
-.cache/clangd
+/.claude
+/.jj
+/notes.md

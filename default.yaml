@@ -8,6 +8,8 @@
   - ~/.cache/mutt/messages
   - ~/.cache/mutt/messages
   - ~/.cargo
+  - ~/.claude
+  - ~/.codex
   - ~/.config/alacritty
   - ~/.config/fish
   - ~/.config/git
@@ -40,6 +42,8 @@
 
 - link:
     ~/.bitcoin: ~/Library/Application Support/Bitcoin
+    ~/.claude/CLAUDE.md: etc/agents.md
+    ~/.claude/settings.json: etc/claude.json
     ~/.codex/AGENTS.md: etc/agents.md
     ~/.colordiffrc: etc/colordiffrc
     ~/.commitments: etc/commitments
