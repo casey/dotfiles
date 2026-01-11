@@ -43,6 +43,7 @@
 - link:
     ~/.bitcoin: ~/Library/Application Support/Bitcoin
     ~/.claude/CLAUDE.md: etc/agents.md
+    ~/.claude/commands: commands
     ~/.claude/settings.json: etc/claude.json
     ~/.codex/AGENTS.md: etc/agents.md
     ~/.colordiffrc: etc/colordiffrc
