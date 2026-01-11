@@ -9,8 +9,8 @@
     ~/.config/alacritty/catppuccin-mocha.toml: catppuccin-mocha.toml
     ~/Library/Application Support/Bitcoin/bitcoin.conf: ../../etc/bitcoin.conf
     ~/Library/Application Support/Code/User/settings.json: ../../etc/vscode.json
-    ~/Library/LaunchAgents/com.rodarmor.bitcoin-regtest.plist: com.rodarmor.bitcoin-regtest.plist
-    ~/Library/LaunchAgents/com.rodarmor.bitcoin-signet.plist: com.rodarmor.bitcoin-signet.plist
-    ~/Library/LaunchAgents/com.rodarmor.bitcoin-testnet.plist: com.rodarmor.bitcoin-testnet.plist
-    ~/Library/LaunchAgents/com.rodarmor.ord.plist: com.rodarmor.ord.plist
     ~/Library/Music/Scripts: ../../music
+    # ~/Library/LaunchAgents/com.rodarmor.bitcoin-regtest.plist: com.rodarmor.bitcoin-regtest.plist
+    # ~/Library/LaunchAgents/com.rodarmor.bitcoin-signet.plist: com.rodarmor.bitcoin-signet.plist
+    # ~/Library/LaunchAgents/com.rodarmor.bitcoin-testnet.plist: com.rodarmor.bitcoin-testnet.plist
+    # ~/Library/LaunchAgents/com.rodarmor.ord.plist: com.rodarmor.ord.plist
