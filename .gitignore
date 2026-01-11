@@ -8,5 +8,4 @@
 /etc/vim/view
 /etc/vim/viminfo
 /etc/zsh/compdump
-/pkg/crates/overviews/images
-/pkg/target
+/target
