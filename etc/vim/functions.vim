@@ -27,6 +27,28 @@ function! QuickfixIsOpen()
   return 0
 endfunction
 
+function! ExpandSnippet() abort
+  let l:before = strpart(getline('.'), 0, col('.') - 1)
+
+  let l:name = matchstr(l:before, '[0-9A-Za-z_.-]\+$')
+
+  if empty(l:name)
+    return "\<C-g>u"
+  endif
+
+  let l:path = expand('~/.vim/snippets') . '/' . l:name
+
+  if !filereadable(l:path)
+    return "\<C-g>u"
+  endif
+
+  let l:lines  = readfile(l:path)
+
+  return "\<C-g>u"
+        \ . repeat("\<BS>", strlen(l:name))
+        \ . join(l:lines, "\n")
+endfunction
+
 function! QuickfixNext(previous)
   if len(getqflist()) == 0
     echo "Quickfix list empty."

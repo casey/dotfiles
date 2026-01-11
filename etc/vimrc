@@ -346,7 +346,8 @@ nnoremap <silent> S <cmd>BufferPick<cr>
 
 " non-recursive mappings
 inoremap <c-s> <c-g>u<Esc>[s1z=`]a<c-g>u|              " fix last spelling error
-inoremap <c-x><c-x> <c-x><c-o>                         " omnifunc completions
+inoremap <c-x><c-x> <c-x><c-o>|                        " omnifunc completions
+inoremap <expr> <c-]> ExpandSnippet()|                 " expand snippet
 nnoremap <c-b> <c-o>|                                  " jump back
 nnoremap <c-f> <c-i>|                                  " jump forward
 nnoremap <c-k> :AllLines<cr>|                          " search lines
