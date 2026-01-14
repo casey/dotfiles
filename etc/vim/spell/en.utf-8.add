@@ -612,3 +612,13 @@ resampling
 resamplers
 FFT
 SIMD
+Curve25519
+keypairs
+EdDSA
+Keypair
+filenames
+subrange
+hasher
+Ed25519
+Bech32m
+subdirectories
