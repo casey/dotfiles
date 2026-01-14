@@ -46,9 +46,18 @@ function! ExpandSnippet() abort
 
   call setreg('s', join(l:lines, "\n"), 'c')
 
+  let l:line_count = len(l:lines)
+
+  if l:line_count == 1
+    let l:cursor_move = repeat("\<Left>", strlen(l:lines[0]))
+  else
+    let l:cursor_move = repeat("\<Up>", l:line_count - 1) . "\<Home>"
+  endif
+
   return "\<C-g>u"
         \ . repeat("\<BS>", strlen(l:name))
         \ . "\<C-r>\<C-o>s"
+        \ . l:cursor_move
 endfunction
 
 function! QuickfixNext(previous)
