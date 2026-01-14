@@ -42,11 +42,13 @@ function! ExpandSnippet() abort
     return "\<C-g>u"
   endif
 
-  let l:lines  = readfile(l:path)
+  let l:lines = readfile(l:path)
+
+  call setreg('s', join(l:lines, "\n"), 'c')
 
   return "\<C-g>u"
         \ . repeat("\<BS>", strlen(l:name))
-        \ . join(l:lines, "\n")
+        \ . "\<C-r>\<C-o>s"
 endfunction
 
 function! QuickfixNext(previous)
