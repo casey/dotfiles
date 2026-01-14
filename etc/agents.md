@@ -45,6 +45,8 @@ module and be inherited by child modules with `use super::*`.
 Style
 -----
 
+Do not write comments.
+
 Don't create mutable variables that are initialized in a conditional:
 
 ```rust
