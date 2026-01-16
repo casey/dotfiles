@@ -119,6 +119,7 @@ setopt multios # allow redirection to multiple files
 setopt prompt_subst # expand the prompt string
 setopt rc_quotes # allow '' to represent a quote in single quoted strings
 setopt share_history # share history between shells
+setopt transient_rprompt # clear right prompt after command
 
 ## tty
 
