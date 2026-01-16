@@ -7,6 +7,9 @@ init os name:
 rustup:
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
+watch +args='lcheck --all --all-targets':
+  cargo watch --clear --exec '{{args}}'
+
 homebrew:
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
