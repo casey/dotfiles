@@ -22,7 +22,7 @@ impl Spec {
           }
         }
         return Ok(false);
-      },
+      }
       Self::StartingDir => Ok(dir == context.starting_dir),
     }
   }

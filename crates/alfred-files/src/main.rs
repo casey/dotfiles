@@ -10,20 +10,20 @@ struct Output {
 
 #[derive(Serialize, Ord, PartialOrd, Eq, PartialEq)]
 struct Item {
-  uid:          PathBuf,
+  uid: PathBuf,
   #[serde(rename = "type")]
-  ty:           ItemType,
-  title:        String,
-  subtitle:     PathBuf,
-  arg:          PathBuf,
+  ty: ItemType,
+  title: String,
+  subtitle: PathBuf,
+  arg: PathBuf,
   autocomplete: String,
-  icon:         Icon,
+  icon: Icon,
 }
 
 #[derive(Serialize, Ord, PartialOrd, Eq, PartialEq)]
 struct Icon {
   #[serde(rename = "type")]
-  ty:   IconType,
+  ty: IconType,
   path: PathBuf,
 }
 
@@ -66,7 +66,7 @@ fn main() {
         arg: path.clone(),
         autocomplete: title.clone(),
         icon: Icon {
-          ty:   IconType::FileIcon,
+          ty: IconType::FileIcon,
           path: path.clone(),
         },
         title,

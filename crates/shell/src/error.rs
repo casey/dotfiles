@@ -32,7 +32,7 @@ impl Display for Error {
     match self {
       Error::Status { status, stderr } => {
         write!(f, "Process exited with status code {}: {}", status, stderr)
-      },
+      }
       Error::Io { io_error } => write!(f, "Error executing script: {}", io_error),
       Error::Signal { signal } => write!(f, "Process terminated by signal {}", signal),
       Error::Csv { csv_error } => write!(f, "Failed to deserialize CSV record: {}", csv_error),

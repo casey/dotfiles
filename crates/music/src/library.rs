@@ -2,8 +2,8 @@ use crate::common::*;
 
 pub(crate) struct Library {
   base: PathBuf,
-  mp3:  PathBuf,
-  new:  PathBuf,
+  mp3: PathBuf,
+  new: PathBuf,
 }
 
 impl Library {

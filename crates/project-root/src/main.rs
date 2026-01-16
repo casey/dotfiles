@@ -20,6 +20,6 @@ fn main() {
     Err(error) => {
       eprintln!("error: {}", error);
       process::exit(1);
-    },
+    }
   }
 }

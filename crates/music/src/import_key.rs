@@ -2,7 +2,7 @@ use crate::common::*;
 
 #[derive(Ord, PartialOrd, Eq, PartialEq, Copy, Clone)]
 pub(crate) struct ImportKey {
-  disc_number:  u32,
+  disc_number: u32,
   track_number: u32,
 }
 
@@ -19,7 +19,7 @@ impl ImportKey {
 impl From<&Import> for ImportKey {
   fn from(import: &Import) -> Self {
     Self {
-      disc_number:  import.disc_number(),
+      disc_number: import.disc_number(),
       track_number: import.track_number(),
     }
   }

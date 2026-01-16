@@ -20,11 +20,11 @@ struct Contents {
 
 #[derive(Deserialize)]
 struct Hit {
-  slug:        String,
-  title:       String,
-  location:    String,
+  slug: String,
+  title: String,
+  location: String,
   description: String,
-  image:       Image,
+  image: Image,
 }
 
 #[derive(Deserialize)]

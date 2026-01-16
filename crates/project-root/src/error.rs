@@ -5,7 +5,7 @@ use crate::common::*;
 pub enum Error {
   #[snafu(display("Could not deserialize config `{}`: {}", path.display(), source))]
   ConfigDeserialize {
-    path:   PathBuf,
+    path: PathBuf,
     source: serde_yaml::Error,
   },
   #[snafu(display("Could not get current directory: {}", source))]

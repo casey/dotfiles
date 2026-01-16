@@ -2,7 +2,7 @@ use crate::common::*;
 
 #[derive(Deserialize, Debug)]
 pub struct Session {
-  pub name:     String,
+  pub name: String,
   pub attached: u32,
 }
 

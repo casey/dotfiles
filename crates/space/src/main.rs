@@ -22,6 +22,6 @@ fn main() -> Result<(), u32> {
     Err(err) => {
       println!("error: {}", err);
       Err(1)
-    },
+    }
   }
 }
