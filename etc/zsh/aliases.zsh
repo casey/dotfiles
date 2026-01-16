@@ -1,9 +1,10 @@
 # Ⅰ
-alias: f 'fd'
-alias: g 'git'
-alias: j 'just'
-alias: m 'vman'
-alias: v 'vim-fzf'
+alias: c cd
+alias: f fd
+alias: g git
+alias: j just
+alias: l ls
+alias: v vim
 
 # Ⅱ
 alias: .. 'cd ..'
