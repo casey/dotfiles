@@ -118,6 +118,18 @@ let config = Config {
 foo(&config);
 ```
 
+When converting a value, shadowing the previous variable is often ideal. The
+type system prevents confusing the two values, and shadowing the previous
+variable prevents it from being unintentionally used later:
+
+```rust bad
+let name_string = name.to_string();
+```
+
+```rust good
+let name = name.to_string();
+```
+
 Testing
 -------
 
