@@ -36,14 +36,24 @@ function! Snippet() abort
     return "\<C-g>u"
   endif
 
-  let l:path = expand('~/.vim/snippets') . '/' . l:name
+  let l:ext = expand('%:e')
 
-  if !filereadable(l:path)
-    call feedkeys("\<Esc>:edit " . l:path . "\<CR>", 'n')
+  let l:snippets = expand('~/.vim/snippets')
+
+  let l:path = l:snippets . '/' . l:name
+
+  let l:path_ext = l:snippets . '/' . l:name . '.' . l:ext
+
+  if filereadable(l:path_ext)
+    let l:snippet = l:path_ext
+  elseif filereadable(l:path)
+    let l:snippet = l:path
+  else
+    call feedkeys("\<Esc>:edit " . l:path_ext . "\<CR>", 'n')
     return ''
   endif
 
-  let l:lines = readfile(l:path)
+  let l:lines = readfile(l:snippet)
 
   call setreg('s', join(l:lines, "\n"), 'c')
 
