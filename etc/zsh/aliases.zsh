@@ -60,6 +60,7 @@ alias: gc 'git commit'
 
 alias: gaa 'git commit --amend --all'
 alias: gac 'git commit --amend'
+alias: gan 'git add --intent-to-add .'
 alias: gad 'git add'
 alias: gap 'git add -p'
 alias: gbD 'git branch --delete --force'
