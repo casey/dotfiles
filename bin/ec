@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+exec vim ~/src/dotfiles/commands/$1.md
