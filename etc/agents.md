@@ -11,23 +11,9 @@ non-obvious.
 Documentation
 -------------
 
-Always consult local sources and documentation for current Rust dependencies,
-which are guaranteed to be up-to-date, and always use the version of the
+Always consult the local source code for information about Rust dependencies,
+which is guaranteed to be up-to-date, and always use the version of the
 dependency that is actually in use.
-
-Local documentation can be built with:
-
-```sh
-cargo doc --workspace
-```
-
-After building, local documentation is available in the `target/doc` directory.
-
-The root `index.html` will be available in:
-
-```
-target/doc/<CRATE_NAME>/index.html
-```
 
 Dependencies
 ------------
@@ -149,3 +135,22 @@ under test.
 
 Testing is white-box style. Write tests according to the implementation. Avoid
 writing tests which do not exercise unique code paths.
+
+Tips
+----
+
+If you need a constant for a test, but the value of that constant is hard to
+calculate, assert equality with a dummy value:
+
+```rust
+assert_eq!(complicated_calculation(), "");
+```
+
+Then get the correct value from the error message and insert it:
+
+```rust
+assert_eq!(
+  complicated_calculation(),
+  "000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f",
+);
+```
