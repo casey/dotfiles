@@ -27,21 +27,7 @@ function! QuickfixIsOpen()
   return 0
 endfunction
 
-function! EditSnippet() abort
-  let l:before = strpart(getline('.'), 0, col('.'))
-
-  let l:name = matchstr(l:before, '[0-9A-Za-z_.-]\+$')
-
-  if empty(l:name)
-    return "\<C-g>u"
-  endif
-
-  let l:path = expand('~/.vim/snippets') . '/' . l:name
-
-  execute 'edit' l:path
-endfunction
-
-function! ExpandSnippet() abort
+function! Snippet() abort
   let l:before = strpart(getline('.'), 0, col('.') - 1)
 
   let l:name = matchstr(l:before, '[0-9A-Za-z_.-]\+$')
@@ -53,7 +39,8 @@ function! ExpandSnippet() abort
   let l:path = expand('~/.vim/snippets') . '/' . l:name
 
   if !filereadable(l:path)
-    return "\<C-g>u"
+    call feedkeys("\<Esc>:edit " . l:path . "\<CR>", 'n')
+    return ''
   endif
 
   let l:lines = readfile(l:path)
