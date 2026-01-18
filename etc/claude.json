@@ -9,5 +9,6 @@
     "DISABLE_TELEMETRY": "1",
     "IS_DEMO": "1"
   },
-  "model": "opus"
+  "model": "opus",
+  "spinnerTipsEnabled": false
 }
