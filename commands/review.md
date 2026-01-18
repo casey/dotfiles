@@ -8,5 +8,6 @@ Review local changes in the working tree against the master branch. Consider:
 - Security
 - Simplicity
 - Style
+- Test coverage
 
 Use the `AskUserQuestion` command for clarification as necessary.
