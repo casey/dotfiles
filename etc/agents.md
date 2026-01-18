@@ -39,6 +39,18 @@ Imports
 
 Don't rename imports in `use` statements.
 
+```rust bad
+use std::io::Result as IoResult;
+
+fn foo() -> IoResult<()>;
+```
+
+```rust good
+use std::io::Result as IoResult;
+
+fn read() -> io::Result<()>;
+```
+
 Imports which are unambiguously named and common should go in the top-level
 module and be inherited by child modules with `use super::*`.
 
@@ -49,7 +61,7 @@ Do not write comments.
 
 Don't create mutable variables that are initialized in a conditional:
 
-```rust
+```rust bad
 let mut foo = None;
 
 if bar {
@@ -59,7 +71,7 @@ if bar {
 
 Instead, create an immutable variable initialized with an if/else:
 
-```rust
+```rust good
 let foo = if bar {
   Some("hello")
 } else {
@@ -69,7 +81,7 @@ let foo = if bar {
 
 Passing primitives into functions creates opportunities for confusion:
 
-```rust
+```rust bad
 struct Config {
   a: bool,
   b: bool,
@@ -88,7 +100,7 @@ foo(config.b);
 
 Where possible, pass the object where the primitive originates:
 
-```rust
+```rust good
 struct Config {
   a: bool,
   b: bool,
@@ -105,3 +117,23 @@ let config = Config {
 
 foo(&config);
 ```
+
+Testing
+-------
+
+Tests should use `foo`, `bar`, and similar placeholders in strings to make
+clear that the values themselves are not significant.
+
+```rust bad
+std::fs::write("file.txt"), "contents").unwrap();
+```
+
+```rust good
+std::fs::write("foo"), "bar").unwrap();
+```
+
+Individual tests should use as little code as possible to exercise the feature
+under test.
+
+Testing is white-box style. Write tests according to the implementation. Avoid
+writing tests which do not exercise unique code paths.
