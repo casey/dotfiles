@@ -12,8 +12,25 @@ Documentation
 -------------
 
 Always consult the local source code for information about Rust dependencies,
-which is guaranteed to be up-to-date, and always use the version of the
-dependency that is actually in use.
+which is guaranteed to be up-to-date for the correct version.
+
+Run `cargo dep NAME` to find the source directory for a dependency:
+
+```console
+$ cargo dep serde
+/Users/rodarmor/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/
+```
+
+Local docs can be built with:
+
+```shell
+cargo doc --workspace --document-private-items
+```
+
+Which will output documentation for crate `NAME` in
+`target/doc/NAME/index.html`.
+
+Read source code and docs as appropriate.
 
 Dependencies
 ------------
