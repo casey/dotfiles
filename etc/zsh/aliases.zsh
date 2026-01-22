@@ -16,7 +16,7 @@ alias: ea 'vim ~/.zsh/aliases.zsh'
 alias: ee 'vim ~/.config/alacritty/alacritty.toml'
 alias: ej 'vim ~/.user.justfile'
 alias: el 'vim ~/.vim/lua/init.lua'
-alias: em 'vim ~/.mutt/muttrc'
+alias: em 'vim ~/src/dotfiles/etc/agents.md'
 alias: es 'vim ~/.zshrc'
 alias: et 'vim ~/.tmux.conf'
 alias: ev 'vim ~/.vimrc'
@@ -54,6 +54,9 @@ alias: tree 'erd --layout inverted'
 alias: egrep 'egrep --color=auto'
 alias: eject 'drutil tray eject'
 alias: magit 'emacs --eval "(magit-status)"'
+
+# ⅤⅡ
+alias: upgrade 'brew update && brew upgrade claude codex claude-code gh'
 
 # git
 alias: gc 'git commit'
