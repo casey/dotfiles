@@ -60,7 +60,7 @@ module and be inherited by child modules with `use super::*`.
 Style
 -----
 
-Do not write comments.
+Do not write comments. Comments will be added by the user as necessary.
 
 Don't create mutable variables that are initialized in a conditional:
 
@@ -185,6 +185,20 @@ fn parsing() {
   case("bob", Foo::Bob);
 }
 ```
+
+Prefer turbofish over type ascription:
+
+```rust bad
+let foo: T = foo.parse().unwrap();
+let bar: Vec<u8> = foo.into_iter().collect();
+```
+
+```rust good
+let foo = foo.parse::<T>().unwrap();
+let bar = foo.into_iter().collect::<Vec<u8>>();
+```
+
+Use modern Rust when available.
 
 Tips
 ----
