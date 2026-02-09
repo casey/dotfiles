@@ -8,6 +8,17 @@ Do not end responses with suggestions for next steps, such as running tests or
 adding additional features, unless those suggestions are interesting and
 non-obvious.
 
+If you notice issues unrelated to the current task, mention them.
+
+Overview
+--------
+
+Run the following command when starting work, to get an overview of the layout of the project:
+
+```shell
+rg --files
+```
+
 Documentation
 -------------
 
@@ -136,6 +147,9 @@ let name = name.to_string();
 Testing
 -------
 
+Do not perform any manual testing. All tests should be in the form of unit and
+integration tests.
+
 Tests should use `foo`, `bar`, and similar placeholders in strings to make
 clear that the values themselves are not significant.
 
@@ -199,6 +213,21 @@ let bar = foo.into_iter().collect::<Vec<u8>>();
 ```
 
 Use modern Rust when available.
+
+Style
+-----
+
+Run `cargo fmt` to ensure code is correctly formatted.
+
+Performance
+-----------
+
+Correctness and clarity are more important than performance.
+
+Always measure baseline performance before optimizing.
+
+Always profile before optimizing, picking optimization targets is notoriously
+difficult.
 
 Tips
 ----
