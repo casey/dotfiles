@@ -10,5 +10,11 @@
     "IS_DEMO": "1"
   },
   "model": "opus",
+  "permissions": {
+    "allow": [
+      "Bash(cargo dep)",
+      "Bash(rg --files)"
+    ]
+  },
   "spinnerTipsEnabled": false
 }
