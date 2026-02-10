@@ -15,7 +15,6 @@ autoload zcalc # calculator
 autoload zsh/terminfo # interface to terminfo database
 autoload ~/.zsh/functions/* # autoload all functions in local functions directory
 
-
 ## completions
 
 # add local completions directory to fpath
