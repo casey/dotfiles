@@ -42,7 +42,6 @@
   - ~/tmp
 
 - link:
-    ~/.bitcoin: ~/Library/Application Support/Bitcoin
     ~/.claude/CLAUDE.md: etc/agents.md
     ~/.claude/commands: commands
     ~/.claude/settings.json: etc/claude.json
@@ -87,7 +86,6 @@
     ~/.nethackrc: etc/nethackrc
     ~/.nixpkgs/config.nix: etc/nixpkgs.nix
     ~/.npmrc: etc/npmrc
-    ~/.ord: ~/Library/Application Support/ord
     ~/.plan: etc/plan
     ~/.project-root.yaml: etc/project-root.yaml
     ~/.project: etc/project
