@@ -4,8 +4,7 @@
     "DISABLE_BUG_COMMAND": "1",
     "DISABLE_ERROR_REPORTING": "1",
     "DISABLE_TELEMETRY": "1",
-    "IS_DEMO": "1",
-    "IS_SANDBOX": "1"
+    "IS_DEMO": "1"
   },
   "attribution": {
     "commit": "",
