@@ -122,7 +122,7 @@
       ./submodules/dotbot/bin/dotbot -c $OS_CONFIG
     fi
   - |
-    HOST_CONFIG=box/$HOST/default.yaml
+    HOST_CONFIG=box/`uname -n`/default.yaml
     if [[ -f $HOST_CONFIG ]]; then
       ./submodules/dotbot/bin/dotbot -c $HOST_CONFIG
     fi
