@@ -1,4 +1,4 @@
-if [[ $UID == 0 ]]; then
+if [[ $UID == 0 && $HOST != lab ]]; then
   # scary red prompt if root
   SUCCESS=$PROMPT_RED
 else
