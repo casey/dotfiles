@@ -118,12 +118,12 @@
 - shell:
   - |
     OS_CONFIG=os/`uname | tr '[:upper:]' '[:lower:]'`/default.yaml
-    if [[ -f $OS_CONFIG ]]; then
+    if [ -f $OS_CONFIG ]; then
       ./submodules/dotbot/bin/dotbot -c $OS_CONFIG
     fi
   - |
     HOST_CONFIG=box/`uname -n`/default.yaml
-    if [[ -f $HOST_CONFIG ]]; then
+    if [ -f $HOST_CONFIG ]; then
       ./submodules/dotbot/bin/dotbot -c $HOST_CONFIG
     fi
   - chmod 700 ~/.vim
