@@ -30,6 +30,7 @@
   - ~/.config/xmobar
   - ~/.config/xonsh
   - ~/.elinks
+  - ~/.emacs.d
   - ~/.gnupg
   - ~/.local/share
   - ~/.mutt
