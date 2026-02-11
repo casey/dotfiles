@@ -1,4 +1,4 @@
 - link:
-    ~/.claude/CLAUDE.md: agents.md
+    ~/.claude/rules/lab.md: lab.md
     ~/.claude/settings.json: claude.json
     ~/.extrarc: extrarc

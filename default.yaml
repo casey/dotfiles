@@ -9,6 +9,7 @@
   - ~/.cache/mutt/messages
   - ~/.cargo
   - ~/.claude
+  - ~/.claude/rules
   - ~/.codex
   - ~/.config/alacritty
   - ~/.config/fish
