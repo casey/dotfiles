@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+exec tmux new -A -s mobile
