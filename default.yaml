@@ -19,6 +19,7 @@
   - ~/.config/jj
   - ~/.config/menus
   - ~/.config/neofetch
+  - ~/.config/nix
   - ~/.config/nixpkgs/overlays
   - ~/.config/nvim
   - ~/.config/polybar
@@ -59,6 +60,7 @@
     ~/.config/helix/config.toml: etc/helix.toml
     ~/.config/i3status/config: etc/i3status.config
     ~/.config/jj/config.toml: etc/jj.toml
+    ~/.config/nix/nix.conf: etc/nix.conf
     ~/.config/nvim/init.vim: etc/nvim.vim
     ~/.config/polybar/config: etc/polybar
     ~/.config/src/config.yaml: etc/src.yaml
