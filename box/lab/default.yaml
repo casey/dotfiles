@@ -1,4 +1,4 @@
 - link:
+    /etc/claude-code/managed-settings.json: claude.json
     ~/.claude/rules/lab.md: lab.md
-    ~/.claude/settings.json: claude.json
     ~/.extrarc: extrarc
