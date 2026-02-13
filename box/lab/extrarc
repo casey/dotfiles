@@ -1,1 +1,3 @@
 export IS_SANDBOX=1
+
+path: ~/.local/share/fnm/node-versions/v24.13.1/installation/bin
