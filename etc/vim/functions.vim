@@ -89,14 +89,14 @@ function! QuickfixNext(previous)
   endif
 endfunction
 
-function! g:CargoLimitOpen(result)
+function! g:CargoLimitUpdate(data)
   let l:winnr = winnr()
 
   let l:quickfix_is_open = QuickfixIsOpen()
 
   cgetexpr []
-  for file in a:result['files']
-    caddexpr file['path'].':'.file['line'].':'.file['column'].':'.file['message']
+  for location in a:data.locations
+    caddexpr location.path . ':' . location.line . ':' . location.column . ':' . location.message
   endfor
 
   if !l:quickfix_is_open
