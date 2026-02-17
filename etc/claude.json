@@ -16,7 +16,7 @@
   "model": "opus",
   "permissions": {
     "allow": [
-      "Bash(cargo dep)",
+      "Bash(cargo dep *)",
       "Bash(rg --files)"
     ]
   },
