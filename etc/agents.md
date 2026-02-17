@@ -144,6 +144,8 @@ let name_string = name.to_string();
 let name = name.to_string();
 ```
 
+Collect related data and functions into structs and methods.
+
 Testing
 -------
 
