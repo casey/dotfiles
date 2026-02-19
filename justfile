@@ -83,3 +83,7 @@ dia-x2160:
     -filter point -resize '1600%' \
     -background transparent -gravity center -extent 2160x2160 \
     -path $DIR rsc/dia/original/*.png
+
+bootstrap-lab:
+  scp box/lab/{bootstrap,configuration.nix} ~/.ssh/id_ed25519.pub root@74.207.251.176:
+  ssh root@74.207.251.176 ./bootstrap
