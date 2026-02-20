@@ -20,5 +20,6 @@
       "Bash(rg --files)"
     ]
   },
+  "skipDangerousModePermissionPrompt": true,
   "spinnerTipsEnabled": false
 }
