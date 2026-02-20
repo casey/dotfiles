@@ -9,31 +9,21 @@ fi
 grep Finnix /etc/issue || exit 1
 
 swapoff --all
-umount --recursive /mnt || true
+umount /mnt || true
 wipefs --all /dev/sda
 sgdisk --zap-all /dev/sda
-
-SWAP=`awk '/MemTotal/{print int(($2 + 1048575) / 1048576)}' /proc/meminfo`
-SWAP_END=$((2 + 512 + SWAP * 1024))
 
 parted --script /dev/sda mklabel gpt
 parted --script /dev/sda mkpart bios 1MiB 2MiB
 parted --script /dev/sda set 1 bios_grub on
-parted --script /dev/sda mkpart boot 2MiB 514MiB
-parted --script /dev/sda mkpart swap 514MiB ${SWAP_END}MiB
-parted --script /dev/sda mkpart root ${SWAP_END}MiB 100%
+parted --script /dev/sda mkpart root 2MiB 100%
 
 partprobe /dev/sda
 udevadm settle
 
-mkfs.ext4 -L boot /dev/sda2
-mkswap -L swap /dev/sda3
-mkfs.ext4 -L root /dev/sda4
+mkfs.ext4 -L root /dev/sda2
 
 mount LABEL=root /mnt
-mkdir --parents /mnt/boot
-mount LABEL=boot /mnt/boot
-swapon LABEL=swap
 
 mkdir --parents /etc/nix
 echo 'build-users-group =' > /etc/nix/nix.conf
