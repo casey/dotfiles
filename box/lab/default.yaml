@@ -1,8 +1,0 @@
-- create:
-  - /etc/claude-code
-  - ~/.claude
-
-- link:
-    /etc/claude-code/managed-settings.json: claude.json
-    ~/.claude/rules/lab.md: lab.md
-    ~/.extrarc: extrarc
