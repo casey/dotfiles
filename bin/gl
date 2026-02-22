@@ -2,12 +2,14 @@
 
 set -euxo pipefail
 
-branch=$1
+branch="${1:-$(git rev-parse --abbrev-ref HEAD)}"
 
 git show-ref --verify --quiet "refs/heads/$branch" || git branch $branch
 
 git checkout $branch
 
-git pull lab $branch
+git fetch lab
+
+git reset --hard lab/$branch
 
 gh pr create --web
