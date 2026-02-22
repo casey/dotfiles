@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+set -euxo pipefail
+
+branch=$1
+
+git show-ref --verify --quiet "refs/heads/$branch" || git branch $branch
+
+git checkout $branch
+
+git pull lab $branch
+
+gh pr create --web
