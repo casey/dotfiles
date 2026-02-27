@@ -1,0 +1,6 @@
+setopt local_options nounset
+
+local branch=$1
+local repo=${2:-.}
+
+git -C $repo worktree add ~/work/$branch
