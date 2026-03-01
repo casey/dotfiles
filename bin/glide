@@ -1,0 +1,118 @@
+#!/usr/bin/env -S cargo +nightly -Zscript --quiet
+---cargo
+[package]
+edition = "2024"
+
+[profile.dev]
+opt-level = 3
+
+[dependencies]
+chrono = "0.4"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+---
+
+use chrono::{NaiveDate, Utc};
+use serde::Deserialize;
+use std::process::{Command, exit};
+
+const START: &str = "2026-03-01";
+const COUNT: i64 = 152;
+
+const QUERY: &str = r#"{ viewer { notificationThreads(first: 100, filterBy: {statuses: [READ, UNREAD]}) { totalCount nodes { id title url subject { ... on Issue { number repository { nameWithOwner } } ... on PullRequest { number repository { nameWithOwner } } ... on Discussion { number repository { nameWithOwner } } } } } } }"#;
+
+#[derive(Deserialize)]
+struct Response {
+  data: Data,
+}
+
+#[derive(Deserialize)]
+struct Data {
+  viewer: Viewer,
+}
+
+#[derive(Deserialize)]
+struct Viewer {
+  #[serde(rename = "notificationThreads")]
+  notification_threads: NotificationThreads,
+}
+
+#[derive(Deserialize)]
+struct NotificationThreads {
+  #[serde(rename = "totalCount")]
+  total_count: i64,
+  nodes: Vec<Node>,
+}
+
+#[derive(Deserialize)]
+struct Node {
+  id: String,
+  title: String,
+  url: String,
+  subject: Option<Subject>,
+}
+
+#[derive(Deserialize)]
+struct Subject {
+  number: i64,
+  repository: Repository,
+}
+
+#[derive(Deserialize)]
+struct Repository {
+  #[serde(rename = "nameWithOwner")]
+  name_with_owner: String,
+}
+
+fn main() {
+  let start = START.parse::<NaiveDate>().unwrap();
+  let today = Utc::now().date_naive();
+  let days = (today - start).num_days();
+
+  let output = Command::new("gh")
+    .args(["api", "graphql", "-f", &format!("query={QUERY}")])
+    .output()
+    .unwrap_or_else(|e| {
+      eprintln!("Error: couldn't run 'gh': {e}");
+      exit(1);
+    });
+
+  if !output.status.success() {
+    eprintln!(
+      "Error: gh api failed: {}",
+      String::from_utf8_lossy(&output.stderr)
+    );
+    exit(1);
+  }
+
+  let response = serde_json::from_slice::<Response>(&output.stdout).unwrap_or_else(|e| {
+    eprintln!("Error: couldn't parse response: {e}");
+    exit(1);
+  });
+
+  let current = response.data.viewer.notification_threads.total_count;
+  let target = (COUNT - days - 1).max(0);
+  let diff = current - target;
+
+  println!("📅 {days}");
+  println!("📬 {current}");
+  println!("🎯 {target}");
+  println!("📋 {diff}");
+
+  if let Some(node) = (diff > 0)
+    .then(|| response.data.viewer.notification_threads.nodes.first())
+    .flatten()
+  {
+    if let Some(subject) = &node.subject {
+      println!(
+        "{} #{} {}",
+        subject.repository.name_with_owner, subject.number, node.title
+      );
+    } else {
+      println!("{}", node.title);
+    }
+    let url = format!("{}?notification_referrer_id={}", node.url, node.id);
+    println!("{url}");
+    Command::new("open").arg(&url).status().ok();
+  }
+}
