@@ -9,3 +9,7 @@ endif
 if getline(1) =~# '^#!.*/bin/env\>.*\<rust-script\>'
   setfiletype rust
 endif
+
+if getline(1) =~# '^#!.*/bin/env\>.*\<cargo\>.*-Zscript\>'
+  setfiletype rust
+endif
