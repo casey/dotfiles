@@ -12,14 +12,48 @@ serde = { version = "1", features = ["derive"] }
 serde_json = "1"
 ---
 
-use chrono::{NaiveDate, Utc};
-use serde::Deserialize;
-use std::process::{Command, exit};
+use {
+  chrono::{NaiveDate, Utc},
+  serde::Deserialize,
+  std::process::{exit, Command},
+};
 
-const START: &str = "2026-03-01";
-const COUNT: i64 = 152;
+const COUNT: i64 = 150;
+const START: &str = "2026-03-02";
 
-const QUERY: &str = r#"{ viewer { notificationThreads(first: 100, filterBy: {statuses: [READ, UNREAD]}) { totalCount nodes { id title url subject { ... on Issue { number repository { nameWithOwner } } ... on PullRequest { number repository { nameWithOwner } } ... on Discussion { number repository { nameWithOwner } } } } } } }"#;
+const QUERY: &str = "
+{
+  viewer {
+    notificationThreads(first: 100, filterBy: { statuses: [READ, UNREAD] }) {
+      totalCount
+      nodes {
+        id
+        title
+        url
+        subject {
+          ... on Issue {
+            number
+            repository {
+              nameWithOwner
+            }
+          }
+          ... on PullRequest {
+            number
+            repository {
+              nameWithOwner
+            }
+          }
+          ... on Discussion {
+            number
+            repository {
+              nameWithOwner
+            }
+          }
+        }
+      }
+    }
+  }
+}";
 
 #[derive(Deserialize)]
 struct Response {
