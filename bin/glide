@@ -145,8 +145,9 @@ fn main() {
     } else {
       println!("{}", node.title);
     }
-    let url = format!("{}?notification_referrer_id={}", node.url, node.id);
-    println!("{url}");
-    Command::new("open").arg(&url).status().ok();
+    Command::new("open")
+      .arg(format!("{}?notification_referrer_id={}", node.url, node.id))
+      .status()
+      .ok();
   }
 }
