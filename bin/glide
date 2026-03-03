@@ -101,7 +101,7 @@ struct Repository {
 fn main() {
   let start = START.parse::<NaiveDate>().unwrap();
   let today = Local::now().date_naive();
-  let days = u64::try_from((today - start).num_days()).unwrap();
+  let days = u64::try_from((today - start).num_days()).unwrap() + 1;
 
   let output = Command::new("gh")
     .args(["api", "graphql", "-f", &format!("query={QUERY}")])
@@ -125,8 +125,8 @@ fn main() {
   });
 
   let current = response.data.viewer.notification_threads.total_count;
-  let target = COUNT.saturating_sub(days + 1);
-  let diff = current - target;
+  let target = COUNT.saturating_sub(days * 2);
+  let diff = current.saturating_sub(target);
 
   println!("📅 {days}");
   println!("📬 {current}");
