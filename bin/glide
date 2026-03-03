@@ -13,7 +13,7 @@ serde_json = "1"
 ---
 
 use {
-  chrono::{NaiveDate, Utc},
+  chrono::{Local, NaiveDate},
   serde::Deserialize,
   std::process::{exit, Command},
 };
@@ -100,7 +100,7 @@ struct Repository {
 
 fn main() {
   let start = START.parse::<NaiveDate>().unwrap();
-  let today = Utc::now().date_naive();
+  let today = Local::now().date_naive();
   let days = (today - start).num_days();
 
   let output = Command::new("gh")
