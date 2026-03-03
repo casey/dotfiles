@@ -18,7 +18,7 @@ use {
   std::process::{exit, Command},
 };
 
-const COUNT: i64 = 150;
+const COUNT: u64 = 150;
 const START: &str = "2026-03-02";
 
 const QUERY: &str = "
@@ -74,7 +74,7 @@ struct Viewer {
 #[derive(Deserialize)]
 struct NotificationThreads {
   #[serde(rename = "totalCount")]
-  total_count: i64,
+  total_count: u64,
   nodes: Vec<Node>,
 }
 
@@ -88,7 +88,7 @@ struct Node {
 
 #[derive(Deserialize)]
 struct Subject {
-  number: i64,
+  number: u64,
   repository: Repository,
 }
 
@@ -101,7 +101,7 @@ struct Repository {
 fn main() {
   let start = START.parse::<NaiveDate>().unwrap();
   let today = Local::now().date_naive();
-  let days = (today - start).num_days();
+  let days = u64::try_from((today - start).num_days()).unwrap();
 
   let output = Command::new("gh")
     .args(["api", "graphql", "-f", &format!("query={QUERY}")])
@@ -125,7 +125,7 @@ fn main() {
   });
 
   let current = response.data.viewer.notification_threads.total_count;
-  let target = (COUNT - days - 1).max(0);
+  let target = COUNT.saturating_sub(days + 1);
   let diff = current - target;
 
   println!("📅 {days}");
