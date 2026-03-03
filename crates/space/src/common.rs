@@ -13,8 +13,6 @@ pub(crate) use serde_derive::Deserialize;
 
 pub(crate) use crate::{app, yabai};
 
-pub(crate) use crate::command_ext::CommandExt;
-
 pub(crate) use crate::{
   error::Error, frame::Frame, opt::Opt, window_handle::WindowHandle, window_info::WindowInfo,
 };

@@ -1,5 +1,6 @@
 use crate::common::*;
 
+#[allow(dead_code)]
 pub trait CommandExt {
   fn deserialize_json<T: DeserializeOwned>(self) -> Result<T, Error>;
 }

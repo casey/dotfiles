@@ -54,7 +54,7 @@ fn main() {
         hit.image.url
       );
 
-      let extension = match hit.image.url.split('.').last().unwrap() {
+      let extension = match hit.image.url.split('.').next_back().unwrap() {
         "jpg" | "jpeg" => "jpg",
         "png" => "png",
         "gif" => "gif",

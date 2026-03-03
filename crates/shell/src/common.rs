@@ -10,7 +10,7 @@ pub use std::{
   fs,
   io::{self, Cursor},
   process::Command,
-  string, u64,
+  string,
 };
 
 pub(crate) use crate::{error::Error, session::Session};

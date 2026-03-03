@@ -22,15 +22,13 @@ fn main() -> Result<(), Error> {
 
   let sessions = reader
     .deserialize::<Session>()
-    .into_iter()
     .collect::<Result<Vec<Session>, csv::Error>>()?;
 
   let mut shell = Command::new("tmux");
 
   if let Some(detached) = sessions
     .iter()
-    .filter(|session| session.is_detached())
-    .next()
+    .find(|session| session.is_detached())
   {
     shell.arg("attach-session");
     shell.arg("-t");

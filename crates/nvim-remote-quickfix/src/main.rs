@@ -19,7 +19,7 @@ fn run() -> Result<(), String> {
     errors.push_str(&format!("'{}', ", location));
   }
 
-  errors.push_str("]");
+  errors.push(']');
 
   let tmpdir = env::var("TMPDIR")
     .map_err(|error| format!("Failed to get `TMPDIR` environment variable: {}", error))?;

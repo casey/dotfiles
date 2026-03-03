@@ -5,6 +5,7 @@ pub(crate) struct Import {
   album: String,
   album_artist: String,
   path: PathBuf,
+  #[allow(dead_code)]
   title: String,
   track_number: u32,
   disc_number: u32,

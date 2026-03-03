@@ -2,15 +2,19 @@ use crate::common::*;
 
 #[derive(Debug)]
 pub(crate) enum Error {
+  #[allow(dead_code)]
   Io {
     io_error: io::Error,
   },
+  #[allow(dead_code)]
   Deserialize {
     deserialize_error: serde_json::Error,
   },
+  #[allow(dead_code)]
   ExitStatus {
     exit_status: ExitStatus,
   },
+  #[allow(dead_code)]
   Launch {
     binary: String,
   },

@@ -38,7 +38,7 @@ impl WindowHandle {
     Ok(serde_json::from_reader(child.stdout.unwrap())?)
   }
 
-  pub(crate) fn swap(&self, other: &WindowHandle) -> Result<(), Error> {
+  pub(crate) fn swap(&self, _other: &WindowHandle) -> Result<(), Error> {
     // yabai -m window self.id.to_string() --swap other.id.to_string()
     unimplemented!()
   }

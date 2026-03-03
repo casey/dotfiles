@@ -62,7 +62,7 @@ impl Subcommand {
           eprint!("{}: ", frame.name());
           use id3::Content::*;
           match frame.content() {
-            Unknown(bytes) => eprintln!("Unknown: {:?}", String::from_utf8_lossy(&bytes)),
+            Unknown(bytes) => eprintln!("Unknown: {:?}", String::from_utf8_lossy(bytes)),
             Picture(picture) => eprintln!("Picture {}", picture.description),
             Text(text) => eprintln!("{}", text),
             ExtendedText(item) => eprintln!("{:?} {:?}", item.description, item.value),
@@ -125,7 +125,7 @@ impl Subcommand {
   #[throws]
   fn sync(library: &Library) {
     let status = Command::new("rsync")
-      .args(&["-avz", "--progress", "destiny.whatbox.ca:files/"])
+      .args(["-avz", "--progress", "destiny.whatbox.ca:files/"])
       .arg(library.new_dir())
       .status()
       .with_context(|| anyhow!("Failed to invoke rsync"))?;
@@ -135,7 +135,7 @@ impl Subcommand {
     }
 
     let status = Command::new("open")
-      .args(&["--wait-apps", "-a", "MusicBrainz Picard"])
+      .args(["--wait-apps", "-a", "MusicBrainz Picard"])
       .arg(library.new_dir())
       .status()
       .with_context(|| anyhow!("Failed to invoke open"))?;
@@ -238,7 +238,7 @@ impl Subcommand {
       for cluster in clusterizer.clusters() {
         for import in cluster.imports() {
           let destination = import.destination(library, next_id);
-          fs::rename(&import.path(), &destination)?;
+          fs::rename(import.path(), &destination)?;
           imported.push(destination);
           next_id = next_id.next();
         }
