@@ -125,7 +125,7 @@ fn main() {
   });
 
   let current = response.data.viewer.notification_threads.total_count;
-  let target = COUNT.saturating_sub(days * 2);
+  let target = COUNT.saturating_sub(days * 4);
   let diff = current.saturating_sub(target);
 
   println!("📅 {days}");
