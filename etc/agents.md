@@ -10,15 +10,6 @@ non-obvious.
 
 If you notice issues unrelated to the current task, mention them.
 
-Overview
---------
-
-Run the following command when starting work, to get an overview of the layout of the project:
-
-```shell
-rg --files
-```
-
 Documentation
 -------------
 
