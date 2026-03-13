@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+set -euxo pipefail
+
+/opt/homebrew/bin/qemu-system-aarch64 \
+  -accel hvf \
+  -bios /opt/homebrew/share/qemu/edk2-aarch64-code.fd \
+  -cpu host \
+  -drive file=/Users/rodarmor/.local/share/vm/disk.qcow2,format=qcow2,if=virtio \
+  -m 16G \
+  -machine virt \
+  -nic user,model=virtio-net-pci,hostfwd=tcp:127.0.0.1:2222-:22 \
+  -nographic \
+  -smp 6
