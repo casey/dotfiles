@@ -337,8 +337,6 @@ map <leader>os <plug>(operator-sort)|      " sort operator
 nnoremap <silent> <c-h> <cmd>BufferPrevious<cr>
 nnoremap <silent> <c-i> <cmd>BufferLast<cr>
 nnoremap <silent> <c-l> <cmd>BufferNext<cr>
-nnoremap <silent> <m-s> <cmd>BufferPickDelete<cr>
-nnoremap <silent> S <cmd>BufferPick<cr>
 
 " objects
 " free g?:        byzjk
@@ -553,6 +551,7 @@ if has('nvim')
   nnoremap <silent> <m-l> :TmuxNavigateRight<cr>
 
   " lsp bindings
+  nnoremap <silent> <m-R> <cmd>lua vim.lsp.buf.rename()<cr>
   nnoremap <silent> <m-a> <cmd>lua require('lspconfig').rust_analyzer.setup({})<cr>
   nnoremap <silent> <m-d> <cmd>lua vim.lsp.buf.definition()<cr>
   nnoremap <silent> <m-i> <cmd>lua vim.lsp.buf.type_definition()<cr>
@@ -560,7 +559,7 @@ if has('nvim')
   " nnoremap <silent> <m-p> <cmd>lua vim.diagnostic.goto_prev()<cr>
   nnoremap <silent> <m-r> <cmd>lua vim.lsp.buf.references()<cr>
   nnoremap <silent> <m-t> <cmd>lua vim.lsp.buf.hover()<cr>
-  nnoremap <silent> <m-R> <cmd>lua vim.lsp.buf.rename()<cr>
+  nnoremap <silent> <m-w> <cmd>Telescope lsp_workspace_symbols<cr>
 
   " load lua configuration
   lua require('init')
