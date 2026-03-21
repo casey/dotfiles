@@ -1,11 +1,4 @@
 {
-  "attribution": {
-    "commit": "",
-    "pr": ""
-  },
-  "enabledPlugins": {
-    "rust-analyzer-lsp@claude-plugins-official": true
-  },
   "env": {
     "CLAUDE_CODE_DISABLE_FEEDBACK_SURVEY": "1",
     "CLAUDE_CODE_ENABLE_PROMPT_SUGGESTION": "false",
@@ -14,12 +7,18 @@
     "DISABLE_TELEMETRY": "1",
     "IS_DEMO": "1"
   },
-  "model": "opus",
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
   "permissions": {
     "allow": [
       "Bash(cargo dep *)",
       "Bash(rg --files)"
     ]
+  },
+  "enabledPlugins": {
+    "rust-analyzer-lsp@claude-plugins-official": true
   },
   "spinnerTipsEnabled": false
 }
