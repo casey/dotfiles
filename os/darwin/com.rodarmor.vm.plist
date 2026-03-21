@@ -7,7 +7,7 @@
 
   <key>ProgramArguments</key>
   <array>
-    <string>/Users/rodarmor/bin/vm</string>
+    <string>/Users/rodarmor/bin/start-vm</string>
   </array>
 
   <key>RunAtLoad</key>
