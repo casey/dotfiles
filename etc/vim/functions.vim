@@ -247,21 +247,6 @@ endfunction
 function! VimEnter()
   " take <c-j> back from incsearch.vim
   IncSearchNoreMap <c-j> <c-c><esc>
-
-  " don't display line numbers in man pages
-  if get(b:, 'current_syntax', '') == "man"
-    " turn off airline
-    AirlineToggle
-
-    " turn off line numbers
-    setlocal nonumber
-
-    " turn off relative line numbers
-    setlocal norelativenumber
-
-    " hide status bar
-    setlocal laststatus=0
-  endif
 endfunction
 
 " replace :name: with emoji
