@@ -28,7 +28,7 @@ compinit -C -d ~/.zsh/compdump
 ## path
 
 INITIAL_PATH_ELEMENTS=(${(s/:/)PATH}) # save initial path elements
-PATH=''                               # clear path variable
+PATH='' # clear path variable
 
 path: ~/bin # artisanal binaries
 path: ~/.fzf/bin # fzf
@@ -50,7 +50,6 @@ path: /usr/sbin # admin binaries
 path: /usr/games # games
 path: /bin # core binaries
 path: /sbin # core admin binaries
-path: ~/.local/share/solana/install/active_release/bin # solana binaries
 
 # append initial path components
 for PART in $INITIAL_PATH_ELEMENTS; do
