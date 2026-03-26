@@ -18,7 +18,7 @@ autoload ~/.zsh/functions/* # autoload all functions in local functions director
 ## completions
 
 # add local completions directory to fpath
-fpath=(~/.zsh/completions /opt/homebrew/share/zsh/site-functions $fpath)
+fpath=(~/.zsh/completions $fpath)
 
 zstyle ':completion:*:descriptions' format "%U%B%d%b%u"
 zstyle ':completion:*:messages' format "%F{blue}%d%f"
