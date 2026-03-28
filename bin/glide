@@ -88,8 +88,8 @@ struct Node {
 
 #[derive(Deserialize)]
 struct Subject {
-  number: u64,
-  repository: Repository,
+  number: Option<u64>,
+  repository: Option<Repository>,
 }
 
 #[derive(Deserialize)]
@@ -138,10 +138,11 @@ fn main() {
     .flatten()
   {
     if let Some(subject) = &node.subject {
-      println!(
-        "{} #{} {}",
-        subject.repository.name_with_owner, subject.number, node.title
-      );
+      if let (Some(number), Some(repo)) = (subject.number, &subject.repository) {
+        println!("{} #{} {}", repo.name_with_owner, number, node.title);
+      } else {
+        println!("{}", node.title);
+      }
     } else {
       println!("{}", node.title);
     }
