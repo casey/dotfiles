@@ -81,16 +81,12 @@ if vim.g.trouble ~= 0 then
   )
 end
 
-
-vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics,
-  {
-    virtual_text = false,
-    signs = false,
-    update_in_insert = false,
-    underline = false,
-  }
-)
+vim.diagnostic.config({
+  signs = false,
+  underline = false,
+  update_in_insert = false,
+  virtual_text = false,
+})
 
 local quickfix = function()
   local len = vim.api.nvim_eval('len(getqflist())')
