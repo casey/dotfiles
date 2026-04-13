@@ -1,4 +1,4 @@
-if [[ -n $SSH_CONNECTION ]]; then
+if [[ -n $SSH_CONNECTION || $container == podman ]]; then
   echo -n %m
 fi
 
