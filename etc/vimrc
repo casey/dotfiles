@@ -67,7 +67,7 @@ Plug 'xolox/vim-misc'                     " misc funcionality for other plugins
 
 " fuzzy finder
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' }
+Plug 'nvim-telescope/telescope.nvim'
 
 " conditionally loaded plugins
 Plug 'mattn/gist-vim',   {'on': 'Gist'    } " create gists
