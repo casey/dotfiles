@@ -92,7 +92,7 @@ Plug 'cespare/vim-toml', {'branch': 'main'}
 Plug 'kdheepak/lazygit.nvim', {'branch': 'main'}
 
 " tree sitter
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter', {'branch': 'main', 'do': ':TSUpdate'}
 
 " show git hunks in gutter
 Plug 'airblade/vim-gitgutter', {'branch': 'main'}
@@ -556,6 +556,11 @@ if has('nvim')
   nnoremap <silent> <m-r> <cmd>lua vim.lsp.buf.references()<cr>
   nnoremap <silent> <m-t> <cmd>lua vim.lsp.buf.hover()<cr>
   nnoremap <silent> <m-w> <cmd>Telescope lsp_workspace_symbols<cr>
+
+  " incremental selection
+  nmap <cr> van
+  vmap <cr> an
+  vmap <bs> in
 
   " load lua configuration
   lua require('init')

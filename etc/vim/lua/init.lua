@@ -138,22 +138,12 @@ require'lsp-progress'.setup {
 
 require'nvim-tree'.setup()
 
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = { 'lua', 'rust', 'vim', 'vimdoc' },
-  highlight = {
-    enable = true,
-    disable = { 'vim', 'vimdoc' }
-  },
-  incremental_selection = {
-    enable = true,
-    keymaps = {
-      init_selection = '<cr>',
-      node_incremental = '<cr>',
-      scope_incremental = '<tab>',
-      node_decremental = '<bs>',
-    },
-  },
-}
+require'nvim-treesitter'.install { 'lua', 'rust', 'vim', 'vimdoc' }
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'lua', 'rust' },
+  callback = function() vim.treesitter.start() end,
+})
 
 require'telescope'.setup {
   defaults = {
@@ -171,13 +161,3 @@ require'telescope'.setup {
   },
 }
 
-vim.api.nvim_create_augroup('cmdwin_treesitter', {
-  clear = true,
-})
-
-vim.api.nvim_create_autocmd('CmdwinEnter', {
-  pattern = '*',
-  command = 'TSBufDisable incremental_selection',
-  group = 'cmdwin_treesitter',
-  desc = "Disable treesitter's incremental selection in Command-line window",
-})
