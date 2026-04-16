@@ -461,6 +461,8 @@ digraphs fv 10086| " vertical fleuron
 
 "" commands
 
+command! -bar -bang Delete call Delete(<bang>0)
+
 command! -bang -nargs=* AllLines
   \ call fzf#vim#grep(
   \   'rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>),

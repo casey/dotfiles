@@ -17,6 +17,26 @@ function! Date()
   return trim(system('date -u +"%Y-%m-%dT%H:%M:%SZ"'))
 endfunction
 
+function! Delete(force) abort
+  let file = expand('%:p')
+
+  if !a:force && getftype(file) ==# 'file' && !(line('$') == 1 && empty(getline(1)))
+    echoerr 'File not empty (add ! to override)'
+    return
+  endif
+
+  if getftype(file) ==# 'file' && delete(file) != 0
+    echoerr 'Failed to delete "' . file . '"'
+    return
+  endif
+
+  if ListedBufferCount() <= 1
+    qall
+  else
+    execute 'BufferClose!'
+  endif
+endfunction
+
 function! QuickfixIsOpen()
   for n in range(1, winnr('$'))
     if getwinvar(n, '&syntax') == 'qf'
