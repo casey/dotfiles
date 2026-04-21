@@ -2,8 +2,9 @@
 
 set -euo pipefail
 
-name="$2"
-
 cargo metadata --format-version=1 \
-  | jq -r '.packages[] | select(.name=="'$name'") | .manifest_path' \
-  | sed 's:[^/]*$::'
+  | jq \
+    --arg dependency "$2" \
+    --raw-output \
+    '.packages[] | select(.name==$dependency) | .manifest_path' \
+  | xargs dirname
