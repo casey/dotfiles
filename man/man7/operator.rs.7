@@ -1,0 +1,38 @@
+.Dd April 20, 2026
+.Dt OPERATOR.RS 7
+.Os
+.Sh NAME
+.Nm operator.rs
+.Nd Rust operator precedence and order of evaluation
+.Sh DESCRIPTION
+Operators are listed from highest to lowest precedence.
+.Pp
+.Bl -column "Operator                                    " "Associativity        " -offset indent -compact
+.It Sy Operator Ta Sy Associativity Ta Sy Description
+.It paths Ta Ta path expressions
+.It "method()" Ta left to right Ta method calls
+.It \&. Ta left to right Ta field access
+.It "()  []" Ta left to right Ta call, index
+.It \&? Ta Ta error propagation
+.It "!  -  *  &  &mut" Ta Ta unary operators
+.It as Ta left to right Ta type cast
+.It \&*  /  % Ta left to right Ta arithmetic
+.It \&+  - Ta left to right Ta arithmetic
+.It \&<<  >> Ta left to right Ta bitwise shifts
+.It \&& Ta left to right Ta bitwise AND
+.It \&^ Ta left to right Ta bitwise XOR
+.It \&| Ta left to right Ta bitwise OR
+.It "==  !=  <  >  <=  >=" Ta require parentheses Ta comparison
+.It \&&& Ta left to right Ta logical AND
+.It \&|| Ta left to right Ta logical OR
+.It "..  ..=" Ta require parentheses Ta range
+.It "=  +=  -=  *=  /=  %=  &=  |=  ^=  <<=  >>=" Ta right to left Ta assignment
+.It "return  break  closures" Ta Ta control flow
+.El
+.Sh SEE ALSO
+.Lk https://doc.rust-lang.org/reference/expressions.html "The Rust Reference: Expressions"
+.Sh HISTORY
+Inspired by the
+.Xr operator 7
+man page, which documents C operator precedence and has shipped
+with BSD since 4.3BSD in 1986.

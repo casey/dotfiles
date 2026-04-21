@@ -85,6 +85,7 @@
     ~/.inputrc: etc/inputrc
     ~/.lftprc: etc/lftprc
     ~/.lldbinit: etc/lldbinit
+    ~/.local/share/man: man
     ~/.mutt/muttrc: etc/muttrc
     ~/.nethackrc: etc/nethackrc
     ~/.nixpkgs/config.nix: etc/nixpkgs.nix

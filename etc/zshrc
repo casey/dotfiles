@@ -75,6 +75,7 @@ export KEYTIMEOUT=1 # don't wait for multibyte sequences
 export LANG=en_US.UTF-8 # use the english utf-8 locale
 export LESS=-ifRMx2 # default options for less
 export LS_OPTIONS='--color=auto' # make ls use color
+export MANPATH="$HOME/.local/share/man:$MANPATH" # custom man pages
 export PAGER=less # less as pager
 export PIPENV_VENV_IN_PROJECT=enabled # put pipenv environments in project
 export SAVEHIST=5000000 # save lots of history to disk
