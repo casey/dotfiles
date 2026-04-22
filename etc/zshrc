@@ -65,6 +65,7 @@ export CARGO_ASC=false # show errors in descending order
 export CARGO_MSG_LIMIT=0 # show one message at a time
 export CARGO_OPEN_WARN=true # populate quickfix list with warnings
 export CLICOLOR=1 # use color
+export DO_NOT_TRACK=1 # opt out of tracking
 export EDITOR=vim # vim as editor
 export EDMV_EDITOR=vim # vim as editor in edmv
 export HISTFILE=~/.history # location for the history file
