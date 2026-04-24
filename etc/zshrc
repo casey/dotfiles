@@ -64,6 +64,7 @@ export BLOCKSIZE=K # show blocks as kilobytes
 export CARGO_ASC=false # show errors in descending order
 export CARGO_MSG_LIMIT=0 # show one message at a time
 export CARGO_OPEN_WARN=true # populate quickfix list with warnings
+export CLAUDE_CODE_EFFORT_LEVEL=max # sack up, claude
 export CLICOLOR=1 # use color
 export DO_NOT_TRACK=1 # opt out of tracking
 export EDITOR=vim # vim as editor
