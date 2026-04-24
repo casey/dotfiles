@@ -58,7 +58,7 @@ alias: eject 'drutil tray eject'
 alias: magit 'emacs --eval "(magit-status)"'
 
 # ⅤⅡ
-alias: upgrade 'brew update && brew upgrade claude codex claude-code gh'
+alias: upgrade 'brew update && brew upgrade claude-code gh'
 
 # git
 alias: gc 'git commit'
