@@ -64,6 +64,10 @@ Style
 
 Do not write comments. Comments will be added by the user as necessary.
 
+Use modern Rust when available.
+
+Run `cargo fmt` to ensure code is correctly formatted.
+
 Don't create mutable variables that are initialized in a conditional:
 
 ```rust bad
@@ -205,12 +209,33 @@ let foo = foo.parse::<T>().unwrap();
 let bar = foo.into_iter().collect::<Vec<u8>>();
 ```
 
-Use modern Rust when available.
+Prefer asserting the entire contents of values:
 
-Style
------
+```rust bad
+assert!(path.ends_with("foo/bar"));
+```
 
-Run `cargo fmt` to ensure code is correctly formatted.
+```rust good
+assert_eq!(path, "/home/user/foo/bar");
+```
+
+```rust bad
+assert!(Regex::new("bad thing").unwrap().is_match(error));
+```
+
+```rust good
+assert!(Regex::new("^error: bad thing ID [0-9]+$").unwrap().is_match(error));
+````
+
+Prefer matching complete patterns:
+
+```rust bad
+assert_matches!(result, Err(Error::Foo { .. }));
+```
+
+```rust good
+assert_matches!(result, Err(Error::Foo { message: "bar" }));
+```
 
 Performance
 -----------
