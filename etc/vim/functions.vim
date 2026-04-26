@@ -245,7 +245,12 @@ function! Leave()
     return
   endif
 
-  if  ListedBufferCount() <= 1
+  if &filetype ==# 'NvimTree'
+    :qall
+    return
+  endif
+
+  if ListedBufferCount() <= 1
     if &modified
       echo 'Unsaved changes!'
       return
