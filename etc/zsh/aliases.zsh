@@ -63,6 +63,7 @@ alias: upgrade 'brew update && brew upgrade claude-code gh'
 # git
 alias: gc 'git commit'
 
+alias: ga. 'git add .'
 alias: gaa 'git commit --amend --all'
 alias: gac 'git commit --amend'
 alias: gad 'git add'
