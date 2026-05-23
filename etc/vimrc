@@ -250,7 +250,7 @@ let g:pastedtext_select_key = 'gl' " use gl for last pasted text mappings
 let g:qf_bufname_or_text = 2 " filter only on quickfix text
 let g:rust_recommended_style = 0 " use 2 space instead of 4 space tabs
 let g:rustfmt_autosave = 0 " run rustfmt on save
-let g:surround_indent = 1 " indent with '=' after surrounding
+let g:surround_indent = 0 " don't indent with '=' after surrounding
 let g:tmux_navigator_no_mappings = 1 " disable default tmux navigator mappings
 let g:trouble = 0 " enable trouble
 let g:undotree_WindowLayout = 2 " put undotree on left with full width diff
