@@ -74,7 +74,6 @@ Plug 'mattn/gist-vim',   {'on': 'Gist'    } " create gists
 Plug 'tyru/capture.vim', {'on': 'Capture' } " capture command output in a buffer
 
 " language specific plugins
-Plug 'casey/boilerplate'       " boilerplate
 Plug 'pangloss/vim-javascript' " javascript
 Plug 'preservim/vim-markdown'  " markdown
 Plug 'rust-lang/rust.vim'      " rust
@@ -85,6 +84,9 @@ Plug 'DingDean/wgsl.vim', {'branch': 'main'}
 
 "  just support
 Plug 'NoahTheDuke/vim-just', {'branch': 'main'}
+
+" boilerplate
+Plug 'casey/boilerplate', { 'rtp': 'vim' }
 
 " toml syntax
 Plug 'cespare/vim-toml', {'branch': 'main'}
