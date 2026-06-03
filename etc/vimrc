@@ -382,8 +382,6 @@ nnoremap <leader>id "=Date()<cr>p|                         " insert date
 nnoremap <leader>io o<esc>|                                " insert line below cursor
 nnoremap <leader>jj :!just<cr>|                            " run just
 nnoremap <leader>ls <cmd>source ~/.vim/session<cr>|        " load session
-nnoremap <leader>oj o<esc>|                                " insert line below cursor
-nnoremap <leader>ok O<esc>|                                " insert line above cursor
 nnoremap <leader>op :silent !ope %<cr>|                    " open current file
 nnoremap <leader>pc <cmd>pwd<cr>|                          " print cwd
 nnoremap <leader>pu <cmd>PlugUpdate<cr>|                   " plug update
@@ -427,8 +425,8 @@ nnoremap Y y$|                                             " yank to end of line
 nnoremap j gj|                                             " go down one screen line
 nnoremap k gk|                                             " go up one screen line
 vnoremap <leader>s :sort<cr>|                              " sort lines
-vnoremap <leader>t: :Tabularize :<cr>                      " align on :
-vnoremap <leader>t= :Tabularize =<cr>                      " align on =
+vnoremap <leader>t: :Tabularize :<cr>|                     " align on :
+vnoremap <leader>t= :Tabularize =<cr>|                     " align on =
 vnoremap j gj|                                             " go to next screen line
 vnoremap k gk|                                             " go to previous screen line
 xnoremap x d|                                              " cut operation
