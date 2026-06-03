@@ -1,0 +1,74 @@
+#!/usr/bin/env bash
+
+set -u
+
+e=$'\033'
+r="${e}[0m"
+sample="The quick brown fox"
+
+row() {
+  local label=$1 on=$2 off=${3:-$r}
+  printf '  %-22s %s%s%s\n' "$label" "$on" "$sample" "$off"
+}
+
+head() { printf '\n%s%s%s\n' "${e}[1m" "$1" "$r"; }
+
+head "Environment"
+printf '  %-22s %s\n' "TERM"      "${TERM:-unset}"
+printf '  %-22s %s\n' "COLORTERM" "${COLORTERM:-unset}"
+if [ -n "${TMUX:-}" ]; then
+  printf '  %-22s %s\n' "multiplexer" "tmux"
+elif [ -n "${STY:-}" ]; then
+  printf '  %-22s %s\n' "multiplexer" "GNU screen"
+else
+  printf '  %-22s %s\n' "multiplexer" "none"
+fi
+
+head "Basic attributes"
+row "bold (1)"          "${e}[1m"
+row "dim/faint (2)"     "${e}[2m"
+row "italic (3)"        "${e}[3m"
+row "underline (4)"     "${e}[4m"
+row "blink (5)"         "${e}[5m"
+row "reverse (7)"       "${e}[7m"
+row "conceal (8)"       "${e}[8m"
+row "strikethrough (9)" "${e}[9m"
+row "overline (53)"     "${e}[53m"
+row "superscript (73)"  "${e}[73m"
+row "subscript (74)"    "${e}[74m"
+
+head "Underline variants (colon SGR)"
+row "straight (4:1)"    "${e}[4:1m"
+row "double (4:2)"      "${e}[4:2m"
+row "curly (4:3)"       "${e}[4:3m"
+row "dotted (4:4)"      "${e}[4:4m"
+row "dashed (4:5)"      "${e}[4:5m"
+
+head "Underline colors (style + 58)"
+row "red curly"      "${e}[4:3m${e}[58:2::255:0:0m" "${e}[59m$r"
+row "green dotted"   "${e}[4:4m${e}[58:2::0:255:0m" "${e}[59m$r"
+row "blue dashed"    "${e}[4:5m${e}[58:5:21m"       "${e}[59m$r"
+
+head "Combinations"
+row "bold italic"       "${e}[1;3m"
+row "italic underline"  "${e}[3;4m"
+row "bold italic under" "${e}[1;3;4m"
+
+head "Color"
+printf '  %-22s ' "256-color fg"
+for c in 196 202 208 220 46 51 33 129; do printf '%s██%s' "${e}[38;5;${c}m" "$r"; done
+printf '\n  %-22s ' "truecolor fg"
+for c in 255:0:0 255:128:0 255:255:0 0:255:0 0:128:255 128:0:255; do
+  IFS=: read -r R G B <<<"$c"
+  printf '%s██%s' "${e}[38;2;${R};${G};${B}m" "$r"
+done
+printf '\n'
+
+head "Terminfo capabilities for TERM=${TERM:-unset}"
+for cap in bold dim sitm ritm smul smso smxx; do
+  if tput "$cap" >/dev/null 2>&1; then
+    printf '  %-6s present\n' "$cap"
+  else
+    printf '  %-6s %sMISSING%s\n' "$cap" "${e}[31m" "$r"
+  fi
+done

@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+## 8-bit Colors
+
 # Tom Hale, 2016. MIT Licence.
 # Print out 256 colours, with each number printed in its corresponding colour
 # See http://askubuntu.com/questions/821157/print-a-256-color-test-pattern-in-the-terminal/821163#821163
@@ -94,8 +96,116 @@ print_run 0 16 # The first 16 colours are spread over the whole spectrum
 printf "\n"
 print_blocks 16 231 6 6 3 # 6x6x6 colour cube between 16 and 231 inclusive
 print_blocks 232 255 12 2 1 # Not 50, but 24 Shades of Grey
+
+## 24-bit Colors
 echo
-echo -e "\e[1mbold\e[0m"
-echo -e "\e[3mitalic\e[0m"
-echo -e "\e[4munderline\e[0m"
-echo -e "\e[9mstrikethrough\e[0m"
+
+#   This file echoes a bunch of 24-bit color codes
+#   to the terminal to demonstrate its functionality.
+#   The foreground escape sequence is ^[38;2;<r>;<g>;<b>m
+#   The background escape sequence is ^[48;2;<r>;<g>;<b>m
+#   <r> <g> <b> range from 0 to 255 inclusive.
+#   The escape sequence ^[0m returns output to default
+
+setBackgroundColor()
+{
+    echo -en "\x1b[48;2;$1;$2;$3""m"
+}
+
+resetOutput()
+{
+    echo -en "\x1b[0m\n"
+}
+
+# Gives a color $1/255 % along HSV
+# Who knows what happens when $1 is outside 0-255
+# Echoes "$red $green $blue" where
+# $red $green and $blue are integers
+# ranging between 0 and 255 inclusive
+rainbowColor()
+{
+    let h=$1/43
+    let f=$1-43*$h
+    let t=$f*255/43
+    let q=255-t
+
+    if [ $h -eq 0 ]
+    then
+        echo "255 $t 0"
+    elif [ $h -eq 1 ]
+    then
+        echo "$q 255 0"
+    elif [ $h -eq 2 ]
+    then
+        echo "0 255 $t"
+    elif [ $h -eq 3 ]
+    then
+        echo "0 $q 255"
+    elif [ $h -eq 4 ]
+    then
+        echo "$t 0 255"
+    elif [ $h -eq 5 ]
+    then
+        echo "255 0 $q"
+    else
+        # execution should never reach here
+        echo "0 0 0"
+    fi
+}
+
+for i in `seq 0 127`; do
+    setBackgroundColor $i 0 0
+    echo -en " "
+done
+resetOutput
+for i in `seq 255 128`; do
+    setBackgroundColor $i 0 0
+    echo -en " "
+done
+resetOutput
+
+for i in `seq 0 127`; do
+    setBackgroundColor 0 $i 0
+    echo -n " "
+done
+resetOutput
+for i in `seq 255 128`; do
+    setBackgroundColor 0 $i 0
+    echo -n " "
+done
+resetOutput
+
+for i in `seq 0 127`; do
+    setBackgroundColor 0 0 $i
+    echo -n " "
+done
+resetOutput
+for i in `seq 255 128`; do
+    setBackgroundColor 0 0 $i
+    echo -n " "
+done
+resetOutput
+
+for i in `seq 0 127`; do
+    setBackgroundColor `rainbowColor $i`
+    echo -n " "
+done
+resetOutput
+for i in `seq 255 128`; do
+    setBackgroundColor `rainbowColor $i`
+    echo -n " "
+done
+resetOutput
+
+## Named colors
+echo
+
+echo -e "\033[0mNC (No color)"
+echo -e "\033[1;37mWHITE\t\033[0;30mBLACK"
+echo -e "\033[0;34mBLUE\t\033[1;34mLIGHT_BLUE"
+echo -e "\033[0;32mGREEN\t\033[1;32mLIGHT_GREEN"
+echo -e "\033[0;36mCYAN\t\033[1;36mLIGHT_CYAN"
+echo -e "\033[0;31mRED\t\033[1;31mLIGHT_RED"
+echo -e "\033[0;35mPURPLE\t\033[1;35mLIGHT_PURPLE"
+echo -e "\033[0;33mYELLOW\t\033[1;33mLIGHT_YELLOW"
+echo -e "\033[1;30mGRAY\t\033[0;37mLIGHT_GRAY"
