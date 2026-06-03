@@ -74,6 +74,7 @@ Plug 'mattn/gist-vim',   {'on': 'Gist'    } " create gists
 Plug 'tyru/capture.vim', {'on': 'Capture' } " capture command output in a buffer
 
 " language specific plugins
+Plug 'casey/boilerplate'       " boilerplate
 Plug 'pangloss/vim-javascript' " javascript
 Plug 'preservim/vim-markdown'  " markdown
 Plug 'rust-lang/rust.vim'      " rust
@@ -412,6 +413,7 @@ nnoremap <leader>tl <cmd>call ToggleLineWrap()<cr>|        " toggle line wrappin
 nnoremap <leader>tn <cmd>call ToggleLineNumbers()<cr>|     " toggle line numbers
 nnoremap <leader>tr <cmd>call ToggleRelativeNumbers()<cr>| " toggle line numbers
 nnoremap <leader>ts <cmd>setlocal spell!<cr>|              " toggle spelling
+nnoremap <leader>tt <cmd>Boilerplate<cr>|                  " toggle boilerplate template highlighting
 nnoremap <leader>tu <cmd>UndotreeToggle<cr>|               " toggle undotree
 nnoremap <leader>tw <cmd>call ToggleWhitespace()<cr>|      " toggle whitespace
 nnoremap <leader>tz <cmd>call ToggleZoom()<cr>|            " toggle zoom
