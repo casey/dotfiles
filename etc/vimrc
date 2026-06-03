@@ -342,111 +342,111 @@ nnoremap <silent> <c-l> <cmd>BufferNext<cr>
 " free a? and i?: dfghijkmoqruvxyz
 
 " non-recursive mappings
-inoremap <c-s> <c-g>u<Esc>[s1z=`]a<c-g>u|              " fix last spelling error
-inoremap <c-x><c-x> <c-x><c-o>|                        " omnifunc completions
-inoremap <expr> <c-]> Snippet()|                       " edit or expand snippet
-nnoremap <c-b> <c-o>|                                  " jump back
-nnoremap <c-f> <c-i>|                                  " jump forward
-nnoremap <c-k> :AllLines<cr>|                          " search lines
-nnoremap <c-p> :Telescope find_files<cr>|              " search files
-nnoremap <c-s> :call CorrectSpellingError()<cr>|       " correct spelling error or search symbols
-nnoremap <leader> <nop>|                               " reserve for three-key mappings
-nnoremap <leader>" :vsplit<cr>|                        " vertical split
-nnoremap <leader>.. :cd ..<cr>|                        " go up one directory
-nnoremap <leader><cr> :nohlsearch<cr>|                 " clear search highlights
-nnoremap <leader><space> :wall<cr>|                    " save all changed buffers
-nnoremap <leader>= :split<cr>|                         " horizontal split
-nnoremap <leader>a# :Tabularize /#<cr>|                " align on #
-nnoremap <leader>a: :Tabularize :<cr>|                 " align on :
-nnoremap <leader>a<bar> :Tabularize \|<cr>|            " align on |
-nnoremap <leader>a= :Tabularize =<cr>|                 " align on =
-nnoremap <leader>aa :A<cr>|                            " alternate article
-nnoremap <leader>al :SidewaysLeft<cr>|                 " move function argument left
-nnoremap <leader>ar :SidewaysRight<cr>|                " move function argument right
-nnoremap <leader>bd :bd<cr>|                           " buffer delete
-nnoremap <leader>cx :!chmod u+x %<cr>|                 " chmod +x current file
-nnoremap <leader>fe :call FixEmoji()<cr>|              " fix emoji
-nnoremap <leader>ff gqae<cr>|                          " fix formatting
-nnoremap <leader>fp gqip|                              " fix/format paragraph
-nnoremap <leader>ft :retab<cr>|                        " fix tabs
-nnoremap <leader>fw ::%s/\s\+$//e<cr>|                 " fix whitespace
-nnoremap <leader>gc :!git commit -v<cr><cr>|           " git commit
-nnoremap <leader>gd :!git diff<cr><cr>|                " git diff
-nnoremap <leader>gg :LazyGit<cr>|                      " open lazygit
-nnoremap <leader>gm :!git commit -av<cr><cr>|          " git mash
-nnoremap <leader>gs :!git status<cr>|                  " git status
-nnoremap <leader>hd :Capture digraphs<cr>|             " display digraphs
-nnoremap <leader>hm :Capture map<cr>|                  " display mappings
-nnoremap <leader>iO O<esc>|                            " insert line above cursor
-nnoremap <leader>id "=Date()<cr>p|                     " insert date
-nnoremap <leader>io o<esc>|                            " insert line below cursor
-nnoremap <leader>jj :!just<cr>|                        " run just
-nnoremap <leader>ls :source ~/.vim/session<cr>|        " load session
-nnoremap <leader>oj o<esc>|                            " insert line below cursor
-nnoremap <leader>ok O<esc>|                            " insert line above cursor
-nnoremap <leader>op :silent !ope %<cr>|                " open current file
-nnoremap <leader>pc :pwd<cr>|                          " print cwd
-nnoremap <leader>pu :PlugUpdate<cr>|                   " plug update
-nnoremap <leader>py :PyEval<cr>|                       " evaluate current line with python3
-nnoremap <leader>qe :cq<cr>|                           " quit with error code
-nnoremap <leader>qq :q<cr>|                            " quit
-nnoremap <leader>ra :!cargo add <c-r><c-w><cr>|        " add crate name under cursor
-nnoremap <leader>rb :Quickrun<cr>|                     " run buffer
-nnoremap <leader>rd :!cargo doc --all --open<cr>|      " open docs
-nnoremap <leader>rg :Grepper<cr>|                      " recursive grep
-nnoremap <leader>rp Ipub(crate) <esc>|                 " change visibility to pub(crate)
-nnoremap <leader>sb :Buffers<cr>|                      " search buffers
-nnoremap <leader>sc :Commands<cr>|                     " search commands
-nnoremap <leader>sf :Files<cr>|                        " search files
-nnoremap <leader>sg :Commits<cr>|                      " search git
-nnoremap <leader>sh :History:<cr>|                     " search command history
-nnoremap <leader>sl :Lines<cr>|                        " lines in current buffer
-nnoremap <leader>ss :call SynStack()<cr>|              " show highlight group names
-nnoremap <leader>st :Tags<cr>|                         " search ctags
-nnoremap <leader>sv :source $MYVIMRC<cr>:nohl<cr>|     " source ~/.vimrc
-nnoremap <leader>ta :call ToggleALE()<cr>|             " toggle ale
-nnoremap <leader>tb :set wrap!<cr>|                    " toggle line breaks
-nnoremap <leader>tc :call ToggleColor()<cr>|           " toggle syntax highlighting
-nnoremap <leader>tg :GitGutterToggle<cr>|              " toggle gitgutter
-nnoremap <leader>th :Hexmode<cr>|                      " toggle hex mode
-nnoremap <leader>ti :call ToggleInterface()<cr>|       " toggle interface elements
-nnoremap <leader>tl :call ToggleLineWrap()<cr>|        " toggle line wrapping
-nnoremap <leader>tn :call ToggleLineNumbers()<cr>|     " toggle line numbers
-nnoremap <leader>tr :call ToggleRelativeNumbers()<cr>| " toggle line numbers
-nnoremap <leader>ts :setlocal spell!<cr>|              " toggle spelling
-nnoremap <leader>tu :UndotreeToggle<cr>|               " toggle undotree
-nnoremap <leader>tw :call ToggleWhitespace()<cr>|      " toggle whitespace
-nnoremap <leader>tz :call ToggleZoom()<cr>|            " toggle zoom
-nnoremap <leader>wa :wa<cr>|                           " write all buffers
-nnoremap <leader>wo <c-w>o|                            " close all windows but current
-nnoremap <leader>zz :wqa<cr>|                          " save all files and exit
-nnoremap <m-p> :FindRepoFiles<cr>|                     " search files in repo directory
-nnoremap <silent> <c-q> :call Leave()<cr>|             " close window, close buffer or quit
-nnoremap X D|                                          " cut until end of line
-nnoremap Y y$|                                         " yank to end of line
-nnoremap j gj|                                         " go down one screen line
-nnoremap k gk|                                         " go up one screen line
-vnoremap <leader>s :sort<cr>|                          " sort lines
-vnoremap <leader>t: :Tabularize :<cr>                  " align on :
-vnoremap <leader>t= :Tabularize =<cr>                  " align on =
-vnoremap j gj|                                         " go to next screen line
-vnoremap k gk|                                         " go to previous screen line
-xnoremap x d|                                          " cut operation
+inoremap <c-s> <c-g>u<Esc>[s1z=`]a<c-g>u|                  " fix last spelling error
+inoremap <c-x><c-x> <c-x><c-o>|                            " omnifunc completions
+inoremap <expr> <c-]> Snippet()|                           " edit or expand snippet
+nnoremap <c-b> <c-o>|                                      " jump back
+nnoremap <c-f> <c-i>|                                      " jump forward
+nnoremap <c-k> <cmd>AllLines<cr>|                          " search lines
+nnoremap <c-p> <cmd>Telescope find_files<cr>|              " search files
+nnoremap <c-s> <cmd>call CorrectSpellingError()<cr>|       " correct spelling error or search symbols
+nnoremap <leader> <nop>|                                   " reserve for three-key mappings
+nnoremap <leader>" <cmd>vsplit<cr>|                        " vertical split
+nnoremap <leader>.. <cmd>cd ..<cr>|                        " go up one directory
+nnoremap <leader><cr> <cmd>nohlsearch<cr>|                 " clear search highlights
+nnoremap <leader><space> <cmd>wall<cr>|                    " save all changed buffers
+nnoremap <leader>= <cmd>split<cr>|                         " horizontal split
+nnoremap <leader>a# <cmd>Tabularize /#<cr>|                " align on #
+nnoremap <leader>a: <cmd>Tabularize :<cr>|                 " align on :
+nnoremap <leader>a<bar> <cmd>Tabularize \|<cr>|            " align on |
+nnoremap <leader>a= <cmd>Tabularize =<cr>|                 " align on =
+nnoremap <leader>aa <cmd>A<cr>|                            " alternate article
+nnoremap <leader>al <cmd>SidewaysLeft<cr>|                 " move function argument left
+nnoremap <leader>ar <cmd>SidewaysRight<cr>|                " move function argument right
+nnoremap <leader>bd <cmd>bd<cr>|                           " buffer delete
+nnoremap <leader>cx :!chmod u+x %<cr>|                     " chmod +x current file
+nnoremap <leader>fe <cmd>call FixEmoji()<cr>|              " fix emoji
+nnoremap <leader>ff gqae<cr>|                              " fix formatting
+nnoremap <leader>fp gqip|                                  " fix/format paragraph
+nnoremap <leader>ft <cmd>retab<cr>|                        " fix tabs
+nnoremap <leader>fw <cmd>%s/\s\+$//e<cr>|                  " fix whitespace
+nnoremap <leader>gc :!git commit -v<cr><cr>|               " git commit
+nnoremap <leader>gd :!git diff<cr><cr>|                    " git diff
+nnoremap <leader>gg <cmd>LazyGit<cr>|                      " open lazygit
+nnoremap <leader>gm :!git commit -av<cr><cr>|              " git mash
+nnoremap <leader>gs :!git status<cr>|                      " git status
+nnoremap <leader>hd <cmd>Capture digraphs<cr>|             " display digraphs
+nnoremap <leader>hm <cmd>Capture map<cr>|                  " display mappings
+nnoremap <leader>iO O<esc>|                                " insert line above cursor
+nnoremap <leader>id "=Date()<cr>p|                         " insert date
+nnoremap <leader>io o<esc>|                                " insert line below cursor
+nnoremap <leader>jj :!just<cr>|                            " run just
+nnoremap <leader>ls <cmd>source ~/.vim/session<cr>|        " load session
+nnoremap <leader>oj o<esc>|                                " insert line below cursor
+nnoremap <leader>ok O<esc>|                                " insert line above cursor
+nnoremap <leader>op :silent !ope %<cr>|                    " open current file
+nnoremap <leader>pc <cmd>pwd<cr>|                          " print cwd
+nnoremap <leader>pu <cmd>PlugUpdate<cr>|                   " plug update
+nnoremap <leader>py <cmd>PyEval<cr>|                       " evaluate current line with python3
+nnoremap <leader>qe <cmd>cq<cr>|                           " quit with error code
+nnoremap <leader>qq <cmd>q<cr>|                            " quit
+nnoremap <leader>ra :!cargo add <c-r><c-w><cr>|            " add crate name under cursor
+nnoremap <leader>rb <cmd>Quickrun<cr>|                     " run buffer
+nnoremap <leader>rd :!cargo doc --all --open<cr>|          " open docs
+nnoremap <leader>rg <cmd>Grepper<cr>|                      " recursive grep
+nnoremap <leader>rp Ipub(crate) <esc>|                     " change visibility to pub(crate)
+nnoremap <leader>sb <cmd>Buffers<cr>|                      " search buffers
+nnoremap <leader>sc <cmd>Commands<cr>|                     " search commands
+nnoremap <leader>sf <cmd>Files<cr>|                        " search files
+nnoremap <leader>sg <cmd>Commits<cr>|                      " search git
+nnoremap <leader>sh <cmd>History:<cr>|                     " search command history
+nnoremap <leader>sl <cmd>Lines<cr>|                        " lines in current buffer
+nnoremap <leader>ss <cmd>call SynStack()<cr>|              " show highlight group names
+nnoremap <leader>st <cmd>Tags<cr>|                         " search ctags
+nnoremap <leader>sv <cmd>source $MYVIMRC<cr><cmd>nohl<cr>| " source ~/.vimrc
+nnoremap <leader>ta <cmd>call ToggleALE()<cr>|             " toggle ale
+nnoremap <leader>tb <cmd>set wrap!<cr>|                    " toggle line breaks
+nnoremap <leader>tc <cmd>call ToggleColor()<cr>|           " toggle syntax highlighting
+nnoremap <leader>tg <cmd>GitGutterToggle<cr>|              " toggle gitgutter
+nnoremap <leader>th <cmd>Hexmode<cr>|                      " toggle hex mode
+nnoremap <leader>ti <cmd>call ToggleInterface()<cr>|       " toggle interface elements
+nnoremap <leader>tl <cmd>call ToggleLineWrap()<cr>|        " toggle line wrapping
+nnoremap <leader>tn <cmd>call ToggleLineNumbers()<cr>|     " toggle line numbers
+nnoremap <leader>tr <cmd>call ToggleRelativeNumbers()<cr>| " toggle line numbers
+nnoremap <leader>ts <cmd>setlocal spell!<cr>|              " toggle spelling
+nnoremap <leader>tu <cmd>UndotreeToggle<cr>|               " toggle undotree
+nnoremap <leader>tw <cmd>call ToggleWhitespace()<cr>|      " toggle whitespace
+nnoremap <leader>tz <cmd>call ToggleZoom()<cr>|            " toggle zoom
+nnoremap <leader>wa <cmd>wa<cr>|                           " write all buffers
+nnoremap <leader>wo <c-w>o|                                " close all windows but current
+nnoremap <leader>zz <cmd>wqa<cr>|                          " save all files and exit
+nnoremap <m-p> <cmd>FindRepoFiles<cr>|                     " search files in repo directory
+nnoremap <silent> <c-q> <cmd>call Leave()<cr>|             " close window, close buffer or quit
+nnoremap X D|                                              " cut until end of line
+nnoremap Y y$|                                             " yank to end of line
+nnoremap j gj|                                             " go down one screen line
+nnoremap k gk|                                             " go up one screen line
+vnoremap <leader>s :sort<cr>|                              " sort lines
+vnoremap <leader>t: :Tabularize :<cr>                      " align on :
+vnoremap <leader>t= :Tabularize =<cr>                      " align on =
+vnoremap j gj|                                             " go to next screen line
+vnoremap k gk|                                             " go to previous screen line
+xnoremap x d|                                              " cut operation
 
 " show documentation in preview window.
-nnoremap <silent> K :call ShowDocumentation()<CR>
+nnoremap <silent> K <cmd>call ShowDocumentation()<CR>
 
 " edit named files
-nnoremap <leader>ea :e ~/.zsh/aliases.zsh<cr>
-nnoremap <leader>ee :e ~/.config/alacritty/alacritty.toml<cr>
-nnoremap <leader>ef :e ~/.vim/functions.vim<cr>
-nnoremap <leader>ej :e ~/.user.justfile<cr>
-nnoremap <leader>el :e ~/.vim/lua/init.lua<cr>
-nnoremap <leader>em :e ~/.mutt/muttrc<cr>
-nnoremap <leader>en :e notes.md<cr>:BufferMoveStart<cr>
-nnoremap <leader>es :e ~/.zshrc<cr>
-nnoremap <leader>et :e ~/.tmux.conf<cr>
-nnoremap <leader>ev :e ~/.vimrc<cr>
+nnoremap <leader>ea <cmd>e ~/.zsh/aliases.zsh<cr>
+nnoremap <leader>ee <cmd>e ~/.config/alacritty/alacritty.toml<cr>
+nnoremap <leader>ef <cmd>e ~/.vim/functions.vim<cr>
+nnoremap <leader>ej <cmd>e ~/.user.justfile<cr>
+nnoremap <leader>el <cmd>e ~/.vim/lua/init.lua<cr>
+nnoremap <leader>em <cmd>e ~/.mutt/muttrc<cr>
+nnoremap <leader>en <cmd>e notes.md<cr><cmd>BufferMoveStart<cr>
+nnoremap <leader>es <cmd>e ~/.zshrc<cr>
+nnoremap <leader>et <cmd>e ~/.tmux.conf<cr>
+nnoremap <leader>ev <cmd>e ~/.vimrc<cr>
 
 "" aliases
 
@@ -475,7 +475,7 @@ command! -narg=* PyEval python3 EvaluateCurrentLine(<f-args>)
 
 command! FindRepoFiles lua require('telescope.builtin').find_files({cwd = vim.fn.expand(vim.fn.system('git rev-parse --show-toplevel 2> /dev/null'):gsub('\n', ''))})
 
-nnoremap <leader>fg :TelescopeGitRoot<CR>
+nnoremap <leader>fg <cmd>TelescopeGitRoot<CR>
 
 
 "" autocommands
@@ -529,9 +529,9 @@ augroup end
 
 if g:trouble == 0
   map  -  <plug>(qf_qf_toggle_stay)| " toggle quickfix window
-  nnoremap + :call QuickfixNext(0)<cr>| " go to next error
-  nnoremap <leader>qc :call setqflist([])<cr>| " clear quickfix list
-  nnoremap _ :call QuickfixNext(1)<cr>| " go to previous error
+  nnoremap + <cmd>call QuickfixNext(0)<cr>| " go to next error
+  nnoremap <leader>qc <cmd>call setqflist([])<cr>| " clear quickfix list
+  nnoremap _ <cmd>call QuickfixNext(1)<cr>| " go to previous error
 endif
 
 " vi flavor specific configuration
@@ -543,10 +543,10 @@ if has('nvim')
   set undodir =~/.config/nvim/undo
 
   " tmux navigator bindings
-  nnoremap <silent> <m-h> :TmuxNavigateLeft<cr>
-  nnoremap <silent> <m-k> :TmuxNavigateUp<cr>
-  nnoremap <silent> <m-j> :TmuxNavigateDown<cr>
-  nnoremap <silent> <m-l> :TmuxNavigateRight<cr>
+  nnoremap <silent> <m-h> <cmd>TmuxNavigateLeft<cr>
+  nnoremap <silent> <m-k> <cmd>TmuxNavigateUp<cr>
+  nnoremap <silent> <m-j> <cmd>TmuxNavigateDown<cr>
+  nnoremap <silent> <m-l> <cmd>TmuxNavigateRight<cr>
 
   " lsp bindings
   nnoremap <silent> <m-R> <cmd>lua vim.lsp.buf.rename()<cr>
@@ -572,8 +572,8 @@ else
   set undodir =~/.vim/undo " backup directory location
 
   " tmux navigator bindings
-  nnoremap <silent> h :TmuxNavigateLeft<cr>
-  nnoremap <silent> k :TmuxNavigateUp<cr>
-  nnoremap <silent> j :TmuxNavigateDown<cr>
-  nnoremap <silent> l :TmuxNavigateRight<cr>
+  nnoremap <silent> h <cmd>TmuxNavigateLeft<cr>
+  nnoremap <silent> k <cmd>TmuxNavigateUp<cr>
+  nnoremap <silent> j <cmd>TmuxNavigateDown<cr>
+  nnoremap <silent> l <cmd>TmuxNavigateRight<cr>
 endif
