@@ -39,6 +39,8 @@ Dependencies
 
 Add dependencies with `cargo add` instead of manually editing `Cargo.toml`.
 
+Depending on non-dev-dependencies in integration tests is fine.
+
 Imports
 -------
 
