@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+if [ $# -lt 1 ] || [ $# -gt 2 ]; then
+  echo "usage: spool FILE [NAME]" 1>&2
+  exit 1
+fi
+
+file=$1
+
+if [ ! -f "$file" ]; then
+  echo "spool: not a file: $file" 1>&2
+  exit 1
+fi
+
+if [ $# -eq 2 ]; then
+  name=$2
+else
+  name=`basename "$file"`
+fi
+
+repo=~/src/cubby
+
+if [ ! -d $repo ]; then
+  echo "spool: no cubby at $repo" 1>&2
+  exit 1
+fi
+
+tmp=`mktemp -d`
+worktree=$tmp/cubby
+
+cleanup() {
+  git -C $repo worktree remove --force $worktree 2> /dev/null || true
+  rm -rf $tmp
+}
+
+trap cleanup EXIT
+
+git -C $repo fetch origin
+git -C $repo worktree add --detach $worktree origin/master
+
+dest=$worktree/$name
+
+if [ -e "$dest" ]; then
+  echo "spool: already in cubby: $name" 1>&2
+  exit 1
+fi
+
+cp -- "$file" "$dest"
+git -C $worktree add -- "$name"
+git -C $worktree commit --message "`hostname -s`: spool $name"
+git -C $worktree push origin HEAD:master

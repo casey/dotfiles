@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+if [ $# -lt 1 ] || [ $# -gt 2 ]; then
+  echo "usage: despool NAME [NEWNAME|-]" 1>&2
+  exit 1
+fi
+
+name=$1
+
+repo=~/src/cubby
+
+if [ ! -d $repo ]; then
+  echo "despool: no cubby at $repo" 1>&2
+  exit 1
+fi
+
+tmp=`mktemp -d`
+worktree=$tmp/cubby
+
+cleanup() {
+  git -C $repo worktree remove --force $worktree 2> /dev/null || true
+  rm -rf $tmp
+}
+
+trap cleanup EXIT
+
+git -C $repo fetch origin
+git -C $repo worktree add --detach $worktree origin/master
+
+src=$worktree/$name
+
+if [ ! -f "$src" ]; then
+  echo "despool: not in cubby: $name" 1>&2
+  exit 1
+fi
+
+if [ "${2:-}" = - ]; then
+  cat -- "$src"
+else
+  if [ $# -eq 2 ]; then
+    dest=$2
+  else
+    dest=$name
+  fi
+
+  if [ -e "$dest" ]; then
+    echo "despool: refusing to clobber: $dest" 1>&2
+    exit 1
+  fi
+
+  cp -- "$src" "$dest"
+fi
+
+git -C $worktree rm -- "$name" 1>&2
+git -C $worktree commit --message "`hostname -s`: despool $name" 1>&2
+git -C $worktree push origin HEAD:master 1>&2
