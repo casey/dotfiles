@@ -1,0 +1,17 @@
+#compdef despool
+
+local repo=~/src/cubby
+
+[[ -d $repo ]] || return 1
+
+if (( CURRENT == 2 )); then
+  local expl
+  local -a names
+  names=(${(f)"$(git -C $repo -c core.quotePath=false ls-tree -r --name-only origin/master 2> /dev/null)"})
+
+  _wanted cubby-files expl 'cubby file' _multi_parts -f / names
+elif (( CURRENT == 3 )); then
+  _alternative \
+    'files:destination:_files' \
+    'stdout:standard output:(-)'
+fi
