@@ -5,7 +5,7 @@ set -euo pipefail
 git add --all
 
 if ! git diff --no-ext-diff --quiet --staged; then
-  git commit --message `hostname -s`
+  git commit --message "`hostname -s`: sync"
 fi
 
 git pull --rebase
