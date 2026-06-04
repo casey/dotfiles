@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+repo=~/src/cubby
+
+if [ ! -d $repo ]; then
+  echo "fetch: no cubby at $repo" 1>&2
+  exit 1
+fi
+
+git -C $repo fetch origin master
