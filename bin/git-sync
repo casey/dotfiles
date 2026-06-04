@@ -8,6 +8,6 @@ if ! git diff --no-ext-diff --quiet --staged; then
   git commit --message `hostname -s`
 fi
 
-git pull --rebase origin master
+git pull --rebase
 
-git push origin master
+git push
