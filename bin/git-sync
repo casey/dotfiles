@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+git add --all
+
+if ! git diff --no-ext-diff --quiet --staged; then
+  git commit --message `hostname -s`
+fi
+
+git pull --rebase origin master
+
+git push origin master
