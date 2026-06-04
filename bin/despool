@@ -16,6 +16,10 @@ if [ ! -d $repo ]; then
   exit 1
 fi
 
+upstream=`git -C $repo rev-parse --abbrev-ref @{upstream}`
+remote=${upstream%%/*}
+branch=${upstream#*/}
+
 tmp=`mktemp -d`
 worktree=$tmp/cubby
 
@@ -26,8 +30,8 @@ cleanup() {
 
 trap cleanup EXIT
 
-git -C $repo fetch origin
-git -C $repo worktree add --detach $worktree origin/master
+git -C $repo fetch
+git -C $repo worktree add --detach $worktree $upstream
 
 src=$worktree/$name
 
@@ -55,4 +59,4 @@ fi
 
 git -C $worktree rm -- "$name" 1>&2
 git -C $worktree commit --message "`hostname -s`: despool $name" 1>&2
-git -C $worktree push origin HEAD:master 1>&2
+git -C $worktree push $remote HEAD:$branch 1>&2
