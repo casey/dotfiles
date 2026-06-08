@@ -574,8 +574,8 @@ else
   set undodir =~/.vim/undo " backup directory location
 
   " tmux navigator bindings
-  nnoremap <silent> h <cmd>TmuxNavigateLeft<cr>
-  nnoremap <silent> k <cmd>TmuxNavigateUp<cr>
-  nnoremap <silent> j <cmd>TmuxNavigateDown<cr>
-  nnoremap <silent> l <cmd>TmuxNavigateRight<cr>
+  nnoremap <silent> <m-h> <cmd>TmuxNavigateLeft<cr>
+  nnoremap <silent> <m-k> <cmd>TmuxNavigateUp<cr>
+  nnoremap <silent> <m-j> <cmd>TmuxNavigateDown<cr>
+  nnoremap <silent> <m-l> <cmd>TmuxNavigateRight<cr>
 endif
