@@ -1,13 +1,6 @@
 Development
 ===========
 
-Style
------
-
-Write for a reader who shares your vocabulary and needs no selling; let
-register follow subject and prefer understated precision, coining words when
-necessary, over impact.
-
 Mannerisms
 ----------
 
