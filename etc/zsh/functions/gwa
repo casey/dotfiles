@@ -4,3 +4,5 @@ local branch=$1
 local repo=${2:-.}
 
 git -C $repo worktree add ~/work/$branch
+
+cd ~/work/$branch
