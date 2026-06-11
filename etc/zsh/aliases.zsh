@@ -109,6 +109,7 @@ alias: gst 'git info'
 alias: gsu 'git submodule update --init --recursive'
 alias: gsw 'git switch'
 alias: gtw 'git commit -m `sort --random-sort ~/.commitments | head -n 1`'
+alias: gwl 'git worktree list'
 alias: gwr 'git worktree remove'
 
 alias: ghprco 'gh pr checkout'
