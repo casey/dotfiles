@@ -1,0 +1,13 @@
+[package]
+name = "changeling"
+version = "0.0.0"
+authors = ["Casey Rodarmor <casey@rodarmor.com>"]
+description = "Changelog tools"
+edition = "2024"
+license = "CC0-1.0"
+repository = "https://github.com/casey/dotfiles"
+
+[dependencies]
+clap = { version = "4.6.1", features = ["derive"] }
+regex = "1.5.4"
+snafu = "0.9.1"
