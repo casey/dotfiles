@@ -25,10 +25,6 @@ trustctime   = false
 [alias]
 co = checkout
 
-[branch "master"]
-merge  = refs/head/master
-remote = origin
-
 [credential]
 helper = osxkeychain
 
