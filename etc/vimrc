@@ -174,6 +174,7 @@ set shortmess     =actsI                 " shorten some messages
 set sidescrolloff =3                     " keep three context columns left and right of cursor
 set signcolumn    =auto                  " show sign column when not empty
 set spellcapcheck =                      " turn off checking for capitalized sentences
+set spellfile     =~/.vim/spellfile.add  " set spellfile
 set spelllang     =en_us                 " use american english as the spellcheck language
 set tabpagemax    =50                    " open a maximum of 30 tabs when vim is started with -p
 set textwidth     =0                     " disable wrapping by default
