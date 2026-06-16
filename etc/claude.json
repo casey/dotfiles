@@ -22,5 +22,7 @@
   },
   "spinnerTipsEnabled": false,
   "awaySummaryEnabled": false,
-  "effortLevel": "xhigh"
+  "effortLevel": "xhigh",
+  "verbose": true,
+  "preferredNotifChannel": "notifications_disabled"
 }
