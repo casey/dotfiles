@@ -17,6 +17,18 @@
       "Bash(rg --files)"
     ]
   },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "[ -f AGENTS.md ] && [ ! -e CLAUDE.md ] && jq -n --rawfile c AGENTS.md '{hookSpecificOutput:{hookEventName:\"SessionStart\",additionalContext:(\"Project instructions from ./AGENTS.md:\\n\\n\"+$c)}}' || true"
+          }
+        ]
+      }
+    ]
+  },
   "enabledPlugins": {
     "rust-analyzer-lsp@claude-plugins-official": true
   },
