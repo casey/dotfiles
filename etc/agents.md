@@ -221,6 +221,19 @@ assert!(path.ends_with("foo/bar"));
 assert_eq!(path, "/home/user/foo/bar");
 ```
 
+Prefer asserting error messages exactly:
+
+```rust bad
+assert!(Regex::new("I/O failed").unwrap().is_match(error));
+```
+
+```rust good
+assert_eq!(message, "error: I/O failed at `foo/bar/baz`");
+````
+
+If nondeterminism forces you to match an error message with a regular
+expression, always match the entire message:
+
 ```rust bad
 assert!(Regex::new("bad thing").unwrap().is_match(error));
 ```
