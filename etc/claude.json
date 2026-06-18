@@ -33,8 +33,8 @@
     "rust-analyzer-lsp@claude-plugins-official": true
   },
   "spinnerTipsEnabled": false,
-  "awaySummaryEnabled": false,
   "effortLevel": "xhigh",
+  "awaySummaryEnabled": false,
   "verbose": true,
   "preferredNotifChannel": "notifications_disabled"
 }
