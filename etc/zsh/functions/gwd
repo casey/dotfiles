@@ -1,0 +1,11 @@
+setopt local_options err_return nounset
+
+local branch=`git branch --show-current`
+local main=`git worktree list --porcelain | head -1 | cut -d' ' -f2`
+local worktree=`git rev-parse --show-toplevel`
+
+cd $main
+
+git worktree remove $worktree
+
+git branch -d $branch
