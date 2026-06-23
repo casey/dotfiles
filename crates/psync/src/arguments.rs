@@ -4,6 +4,10 @@ use super::*;
 pub(crate) struct Arguments {
   #[arg(long)]
   compress: bool,
+  #[arg(long, default_value_t = 1 << 20)]
+  minimum_size: u64,
+  #[arg(long, default_value_t = 4)]
+  threads: usize,
   source: String,
   destination: Utf8PathBuf,
 }
@@ -22,7 +26,7 @@ impl Arguments {
 
     let mut files = File::list(&source)?
       .into_iter()
-      .filter(|file| file.size >= MINIMUM_SIZE)
+      .filter(|file| file.size >= self.minimum_size)
       .collect::<Vec<File>>();
 
     files.sort_by_key(|file| std::cmp::Reverse(file.size));
@@ -46,7 +50,7 @@ impl Arguments {
 
     let mut handles = Vec::new();
 
-    for _ in 0..THREADS {
+    for _ in 0..self.threads {
       let bar = multi.add(ProgressBar::new(0));
       bar.set_style(
         ProgressStyle::with_template(

@@ -26,18 +26,15 @@ mod worker;
 
 type Result<T = (), E = Error> = std::result::Result<T, E>;
 
-const THREADS: usize = 4;
-const MINIMUM_SIZE: u64 = 1 << 20;
-
 fn main() -> ExitCode {
   if let Err(error) = Arguments::parse().run() {
     eprintln!("error: {error}");
 
-    for cause in ErrorCompat::iter_chain(&error).skip(1) {
+    for cause in Error::iter_chain(&error).skip(1) {
       eprintln!("because: {cause}");
     }
 
-    if let Some(backtrace) = ErrorCompat::backtrace(&error)
+    if let Some(backtrace) = Error::backtrace(&error)
       && backtrace.status() == BacktraceStatus::Captured
     {
       eprintln!();
