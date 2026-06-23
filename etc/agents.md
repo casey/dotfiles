@@ -149,6 +149,12 @@ Testing
 Do not perform any manual testing. All tests should be in the form of unit and
 integration tests.
 
+Testing is white-box style. Write tests needed to exercise the implementation.
+Add only the minimum number of tests needed to cover new and changed code.
+
+Individual tests should use as little code as possible to exercise the feature
+under test.
+
 Tests should use `foo`, `bar`, and similar placeholders in strings to make
 clear that the values themselves are not significant.
 
@@ -160,11 +166,7 @@ std::fs::write("file.txt"), "contents").unwrap();
 std::fs::write("foo"), "bar").unwrap();
 ```
 
-Individual tests should use as little code as possible to exercise the feature
-under test.
 
-Testing is white-box style. Write tests according to the implementation. Avoid
-writing tests which do not exercise unique code paths.
 
 De-duplicate similar tests with a case function:
 
