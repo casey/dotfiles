@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+for d in ~/src/*; do
+  branches=$(git -C "$d" branch --format='%(refname:short)' 2>/dev/null | grep -v '^master$')
+  [ -z "$branches" ] && continue
+  echo "$(basename "$d"):"
+  echo "$branches" | sed 's/^/  /'
+done
