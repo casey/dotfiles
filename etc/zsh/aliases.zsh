@@ -113,6 +113,9 @@ alias: gtw 'git commit -m `sort --random-sort ~/.commitments | head -n 1`'
 alias: gwl 'git worktree list'
 alias: gwr 'git worktree remove'
 
+alias: gpom 'git pull origin master'
+alias: gpum 'git pull upstream master'
+
 alias: ghprco 'gh pr checkout'
 alias: ghprcr 'gh pr create --web'
 alias: ghprls 'gh pr list'
