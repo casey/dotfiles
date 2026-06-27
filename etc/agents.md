@@ -264,6 +264,11 @@ Always measure baseline performance before optimizing.
 Always profile before optimizing, picking optimization targets is notoriously
 difficult.
 
+Git
+---
+
+Do not commit changes or amend git history unless explicitly asked.
+
 Tips
 ----
 
