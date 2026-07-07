@@ -1,4 +1,14 @@
 {
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
+  "awaySummaryEnabled": false,
+  "autoMemoryEnabled": false,
+  "effortLevel": "xhigh",
+  "enabledPlugins": {
+    "rust-analyzer-lsp@claude-plugins-official": true
+  },
   "env": {
     "CLAUDE_CODE_DISABLE_FEEDBACK_SURVEY": "1",
     "CLAUDE_CODE_ENABLE_PROMPT_SUGGESTION": "false",
@@ -7,9 +17,17 @@
     "DISABLE_TELEMETRY": "1",
     "IS_DEMO": "1"
   },
-  "attribution": {
-    "commit": "",
-    "pr": ""
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "command": "[ -f AGENTS.md ] && [ ! -e CLAUDE.md ] && jq -n --rawfile c AGENTS.md '{hookSpecificOutput:{hookEventName:\"SessionStart\",additionalContext:(\"Project instructions from ./AGENTS.md:\\n\\n\"+$c)}}' || true",
+            "type": "command"
+          }
+        ]
+      }
+    ]
   },
   "permissions": {
     "allow": [
@@ -17,24 +35,7 @@
       "Bash(rg --files)"
     ]
   },
-  "hooks": {
-    "SessionStart": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "[ -f AGENTS.md ] && [ ! -e CLAUDE.md ] && jq -n --rawfile c AGENTS.md '{hookSpecificOutput:{hookEventName:\"SessionStart\",additionalContext:(\"Project instructions from ./AGENTS.md:\\n\\n\"+$c)}}' || true"
-          }
-        ]
-      }
-    ]
-  },
-  "enabledPlugins": {
-    "rust-analyzer-lsp@claude-plugins-official": true
-  },
+  "preferredNotifChannel": "notifications_disabled",
   "spinnerTipsEnabled": false,
-  "effortLevel": "xhigh",
-  "awaySummaryEnabled": false,
-  "verbose": true,
-  "preferredNotifChannel": "notifications_disabled"
+  "verbose": true
 }
