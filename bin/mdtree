@@ -1,0 +1,41 @@
+#!/usr/bin/awk -f
+
+BEGIN { if (ARGC == 1) { ARGV[1] = "README.md"; ARGC = 2 } }
+
+function add(level, title) { n++; lev[n] = level; txt[n] = title }
+
+/^```/       { fence = !fence; prev = $0; next }
+fence        { prev = $0; next }
+/^#{1,6}[ ]/ {
+  match($0, /^#+/)
+  l = RLENGTH
+  t = $0
+  sub(/^#+[ ]+/, "", t)
+  add(l, t)
+  prev = $0
+  next
+}
+/^=+$/       { if (prev ~ /[^ ]/ && prev !~ /^#/) add(1, prev); prev = $0; next }
+/^-+$/       { if (prev ~ /[^ ]/ && prev !~ /^#/) add(2, prev); prev = $0; next }
+             { prev = $0 }
+
+function last_at(i, k,    j) {
+  for (j = i + 1; j <= n; j++) {
+    if (dep[j] < k) return 1
+    if (dep[j] == k) return 0
+  }
+  return 1
+}
+
+END {
+  if (n == 0) exit
+  min = lev[1]
+  for (i = 2; i <= n; i++) if (lev[i] < min) min = lev[i]
+  for (i = 1; i <= n; i++) dep[i] = lev[i] - min
+  for (i = 1; i <= n; i++) {
+    line = ""
+    for (k = 0; k < dep[i]; k++) line = line (last_at(i, k) ? "    " : "\xe2\x94\x82   ")
+    line = line (last_at(i, dep[i]) ? "\xe2\x94\x94\xe2\x94\x80\xe2\x94\x80 " : "\xe2\x94\x9c\xe2\x94\x80\xe2\x94\x80 ")
+    print line txt[i]
+  }
+}
