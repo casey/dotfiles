@@ -5,16 +5,13 @@
   },
   "awaySummaryEnabled": false,
   "autoMemoryEnabled": false,
+  "allowedMcpServers": [],
   "effortLevel": "xhigh",
   "enabledPlugins": {
     "rust-analyzer-lsp@claude-plugins-official": true
   },
   "env": {
-    "CLAUDE_CODE_DISABLE_FEEDBACK_SURVEY": "1",
     "CLAUDE_CODE_ENABLE_PROMPT_SUGGESTION": "false",
-    "DISABLE_BUG_COMMAND": "1",
-    "DISABLE_ERROR_REPORTING": "1",
-    "DISABLE_TELEMETRY": "1",
     "IS_DEMO": "1"
   },
   "hooks": {
@@ -37,5 +34,6 @@
   },
   "preferredNotifChannel": "notifications_disabled",
   "spinnerTipsEnabled": false,
+  "tui": "fullscreen",
   "verbose": true
 }
