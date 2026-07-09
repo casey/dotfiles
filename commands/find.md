@@ -1,6 +1,7 @@
 ---
 name: find
 description: Find bugs.
+disable-model-invocation: true
 ---
 Thoroughly analyze this repo and look for serious undiscovered bugs.
 
