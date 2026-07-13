@@ -445,7 +445,7 @@ nnoremap <leader>ee <cmd>e ~/.config/alacritty/alacritty.toml<cr>
 nnoremap <leader>ef <cmd>e ~/.vim/functions.vim<cr>
 nnoremap <leader>ej <cmd>e ~/.user.justfile<cr>
 nnoremap <leader>el <cmd>e ~/.vim/lua/init.lua<cr>
-nnoremap <leader>em <cmd>e ~/.mutt/muttrc<cr>
+nnoremap <leader>em <cmd>e ~/src/dotfiles/etc/agents.md<cr>
 nnoremap <leader>en <cmd>e notes.md<cr><cmd>BufferMoveStart<cr>
 nnoremap <leader>es <cmd>e ~/.zshrc<cr>
 nnoremap <leader>et <cmd>e ~/.tmux.conf<cr>
