@@ -1,14 +1,18 @@
 Development
 ===========
 
-Mannerisms
-----------
+Engineering
+-----------
 
-Do not end responses with suggestions for next steps, such as running tests or
-adding additional features, unless those suggestions are interesting and
-non-obvious.
+Keep changes small and easy to review.
 
-If you notice issues unrelated to the current task, mention them.
+Avoid combining behavior changes and refactors.
+
+When planning, consider if there are preparatory refactors that would make the
+actual change smaller or simpler.
+
+Similarly, consider if a change can be made easier to review by deferring
+cleanup or refactoring.
 
 Documentation
 -------------
@@ -166,8 +170,6 @@ std::fs::write("file.txt"), "contents").unwrap();
 std::fs::write("foo"), "bar").unwrap();
 ```
 
-
-
 De-duplicate similar tests with a case function:
 
 ```rust bad
@@ -268,6 +270,15 @@ Git
 ---
 
 Do not commit changes or amend git history unless explicitly asked.
+
+Mannerisms
+----------
+
+Do not end responses with suggestions for next steps, such as running tests or
+adding additional features, unless those suggestions are interesting and
+non-obvious.
+
+If you notice issues unrelated to the current task, mention them.
 
 Tips
 ----
