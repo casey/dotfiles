@@ -105,6 +105,7 @@ require'catppuccin'.setup {
       BufferCurrentSign = { fg = colors.blue, bg = colors.grey },
       EndOfBuffer = { fg = colors.blue },
       SignColumn = { bg = colors.mantle },
+      htmlLink = { link = 'Normal' },
     }
   end
 }
@@ -160,4 +161,3 @@ require'telescope'.setup {
     },
   },
 }
-
