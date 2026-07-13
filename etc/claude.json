@@ -1,11 +1,11 @@
 {
+  "allowedMcpServers": [],
   "attribution": {
     "commit": "",
     "pr": ""
   },
-  "awaySummaryEnabled": false,
   "autoMemoryEnabled": false,
-  "allowedMcpServers": [],
+  "awaySummaryEnabled": false,
   "effortLevel": "xhigh",
   "enabledPlugins": {
     "rust-analyzer-lsp@claude-plugins-official": true
@@ -26,6 +26,7 @@
       }
     ]
   },
+  "model": "claude-fable-5[1m]",
   "permissions": {
     "allow": [
       "Bash(cargo dep *)",
