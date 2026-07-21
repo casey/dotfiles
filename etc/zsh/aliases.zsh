@@ -115,6 +115,7 @@ alias: gwr 'git worktree remove'
 
 alias: gpom 'git pull origin master'
 alias: gpum 'git pull upstream master'
+alias: grom 'git reset --hard origin/master'
 
 alias: ghprco 'gh pr checkout'
 alias: ghprcr 'gh pr create --web'
