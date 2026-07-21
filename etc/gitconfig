@@ -1,19 +1,31 @@
-[user]
-name  = Casey Rodarmor
-email = casey@rodarmor.com
-signingkey = 3259DAEDB29636B0E2025A70556186B153EC6FE0
+[advice]
+skippedCherryPicks = false
 
-[github]
-user = casey
-
-[init]
-defaultBranch = master
+[alias]
+co = checkout
 
 [color]
 branch = auto
 diff   = auto
 status = auto
 ui     = true
+
+[color "diff"]
+meta       = 11
+frag       = magenta bold
+commit     = yellow bold
+old        = red bold
+new        = green bold
+whitespace = red reverse
+
+[color "diff-highlight"]
+oldNormal    = red bold
+oldHighlight = red bold 52
+newNormal    = green bold
+newHighlight = green bold 22
+
+[commit]
+verbose = true
 
 [core]
 autocrlf     = false
@@ -22,21 +34,8 @@ pager        = delta
 quotepath    = false
 trustctime   = false
 
-[alias]
-co = checkout
-
 [credential]
 helper = osxkeychain
-
-[push]
-default = current
-
-[pull]
-default = current
-rebase = true
-
-[merge]
-conflictstyle = zdiff3
 
 [diff]
 tool = meld
@@ -48,7 +47,29 @@ prompt = false
 cmd = open -W -a Meld --args \"$LOCAL\" \"$PWD/$REMOTE\"
 trustExitCode = true
 
+[fetch]
+prune = true
+
+[filter "lfs"]
+clean = git-lfs clean -- %f
+process = git-lfs filter-process
+required = true
+smudge = git-lfs smudge -- %f
+
+[github]
+user = casey
+
+[gpg]
+program = gpg
+
+[http]
+cookiefile = ~/.gitcookies
+
+[init]
+defaultBranch = master
+
 [merge]
+conflictstyle = zdiff3
 tool = meld
 
 [mergetool]
@@ -58,40 +79,17 @@ prompt = false
 cmd = open -W -a Meld --args --auto-merge \"$PWD/$LOCAL\" \"$PWD/$BASE\" \"$PWD/$REMOTE\" --output = \"$PWD/$MERGED\"
 trustExitCode = true
 
-[commit]
-verbose = true
+[pull]
+default = current
+rebase = true
 
-[gpg]
-program = gpg
-
-[color "diff-highlight"]
-oldNormal    = red bold
-oldHighlight = red bold 52
-newNormal    = green bold
-newHighlight = green bold 22
-
-[color "diff"]
-meta       = 11
-frag       = magenta bold
-commit     = yellow bold
-old        = red bold
-new        = green bold
-whitespace = red reverse
-
-[http]
-cookiefile = ~/.gitcookies
-
-[fetch]
-prune = true
+[push]
+default = current
 
 [rebase]
 autoStash = true
 
-[advice]
-skippedCherryPicks = false
-
-[filter "lfs"]
-clean = git-lfs clean -- %f
-process = git-lfs filter-process
-required = true
-smudge = git-lfs smudge -- %f
+[user]
+name  = Casey Rodarmor
+email = casey@rodarmor.com
+signingkey = 3259DAEDB29636B0E2025A70556186B153EC6FE0
