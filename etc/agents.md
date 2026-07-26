@@ -1,24 +1,11 @@
 Development
 ===========
 
-Engineering
------------
-
-Keep changes small and easy to review.
-
-Avoid combining behavior changes and refactors.
-
-When planning, consider if there are preparatory refactors that would make the
-actual change smaller or simpler.
-
-Similarly, consider if a change can be made easier to review by deferring
-cleanup or refactoring.
-
 Documentation
 -------------
 
-Always consult the local source code for information about Rust dependencies,
-which is guaranteed to be up-to-date for the correct version.
+Prefer consulting the local source code for information about Rust
+dependencies.
 
 Run `cargo dep NAME` to find the source directory for a dependency:
 
@@ -27,52 +14,15 @@ $ cargo dep serde
 /Users/rodarmor/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/
 ```
 
-Local docs can be built with:
-
-```shell
-cargo doc --workspace --document-private-items
-```
-
-Which will output documentation for crate `NAME` in
-`target/doc/NAME/index.html`.
-
-Read source code and docs as appropriate.
-
 Dependencies
 ------------
 
 Add dependencies with `cargo add` instead of manually editing `Cargo.toml`.
 
-Depending on non-dev-dependencies in integration tests is fine.
-
-Imports
--------
-
-Don't rename imports in `use` statements.
-
-```rust bad
-use std::io::Result as IoResult;
-
-fn foo() -> IoResult<()>;
-```
-
-```rust good
-use std::io::Result as IoResult;
-
-fn read() -> io::Result<()>;
-```
-
-Imports which are unambiguously named and common should go in the top-level
-module and be inherited by child modules with `use super::*`.
-
 Style
 -----
 
 Do not write comments. Comments will be added by the user as necessary.
-
-Use modern Rust when available.
-
-Run `cargo fmt` to ensure code is correctly formatted.
 
 Don't create mutable variables that are initialized in a conditional:
 
@@ -94,45 +44,6 @@ let foo = if bar {
 };
 ```
 
-Passing primitives into functions creates opportunities for confusion:
-
-```rust bad
-struct Config {
-  a: bool,
-  b: bool,
-}
-
-fn foo(a: bool) {
-}
-
-let config = Config {
-  a: true,
-  b: false,
-};
-
-foo(config.b);
-```
-
-Where possible, pass the object where the primitive originates:
-
-```rust good
-struct Config {
-  a: bool,
-  b: bool,
-}
-
-fn foo(config: &Config) {
-  // use config.a
-}
-
-let config = Config {
-  a: true,
-  b: false,
-};
-
-foo(&config);
-```
-
 When converting a value, shadowing the previous variable is often ideal. The
 type system prevents confusing the two values, and shadowing the previous
 variable prevents it from being unintentionally used later:
@@ -145,13 +56,8 @@ let name_string = name.to_string();
 let name = name.to_string();
 ```
 
-Collect related data and functions into structs and methods.
-
 Testing
 -------
-
-Do not perform any manual testing. All tests should be in the form of unit and
-integration tests.
 
 Testing is white-box style. Write tests needed to exercise the implementation.
 Add only the minimum number of tests needed to cover new and changed code.
@@ -256,16 +162,6 @@ assert_matches!(result, Err(Error::Foo { .. }));
 assert_matches!(result, Err(Error::Foo { message: "bar" }));
 ```
 
-Performance
------------
-
-Correctness and clarity are more important than performance.
-
-Always measure baseline performance before optimizing.
-
-Always profile before optimizing, picking optimization targets is notoriously
-difficult.
-
 Git
 ---
 
@@ -273,10 +169,6 @@ Do not commit changes or amend git history unless explicitly asked.
 
 Mannerisms
 ----------
-
-Do not end responses with suggestions for next steps, such as running tests or
-adding additional features, unless those suggestions are interesting and
-non-obvious.
 
 If you notice issues unrelated to the current task, mention them.
 
