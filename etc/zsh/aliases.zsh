@@ -118,6 +118,8 @@ alias: gpom 'git pull origin master'
 alias: gpum 'git pull upstream master'
 alias: grom 'git reset --hard origin/master'
 
+alias: griom 'git rebase --interactive origin/master'
+
 alias: ghprco 'gh pr checkout'
 alias: ghprcr 'gh pr create --web'
 alias: ghprls 'gh pr list'
