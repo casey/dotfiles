@@ -113,6 +113,7 @@ alias: gtw 'git commit -m `sort --random-sort ~/.commitments | head -n 1`'
 alias: gwl 'git worktree list'
 alias: gwr 'git worktree remove'
 
+alias: gdom 'git diff origin/master'
 alias: gpom 'git pull origin master'
 alias: gpum 'git pull upstream master'
 alias: grom 'git reset --hard origin/master'
