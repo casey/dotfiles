@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ self.repo }}</title>
+<style>
+  :root {
+    --surface: #fcfcfb;
+    --text-primary: #0b0b0b;
+    --text-secondary: #52514e;
+    --grid: #e8e7e3;
+    --series: #2a78d6;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --surface: #1a1a19;
+      --text-primary: #ffffff;
+      --text-secondary: #c3c2b7;
+      --grid: #383835;
+      --series: #3987e5;
+    }
+  }
+
+  html, body, #chart {
+    height: 100%;
+    margin: 0;
+  }
+
+  body {
+    background: var(--surface);
+  }
+</style>
+<script>{{ Trusted(ECHARTS) }}</script>
+</head>
+<body>
+<div id="chart"></div>
+<script>
+  const style = getComputedStyle(document.documentElement);
+  const token = name => style.getPropertyValue(name).trim();
+
+  const chart = echarts.init(document.getElementById('chart'));
+
+  chart.setOption({
+    title: {
+      text: '{{ self.repo }}',
+      textStyle: { color: token('--text-primary') },
+    },
+    tooltip: {
+      trigger: 'axis',
+    },
+    xAxis: {
+      type: 'time',
+      axisLabel: { color: token('--text-secondary') },
+      axisLine: { lineStyle: { color: token('--grid') } },
+    },
+    yAxis: {
+      type: 'value',
+      axisLabel: { color: token('--text-secondary') },
+      splitLine: { lineStyle: { color: token('--grid') } },
+    },
+    series: [
+      {
+        type: 'line',
+        name: 'stars',
+        showSymbol: false,
+        lineStyle: { width: 2, color: token('--series') },
+        itemStyle: { color: token('--series') },
+        data: {{ Trusted(&self.data) }},
+      },
+    ],
+  });
+
+  addEventListener('resize', () => chart.resize());
+</script>
+</body>
+</html>
