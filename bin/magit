@@ -1,0 +1,10 @@
+#!/usr/bin/env zsh
+
+set -euo pipefail
+
+root=`git rev-parse --show-toplevel`
+
+alacritty \
+  msg create-window \
+  --working-directory $root \
+  --command zsh --login --interactive -c 'exec emacs --no-window-system --eval "(magit-status)"'

@@ -56,7 +56,6 @@ alias: tree 'erd --layout inverted'
 # Ⅴ
 alias: egrep 'egrep --color=auto'
 alias: eject 'drutil tray eject'
-alias: magit 'emacs --eval "(magit-status)"'
 
 # ⅤⅡ
 alias: upgrade 'brew update && brew upgrade claude-code@latest codex gh'
