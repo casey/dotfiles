@@ -117,6 +117,7 @@ alias: gdom 'git diff origin/master'
 alias: gpom 'git pull origin master'
 alias: gpum 'git pull upstream master'
 alias: grom 'git reset --hard origin/master'
+alias: grum 'git reset --hard upstream/master'
 
 alias: griom 'git rebase --interactive origin/master'
 
