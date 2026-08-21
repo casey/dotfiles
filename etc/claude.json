@@ -36,6 +36,7 @@
     ]
   },
   "preferredNotifChannel": "notifications_disabled",
+  "remoteControlAtStartup": false,
   "spinnerTipsEnabled": false,
   "tui": "fullscreen",
   "verbose": true
