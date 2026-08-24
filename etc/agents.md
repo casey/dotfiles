@@ -19,6 +19,26 @@ Dependencies
 
 Add dependencies with `cargo add` instead of manually editing `Cargo.toml`.
 
+Imports
+-------
+
+Don't rename imports in `use` statements.
+
+```rust bad
+use std::io::Result as IoResult;
+
+fn foo() -> IoResult<()>;
+```
+
+```rust good
+use std::io::Result as IoResult;
+
+fn read() -> io::Result<()>;
+```
+
+Imports which are unambiguously named and common should go in the top-level
+module and be inherited by child modules with `use super::*`.
+
 Style
 -----
 
