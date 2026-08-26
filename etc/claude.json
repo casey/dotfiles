@@ -13,6 +13,7 @@
   },
   "env": {
     "CLAUDE_CODE_ENABLE_PROMPT_SUGGESTION": "false",
+    "CLAUDE_CODE_THRIFTY_SONIC": "false",
     "IS_DEMO": "1"
   },
   "fileCheckpointingEnabled": false,
