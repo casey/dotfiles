@@ -42,7 +42,10 @@ module and be inherited by child modules with `use super::*`.
 Style
 -----
 
-Do not write comments. Comments will be added by the user as necessary.
+Do not write comments or documentation, or modify existing comments or
+documentation. Both will be added by the user as necessary. After completing a
+change, mention if new documentation should be written or existing
+documentation should be modified to reflect the change.
 
 Don't create mutable variables that are initialized in a conditional:
 
