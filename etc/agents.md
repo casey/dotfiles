@@ -188,7 +188,8 @@ assert_matches!(result, Err(Error::Foo { message: "bar" }));
 Git
 ---
 
-Do not commit changes or amend git history unless explicitly asked.
+Do not commit changes, amend history, or stage or unstage changes unless
+explicitly asked.
 
 Mannerisms
 ----------
