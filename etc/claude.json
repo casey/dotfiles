@@ -15,6 +15,7 @@
     "CLAUDE_CODE_DISABLE_FEEDBACK_SURVEY": "1",
     "CLAUDE_CODE_ENABLE_PROMPT_SUGGESTION": "false",
     "CLAUDE_CODE_THRIFTY_SONIC": "false",
+    "DISABLE_AUTOUPDATER": "1",
     "IS_DEMO": "1"
   },
   "fileCheckpointingEnabled": false,
