@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+git fetch --all --prune
+
+if git diff --no-ext-diff --quiet origin/master; then
+  git reset --hard origin/master
+else
+  git diff origin/master
+fi
