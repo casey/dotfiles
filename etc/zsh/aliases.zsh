@@ -39,6 +39,7 @@ alias: zf 'zsh-edit-function'
 alias: how 'howdoi -a'
 alias: lla 'eza --long --binary --group --git --all'
 alias: lsw 'ls ~/work'
+alias: mdl 'yt-dlp --paths ~/Desktop'
 alias: psg 'ps aux | grep'
 alias: rwd 'cd `pwd -P`'
 
