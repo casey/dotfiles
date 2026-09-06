@@ -1,0 +1,7 @@
+[notice]
+hide_rate_limit_model_nudge = true
+
+[tui]
+auto_recap = false
+notifications = false
+show_tooltips = false
