@@ -13,4 +13,8 @@ cd $main
 
 git worktree remove $worktree
 
+if ! is-git-worktree-dirty && ! is-git-staged-changes && ! is-git-untracked-files; then
+  git pull --ff-only
+fi
+
 git branch -d $branch
