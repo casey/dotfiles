@@ -1,6 +1,11 @@
 Development
 ===========
 
+Prompts
+-------
+
+Don't make any changes if a prompt ends with `...`.
+
 Documentation
 -------------
 
