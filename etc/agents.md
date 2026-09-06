@@ -77,6 +77,18 @@ let name_string = name.to_string();
 let name = name.to_string();
 ```
 
+Prefer turbofish over type ascription:
+
+```rust bad
+let foo: T = foo.parse().unwrap();
+let bar: Vec<u8> = foo.into_iter().collect();
+```
+
+```rust good
+let foo = foo.parse::<T>().unwrap();
+let bar = foo.into_iter().collect::<Vec<u8>>();
+```
+
 Testing
 -------
 
@@ -128,18 +140,6 @@ fn parsing() {
   case("baz", Foo::Baz);
   case("bob", Foo::Bob);
 }
-```
-
-Prefer turbofish over type ascription:
-
-```rust bad
-let foo: T = foo.parse().unwrap();
-let bar: Vec<u8> = foo.into_iter().collect();
-```
-
-```rust good
-let foo = foo.parse::<T>().unwrap();
-let bar = foo.into_iter().collect::<Vec<u8>>();
 ```
 
 Prefer asserting the entire contents of values:
