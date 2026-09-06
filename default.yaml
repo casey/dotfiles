@@ -96,7 +96,6 @@
     ~/.rusty-tags/config.toml: etc/rusty-tags.toml
     ~/.sh.py: etc/sh.py
     ~/.skhdrc: etc/skhdrc
-    ~/.spacemacs: etc/spacemacs
     ~/.tigrc: etc/tigrc
     ~/.tmux.conf: etc/tmux.conf
     ~/.tmux/plugins/tpm: submodules/tpm
