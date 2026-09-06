@@ -192,8 +192,6 @@ explicitly asked.
 Mannerisms
 ----------
 
-If you notice issues unrelated to the current task, mention them.
-
 Tips
 ----
 
