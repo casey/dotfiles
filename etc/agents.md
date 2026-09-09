@@ -100,6 +100,12 @@ Testing
 Testing is white-box style. Write tests needed to exercise the implementation.
 Add only the minimum number of tests needed to cover new and changed code.
 
+Do not perform manual testing. All testing should be done via unit and
+integration tests.
+
+Headless browser testing is slow. Do not use a headless browser for manual
+testing or reproducing issues unless asked.
+
 Individual tests should use as little code as possible to exercise the feature
 under test.
 
