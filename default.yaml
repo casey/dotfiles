@@ -37,6 +37,7 @@
   - ~/.mutt
   - ~/.nixpkgs
   - ~/.rusty-tags
+  - ~/.ssh/connections
   - ~/.tmux/plugins
   - ~/.xmonad
   - ~/src
@@ -96,6 +97,7 @@
     ~/.rusty-tags/config.toml: etc/rusty-tags.toml
     ~/.sh.py: etc/sh.py
     ~/.skhdrc: etc/skhdrc
+    ~/.ssh/config: etc/ssh_config
     ~/.tigrc: etc/tigrc
     ~/.tmux.conf: etc/tmux.conf
     ~/.tmux/plugins/tpm: submodules/tpm
@@ -128,5 +130,7 @@
     if [ -f $HOST_CONFIG ]; then
       ./submodules/dotbot/bin/dotbot -c $HOST_CONFIG
     fi
-  - chmod 700 ~/.vim
+  - chmod 600 ~/.ssh/config
   - chmod 700 ~/.gnupg
+  - chmod 700 ~/.ssh
+  - chmod 700 ~/.vim
