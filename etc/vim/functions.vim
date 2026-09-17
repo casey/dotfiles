@@ -12,6 +12,15 @@ function! BufDo(command)
   execute 'buffer ' . current
 endfunction
 
+function! Range(ranges) abort
+  let characters = split(a:ranges, '\zs')
+  let result = ''
+  for i in range(0, len(characters) - 1, 2)
+    let result .= join(map(range(char2nr(characters[i]), char2nr(characters[i + 1])), 'nr2char(v:val)'), '')
+  endfor
+  return result
+endfunction
+
 " current date as string
 function! Date()
   return trim(system('date -u +"%Y-%m-%dT%H:%M:%SZ"'))

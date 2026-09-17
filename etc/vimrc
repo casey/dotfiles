@@ -464,8 +464,6 @@ digraphs fv 10086| " vertical fleuron
 
 "" commands
 
-command! -bar -bang Delete call Delete(<bang>0)
-
 command! -bang -nargs=* AllLines
   \ call fzf#vim#grep(
   \   'rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>),
@@ -474,12 +472,15 @@ command! -bang -nargs=* AllLines
 
 command! -nargs=+ -complete=command BufDo call BufDo(<q-args>)
 
-command! -narg=* PyEval python3 EvaluateCurrentLine(<f-args>)
+command! -bar -bang Delete call Delete(<bang>0)
 
 command! FindRepoFiles lua require('telescope.builtin').find_files({cwd = vim.fn.expand(vim.fn.system('git rev-parse --show-toplevel 2> /dev/null'):gsub('\n', ''))})
 
-nnoremap <leader>fg <cmd>TelescopeGitRoot<CR>
+command! -narg=* PyEval python3 EvaluateCurrentLine(<f-args>)
 
+command! -nargs=1 Range call append('.', Range(<q-args>))
+
+nnoremap <leader>fg <cmd>TelescopeGitRoot<CR>
 
 "" autocommands
 
