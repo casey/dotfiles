@@ -346,8 +346,8 @@ nnoremap <silent> <c-l> <cmd>BufferNext<cr>
 " free a? and i?: dfghijkmoqruvxyz
 
 " non-recursive mappings
+inoremap <c-l> <c-x><c-o>|                                 " omnifunc completions
 inoremap <c-s> <c-g>u<Esc>[s1z=`]a<c-g>u|                  " fix last spelling error
-inoremap <c-x><c-x> <c-x><c-o>|                            " omnifunc completions
 inoremap <expr> <c-]> Snippet()|                           " edit or expand snippet
 nnoremap <c-b> <c-o>|                                      " jump back
 nnoremap <c-f> <c-i>|                                      " jump forward
