@@ -120,39 +120,6 @@ std::fs::write("file.txt"), "contents").unwrap();
 std::fs::write("foo"), "bar").unwrap();
 ```
 
-De-duplicate similar tests with a case function:
-
-```rust bad
-#[test]
-fn bar() {
-  assert_eq!("bar".parse().unwrap(), Foo::Bar);
-}
-
-#[test]
-fn baz() {
-  assert_eq!("baz".parse().unwrap(), Foo::Baz);
-}
-
-#[test]
-fn bob() {
-  assert_eq!("bob".parse().unwrap(), Foo::Bob);
-}
-```
-
-```rust good
-#[test]
-fn parsing() {
-  #[track_caller]
-  fn case(s: &str, expected: Foo) {
-    assert_eq!(s.parse().unwrap(), expected);
-  }
-
-  case("bar", Foo::Bar);
-  case("baz", Foo::Baz);
-  case("bob", Foo::Bob);
-}
-```
-
 Prefer asserting the entire contents of values:
 
 ```rust bad
