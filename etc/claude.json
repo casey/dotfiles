@@ -19,18 +19,6 @@
     "IS_DEMO": "1"
   },
   "fileCheckpointingEnabled": false,
-  "hooks": {
-    "SessionStart": [
-      {
-        "hooks": [
-          {
-            "command": "[ -f AGENTS.md ] && [ ! -e CLAUDE.md ] && jq -n --rawfile c AGENTS.md '{hookSpecificOutput:{hookEventName:\"SessionStart\",additionalContext:(\"Project instructions from ./AGENTS.md:\\n\\n\"+$c)}}' || true",
-            "type": "command"
-          }
-        ]
-      }
-    ]
-  },
   "model": "claude-fable-5-1[1m]",
   "permissions": {
     "allow": [
