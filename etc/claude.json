@@ -26,6 +26,13 @@
       "Bash(rg --files)"
     ]
   },
+  "pluginConfigs": {
+    "agents-md@builtin": {
+      "options": {
+        "instructionFiles": "claude-md-and-agents-md"
+      }
+    }
+  },
   "preferredNotifChannel": "notifications_disabled",
   "remoteControlAtStartup": false,
   "spinnerTipsEnabled": false,
