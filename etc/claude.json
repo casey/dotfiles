@@ -9,7 +9,8 @@
   "awaySummaryEnabled": false,
   "effortLevel": "xhigh",
   "enabledPlugins": {
-    "rust-analyzer-lsp@claude-plugins-official": true
+    "rust-analyzer-lsp@claude-plugins-official": false,
+    "rust-analyzer-lsp@dotfiles": true
   },
   "env": {
     "CLAUDE_CODE_DISABLE_FEEDBACK_SURVEY": "1",
@@ -17,6 +18,14 @@
     "CLAUDE_CODE_THRIFTY_SONIC": "false",
     "DISABLE_AUTOUPDATER": "1",
     "IS_DEMO": "1"
+  },
+  "extraKnownMarketplaces": {
+    "dotfiles": {
+      "source": {
+        "path": "/Users/rodarmor/src/dotfiles/etc/claude-plugins",
+        "source": "directory"
+      }
+    }
   },
   "fileCheckpointingEnabled": false,
   "model": "claude-fable-5-1[1m]",

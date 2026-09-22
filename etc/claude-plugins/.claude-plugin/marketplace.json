@@ -1,0 +1,12 @@
+{
+  "name": "dotfiles",
+  "owner": {
+    "name": "Casey Rodarmor"
+  },
+  "plugins": [
+    {
+      "name": "rust-analyzer-lsp",
+      "source": "./rust-analyzer-lsp"
+    }
+  ]
+}
