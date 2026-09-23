@@ -6,39 +6,46 @@ co = checkout
 
 [color]
 branch = auto
-diff   = auto
+diff = auto
 status = auto
-ui     = true
+ui = true
 
 [color "diff"]
-meta       = 11
-frag       = magenta bold
-commit     = yellow bold
-old        = red bold
-new        = green bold
+meta = 11
+frag = magenta bold
+commit = yellow bold
+old = red bold
+new = green bold
 whitespace = red reverse
 
 [color "diff-highlight"]
-oldNormal    = red bold
+oldNormal = red bold
 oldHighlight = red bold 52
-newNormal    = green bold
+newNormal = green bold
 newHighlight = green bold 22
 
 [commit]
 verbose = true
 
 [core]
-autocrlf     = false
+attributesfile = ~/.gitattributes.global
+autocrlf = false
 excludesfile = ~/.gitignore.global
-pager        = delta
-quotepath    = false
-trustctime   = false
+pager = delta
+quotepath = false
+trustctime = false
 
 [credential]
 helper = osxkeychain
 
 [diff]
 tool = meld
+
+[diff "filepack-archive"]
+textconv = filepack manifest
+
+[diff "filepack-metadata"]
+textconv = filepack metadata
 
 [difftool]
 prompt = false
@@ -88,6 +95,6 @@ default = current
 autoStash = true
 
 [user]
-name  = Casey Rodarmor
+name = Casey Rodarmor
 email = casey@rodarmor.com
 signingkey = 3259DAEDB29636B0E2025A70556186B153EC6FE0

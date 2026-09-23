@@ -1,0 +1,2 @@
+*.filemeta diff=filepack-metadata
+*.filepack diff=filepack-archive

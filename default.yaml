@@ -78,6 +78,7 @@
     ~/.elinks/elinks.conf: etc/elinks.conf
     ~/.fxfile: etc/fxfile
     ~/.gdbinit: etc/gdbinit
+    ~/.gitattributes.global: etc/gitattributes.global
     ~/.gitignore.global: etc/gitignore.global
     ~/.gnupg/gpg-agent.conf: etc/gpg-agent.conf
     ~/.gnupg/gpg.conf: etc/gpg.conf
