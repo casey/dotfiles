@@ -89,6 +89,26 @@ let foo = foo.parse::<T>().unwrap();
 let bar = foo.into_iter().collect::<Vec<u8>>();
 ```
 
+Use type inference where possible:
+
+```rust good
+let bar = foo.into_iter().collect();
+```
+
+```rust bad
+let bar = foo.into_iter().collect::<Vec<u8>>();
+```
+
+Don't use `_` placeholders:
+
+```rust good
+let bar = foo.into_iter().collect::<Vec<u8>>();
+```
+
+```rust bad
+let bar = foo.into_iter().collect::<Vec<_>>();
+```
+
 Testing
 -------
 
