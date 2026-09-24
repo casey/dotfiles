@@ -182,8 +182,11 @@ Git
 Do not commit changes, amend history, or stage or unstage changes unless
 explicitly asked.
 
-Mannerisms
-----------
+Do not push commits, create issues, open PRs, or mutate state on GitHub unless
+explicitly asked.
+
+The user may stage or unstage changes as he reviews your changes, so expect
+changes to be staged and unstaged as you work.
 
 Tips
 ----
