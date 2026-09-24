@@ -1,0 +1,7 @@
+local session="$HOME/Library/Application Support/com.DanPristupov.Fork/session.json"
+
+if [[ -f $session ]]; then
+  jq '.workspaces[].windows = []' $session > $session.tmp && mv $session.tmp $session
+fi
+
+command fork "$@"
