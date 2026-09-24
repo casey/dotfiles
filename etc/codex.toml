@@ -1,5 +1,6 @@
 model = "gpt-6-astra"
-model_reasoning_effort = "high"
+model_reasoning_effort = "xhigh"
+plan_mode_reasoning_effort = "xhigh"
 
 [notice]
 hide_rate_limit_model_nudge = true
