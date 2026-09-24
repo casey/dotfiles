@@ -36,6 +36,7 @@ alias: vi 'vim'
 alias: zf 'zsh-edit-function'
 
 # Ⅲ
+alias: ... 'cd ../..'
 alias: how 'howdoi -a'
 alias: lla 'eza --long --binary --group --git --all'
 alias: mdl 'yt-dlp --paths ~/Desktop'
