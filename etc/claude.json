@@ -29,6 +29,11 @@
   },
   "fileCheckpointingEnabled": false,
   "model": "claude-fable-5-1[1m]",
+  "modelSettings": {
+    "claude-fable-5-1": {
+      "effortLevel": "high"
+    }
+  },
   "permissions": {
     "allow": [
       "Bash(cargo dep *)",
