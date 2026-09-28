@@ -161,7 +161,7 @@ function! ToggleWhitespace()
     set colorcolumn=0
     set nolist
   else
-    set colorcolumn=51,73,80,101
+    set colorcolumn=81,101
     set list
   endif
 endfun
