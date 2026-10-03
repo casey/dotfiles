@@ -4,10 +4,9 @@ Development
 Documentation
 -------------
 
-Prefer consulting the local source code for information about Rust
-dependencies.
+Prefer consulting local sources for information about Rust dependencies.
 
-Run `cargo dep NAME` to find the source directory for a dependency:
+Run `cargo dep NAME` to find the source directory of a dependency:
 
 ```console
 $ cargo dep serde
