@@ -38,4 +38,4 @@ Please help me prepare for a new release:
   sub-crates is the main crate. Any pub items not used by those consumers can
   be visibility restricted or removed, if not used internally.
 
-- Review the documentation for inaccuracies.
+- Review the documentation for coverage and correctness.
