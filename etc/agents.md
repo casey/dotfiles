@@ -178,8 +178,8 @@ assert_matches!(result, Err(Error::Foo { message: "bar" }));
 Git
 ---
 
-Do not commit changes, amend history, or stage or unstage changes unless
-explicitly asked.
+Do not commit changes, amend history, or stage or unstage changes, or use the
+stash unless explicitly asked.
 
 Do not push commits, create issues, open PRs, or mutate state on GitHub unless
 explicitly asked.
