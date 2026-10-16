@@ -187,6 +187,11 @@ explicitly asked.
 The user may stage or unstage changes as he reviews your changes, so expect
 changes to be staged and unstaged as you work.
 
+Terminology
+-----------
+
+Prefer "whitelist" and "blacklist" instead of "allowlist" and "blocklist".
+
 Tips
 ----
 
