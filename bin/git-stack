@@ -1,0 +1,62 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+branch=`git rev-parse --abbrev-ref HEAD`
+
+if [[ $branch == master ]]; then
+  echo "error: cannot stack from master" >&2
+  exit 1
+fi
+
+git fetch --prune origin
+
+commits=(`git rev-list --reverse origin/master..HEAD`)
+
+count=${#commits[@]}
+
+if (( count < 2 )); then
+  echo "error: $branch has $count commits not on origin/master, need at least 2" >&2
+  exit 1
+fi
+
+branches=()
+
+for i in ${!commits[@]}; do
+  n=$((i + 1))
+  if (( n == count )); then
+    branches+=($branch)
+  else
+    branches+=($branch-$n)
+  fi
+done
+
+present=0
+
+for name in "${branches[@]}"; do
+  if git rev-parse --verify --quiet refs/remotes/origin/$name > /dev/null; then
+    present=$((present + 1))
+  fi
+done
+
+if (( present == count )); then
+  for name in "${branches[@]}"; do
+    if (( `gh pr list --head $name --state merged --json number --jq length` > 0 )); then
+      echo "error: branch $name has a merged pull request" >&2
+      exit 1
+    fi
+  done
+elif (( present != 0 )); then
+  echo "error: $present of $count stack branches exist on origin, need all or none" >&2
+  exit 1
+fi
+
+for i in ${!commits[@]}; do
+  if (( i + 1 < count )); then
+    git branch --force ${branches[$i]} ${commits[$i]}
+  fi
+done
+
+git push --force-with-lease origin "${branches[@]}"
+
+gh stack link --open "${branches[@]}"
