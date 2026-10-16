@@ -50,24 +50,68 @@
     tooltip: {
       trigger: 'axis',
     },
-    xAxis: {
-      type: 'time',
-      axisLabel: { color: token('--text-secondary') },
-      axisLine: { lineStyle: { color: token('--grid') } },
+    axisPointer: {
+      link: [{ xAxisIndex: 'all' }],
     },
-    yAxis: {
-      type: 'value',
-      axisLabel: { color: token('--text-secondary') },
-      splitLine: { lineStyle: { color: token('--grid') } },
-    },
+    grid: [
+      { top: 60, bottom: '52%' },
+      { top: '56%', bottom: 40 },
+    ],
+    xAxis: [
+      {
+        type: 'time',
+        gridIndex: 0,
+        axisLabel: { color: token('--text-secondary') },
+        axisLine: { lineStyle: { color: token('--grid') } },
+      },
+      {
+        type: 'time',
+        gridIndex: 1,
+        axisLabel: { color: token('--text-secondary') },
+        axisLine: { lineStyle: { color: token('--grid') } },
+      },
+    ],
+    yAxis: [
+      {
+        type: 'value',
+        gridIndex: 0,
+        name: 'stars',
+        nameTextStyle: { color: token('--text-secondary') },
+        axisLabel: { color: token('--text-secondary') },
+        splitLine: { lineStyle: { color: token('--grid') } },
+      },
+      {
+        type: 'value',
+        gridIndex: 1,
+        name: 'stars / day',
+        nameTextStyle: { color: token('--text-secondary') },
+        axisLabel: { color: token('--text-secondary') },
+        splitLine: { lineStyle: { color: token('--grid') } },
+      },
+    ],
     series: [
       {
         type: 'line',
         name: 'stars',
+        xAxisIndex: 0,
+        yAxisIndex: 0,
         showSymbol: false,
         lineStyle: { width: 2, color: token('--series') },
         itemStyle: { color: token('--series') },
         data: {{ Trusted(&self.data) }},
+      },
+      {
+        type: 'line',
+        name: 'stars / day',
+        xAxisIndex: 1,
+        yAxisIndex: 1,
+        showSymbol: false,
+        step: 'end',
+        areaStyle: { opacity: 0.15 },
+        lineStyle: { width: 2, color: token('--series') },
+        itemStyle: { color: token('--series') },
+        tooltip: { valueFormatter: value => value.toFixed(2) },
+        data: {{ Trusted(&self.rate) }},
       },
     ],
   });

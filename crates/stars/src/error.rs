@@ -66,6 +66,12 @@ pub(crate) enum Error {
     backtrace: Option<Backtrace>,
     source: serde_json::Error,
   },
+  #[snafu(display("failed to parse star timestamp `{star}`"))]
+  StarParse {
+    backtrace: Option<Backtrace>,
+    source: chrono::ParseError,
+    star: String,
+  },
   #[snafu(display("GitHub API returned status {status}"))]
   Status {
     backtrace: Option<Backtrace>,
