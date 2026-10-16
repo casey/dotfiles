@@ -17,7 +17,7 @@ Please help me prepare for a new release:
   with enum variant constructors.
 
 - Look through tests and find cases of clearly redundant tests, and remove
-  them. Redundant tests help clarify test coverage should be retained.
+  them. Redundant tests that help clarify test coverage should be retained.
 
 - Look through the codebase for security issues and bugs.
 
