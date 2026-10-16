@@ -5,6 +5,7 @@
     "commit": "",
     "pr": ""
   },
+  "autoCompactEnabled": false,
   "autoMemoryEnabled": false,
   "awaySummaryEnabled": false,
   "effortLevel": "xhigh",
