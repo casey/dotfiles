@@ -17,8 +17,7 @@
     "CLAUDE_CODE_DISABLE_FEEDBACK_SURVEY": "1",
     "CLAUDE_CODE_ENABLE_PROMPT_SUGGESTION": "false",
     "CLAUDE_CODE_THRIFTY_SONIC": "false",
-    "DISABLE_AUTOUPDATER": "1",
-    "IS_DEMO": "1"
+    "DISABLE_AUTOUPDATER": "1"
   },
   "extraKnownMarketplaces": {
     "dotfiles": {
@@ -28,7 +27,40 @@
       }
     }
   },
+  "feedbackDrafts": "off",
   "fileCheckpointingEnabled": false,
+  "hooks": {
+    "PostToolBatch": [
+      {
+        "hooks": [
+          {
+            "command": "claude-time",
+            "type": "command"
+          }
+        ]
+      }
+    ],
+    "SubagentStart": [
+      {
+        "hooks": [
+          {
+            "command": "claude-time",
+            "type": "command"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "command": "claude-time",
+            "type": "command"
+          }
+        ]
+      }
+    ]
+  },
   "model": "claude-fable-5-1[1m]",
   "modelSettings": {
     "claude-fable-5-1": {
@@ -50,7 +82,9 @@
   },
   "preferredNotifChannel": "notifications_disabled",
   "remoteControlAtStartup": false,
+  "skipDangerousModePermissionPrompt": true,
   "spinnerTipsEnabled": false,
+  "theme": "dark",
   "tui": "fullscreen",
   "verbose": true
 }

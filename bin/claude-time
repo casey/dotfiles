@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+event=`jq --raw-output .hook_event_name`
+
+jq \
+  --null-input \
+  --compact-output \
+  --arg event "$event" \
+  --arg time "`date '+%a %Y-%m-%d %H:%M:%S %Z (UTC%z)'`" \
+  '{hookSpecificOutput: {hookEventName: $event, additionalContext: "Current time: \($time)"}}'
