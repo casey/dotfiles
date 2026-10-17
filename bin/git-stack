@@ -59,4 +59,27 @@ done
 
 git push --force-with-lease origin "${branches[@]}"
 
+new=()
+
+for i in ${!commits[@]}; do
+  name=${branches[$i]}
+  if (( `gh pr list --head $name --state open --json number --jq length` == 0 )); then
+    if (( i == 0 )); then
+      base=master
+    else
+      base=${branches[$((i - 1))]}
+    fi
+    gh pr create \
+      --head $name \
+      --base $base \
+      --title "`git log -1 --format=%s ${commits[$i]}`" \
+      --body ''
+    new+=($name)
+  fi
+done
+
 gh stack link --open "${branches[@]}"
+
+for name in "${new[@]}"; do
+  gh pr view $name --web
+done
