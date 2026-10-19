@@ -7,5 +7,5 @@
 /etc/vim/undo
 /etc/vim/view
 /etc/vim/viminfo
-/etc/zsh/compdump
+/etc/zsh/compdump*
 /target
