@@ -11,112 +11,82 @@ filetype plugin on " turn on filetype plugins
 
 call plug#begin()
 
-" general purpose plugins
+" plugins
 
-Plug 'AndrewRadev/splitjoin.vim'          " split/join single/multi line constructs
-Plug 'airblade/vim-rooter'                " automatic cd to project root
-Plug 'cargo-limit/cargo-limit'            " cargo-limit integration
-Plug 'casey/reap.vim'                     " read, evaluate, annotate, and print python
-Plug 'christoomey/vim-tmux-navigator'     " navigate between vim and tmux splits
+Plug 'AndrewRadev/splitjoin.vim' " split/join single/multi line constructs
+Plug 'DingDean/wgsl.vim', {'branch': 'main'} " wgsl syntax
+Plug 'NoahTheDuke/vim-just', {'branch': 'main'} "just support
+Plug 'airblade/vim-gitgutter', {'branch': 'main'} " show git hunks in gutter
+Plug 'airblade/vim-rooter' " automatic cd to project root
+Plug 'cargo-limit/cargo-limit' " cargo-limit integration
+Plug 'casey/boilerplate', { 'rtp': 'vim' } " boilerplate
+Plug 'casey/reap.vim' " read, evaluate, annotate, and print python
+Plug 'catppuccin/nvim', { 'as': 'catppuccin', 'branch': 'main' } " catppuccin colorscheme
+Plug 'cespare/vim-toml', {'branch': 'main'} " toml syntax
+Plug 'christoomey/vim-tmux-navigator' " navigate between vim and tmux splits
 Plug 'coderifous/textobj-word-column.vim' " column related text objects
-Plug 'dense-analysis/ale'                 " async lint 'n' fix engine
-Plug 'dstein64/vim-startuptime'           " profile startup time
-Plug 'easymotion/vim-easymotion'          " jump to character
-Plug 'editorconfig/editorconfig-vim'      " respect .editorconfig
-Plug 'emonkak/vim-operator-sort'          " sort operator
-Plug 'fidian/hexmode'                     " hex mode editing
-Plug 'glts/vim-magnum'                    " bignums
-Plug 'glts/vim-radical'                   " convert numbers between bases
-Plug 'godlygeek/tabular'                  " align lines according to patterns
-Plug 'haya14busa/incsearch.vim'           " improved incremental search
-Plug 'hiphish/rainbow-delimiters.nvim'    " rainbow delimiters
-Plug 'inside/vim-search-pulse'            " pulse search pattern
-Plug 'jez/vim-superman'                   " use vim as a manpage pager
-Plug 'junegunn/fzf.vim'                   " fuzzy searching using fzf
-Plug 'junegunn/vim-emoji'                 " emoji autocomplete
-Plug 'kana/vim-operator-user'             " allow user defined operators
-Plug 'kana/vim-textobj-entire'            " text object for the entire buffer
-Plug 'kana/vim-textobj-user'              " user defined text objects
-Plug 'mattn/webapi-vim'                   " web functionality
-Plug 'mbbill/undotree'                    " visualize undo history as tree
-Plug 'mhinz/vim-grepper'                  " win at grep
-Plug 'neovim/nvim-lspconfig'              " nvim language server client configurations
-Plug 'nvim-lualine/lualine.nvim'          " status line
-Plug 'nvim-tree/nvim-tree.lua'            " file tree
-Plug 'nvim-tree/nvim-web-devicons'        " filetype icons
-Plug 'romainl/vim-qf'                     " quickfix improvements
-Plug 'romgrk/barbar.nvim'                 " bufferline
-Plug 'saaguero/vim-textobj-pastedtext'    " text object for last pasted text
-Plug 'tmux-plugins/vim-tmux'              " tmux configuration
-Plug 'tmux-plugins/vim-tmux-focus-events' " recognize tmux focus events
-Plug 'tommcdo/vim-exchange'               " exchange operator
-Plug 'tpope/vim-abolish'                  " search and substitute word variations
-Plug 'tpope/vim-characterize'             " extensive character info
-Plug 'tpope/vim-commentary'               " comment and uncomment operations
-Plug 'tpope/vim-eunuch'                   " unix helpers
-Plug 'tpope/vim-fugitive'                 " git integration
-Plug 'tpope/vim-rsi'                      " readline bindings
-Plug 'tpope/vim-surround'                 " quoting and parenthesizing
-Plug 'tpope/vim-unimpaired'               " pairs of bracket mappings
-Plug 'tyru/open-browser.vim'              " open urls in browser
-Plug 'vim-scripts/AnsiEsc.vim'            " draw ansi escape sequences as colors
-Plug 'vim-scripts/Rename'                 " rename the current file
-Plug 'vim-utils/vim-man'                  " improved man page viewing
-Plug 'wellle/targets.vim'                 " additional text objects
-Plug 'xolox/vim-misc'                     " misc funcionality for other plugins
-
-" fuzzy finder
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-
-" conditionally loaded plugins
-Plug 'mattn/gist-vim',   {'on': 'Gist'    } " create gists
-Plug 'tyru/capture.vim', {'on': 'Capture' } " capture command output in a buffer
-
-" language specific plugins
+Plug 'dense-analysis/ale' " async lint 'n' fix engine
+Plug 'dstein64/vim-startuptime' " profile startup time
+Plug 'easymotion/vim-easymotion' " jump to character
+Plug 'editorconfig/editorconfig-vim' " respect .editorconfig
+Plug 'emonkak/vim-operator-sort' " sort operator
+Plug 'fidian/hexmode' " hex mode editing
+Plug 'folke/trouble.nvim', { 'branch': 'main' } " diagnostics list
+Plug 'glts/vim-magnum' " bignums
+Plug 'glts/vim-radical' " convert numbers between bases
+Plug 'godlygeek/tabular' " align lines according to patterns
+Plug 'haya14busa/incsearch.vim' " improved incremental search
+Plug 'hiphish/rainbow-delimiters.nvim' " rainbow delimiters
+Plug 'https://gitlab.com/yorickpeterse/nvim-dd.git', {'branch': 'main'} " delay diagnostics
+Plug 'inside/vim-search-pulse' " pulse search pattern
+Plug 'jez/vim-superman' " use vim as a manpage pager
+Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'} " fzf binary and runtime path files
+Plug 'junegunn/fzf.vim' " fuzzy searching using fzf
+Plug 'junegunn/vim-emoji' " emoji autocomplete
+Plug 'kana/vim-operator-user' " allow user defined operators
+Plug 'kana/vim-textobj-entire' " text object for the entire buffer
+Plug 'kana/vim-textobj-user' " user defined text objects
+Plug 'kdheepak/lazygit.nvim', {'branch': 'main'} " open lazygit in editor
+Plug 'lewis6991/gitsigns.nvim', {'branch': 'main'} " git integration for buffers
+Plug 'linrongbin16/lsp-progress.nvim', {'branch': 'main'} " lsp progress
+Plug 'mattn/gist-vim',   {'on': 'Gist' } " create gists
+Plug 'mattn/webapi-vim' " web functionality
+Plug 'mbbill/undotree' " visualize undo history as tree
+Plug 'mhinz/vim-grepper' " win at grep
+Plug 'mrcjkb/rustaceanvim',    { 'branch': 'main' } " more rust
+Plug 'neovim/nvim-lspconfig' " nvim language server client configurations
+Plug 'nvim-lua/plenary.nvim' " lua utilities required by telescope
+Plug 'nvim-lualine/lualine.nvim' " status line
+Plug 'nvim-telescope/telescope.nvim' " fuzzy finder
+Plug 'nvim-tree/nvim-tree.lua' " file tree
+Plug 'nvim-tree/nvim-web-devicons' " filetype icons
+Plug 'nvim-treesitter/nvim-treesitter', {'branch': 'main', 'do': ':TSUpdate'} " tree sitter
 Plug 'pangloss/vim-javascript' " javascript
-Plug 'preservim/vim-markdown'  " markdown
-Plug 'rust-lang/rust.vim'      " rust
-Plug 'tikhomirov/vim-glsl'     " glsl
-
-" wgsl syntax
-Plug 'DingDean/wgsl.vim', {'branch': 'main'}
-
-"  just support
-Plug 'NoahTheDuke/vim-just', {'branch': 'main'}
-
-" boilerplate
-Plug 'casey/boilerplate', { 'rtp': 'vim' }
-
-" toml syntax
-Plug 'cespare/vim-toml', {'branch': 'main'}
-
-" open lazygit in editor
-Plug 'kdheepak/lazygit.nvim', {'branch': 'main'}
-
-" tree sitter
-Plug 'nvim-treesitter/nvim-treesitter', {'branch': 'main', 'do': ':TSUpdate'}
-
-" show git hunks in gutter
-Plug 'airblade/vim-gitgutter', {'branch': 'main'}
-
-" lsp progress
-Plug 'linrongbin16/lsp-progress.nvim', {'branch': 'main'}
-
-" fzf binary and runtime path files
-Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
-
-" diagnostics list
-Plug 'folke/trouble.nvim', { 'branch': 'main' }
-
-" delay diagnostics when in insert mode
-Plug 'https://gitlab.com/yorickpeterse/nvim-dd.git', {'branch': 'main'}
-
-" catppuccin colorscheme
-Plug 'catppuccin/nvim', { 'as': 'catppuccin', 'branch': 'main' }
-
-" more rust
-Plug 'mrcjkb/rustaceanvim', { 'branch': 'main' }
+Plug 'preservim/vim-markdown' " markdown
+Plug 'romainl/vim-qf' " quickfix improvements
+Plug 'romgrk/barbar.nvim' " bufferline
+Plug 'rust-lang/rust.vim' " rust
+Plug 'saaguero/vim-textobj-pastedtext' " text object for last pasted text
+Plug 'sindrets/diffview.nvim', { 'branch': 'main' } " git diff view
+Plug 'tikhomirov/vim-glsl' " glsl
+Plug 'tmux-plugins/vim-tmux' " tmux configuration
+Plug 'tmux-plugins/vim-tmux-focus-events' " recognize tmux focus events
+Plug 'tommcdo/vim-exchange' " exchange operator
+Plug 'tpope/vim-abolish' " search and substitute word variations
+Plug 'tpope/vim-characterize' " extensive character info
+Plug 'tpope/vim-commentary' " comment and uncomment operations
+Plug 'tpope/vim-eunuch' " unix helpers
+Plug 'tpope/vim-fugitive' " git integration
+Plug 'tpope/vim-rsi' " readline bindings
+Plug 'tpope/vim-surround' " quoting and parenthesizing
+Plug 'tpope/vim-unimpaired' " pairs of bracket mappings
+Plug 'tyru/capture.vim', {'on': 'Capture' } " capture command output in a buffer
+Plug 'tyru/open-browser.vim' " open urls in browser
+Plug 'vim-scripts/AnsiEsc.vim' " draw ansi escape sequences as colors
+Plug 'vim-scripts/Rename' " rename the current file
+Plug 'vim-utils/vim-man' " improved man page viewing
+Plug 'wellle/targets.vim' " additional text objects
+Plug 'xolox/vim-misc' " misc funcionality for other plugins
 
 call plug#end()
 

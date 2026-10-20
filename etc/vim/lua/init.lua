@@ -11,6 +11,10 @@ require'barbar'.setup {
   },
 }
 
+require'gitsigns'.setup {
+  signcolumn = false,
+}
+
 vim.g.rustaceanvim = {
   server = {
     default_settings = {
