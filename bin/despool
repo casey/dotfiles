@@ -2,8 +2,18 @@
 
 set -euo pipefail
 
-if [ $# -lt 1 ] || [ $# -gt 2 ]; then
+clipboard=false
+
+case ${1:-} in
+  -c|--clipboard)
+    clipboard=true
+    shift
+    ;;
+esac
+
+if [ $# -lt 1 ] || [ $# -gt 2 ] || { $clipboard && [ $# -gt 1 ]; }; then
   echo "usage: despool NAME [NEWNAME|-]" 1>&2
+  echo "       despool -c|--clipboard NAME" 1>&2
   exit 1
 fi
 
@@ -40,7 +50,9 @@ if [ ! -f "$src" ]; then
   exit 1
 fi
 
-if [ "${2:-}" = - ]; then
+if $clipboard; then
+  cpy < "$src"
+elif [ "${2:-}" = - ]; then
   cat -- "$src"
 else
   if [ $# -eq 2 ]; then
