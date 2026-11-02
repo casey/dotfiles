@@ -133,6 +133,8 @@ require'lualine'.setup {
 
 vim.lsp.config('clangd', { })
 
+vim.lsp.log.set_level('off')
+
 require'lsp-progress'.setup {
   client_format = function(client_name, spinner, series_messages)
     if #series_messages > 0 then
