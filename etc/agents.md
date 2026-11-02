@@ -47,7 +47,8 @@ Style
 -----
 
 Do not write comments or documentation, or modify existing comments or
-documentation. Both will be added by the user as necessary.
+documentation. Both will be added by the user as necessary. Note when existing
+comments or documentation are out of date.
 
 Don't create mutable variables that are initialized in a conditional:
 
