@@ -2,14 +2,17 @@
 
 set -euo pipefail
 
+die() {
+  echo "$1" 1>&2
+  exit 1
+}
+
 if command -v pbcopy > /dev/null; then
   pbcopy
 elif command -v xclip > /dev/null; then
   xclip -selection clipboard
 elif command -v copy.exe > /dev/null; then
-  echo "copy.exe found but is not supported"
-  exit 1
+  die "copy.exe found but is not supported"
 else
-  echo "No copier found!"
-  exit 1
+  die "No copier found!"
 fi

@@ -5,13 +5,17 @@ can() {
   return $?
 }
 
-if can xclip; then
-  xclip -out -selection clipboard
-elif can pbcopy; then
-  pbpaste
-elif can copy.exe; then
-  echo COPYEXE
-else
-  echo "No paster found!"
+die() {
+  echo "$1" 1>&2
   exit 1
+}
+
+if can pbpaste; then
+  pbpaste
+elif can xclip; then
+  xclip -out -selection clipboard
+elif can copy.exe; then
+  die "copy.exe found but is not supported"
+else
+  die "No paster found!"
 fi
