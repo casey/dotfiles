@@ -147,7 +147,7 @@ set spellcapcheck =                      " turn off checking for capitalized sen
 set spellfile     =~/.vim/spellfile.add  " set spellfile
 set spelllang     =en_us                 " use american english as the spellcheck language
 set tabpagemax    =50                    " open a maximum of 30 tabs when vim is started with -p
-set textwidth     =0                     " disable wrapping by default
+set textwidth     =80                    " wrap at 80 columns
 set undolevels    =10000                 " remember last 10000 changes
 set updatetime    =250                   " set update time to 250ms
 set virtualedit   =block                 " visual block mode not confined to character boundaries
@@ -164,10 +164,10 @@ set formatoptions +=2 " use paragraph second line indent
 set formatoptions +=j " merge comments when joining lines
 set formatoptions +=q " allow formatting comments with `gq`
 set formatoptions +=r " insert comment leader after <enter> in insert mode
-set formatoptions +=t " auto-wrap at textwidth
 set formatoptions -=a " disable automatic formatting of paragraphs
 set formatoptions -=c " don't auto-wrap comments at textwidth
 set formatoptions -=l " format long lines when inserting
+set formatoptions -=t " disable auto-wrap at textwidth
 
 set viminfo ='100  " previously edited files
 set viminfo +=/10  " search pattern items
@@ -480,6 +480,8 @@ augroup vimrc
 
   " highlight suggested commit description length
   autocmd FileType gitcommit setlocal colorcolumn=73
+
+  autocmd FileType * setlocal formatoptions-=t formatoptions-=c
 
   " close preview window when completion done
   autocmd CompleteDone * if pumvisible() == 0 | pclose | endif

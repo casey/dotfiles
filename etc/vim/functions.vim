@@ -201,10 +201,10 @@ endfunction
 
 " toggle line wrapping
 function! ToggleLineWrap()
-  if &textwidth != 0
-    set textwidth=0
+  if &formatoptions =~# 't'
+    set formatoptions-=t
   else
-    set textwidth=79
+    set formatoptions+=t
   endif
 endfun
 

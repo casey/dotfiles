@@ -1,4 +1,4 @@
-setlocal formatoptions+=aw
+setlocal formatoptions+=w
 setlocal spell
 setlocal textwidth=72
 
