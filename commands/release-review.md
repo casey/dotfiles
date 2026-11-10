@@ -37,6 +37,7 @@ Prepare for a new release:
 - Tighten visibility where possible. The main library crate exists only so that
   code can be shared with integration tests, and the only consumer of sub-crates
   is the main crate. Any pub items not used by those consumers can be visibility
-  restricted or removed, if not used internally.
+  restricted or removed, if not used internally. Omit changes which would result
+  in mixed visibility of fields within a struct.
 
 - Review the documentation for coverage and correctness.
