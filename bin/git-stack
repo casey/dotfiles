@@ -2,6 +2,11 @@
 
 set -euo pipefail
 
+if (( $# > 0 )); then
+  echo "error: unexpected argument: $1" >&2
+  exit 1
+fi
+
 branch=`git rev-parse --abbrev-ref HEAD`
 
 if [[ $branch == master ]]; then
