@@ -24,6 +24,7 @@
   - ~/.config/nixpkgs/overlays
   - ~/.config/nvim
   - ~/.config/polybar
+  - ~/.config/rumdl
   - ~/.config/src
   - ~/.config/sway
   - ~/.config/swaylock
@@ -65,6 +66,7 @@
     ~/.config/nix/nix.conf: etc/nix.conf
     ~/.config/nvim/init.vim: etc/nvim.vim
     ~/.config/polybar/config: etc/polybar
+    ~/.config/rumdl/rumdl.toml: etc/rumdl.toml
     ~/.config/src/config.yaml: etc/src.yaml
     ~/.config/sway/config: etc/sway.config
     ~/.config/swaylock/config: etc/swaylock.config
