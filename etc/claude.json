@@ -61,7 +61,7 @@
       }
     ]
   },
-  "model": "opus",
+  "model": "claude-fable-5-2",
   "modelSettings": {
     "claude-fable-5-1": {
       "effortLevel": "high"
