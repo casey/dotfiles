@@ -62,7 +62,9 @@ for i in ${!commits[@]}; do
   fi
 done
 
-git push --force-with-lease origin "${branches[@]}"
+for name in "${branches[@]}"; do
+  git push --force-with-lease origin $name
+done
 
 new=()
 
