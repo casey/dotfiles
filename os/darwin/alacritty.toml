@@ -38,6 +38,7 @@ alphabet = "jfkdls;ahgurieowpq"
 
 [[hints.enabled]]
 command = "open"
+hyperlinks = true
 post_processing = true
 regex = '''
 (?x)
