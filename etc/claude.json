@@ -10,6 +10,7 @@
   "awaySummaryEnabled": false,
   "effortLevel": "xhigh",
   "enabledPlugins": {
+    "easel@builtin": false,
     "rust-analyzer-lsp@claude-plugins-official": false,
     "rust-analyzer-lsp@dotfiles": true
   },
