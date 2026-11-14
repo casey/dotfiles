@@ -21,7 +21,7 @@ Add dependencies with `cargo add` instead of manually editing `Cargo.toml`.
 Editing
 -------
 
-Prefer the edit tool over scripts to make changes to a handful of known sites.
+Prefer the edit tool over scripts to make changes.
 
 Imports
 -------
