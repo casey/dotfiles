@@ -70,7 +70,6 @@ Plug 'saaguero/vim-textobj-pastedtext' " text object for last pasted text
 Plug 'sindrets/diffview.nvim', { 'branch': 'main' } " git diff view
 Plug 'tikhomirov/vim-glsl' " glsl
 Plug 'tmux-plugins/vim-tmux' " tmux configuration
-Plug 'tmux-plugins/vim-tmux-focus-events' " recognize tmux focus events
 Plug 'tommcdo/vim-exchange' " exchange operator
 Plug 'tpope/vim-abolish' " search and substitute word variations
 Plug 'tpope/vim-characterize' " extensive character info
