@@ -5,7 +5,7 @@
     "commit": "",
     "pr": ""
   },
-  "autoCompactEnabled": false,
+  "autoCompactEnabled": true,
   "autoMemoryEnabled": false,
   "awaySummaryEnabled": false,
   "effortLevel": "xhigh",
@@ -63,10 +63,13 @@
       }
     ]
   },
-  "model": "claude-fable-5-2",
   "modelSettings": {
     "claude-fable-5-1": {
       "effortLevel": "high"
+    },
+    "claude-fable-5-2": {
+      "autoCompactWindow": "auto",
+      "effortLevel": "xhigh"
     },
     "claude-opus-5-5": {
       "effortLevel": "high"
