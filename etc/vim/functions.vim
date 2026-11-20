@@ -277,6 +277,12 @@ function! CheckCommandStatus()
   endif
 endfunction
 
+function! Timer(timer)
+  if mode() !=# 'c' && getcmdwintype() ==# ''
+    checktime
+  endif
+endfunction
+
 " executed on VimEnter event
 function! VimEnter()
   " take <c-j> back from incsearch.vim
