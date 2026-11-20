@@ -92,7 +92,6 @@ call plug#end()
 "" sources
 
 source ~/.vim/functions.vim
-" py3file ~/.vim.py
 
 "" settings
 

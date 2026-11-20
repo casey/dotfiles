@@ -105,7 +105,6 @@
     ~/.tmux.conf: etc/tmux.conf
     ~/.tmux/plugins/tpm: submodules/tpm
     ~/.user.justfile: etc/user.justfile
-    ~/.vim.py: etc/vim.py
     ~/.vim/autoload/plug.vim: submodules/vim-plug/plug.vim
     ~/.vim: etc/vim
     ~/.vimrc: etc/vimrc
