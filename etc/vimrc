@@ -42,7 +42,6 @@ Plug 'inside/vim-search-pulse' " pulse search pattern
 Plug 'jez/vim-superman' " use vim as a manpage pager
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'} " fzf binary and runtime path files
 Plug 'junegunn/fzf.vim' " fuzzy searching using fzf
-Plug 'junegunn/vim-emoji' " emoji autocomplete
 Plug 'kana/vim-operator-user' " allow user defined operators
 Plug 'kana/vim-textobj-entire' " text object for the entire buffer
 Plug 'kana/vim-textobj-user' " user defined text objects
@@ -57,6 +56,7 @@ Plug 'mrcjkb/rustaceanvim',    { 'branch': 'main' } " more rust
 Plug 'neovim/nvim-lspconfig' " nvim language server client configurations
 Plug 'nvim-lua/plenary.nvim' " lua utilities required by telescope
 Plug 'nvim-lualine/lualine.nvim' " status line
+Plug 'nvim-telescope/telescope-symbols.nvim' " symbol picker
 Plug 'nvim-telescope/telescope.nvim' " fuzzy finder
 Plug 'nvim-tree/nvim-tree.lua' " file tree
 Plug 'nvim-tree/nvim-web-devicons' " filetype icons
@@ -126,7 +126,6 @@ set background    =dark                  " use a dark background
 set backspace     =indent,eol,start      " backspace kills everything
 set backupdir     =~/.vim/backup         " backup directory location
 set clipboard     =unnamed               " use the system clipboard
-set completefunc  =emoji#complete        " auto complete emoji
 set dictionary    =/usr/share/dict/words " dictionary completion mode words
 set directory     =~/.vim/swap//         " swap directory location
 set errorfile     =.errors.txt           " set error file name
@@ -314,6 +313,7 @@ nnoremap <silent> <c-l> <cmd>BufferNext<cr>
 " free a? and i?: dfghijkmoqruvxyz
 
 " non-recursive mappings
+inoremap <c-g><c-e> <cmd>call Emoji()<cr>|                 " insert emoji
 inoremap <c-l> <c-x><c-o>|                                 " omnifunc completions
 inoremap <c-s> <c-g>u<Esc>[s1z=`]a<c-g>u|                  " fix last spelling error
 inoremap <expr> <c-]> Snippet()|                           " edit or expand snippet
@@ -337,7 +337,6 @@ nnoremap <leader>al <cmd>SidewaysLeft<cr>|                 " move function argum
 nnoremap <leader>ar <cmd>SidewaysRight<cr>|                " move function argument right
 nnoremap <leader>bd <cmd>bd<cr>|                           " buffer delete
 nnoremap <leader>cx :!chmod u+x %<cr>|                     " chmod +x current file
-nnoremap <leader>fe <cmd>call FixEmoji()<cr>|              " fix emoji
 nnoremap <leader>ff gqae<cr>|                              " fix formatting
 nnoremap <leader>fp gqip|                                  " fix/format paragraph
 nnoremap <leader>ft <cmd>retab<cr>|                        " fix tabs

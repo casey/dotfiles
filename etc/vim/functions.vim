@@ -289,11 +289,6 @@ function! VimEnter()
   IncSearchNoreMap <c-j> <c-c><esc>
 endfunction
 
-" replace :name: with emoji
-function! FixEmoji()
-  s/:\([^:]\+\):/\=emoji#for(submatch(1), submatch(0))/g
-endfunction
-
 " kill from cursor to end of command line
 function! KillCmdline()
   return strpart(getcmdline(),0,getcmdpos()-1)
@@ -329,6 +324,10 @@ endfun
 
 function! CorrectSpellingError()
   execute 'normal! [s1z=<c-o>'
+endfun
+
+function! Emoji()
+  lua require('telescope.builtin').symbols({sources = {'emoji'}})
 endfun
 
 let s:zoom = 0
