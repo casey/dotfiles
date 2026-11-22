@@ -56,7 +56,6 @@ Plug 'mrcjkb/rustaceanvim',    { 'branch': 'main' } " more rust
 Plug 'neovim/nvim-lspconfig' " nvim language server client configurations
 Plug 'nvim-lua/plenary.nvim' " lua utilities required by telescope
 Plug 'nvim-lualine/lualine.nvim' " status line
-Plug 'nvim-telescope/telescope-symbols.nvim' " symbol picker
 Plug 'nvim-telescope/telescope.nvim' " fuzzy finder
 Plug 'nvim-tree/nvim-tree.lua' " file tree
 Plug 'nvim-tree/nvim-web-devicons' " filetype icons

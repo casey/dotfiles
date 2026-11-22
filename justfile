@@ -69,6 +69,11 @@ gh-md-toc:
     > bin/gh-md-toc
   chmod +x bin/gh-md-toc
 
+emoji:
+  curl -fsSL https://unicode.org/Public/emoji/latest/emoji-test.txt \
+    | cargo run --quiet --package emoji \
+    > etc/vim/data/telescope-sources/emoji.json
+
 disable-power-chime:
   defaults write com.apple.PowerChime ChimeOnNoHardware -bool true
   killall PowerChime
