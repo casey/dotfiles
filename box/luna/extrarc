@@ -1,4 +1,4 @@
-alias agy ='agy --dangerously-skip-permissions'
+alias agy='agy --dangerously-skip-permissions'
 alias claude='claude --dangerously-skip-permissions'
 alias codex='codex --dangerously-bypass-approvals-and-sandbox --no-daemon --profile shared'
 
