@@ -1,2 +1,8 @@
+alias agy ='agy --dangerously-skip-permissions'
 alias claude='claude --dangerously-skip-permissions'
 alias codex='codex --dangerously-bypass-approvals-and-sandbox --no-daemon --profile shared'
+
+export AGY_ADC_AUTH=1
+export GOOGLE_APPLICATION_CREDENTIALS=~/.rodarmor-luna.json
+export GOOGLE_CLOUD_LOCATION=us
+export GOOGLE_CLOUD_PROJECT=rodarmor-luna
